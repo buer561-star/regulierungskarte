@@ -29,6 +29,7 @@ A(fill('#map path[data-bfs="2703"]') === "#C5322B", `Riehen (2703) = Kat 7 rot`)
 A(fill('#map path[data-bfs="2702"]') === "#C5322B", `Bettingen (2702) = Kat 7 rot`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) ohne Instrument = neutral`);
 A(fill('#map path[data-bfs="1061"]') === "#F2C53D", `Luzern (1061) = Kat 8 gelb (Kurzzeitvermietung) (ist ${fill('#map path[data-bfs="1061"]')})`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2762"]')), `Allschwil (BL 2762) neutral (BL nur Förderung, nicht farbbestimmend)`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -49,7 +50,7 @@ A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 9, `Tabelle: 9 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 11, `Tabelle: 11 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 const rc = $$("#rtable tbody tr").length; A(rc === 1, `Filter Kat 6: ${rc} Zeile (Bewilligungspflicht)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
@@ -70,9 +71,9 @@ A($("#demobanner") === null, `kein DEMO-Banner mehr`);
 A(!!$('.navitem[data-view="audit"]'), `Audit-Navigation existiert`);
 $('.navitem[data-view="audit"]').dispatchEvent(new window.Event("click"));
 A($("#v-audit").classList.contains("active"), `Audit-Ansicht aktiv`);
-A($$("#audit-wrap .acard").length >= 2, `Audit-Liste zeigt >=2 Berichte (BS, LU)`);
-A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU in Liste`);
-A(!!$('#audit-wrap .acard[data-audit="audit-LU"]'), `Luzern-Auditbericht vorhanden`);
+A($$("#audit-wrap .acard").length >= 3, `Audit-Liste zeigt >=3 Berichte (BS, LU, BL)`);
+A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML) && /Basel-Landschaft/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU + BL in Liste`);
+A(!!$('#audit-wrap .acard[data-audit="audit-LU"]') && !!$('#audit-wrap .acard[data-audit="audit-BL"]'), `Luzern- und Baselland-Auditbericht vorhanden`);
 $('#audit-wrap .acard[data-audit="audit-BS"]').dispatchEvent(new window.Event("click"));
 const ad = $("#audit-detail");
 A(ad && ad.style.display !== "none", `Audit-Detail geöffnet`);

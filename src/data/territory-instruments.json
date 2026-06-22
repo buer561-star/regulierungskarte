@@ -227,6 +227,24 @@
       "relation_type": "own",
       "map_relevant": false,
       "note": "Förderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "bl-13-wbfg-gemeinnuetzig",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 13,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Förderung; nicht farbbestimmend, keine automatische Vererbung."
+    },
+    {
+      "instrument_id": "bl-13-wbfg-wohneigentum",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 13,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Förderung; nicht farbbestimmend."
     }
   ]
 }

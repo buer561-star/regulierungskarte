@@ -192,6 +192,71 @@
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-BL",
+      "territory_name": "Basel-Landschaft",
+      "territory_type": "canton",
+      "canton": "BL",
+      "bfs_number": null,
+      "canton_number": 13,
+      "research_status": "integrated",
+      "summary": "Kanton Basel-Landschaft: seit 1.1.2024 gilt das Gesetz über die Wohnbauförderung (WBFG, SGS 842) – reine Förderung (gemeinnütziger Wohnungsbau via Bürgschaften/Fonds; selbstgenutztes Wohneigentum; altersgerechte Umbauten). KEIN kantonaler Wohnschutz, KEINE Mietzinskontrolle, KEINE Zweckentfremdungsregel (anders als Basel-Stadt). Folglich keine farbbestimmenden Instrumente -> BL bleibt auf der Karte neutral.",
+      "territories_checked": [
+        "Kanton Basel-Landschaft (canton_number 13)",
+        "gescreent: Allschwil (2762), Reinach, Münchenstein, Pratteln, Liestal"
+      ],
+      "sources_checked": [
+        {
+          "title": "Gesetz über die Wohnbauförderung (WBFG, SGS 842)",
+          "url": "https://bl.clex.ch/app/de/texts_of_law/842",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Förderzweck (bescheidene/mittlere Verhältnisse), drei Förderbereiche (Wohneigentum, gemeinnütziger Wohnungsbau, altersgerechte Umbauten), Bürgschaften/Fonds; in Kraft seit 1.1.2024",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Verordnung über die Wohnbauförderung (SGS 842.11)",
+          "url": "https://bl.clex.ch/app/de/texts_of_law/842.11",
+          "source_tier": "tier_1_primary",
+          "source_type": "Verordnung",
+          "what_it_proves": "Ausführungsbestimmungen zur kantonalen Wohnbauförderung",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Wohnbauförderung – Kanton Basel-Landschaft (amtlich)",
+          "url": "https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/kiga/wohnbaufoerderung",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Förderbereiche, Bürgschaften an gemeinnützige Träger, Beratung, Fonds (~40 Mio)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Neues Gesetz über die Wohnbauförderung (Medienmitteilung)",
+          "url": "https://www.baselland.ch/politik-und-behorden/regierungsrat/medienmitteilungen/neues-gesetz-ueber-die-wohnbaufoerderung-stoesst-auf-breite-akzeptanz-2",
+          "source_tier": "tier_2_official",
+          "source_type": "Medienmitteilung",
+          "what_it_proves": "Charakter als Förderungsgesetz (Konsens Mieter/Eigentümer); Einführung WBFG",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "bl-13-wbfg-gemeinnuetzig",
+        "bl-13-wbfg-wohneigentum"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kantonaler Wohnschutz / Mietzinskontrolle / Zweckentfremdung: in BL NICHT vorhanden. Die 'Wohnschutz-Initiative 14.6.2026' (wohnraum-schuetzen.ch) betraf Kanton ZÜRICH, nicht BL.",
+        "Mehrwertabgabe (z.B. Münchenstein 2013, Reinach via Quartierpläne): Planungs-/Abschöpfungsinstrument (RPG), kein Wohnungsmarkt-Eingriff -> nicht als Instrument erfasst.",
+        "Kommunale Quoten/Reglemente (Allschwil Zonenreglement, Quartierpläne): nicht abschliessend belegt -> offen."
+      ],
+      "classification_notes": "WBFG in zwei Instrumente zerlegt (je eine exklusive Kategorie): gemeinnütziger Wohnungsbau = Kat 4 (Produktion/Förderung); selbstgenutztes Wohneigentum + altersgerechte Umbauten = Kat 9 (Nachfrage-/Eigentumsförderung). Beide subsidiär (Kanton 'kann').",
+      "map_relevance_notes": "Beide Instrumente map_relevant=false (Förderung, keine bindende Flächenwirkung). BL hat KEINE farbbestimmenden Instrumente -> Kanton und Gemeinden bleiben neutral. Gültiges Ergebnis: Förder-Kanton ohne bindenden Markteingriff.",
+      "open_questions": [
+        "Kommunale Instrumente in BL-Gemeinden (Allschwil, Reinach, Münchenstein, Pratteln, Liestal) einzeln prüfen (Quartierplan-/Zonen-Quoten?).",
+        "WBFG-Förderbereiche bei Bedarf weiter aufschlüsseln (z.B. altersgerechte Umbauten separat)."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
     }
   ]
 }
