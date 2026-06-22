@@ -12,7 +12,14 @@
     "summary": "",
     "territories_checked": [],
     "sources_checked": [
-      { "title": "", "url": "", "source_tier": "tier_1_primary | tier_2_official | tier_3_professional | tier_4_signal", "source_type": "", "what_it_proves": "", "last_checked": "" }
+      {
+        "title": "",
+        "url": "",
+        "source_tier": "tier_1_primary | tier_2_official | tier_3_professional | tier_4_signal",
+        "source_type": "",
+        "what_it_proves": "",
+        "last_checked": ""
+      }
     ],
     "instruments_found": [],
     "instruments_rejected_or_not_confirmed": [],
@@ -39,12 +46,54 @@
         "Riehen (BFS 2703)"
       ],
       "sources_checked": [
-        { "title": "Gesetz ueber die Wohnraumfoerderung (WRFG, SG 861.500)", "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.500", "source_tier": "tier_1_primary", "source_type": "Kantonsgesetz", "what_it_proves": "Bewilligungspflicht Abbruch/Umbau (§7, §8a), Stockwerkeigentum-Umwandlung (§8 Abs.5), Foerderzweck (§1), Wohnungsnot-Schwelle <=1.5% (§4 Abs.4)", "last_checked": "2026-06-22" },
-        { "title": "Verordnung ueber den Schutz von Wohnraum (WRSchV, SG 861.540)", "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.540", "source_tier": "tier_1_primary", "source_type": "Verordnung", "what_it_proves": "5-jaehrige Mietzinskontrolle (§26), Verfahren (§24), Wohnschutzkommission (§§14 ff.), jaehrliche Feststellung Leerstand (§3), Revision per 1.11.2025", "last_checked": "2026-06-22" },
-        { "title": "Wohnschutz (Kanton Basel-Stadt, amtlich)", "url": "https://www.bs.ch/pd/kantons-und-stadtentwicklung/wohnraum/wohnschutz", "source_tier": "tier_2_official", "source_type": "Amtliche Erlaeuterung", "what_it_proves": "Bewilligungspflicht, 5-Jahre-Mietzinskontrolle, Geltung bei Leerstand <=1.5%, Ausnahmen (<=3 Whg, Genossenschaften, Luxus, Kurzzeitmiete)", "last_checked": "2026-06-22" },
-        { "title": "Staatliche Stelle fuer Wohnraumschutz", "url": "https://www.bs.ch/regierungsrat/staatskanzlei/staatliche-stelle-fuer-wohnraumschutz", "source_tier": "tier_2_official", "source_type": "Vollzugsstelle", "what_it_proves": "Wohnschutzkommission/Staatliche Stelle: legt Mieten fest, prueft Erhoehungen; Entscheide bindend", "last_checked": "2026-06-22" },
-        { "title": "Mehr leerstehende Wohnungen ... (Leerstand 2025: 0.9%)", "url": "https://www.bs.ch/medienmitteilungen/pd/2025-mehr-leerstehende-wohnungen-weniger-leerstehende-geschaeftsflaechen", "source_tier": "tier_2_official", "source_type": "Medienmitteilung/Statistik", "what_it_proves": "Leerwohnungsquote 2025 = 0.9% <=1.5% -> Wohnungsnot festgestellt, Regime aktiv", "last_checked": "2026-06-22" },
-        { "title": "Navigieren im Wohnraumschutzrecht von Basel-Stadt (MLL)", "url": "https://www.mll-news.com/navigieren-im-wohnraumschutzrecht-von-basel-stadt-das-revidierte-wrfg-und-die-wrschv-im-ueberblick/", "source_tier": "tier_3_professional", "source_type": "Anwaltskanzlei-Publikation", "what_it_proves": "Bestaetigung der Paragraphen-Zuordnung (§7/§8a/§8b/§8 Abs.5/§3a); nur ergaenzend, nicht alleinige Grundlage", "last_checked": "2026-06-22" }
+        {
+          "title": "Gesetz ueber die Wohnraumfoerderung (WRFG, SG 861.500)",
+          "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.500",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Bewilligungspflicht Abbruch/Umbau (§7, §8a), Stockwerkeigentum-Umwandlung (§8 Abs.5), Foerderzweck (§1), Wohnungsnot-Schwelle <=1.5% (§4 Abs.4)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Verordnung ueber den Schutz von Wohnraum (WRSchV, SG 861.540)",
+          "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.540",
+          "source_tier": "tier_1_primary",
+          "source_type": "Verordnung",
+          "what_it_proves": "5-jaehrige Mietzinskontrolle (§26), Verfahren (§24), Wohnschutzkommission (§§14 ff.), jaehrliche Feststellung Leerstand (§3), Revision per 1.11.2025",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Wohnschutz (Kanton Basel-Stadt, amtlich)",
+          "url": "https://www.bs.ch/pd/kantons-und-stadtentwicklung/wohnraum/wohnschutz",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Erlaeuterung",
+          "what_it_proves": "Bewilligungspflicht, 5-Jahre-Mietzinskontrolle, Geltung bei Leerstand <=1.5%, Ausnahmen (<=3 Whg, Genossenschaften, Luxus, Kurzzeitmiete)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Staatliche Stelle fuer Wohnraumschutz",
+          "url": "https://www.bs.ch/regierungsrat/staatskanzlei/staatliche-stelle-fuer-wohnraumschutz",
+          "source_tier": "tier_2_official",
+          "source_type": "Vollzugsstelle",
+          "what_it_proves": "Wohnschutzkommission/Staatliche Stelle: legt Mieten fest, prueft Erhoehungen; Entscheide bindend",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Mehr leerstehende Wohnungen ... (Leerstand 2025: 0.9%)",
+          "url": "https://www.bs.ch/medienmitteilungen/pd/2025-mehr-leerstehende-wohnungen-weniger-leerstehende-geschaeftsflaechen",
+          "source_tier": "tier_2_official",
+          "source_type": "Medienmitteilung/Statistik",
+          "what_it_proves": "Leerwohnungsquote 2025 = 0.9% <=1.5% -> Wohnungsnot festgestellt, Regime aktiv",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Navigieren im Wohnraumschutzrecht von Basel-Stadt (MLL)",
+          "url": "https://www.mll-news.com/navigieren-im-wohnraumschutzrecht-von-basel-stadt-das-revidierte-wrfg-und-die-wrschv-im-ueberblick/",
+          "source_tier": "tier_3_professional",
+          "source_type": "Anwaltskanzlei-Publikation",
+          "what_it_proves": "Bestaetigung der Paragraphen-Zuordnung (§7/§8a/§8b/§8 Abs.5/§3a); nur ergaenzend, nicht alleinige Grundlage",
+          "last_checked": "2026-06-22"
+        }
       ],
       "instruments_found": [
         "bs-12-bewilligungspflicht-bestand",
@@ -64,6 +113,82 @@
         "Konkrete WRFG-Foerderinstrumente (aktive Bodenpolitik, Darlehen, Fonds) einzeln belegen -> Kat 4 verfeinern.",
         "Verbindliche preisguenstig-Quote pruefen (evtl. Bau-/Planungsrecht statt WRFG) -> ggf. Kat 3.",
         "Per-Jahr-Geltung (Wohnungsnot) automatisiert nachfuehren (Leerstandsziffer)."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-LU",
+      "territory_name": "Luzern",
+      "territory_type": "canton",
+      "canton": "LU",
+      "bfs_number": null,
+      "canton_number": 3,
+      "research_status": "integrated",
+      "summary": "Kanton Luzern: kantonal v.a. ermächtigend (PBG: Gemeinden können Förderzonen ausscheiden); primär sind die Gemeinden zuständig. Stadt Luzern (BFS 1061): Kurzzeitvermietungs-Reglement (Kat 8) seit 1.1.2025 in Kraft (farbbestimmend); Vorkaufsrecht (Kat 5) und aktive Bodenpolitik/Stiftung (Kat 4) am 14.6.2026 angenommen, Inkrafttreten/Umsetzung 2027 -> derzeit 'planned', nicht farbbestimmend.",
+      "territories_checked": [
+        "Kanton Luzern (canton_number 3)",
+        "Stadt Luzern (BFS 1061)"
+      ],
+      "sources_checked": [
+        {
+          "title": "Stadt Luzern – Ja zum Vorkaufsrecht und zur aktiven Bodenpolitik (14.6.2026)",
+          "url": "https://www.stadtluzern.ch/aktuelles/newslist/2903941",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Mitteilung/Abstimmung",
+          "what_it_proves": "Vorkaufsrecht 67.5% Ja (Inkrafttreten Anfang 2027); aktive Bodenpolitik 69.3% Ja; Stiftung 'Wohnraum für alle' (70 Mio, 500 Whg)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt Luzern – Reglement über die Kurzzeitvermietung tritt per 1.1.2025 in Kraft",
+          "url": "https://www.stadtluzern.ch/aktuelles/newslist/2245330",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Mitteilung",
+          "what_it_proves": "90-Nächte-Regel, Registrierungspflicht, in Kraft 1.1.2025, Übergangsfrist bis 11.3.2028",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt Luzern – Kurzzeitvermietung (Projekt/Geltung)",
+          "url": "https://www.stadtluzern.ch/projekte/wirtschaft-tourismus/53210",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Projektseite",
+          "what_it_proves": "Geltungsbereich/Ausnahmen der Kurzzeitvermietungs-Regelung",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Planungs- und Baugesetz (PBG, SRL Nr. 735)",
+          "url": "https://srl.lu.ch/data/735/de",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Ermächtigung der Gemeinden zur Ausscheidung von Förderzonen (preisgünstig/gemeinnützig) mit höherer Überbauungsziffer",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "BWO – Städtische Wohnraumpolitik Luzern II",
+          "url": "https://www.bwo.admin.ch/dam/bwo/de/dokumente/03_Wohnungspolitik/33_Wohnungspolitik_Gemeinde/Beispiele/luzern_staedtischewohnraumpolitikii.pdf.download.pdf/luzern_staedtischewohnraumpolitikii.pdf",
+          "source_tier": "tier_2_official",
+          "source_type": "Bundesamt für Wohnungswesen (Dok.)",
+          "what_it_proves": "Kontext der städtischen Wohnraumpolitik/Förderung des gemeinnützigen Wohnungsbaus",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "lu-3-pbg-foerderzonen",
+        "lu-1061-kurzzeitvermietung",
+        "lu-1061-vorkaufsrecht",
+        "lu-1061-bodenpolitik"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kantonale Mietzinskontrolle / GEW-Unterstellung der Stadt Luzern: kein aktuell geltender Stand bestätigt -> offen, nicht erfasst.",
+        "Kantonale finanzielle Wohnbauförderung: rechtlich möglich, Nachfrage sinkend -> offene Frage, nicht als eigenes Instrument erfasst.",
+        "Weitere LU-Gemeinden (Emmen, Kriens): in dieser Runde nicht einzeln recherchiert."
+      ],
+      "classification_notes": "Stadt-Instrumente sind kommunal (territory_type=municipality, BFS 1061); PBG ist kantonal-ermächtigend (territory_type=canton). Kurzzeitvermietung = Kat 8 (Nutzungssteuerung), bewusst NICHT als stärkerer Wohnschutz hochgestuft. Vorkauf = Kat 5, Bodenpolitik = Kat 4.",
+      "map_relevance_notes": "Farbbestimmend nur die Kurzzeitvermietung (Kat 8, in Kraft, bindend) -> Stadt Luzern erscheint gelb. Vorkauf (Kat 5, planned) und Bodenpolitik (Kat 4, Förderung) sind nicht farbbestimmend. Der Kanton Luzern bleibt neutral (PBG ermächtigend). Sobald das Vorkaufsrecht 2027 in Kraft tritt, kommt Kat 5 hinzu.",
+      "open_questions": [
+        "Vorkaufsrecht: exaktes Inkrafttretens-Datum 2027 + Reglementstext (städtische Rechtssammlung) verlinken; dann status->in_force, map_relevant->true.",
+        "Kantonale Wohnbauförderung / GEW-Unterstellung Stadt Luzern: aktuellen Rechtsstand klären.",
+        "Weitere LU-Gemeinden (Emmen, Kriens) mit eigenen Instrumenten prüfen."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"

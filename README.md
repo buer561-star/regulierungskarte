@@ -15,6 +15,7 @@ Drei Ansichten:
 - **Instrumente & Filter:** Katalog aller Instrumente mit Territorium, Kategorie, Status, Rechtsgrundlage, Quelle; nach Kategorie/Status/Kanton/Suche filterbar.
 - **Daten & Info:** Kennzahlen, Kategorien-Legende und Datenherkunft.
 - **Audit & Quellen:** Auditberichte je Gebiet (Recherche, geprüfte Quellen nach Tier, gefundene/verworfene Instrumente, Klassifikations- und Kartenrelevanz-Logik, offene Fragen); Read-only-Ebene, verändert Karte/Klassifikation nicht.
+- **Instrumente erklärt:** Übersicht der 10 exklusiven Kategorien (Erklärung + Anzahl) und aller erfassten Instrumente, nach Kategorie gruppiert.
 
 Live ansehen (öffentliches Repo, ohne Setup):
 `https://raw.githack.com/buer561-star/regulierungskarte/<branch>/index.html`
@@ -25,7 +26,7 @@ Live ansehen (öffentliches Repo, ohne Setup):
 - **Umfang:** nur Schweiz — **26 Kantone, 2115 Gemeinden, 10 Seen**. Liechtenstein und ausländische Enklaven (Büsingen, Campione) entfernt; CH-Sondergebiete (Staatswald Galm, 2 Kommunanzen) als neutrale Flächen.
 - **Amtliche ID-Liste:** „Politische Gemeinden 01.01.2024" (2131 BFS) als Referenz in `src/data/source/gemeinde-id-2024.json`.
 - ⚠ **Stichtags-Versatz:** ID-Liste = 2024, Geometrie = 2025 → 19 zwischenzeitlich fusionierte Gemeinden haben kein Polygon (Details in `docs/REBUILD_NOTES.md`).
-- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Pilot Basel-Stadt** (5 Instrumente, Kat. 4/5/6/7/10, Tier-1/2-Quellen; Beleg in `research/pilots/BS_FINDINGS_REPORT.md`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten mehr.**
+- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Basel-Stadt + Luzern** (9 Instrumente, Tier-1/2-Quellen; Audit je Gebiet in `src/data/audit-reports.json`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Basel/Riehen/Bettingen = Kat 7 (rot); Stadt Luzern = Kat 8 (gelb, Kurzzeitvermietung), Vorkauf (Kat 5) `planned` ab 2027.
 
 ## Reproduzierbarer Build
 
@@ -56,4 +57,4 @@ Bearbeitet wird die App in **`build/index.template.html`**; `index.html` wird da
 Weitere Kantone als Instrumente erfassen (nach `docs/RESEARCH_COVERAGE.md`), je Befund
 quellenbelegt (`docs/SOURCE_POLICY.md`) und exklusiv kategorisiert
 (`docs/INSTRUMENT_TAXONOMY.md`); vor Übernahme stets `node validation/validate-data.mjs`
-(0 ERROR). Pilot Basel-Stadt ist eingebaut.
+(0 ERROR). Basel-Stadt und Luzern sind eingebaut.

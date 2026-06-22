@@ -191,6 +191,42 @@
       "relation_type": "inherited",
       "map_relevant": false,
       "note": "Foerderung; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "lu-3-pbg-foerderzonen",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Ermächtigende kantonale Norm; nicht farbbestimmend, keine automatische Vererbung."
+    },
+    {
+      "instrument_id": "lu-1061-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 1061,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigenes kommunales Instrument; in Kraft seit 1.1.2025."
+    },
+    {
+      "instrument_id": "lu-1061-vorkaufsrecht",
+      "territory_type": "municipality",
+      "bfs_number": 1061,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Beschlossen 14.6.2026, Inkrafttreten 2027 -> noch nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "lu-1061-bodenpolitik",
+      "territory_type": "municipality",
+      "bfs_number": 1061,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Förderung; nicht farbbestimmend."
     }
   ]
 }

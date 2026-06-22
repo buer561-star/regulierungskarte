@@ -124,6 +124,17 @@
   .auditbtn{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);border-radius:99px;padding:2px 8px;cursor:pointer;margin-left:4px;}
   .auditbtn:hover{background:var(--brand);color:#04222E;border-color:var(--brand);}
   .back{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--brand);cursor:pointer;background:none;border:none;padding:0;margin-bottom:12px;}
+  /* glossary */
+  .gcat{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:11px 14px;margin-bottom:7px;}
+  .gcat .gnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;width:34px;height:34px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .gcat .gname{font-weight:600;font-size:14.5px;}
+  .gcat .gdesc{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .gcat .gcount{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-faint);margin-top:4px;}
+  .grp{margin-bottom:16px;}
+  .grp h3{font-size:14px;margin:0 0 4px;display:flex;align-items:center;gap:8px;}
+  .grp h3 .dot{width:12px;height:12px;border-radius:3px;}
+  .irow{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:13px;padding:6px 0;border-bottom:1px solid var(--hairline);}
+  .irow .it{font-weight:600;} .irow .meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);} .irow .meta a{color:var(--brand);text-decoration:none;}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -136,6 +147,7 @@
       <button class="navitem" data-view="tabelle"><span class="num">02</span> Instrumente &amp; Filter</button>
       <button class="navitem" data-view="info"><span class="num">03</span> Daten &amp; Info</button>
       <button class="navitem" data-view="audit"><span class="num">04</span> Audit &amp; Quellen</button>
+      <button class="navitem" data-view="erklaert"><span class="num">05</span> Instrumente erklärt</button>
     </nav>
     <div class="side-foot">
       <b id="foot-i">0</b> Instrumente · <b id="foot-t">0</b> Gebiete<br>
@@ -220,6 +232,19 @@
       <div id="audit-list"><div id="audit-wrap"></div></div>
       <div id="audit-detail" style="display:none"></div>
     </section>
+
+    <!-- 05 INSTRUMENTE ERKLÄRT -->
+    <section class="view" id="v-erklaert">
+      <div class="vhead">
+        <p class="eb">Übersicht &amp; Erklärung</p>
+        <h1>Instrumente &amp; Kategorien erklärt</h1>
+        <p>Jedes Instrument gehört zu genau <b>einer</b> exklusiven Kategorie (1–10). Die Karte färbt nach der <b>stärksten farbbestimmenden</b> Kategorie eines Gebiets. <b>map_relevant</b> ≠ <b>Status</b>: nur in Kraft getretene, bindende Instrumente mit Tier-1/2-Beleg färben die Karte; Pendentes/Geplantes/Vollzug/Förderung erscheint hier und in der Tabelle, aber nicht als Hauptfarbe.</p>
+      </div>
+      <div class="blocklabel">Die 10 exklusiven Kategorien</div>
+      <div id="gloss-cats"></div>
+      <div class="blocklabel">Alle erfassten Instrumente nach Kategorie</div>
+      <div id="gloss-instr"></div>
+    </section>
   </main>
 </div>
 
@@ -248,6 +273,19 @@ const CATS = {
   10:{name:"Verfahren/Vollzug", color:"#9A86B5"}
 };
 const CAT_PRIORITY = [7,6,5,3,8,4,9,2,10,1]; // stärkster Eingriff zuerst (Anzeige bei Mehrfach)
+const CAT_DESC = {
+  1:"Nur Bundesrecht + ordentliches Bau-/Miet-/Raumplanungsrecht, ohne kantonale/kommunale Sonderregel.",
+  2:"Angebotsausweitung über Bau-/Planungsrecht: Um-/Auf-/Einzonung, höhere Ausnützung, Bauen im Bestand, schnellere Bewilligung, weniger Vorschriften.",
+  3:"Steuerung auf preisgünstigen Wohnraum: Quoten/Kostenmiete-Anteile, Planungsauflagen, Ausnützungsbonus gegen preisgünstig.",
+  4:"Öffentliche/gemeinnützige Produktion: Bau, Träger, Stiftungen, Fonds, Bodenpolitik, Baurecht, Darlehen, Genossenschaftsförderung.",
+  5:"Transaktions-/Eigentumseingriffe: Vorkaufs-/Kaufsrecht, Lex Koller, Verkaufs-/Umwandlungsbeschränkungen (Stockwerkeigentum).",
+  6:"Bestandesschutz ohne Mietzinskontrolle: Abbruch-/Umnutzungs-/Zweckänderungsschutz, Erhaltung Mietwohnraum.",
+  7:"Wohnschutz mit Mietzins-/Renditekontrolle: Mietzinsdeckel, max. Aufschläge nach Sanierung, behördliche Mietzinsprüfung, Renditebeschränkung.",
+  8:"Nutzungssteuerung des Bestands: Kurzzeitvermietung/Airbnb, Zweitwohnungen, Belegung, Wohnungsgrössen.",
+  9:"Nachfrageförderung: personenbezogene Subjekthilfe, Mietbeiträge, Bürgschaften, Wohneigentumsförderung.",
+  10:"Verfahrens-/Vollzugsinstrumente: Bewilligungs-/Meldepflichten, Kommissionen, Kontrollstellen, Sanktionen, Monitoring."
+};
+const CAT_DARK = new Set([1,8]); // helle Flächen -> dunkle Zahl
 const STATUSLBL = {in_force:"in Kraft",pending:"pendent",planned:"geplant",rejected:"abgelehnt",unclear:"unklar",historical:"historisch"};
 const NEUTRAL = CATS[1].color;
 
@@ -452,6 +490,24 @@ function renderInfo(){
   const db=document.getElementById("databanner"); if(db) db.innerHTML = `Datenstand <b>Pilot</b>: ${INSTR.length} Instrumente in ${[...kts].join(", ")||"—"} erfasst (Quellen verlinkt). Übrige Gemeinden noch ohne Erfassung — Abdeckung folgt kantonsweise.`;
 }
 
+/* ================= Übersicht & Erklärung ================= */
+function renderErklaert(){
+  const cntByCat={}; INSTR.forEach(i=>{ if(i.exclusive_category_id) cntByCat[i.exclusive_category_id]=(cntByCat[i.exclusive_category_id]||0)+1; });
+  document.getElementById("gloss-cats").innerHTML = Object.keys(CATS).map(c=>{ const col=CATS[c]; const tc=CAT_DARK.has(+c)?"#3a2c00":"#fff";
+    return `<div class="gcat"><div class="gnum" style="background:${col.color};color:${tc}">${c}</div><div><div class="gname">${col.name}</div><div class="gdesc">${CAT_DESC[c]||""}</div><div class="gcount">${cntByCat[c]||0} erfasste(s) Instrument(e)</div></div></div>`;
+  }).join("");
+  const cats=[...new Set(INSTR.map(i=>i.exclusive_category_id).filter(Boolean))].sort((a,b)=>a-b);
+  document.getElementById("gloss-instr").innerHTML = cats.length ? cats.map(c=>{ const col=CATS[c]||{name:"?",color:"#999"};
+    const items=INSTR.filter(i=>i.exclusive_category_id===c);
+    const rows=items.map(it=>{
+      const terr = it.territory_type==="canton" ? `${ktNameByNr[it.canton_number]||it.canton} (Kanton)` : (gemByBfs[it.bfs_number]?gemByBfs[it.bfs_number].name:(it.territory_name||""));
+      const src = it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener">Quelle ↗</a>`:"";
+      return `<div class="irow"><span class="it">${it.instrument_name}</span><span class="meta">${terr} · ${STATUSLBL[it.status]||it.status} · ${it.map_relevant?"farbbestimmend ●":"nicht farbbestimmend"} · Beleg ${tierShort(it.source_quality)} · Conf. ${it.confidence||"–"}</span><span class="meta">${src}</span></div>`;
+    }).join("");
+    return `<div class="grp"><h3><span class="dot" style="background:${col.color}"></span>${c} · ${col.name} <span class="meta">(${items.length})</span></h3>${rows}</div>`;
+  }).join("") : `<div class="d-v">Noch keine Instrumente erfasst.</div>`;
+}
+
 /* ================= SVG-Export ================= */
 function downloadSVG(){
   const svg=document.getElementById("map"); const c=svg.cloneNode(true);
@@ -523,7 +579,7 @@ function init(){
   document.getElementById("foot-t").textContent=terr.size;
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
   document.getElementById("t-total").textContent=INSTR.length;
-  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList();
+  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList(); renderErklaert();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
   document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();}));
   document.getElementById("cat-all").addEventListener("click",()=>setAll(true));
