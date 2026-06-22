@@ -34,6 +34,9 @@ A(/E4E7EA/i.test(fill('#map path[data-bfs="1058"]')), `Horw (LU 1058) neutral (F
 A(/E4E7EA/i.test(fill('#map path[data-bfs="1059"]')), `Kriens (LU 1059) neutral (Wohnbaureglement planned, nicht farbbestimmend)`);
 A(fill('#map path[data-bfs="6458"]') === "#7E8AC4", `Neuchâtel (6458) = Kat 5 violett (LVAL) (ist ${fill('#map path[data-bfs="6458"]')})`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="6421"]')), `La Chaux-de-Fonds (6421) neutral (nicht LVAL)`);
+A(fill('#map path[data-bfs="3851"]') === "#F2C53D", `Davos (3851) = Kat 8 gelb (Erstwohnungsanteil) (ist ${fill('#map path[data-bfs="3851"]')})`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="3901"]')), `Chur (3901) neutral (Initiative abgelehnt)`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="3955"]')), `Landquart (3955) neutral (kein eigenes Instrument)`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -54,7 +57,7 @@ A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 18, `Tabelle: 18 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 20, `Tabelle: 20 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 const rc = $$("#rtable tbody tr").length; A(rc === 1, `Filter Kat 6: ${rc} Zeile (Bewilligungspflicht)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
@@ -75,9 +78,9 @@ A($("#demobanner") === null, `kein DEMO-Banner mehr`);
 A(!!$('.navitem[data-view="audit"]'), `Audit-Navigation existiert`);
 $('.navitem[data-view="audit"]').dispatchEvent(new window.Event("click"));
 A($("#v-audit").classList.contains("active"), `Audit-Ansicht aktiv`);
-A($$("#audit-wrap .acard").length >= 4, `Audit-Liste zeigt >=4 Berichte (BS, LU, BL, NE)`);
-A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML) && /Basel-Landschaft/.test($("#audit-wrap").innerHTML) && /Neuenburg/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU + BL + NE in Liste`);
-A(!!$('#audit-wrap .acard[data-audit="audit-LU"]') && !!$('#audit-wrap .acard[data-audit="audit-BL"]') && !!$('#audit-wrap .acard[data-audit="audit-NE"]'), `LU-, BL- und NE-Auditbericht vorhanden`);
+A($$("#audit-wrap .acard").length >= 5, `Audit-Liste zeigt >=5 Berichte (BS, LU, BL, NE, GR)`);
+A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML) && /Basel-Landschaft/.test($("#audit-wrap").innerHTML) && /Neuenburg/.test($("#audit-wrap").innerHTML) && /Graubünden/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU + BL + NE + GR in Liste`);
+A(!!$('#audit-wrap .acard[data-audit="audit-LU"]') && !!$('#audit-wrap .acard[data-audit="audit-BL"]') && !!$('#audit-wrap .acard[data-audit="audit-NE"]') && !!$('#audit-wrap .acard[data-audit="audit-GR"]'), `LU-, BL-, NE- und GR-Auditbericht vorhanden`);
 $('#audit-wrap .acard[data-audit="audit-BS"]').dispatchEvent(new window.Event("click"));
 const ad = $("#audit-detail");
 A(ad && ad.style.display !== "none", `Audit-Detail geöffnet`);

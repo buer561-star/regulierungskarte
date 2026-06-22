@@ -407,6 +407,24 @@
       "relation_type": "inherited",
       "map_relevant": true,
       "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Laténa (ehem. Hauterive/Saint-Blaise/La Tène/Enges))."
+    },
+    {
+      "instrument_id": "gr-18-gfw-foerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Förderung; nicht farbbestimmend, keine automatische Vererbung."
+    },
+    {
+      "instrument_id": "gr-3851-zweitwohnungen-erstwohnungsanteil",
+      "territory_type": "municipality",
+      "bfs_number": 3851,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigenes kommunales Zweitwohnungs-/Erstwohnungsanteil-Recht (in Kraft, aktiv vollzogen) -> farbbestimmend (Kat 8)."
     }
   ]
 }

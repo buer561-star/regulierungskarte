@@ -26,7 +26,7 @@ Live ansehen (öffentliches Repo, ohne Setup):
 - **Umfang:** nur Schweiz — **26 Kantone, 2115 Gemeinden, 10 Seen**. Liechtenstein und ausländische Enklaven (Büsingen, Campione) entfernt; CH-Sondergebiete (Staatswald Galm, 2 Kommunanzen) als neutrale Flächen.
 - **Amtliche ID-Liste:** „Politische Gemeinden 01.01.2024" (2131 BFS) als Referenz in `src/data/source/gemeinde-id-2024.json`.
 - ⚠ **Stichtags-Versatz:** ID-Liste = 2024, Geometrie = 2025 → 19 zwischenzeitlich fusionierte Gemeinden haben kein Polygon (Details in `docs/REBUILD_NOTES.md`).
-- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Basel-Stadt + Luzern + Basel-Landschaft + Neuenburg** (18 Instrumente, Tier-1/2-Quellen; Audit je Gebiet in `src/data/audit-reports.json`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Basel/Riehen/Bettingen = Kat 7 (rot); Stadt Luzern = Kat 8 (gelb, Kurzzeitvermietung), Vorkauf (Kat 5) `planned` ab 2027; Basel-Landschaft = nur Förderung (WBFG) → neutral; Neuenburg = LVAL-Mangelgemeinden (Kat 5, violett).
+- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Basel-Stadt + Luzern + Basel-Landschaft + Neuenburg + Graubünden** (20 Instrumente, Tier-1/2-Quellen; Audit je Gebiet in `src/data/audit-reports.json`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Basel/Riehen/Bettingen = Kat 7 (rot); Stadt Luzern = Kat 8 (gelb, Kurzzeitvermietung), Vorkauf (Kat 5) `planned` ab 2027; Basel-Landschaft = nur Förderung (WBFG) → neutral; Neuenburg = LVAL-Mangelgemeinden (Kat 5, violett); Davos = Kat 8 (gelb, Erstwohnungsanteil), Graubünden-GFW = nur Förderung → neutral.
 
 ## Reproduzierbarer Build
 
@@ -57,4 +57,4 @@ Bearbeitet wird die App in **`build/index.template.html`**; `index.html` wird da
 Weitere Kantone als Instrumente erfassen (nach `docs/RESEARCH_COVERAGE.md`), je Befund
 quellenbelegt (`docs/SOURCE_POLICY.md`) und exklusiv kategorisiert
 (`docs/INSTRUMENT_TAXONOMY.md`); vor Übernahme stets `node validation/validate-data.mjs`
-(0 ERROR). Basel-Stadt, Luzern, Basel-Landschaft und Neuenburg sind eingebaut.
+(0 ERROR). Basel-Stadt, Luzern, Basel-Landschaft, Neuenburg und Graubünden sind eingebaut.

@@ -357,6 +357,91 @@
       ],
       "confidence": "medium",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-GR",
+      "territory_name": "Graubünden",
+      "territory_type": "canton",
+      "canton": "GR",
+      "bfs_number": null,
+      "canton_number": 18,
+      "research_status": "integrated",
+      "summary": "Kanton Graubünden: Kantonal das neue Gesetz über die Förderung von Wohnraum (GFW, Grosser Rat 12.6.2025) — reine Förderung (zinsvergünstigte Darlehen/Fonds de Roulement für gemeinnützige Träger + Berggebiet-Hilfe), nicht farbbestimmend. Die bindenden Wohnungsmarkt-Instrumente liegen bei den (Tourismus-)Gemeinden: Davos (BFS 3851) hat ein eigenes Zweitwohnungsrecht mit Erstwohnungsanteil (Kat 8, in Kraft, aktiv vollzogen) -> farbbestimmend (gelb). Worklist (grösste GR-Gemeinden) durchgegangen: Chur (Hauptort) ohne bindendes Instrument (Initiative für bezahlbaren Wohnraum 2016 abgelehnt), Landquart ohne eigenes Instrument. Das bundesrechtliche Zweitwohnungsgesetz (Lex Weber) ist Kontext und wird NICHT flächendeckend eingefärbt.",
+      "territories_checked": [
+        "Kanton Graubünden (canton_number 18) — GFW (Kat 4, Förderung, nicht farbbestimmend)",
+        "Davos (BFS 3851) — eigenes Gesetz über Zweitwohnungen / Erstwohnungsanteil (Kat 8, in Kraft) -> gelb",
+        "Chur (BFS 3901, Hauptort) — Initiative für bezahlbaren Wohnraum 2016 abgelehnt (6678 Nein / 6592 Ja); kein bindendes Instrument -> neutral",
+        "Landquart (BFS 3955) — kein eigenes bindendes Wohnungsmarkt-Instrument gefunden (Talgemeinde, geringer Zweitwohnungsanteil) -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Botschaft/Medienmitteilung über die Förderung von Wohnraum in Graubünden (GFW)",
+          "url": "https://www.gr.ch/DE/Medien/Mitteilungen/MMStaka/2025/Seiten/2025031101.aspx",
+          "source_tier": "tier_2_official",
+          "source_type": "Regierungs-Botschaft/Medienmitteilung",
+          "what_it_proves": "Inhalt GFW: zinsvergünstigte Darlehen + à-fonds-perdu-Vorschlag (Regierungsentwurf), Berggebiet-Hilfe (2.5–5 Mio/Jahr); reine Förderung, keine Mietzins-/Nutzungskontrolle",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Neues GFW Graubünden (WOHNEN SCHWEIZ)",
+          "url": "https://www.wohnen-schweiz.ch/news/branche/neues-gwf-graubuenden",
+          "source_tier": "tier_3_professional",
+          "source_type": "Verbands-/Branchenpublikation",
+          "what_it_proves": "Beschluss Grosser Rat 12.6.2025; Fonds de Roulement; der à-fonds-perdu-Beitrag (2%) fand keine parlamentarische Mehrheit und ist nicht Teil des Gesetzes",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Gesetz über Zweitwohnungen der Gemeinde Davos (Nr. 60.3)",
+          "url": "https://www.gemeindedavos.ch/gesetzessammlung/sammlung/801178",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Gesetz",
+          "what_it_proves": "Eigenes kommunales Zweitwohnungsrecht (erlassen 19.5.2019): Erstwohnungsanteil bei Abbruch/Sanierung/Stockwerkeigentum altrechtlicher Wohnungen",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Davos — Planungszone gegen Zweitwohnungsumnutzung (27.6.2025)",
+          "url": "https://www.gemeindedavos.ch/aktuellesinformationen/2501596",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Mitteilung",
+          "what_it_proves": "Planungszone (2 Jahre, ab 27.6.2025): Erstwohnungsanteil-Pflicht bei Umbau altrechtlicher Mehrfamilienhäuser, Begrenzung Erweiterung ohne Erstwohnungsauflage",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Davos — Kontrollen für Erstwohnungen (Vollzug)",
+          "url": "https://www.gemeindedavos.ch/aktuellesinformationen/2669075",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Mitteilung/Vollzug",
+          "what_it_proves": "Aktiver Vollzug: Meldepflicht, Inspektionen, Nutzungsverbote, Strafandrohung (Freiheitsstrafe bis 3 Jahre) -> Instrument ist in Kraft und bindend",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Chur — Initiative für bezahlbare Wohnungen abgelehnt (SRF)",
+          "url": "https://www.srf.ch/news/schweiz/abstimmungen/abstimmungen/abstimmungen-chur/stadt-chur-muss-sich-nicht-um-mehr-guenstigen-wohnraum-kuemmern",
+          "source_tier": "tier_4_signal",
+          "source_type": "Medien/Abstimmungsergebnis",
+          "what_it_proves": "Chur: Initiative (gemeinnütziger Anteil 8%->12%) 2016 abgelehnt -> kein bindendes kommunales Instrument; Chur bleibt neutral",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "gr-18-gfw-foerderung",
+        "gr-3851-zweitwohnungen-erstwohnungsanteil"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Chur: Initiative für bezahlbaren Wohnraum (2016) abgelehnt -> kein Instrument erfasst.",
+        "Landquart: kein eigenes bindendes Wohnungsmarkt-Instrument gefunden.",
+        "Bundesrechtliches Zweitwohnungsgesetz (Lex Weber/ZWG): Kontext (Kat 8), wird NICHT flächendeckend eingefärbt (würde alle Gemeinden >20% Zweitwohnungsanteil färben); erfasst wird die kommunale Autonomie ÜBER die Bundesvorgabe hinaus (Davos).",
+        "à-fonds-perdu-Beitrag im GFW: im Grossen Rat gestrichen -> nicht als eigenes Förderinstrument erfasst."
+      ],
+      "classification_notes": "GFW = Kat 4 (Direkte öffentliche/gemeinnützige Wohnraumproduktion: Darlehen/Fonds de Roulement + Berggebiet-Hilfe), binding_effect=subsidy. Davos Zweitwohnungsgesetz/Erstwohnungsanteil = Kat 8 (Nutzungssteuerung des Bestands, use_control) — bewusst NICHT als Kat 6/7 (Wohnschutz) gewertet (Taxonomie-Heuristik: Zweitwohnung/Erstwohnungsanteil = Nutzungssteuerung).",
+      "map_relevance_notes": "Farbbestimmend nur das Davoser Zweitwohnungs-/Erstwohnungsanteil-Instrument (Kat 8, in Kraft, bindend, Tier-1/2) -> Davos erscheint gelb. Das kantonale GFW (Kat 4, Förderung) ist nicht farbbestimmend -> Kanton GR und übrige Gemeinden bleiben neutral. Chur/Landquart neutral. Bewusste Entscheidung: das bundesrechtliche Lex Weber wird NICHT pauschal eingefärbt; nur eigenständige kommunale Regelungen über den Bundesstandard hinaus.",
+      "open_questions": [
+        "GFW: exaktes Inkrafttreten (Referendumsfrist) und kodifizierte Fundstelle (Bündner Rechtsbuch) verlinken.",
+        "Weitere GR-Tourismusgemeinden mit eigenen Erstwohnungs-/Zweitwohnungsregimes (St. Moritz, Klosters/Davos-Region, Pontresina, Scuol, Flims/Laax) in einer späteren Runde erfassen (voraussichtlich ebenfalls Kat 8).",
+        "Davos: Übergang der Planungszone (befristet 2 Jahre) in die definitive Teilrevision des Zweitwohnungsgesetzes verfolgen."
+      ],
+      "confidence": "medium",
+      "last_updated": "2026-06-22"
     }
   ]
 }
