@@ -279,6 +279,84 @@
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-NE",
+      "territory_name": "Neuenburg",
+      "territory_type": "canton",
+      "canton": "NE",
+      "bfs_number": null,
+      "canton_number": 24,
+      "research_status": "integrated",
+      "summary": "Kanton Neuenburg: Das bindende Instrument ist die LVAL (Bewilligungspflicht beim Verkauf vermieteter 2–5-Zimmer-Wohnungen) in den jährlich vom Conseil d'État bezeichneten Mangelgemeinden -> Kat 5, farbbestimmend in 11 Gemeinden (Seeufer + Val-de-Travers). Dazu LAL2-Förderung/LLA (Kat 4, nicht farbbestimmend), ein zonengebundenes Vorkaufsrecht in ZUP (Kat 5, nicht farbbestimmend) und eine pendente ASLOCA-Mietzinskontrolle (Kat 7, pendent). Keine Mietzinskontrolle im geltenden Recht.",
+      "territories_checked": [
+        "Kanton Neuenburg (canton_number 24)",
+        "LVAL-Mangelgemeinden (2024-Arrêté, auf 2025-BFS abgeglichen): 6404 Boudry, 6408 Cortaillod, 6413 Rochefort, 6416 Milvignes, 6417 La Grande Béroche, 6451 Cornaux, 6452 Cressier, 6455 Le Landeron, 6458 Neuchâtel, 6512 Val-de-Travers, 6513 Laténa",
+        "Worklist grösste Gemeinden: Neuchâtel (6458, LVAL), La Chaux-de-Fonds (6421, NICHT LVAL), Val-de-Ruz (6487, nicht im 2024-Arrêté), Laténa (6513, LVAL), Le Locle (6436, NICHT LVAL), Val-de-Travers (6512, LVAL für 3–5+ Zimmer)",
+        "La Chaux-de-Fonds / Le Locle (Berggebiet): keine LVAL-Unterstellung, keine eigenen bindenden Instrumente gefunden"
+      ],
+      "sources_checked": [
+        {
+          "title": "Loi limitant la mise en vente d'appartements loués (LVAL, RSN 846.0)",
+          "url": "https://rsn.ne.ch/DATA/program/books/rsne/htm/846.0.htm",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Bewilligungspflicht beim Verkauf vermieteter Wohnungen (2–5 Zimmer) in Mangelgemeinden; Conseil d'État bezeichnet Gemeinden jährlich; keine Mietzinskontrolle",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Arrêté champ d'application LVAL (communes en pénurie)",
+          "url": "https://www.ne.ch/autorites/DFS/SBAT/aide-au-logement/Pages/bases-legales.aspx",
+          "source_tier": "tier_1_primary",
+          "source_type": "Arrêté/Amtliche Bases légales",
+          "what_it_proves": "Jährliche Liste der LVAL-unterstellten Gemeinden (RSN 846.02)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Loi sur l'aide au logement (LAL2, RSN 841.00)",
+          "url": "https://www.ne.ch/autorites/DFS/SBAT/aide-au-logement/Documents/RSN-841-00_2008.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Wohnbauförderung, LLA mit plafonierten Mieten, Land/Baurecht/Bürgschaften/Darlehen; in Kraft 1.1.2019; Vorkaufsrecht in ZUP",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Logements à loyer abordable (Kanton NE, amtlich)",
+          "url": "https://www.ne.ch/themes/territoire-amenagement-et-constructions/logements-loyer-abordable",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "LLA-Kategorie (plafonierte Mieten, Mittelstand), Förderinstrumente",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "L'ASLOCA veut un contrôle cantonal des loyers après travaux (RTN)",
+          "url": "https://www.rtn.ch/rtn/Actualite/Region/20260608-L-Asloca-veut-un-controle-cantonal-des-loyers-apres-travaux.html",
+          "source_tier": "tier_4_signal",
+          "source_type": "Medien",
+          "what_it_proves": "Pendente Volksmotion für kantonale Mietzinskontrolle nach Sanierung (Signal, nicht farbbestimmend)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ne-24-lval",
+        "ne-24-lal2-foerderung",
+        "ne-24-preemption-zup",
+        "ne-24-asloca-mietzinskontrolle"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Geltende kantonale Mietzinskontrolle: NICHT vorhanden (LVAL hat keine); nur pendente ASLOCA-Volksmotion.",
+        "Val-de-Ruz (6487): im Legacy-Set, aber im belegten 2024-Arrêté nicht bestätigt -> hier NICHT als LVAL-Gemeinde gefärbt (zu prüfen).",
+        "Eigene kommunale Instrumente (Ville de Neuchâtel/La Chaux-de-Fonds) über LAL2/LVAL hinaus: keine bindenden gefunden."
+      ],
+      "classification_notes": "LVAL = Kat 5 (Verkaufs-/Transaktionsbewilligung; Mechanismus, analog BS Stockwerkeigentum), Zweck Bestandeserhalt (Flag). LAL2/LLA = Kat 4 (Förderung; LLA-Kostenmiete nur förder-gebunden, kein Marktdeckel). Vorkaufsrecht ZUP = Kat 5 (zonengebunden). ASLOCA-Motion = Kat 7 (pendent).",
+      "map_relevance_notes": "Farbbestimmend nur die LVAL (Kat 5) in den 11 bezeichneten Mangelgemeinden -> diese erscheinen violett (Kat 5). LAL2 (Kat 4), Vorkaufsrecht ZUP (Kat 5, zonengebunden) und ASLOCA (Kat 7, pendent) sind nicht farbbestimmend. La Chaux-de-Fonds/Le Locle bleiben neutral.",
+      "open_questions": [
+        "Aktuellste Dezember-Arrêté-Liste (RSN 846.02) direkt bestätigen (rsn.ne.ch war 503); Val-de-Ruz-Status klären.",
+        "Laténa (6513): Teilgebiete prüfen — LVAL galt für die ehem. Gemeinden Hauterive/Saint-Blaise/La Tène/Enges; ob die ganze Fusionsgemeinde unterstellt ist, bestätigen.",
+        "LVAL Kat 5 vs. Kat 6: bei Bedarf review (Mechanismus vs. Zweck)."
+      ],
+      "confidence": "medium",
+      "last_updated": "2026-06-22"
     }
   ]
 }

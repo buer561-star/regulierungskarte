@@ -272,6 +272,141 @@
       "relation_type": "own",
       "map_relevant": false,
       "note": "Förderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 24,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonsgesetz; farbbestimmend via bezeichnete Mangelgemeinden (siehe Gemeinde-Relationen)."
+    },
+    {
+      "instrument_id": "ne-24-lal2-foerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 24,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Förderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ne-24-preemption-zup",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 24,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Zonengebunden; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ne-24-asloca-mietzinskontrolle",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 24,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Pendent; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6404,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Boudry)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6408,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Cortaillod)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6413,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Rochefort)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6416,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Milvignes)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6417,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (La Grande Béroche)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6451,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Cornaux)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6452,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Cressier (NE))."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6455,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Le Landeron)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6458,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Neuchâtel)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6512,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Val-de-Travers)."
+    },
+    {
+      "instrument_id": "ne-24-lval",
+      "territory_type": "municipality",
+      "bfs_number": 6513,
+      "canton_number": 24,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Vom Conseil d'État als Mangelgemeinde der LVAL unterstellt (Laténa (ehem. Hauterive/Saint-Blaise/La Tène/Enges))."
     }
   ]
 }
