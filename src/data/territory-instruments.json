@@ -14987,6 +14987,204 @@
       "relation_type": "inherited",
       "map_relevant": true,
       "note": "Kantonale Kurzzeitvermietungs-Regel (RLE) gilt; Bewilligung kommunal -> farbbestimmend (Kat 8)"
+    },
+    {
+      "instrument_id": "gr-3790-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3790,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Silvaplana: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3782-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3782,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Celerina/Schlarigna: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3921-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3921,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Arosa: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3732-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3732,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Flims: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3871-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3871,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Klosters: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3784-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3784,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Pontresina: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3762-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3762,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Scuol: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3787-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3787,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "St. Moritz: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3752-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3752,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Samnaun: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3506-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3506,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Vaz/Obervaz: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3786-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3786,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Samedan: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "gr-3789-kwzg",
+      "territory_type": "municipality",
+      "bfs_number": 3789,
+      "canton_number": 18,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Sils im Engadin/Segl: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-576-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 576,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Grindelwald: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-843-ortsansaessigenanteil",
+      "territory_type": "municipality",
+      "bfs_number": 843,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Saanen: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-794-erstwohnungsanteil",
+      "territory_type": "municipality",
+      "bfs_number": 794,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Zweisimmen: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-565-wop",
+      "territory_type": "municipality",
+      "bfs_number": 565,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Kandersteg: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-584-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 584,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Lauterbrunnen: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-581-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 581,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Interlaken: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-594-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 594,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Wilderswil: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-561-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 561,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Adelboden: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "be-792-ortsansaessigenanteil",
+      "territory_type": "municipality",
+      "bfs_number": 792,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Lenk im Simmental: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "vs-6300-ewap",
+      "territory_type": "municipality",
+      "bfs_number": 6300,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Zermatt: Nutzungssteuerung des Bestands"
     }
   ]
 }

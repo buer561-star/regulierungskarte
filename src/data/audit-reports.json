@@ -365,13 +365,23 @@
       "canton": "GR",
       "bfs_number": null,
       "canton_number": 18,
-      "research_status": "integrated",
-      "summary": "Kanton Graubünden: Kantonal das neue Gesetz über die Förderung von Wohnraum (GFW, Grosser Rat 12.6.2025) — reine Förderung (zinsvergünstigte Darlehen/Fonds de Roulement für gemeinnützige Träger + Berggebiet-Hilfe), nicht farbbestimmend. Die bindenden Wohnungsmarkt-Instrumente liegen bei den (Tourismus-)Gemeinden: Davos (BFS 3851) hat ein eigenes Zweitwohnungsrecht mit Erstwohnungsanteil (Kat 8, in Kraft, aktiv vollzogen) -> farbbestimmend (gelb). Worklist (grösste GR-Gemeinden) durchgegangen: Chur (Hauptort) ohne bindendes Instrument (Initiative für bezahlbaren Wohnraum 2016 abgelehnt), Landquart ohne eigenes Instrument. Das bundesrechtliche Zweitwohnungsgesetz (Lex Weber) ist Kontext und wird NICHT flächendeckend eingefärbt.",
+      "research_status": "audited",
+      "summary": "GR: kantonales GFW (Kat 4). 14 Gemeinden mit eigenem kZWG (DVS-Tabelle Juli 2025 als T1): Davos (Kat 8, primary_legal), Silvaplana, Celerina, Arosa, Flims, Klosters (T1); Pontresina, Scuol, St. Moritz, Samnaun, Vaz/Obervaz, Samedan, Sils (official_explanatory via DVS). Keine flächendeckende kantonale Mietzinskontrolle.",
       "territories_checked": [
-        "Kanton Graubünden (canton_number 18) — GFW (Kat 4, Förderung, nicht farbbestimmend)",
-        "Davos (BFS 3851) — eigenes Gesetz über Zweitwohnungen / Erstwohnungsanteil (Kat 8, in Kraft) -> gelb",
-        "Chur (BFS 3901, Hauptort) — Initiative für bezahlbaren Wohnraum 2016 abgelehnt (6678 Nein / 6592 Ja); kein bindendes Instrument -> neutral",
-        "Landquart (BFS 3955) — kein eigenes bindendes Wohnungsmarkt-Instrument gefunden (Talgemeinde, geringer Zweitwohnungsanteil) -> neutral"
+        "Graubünden (kantonal)",
+        "Davos",
+        "Silvaplana",
+        "Celerina/Schlarigna",
+        "Arosa",
+        "Flims",
+        "Klosters",
+        "Pontresina",
+        "Scuol",
+        "St. Moritz",
+        "Samnaun",
+        "Vaz/Obervaz",
+        "Samedan",
+        "Sils im Engadin/Segl"
       ],
       "sources_checked": [
         {
@@ -425,7 +435,19 @@
       ],
       "instruments_found": [
         "gr-18-gfw-foerderung",
-        "gr-3851-zweitwohnungen-erstwohnungsanteil"
+        "gr-3851-zweitwohnungen-erstwohnungsanteil",
+        "gr-3790-kwzg",
+        "gr-3782-kwzg",
+        "gr-3921-kwzg",
+        "gr-3732-kwzg",
+        "gr-3871-kwzg",
+        "gr-3784-kwzg",
+        "gr-3762-kwzg",
+        "gr-3787-kwzg",
+        "gr-3752-kwzg",
+        "gr-3506-kwzg",
+        "gr-3786-kwzg",
+        "gr-3789-kwzg"
       ],
       "instruments_rejected_or_not_confirmed": [
         "Chur: Initiative für bezahlbaren Wohnraum (2016) abgelehnt -> kein Instrument erfasst.",
@@ -437,8 +459,9 @@
       "map_relevance_notes": "Farbbestimmend nur das Davoser Zweitwohnungs-/Erstwohnungsanteil-Instrument (Kat 8, in Kraft, bindend, Tier-1/2) -> Davos erscheint gelb. Das kantonale GFW (Kat 4, Förderung) ist nicht farbbestimmend -> Kanton GR und übrige Gemeinden bleiben neutral. Chur/Landquart neutral. Bewusste Entscheidung: das bundesrechtliche Lex Weber wird NICHT pauschal eingefärbt; nur eigenständige kommunale Regelungen über den Bundesstandard hinaus.",
       "open_questions": [
         "GFW: exaktes Inkrafttreten (Referendumsfrist) und kodifizierte Fundstelle (Bündner Rechtsbuch) verlinken.",
-        "Weitere GR-Tourismusgemeinden mit eigenen Erstwohnungs-/Zweitwohnungsregimes (St. Moritz, Klosters/Davos-Region, Pontresina, Scuol, Flims/Laax) in einer späteren Runde erfassen (voraussichtlich ebenfalls Kat 8).",
-        "Davos: Übergang der Planungszone (befristet 2 Jahre) in die definitive Teilrevision des Zweitwohnungsgesetzes verfolgen."
+        "Weitere kZWG-Gemeinden (DVS-Tabelle enthält 18): Zuoz, Laax, Davos-Laret, Lenzerheide noch nicht aufgenommen.",
+        "Pontresina: Zweitwohnungssteuer Dez. 2024 abgebrochen, kZWG-Haupttext direkt verlinken sobald abrufbar.",
+        "Vaz/Obervaz: Zonenplan-Revision 2020/2021 — prüfen ob Art. 32c–h kZWG unverändert in Kraft."
       ],
       "confidence": "medium",
       "last_updated": "2026-06-22"
@@ -670,8 +693,8 @@
       "canton": "VS",
       "bfs_number": null,
       "canton_number": 23,
-      "research_status": "integrated",
-      "summary": "Kanton Wallis: dezentral. Kanton vollzieht nur das Bundes-Lex-Weber (LcLRS, Kat 10) und foerdert (Loi sur le logement, Kat 4) - keine kantonale Mietzinskontrolle/Quote. Farbbestimmend sind EIGENE kommunale Zweitwohnungs-/Erstwohnungsregimes der Tourismusgemeinden: Crans-Montana (RQC 70% Erstwohnungsanteil, Kat 8) und Val de Bagnes/Verbier (T3/T4-Zonen + Erstwohnungs-Kontingentierung, Kat 8) -> gelb. Sion/Martigny/Monthey/Sierre/Brig-Glis/Naters: kein eigenes Instrument ueber Bund/Kanton hinaus -> neutral.",
+      "research_status": "audited",
+      "summary": "Kanton Wallis: dezentral. Kanton vollzieht nur das Bundes-Lex-Weber (LcLRS, Kat 10) und foerdert (Loi sur le logement, Kat 4) - keine kantonale Mietzinskontrolle/Quote. Farbbestimmend sind EIGENE kommunale Zweitwohnungs-/Erstwohnungsregimes der Tourismusgemeinden: Crans-Montana (RQC 70% Erstwohnungsanteil, Kat 8) und Val de Bagnes/Verbier (T3/T4-Zonen + Erstwohnungs-Kontingentierung, Kat 8) -> gelb. Sion/Martigny/Monthey/Sierre/Brig-Glis/Naters: kein eigenes Instrument ueber Bund/Kanton hinaus -> neutral. Zermatt: Reglement Erst-/Zweitwohnungsbau 2005/2012 (Kat 8, ARE Pionierbeispiel, official_explanatory).",
       "territories_checked": [
         "Kanton VS (23) - LcLRS (Kat 10), Loi logement (Kat 4)",
         "Crans-Montana (6253) - RQC 70% Erstwohnung + Kontingent (Kat 8) -> gelb",
@@ -717,7 +740,8 @@
         "vs-23-loi-logement",
         "vs-6253-rqc",
         "vs-6037-zonen-rs",
-        "vs-6037-contingentement"
+        "vs-6037-contingentement",
+        "vs-6300-ewap"
       ],
       "instruments_rejected_or_not_confirmed": [
         "Bundes-Lex-Weber/ZWG: Kontext, NICHT flaechendeckend eingefaerbt (sonst ~90 VS-Gemeinden).",
@@ -728,8 +752,9 @@
       "classification_notes": "Eigene kommunale Erstwohnungs-/Zweitwohnungs-/Kontingent-Regimes = Kat 8 (Nutzungssteuerung), nicht 6/7. Kantonale LcLRS = Kat 10 (Vollzug), Loi logement = Kat 4 (Foerderung).",
       "map_relevance_notes": "Farbbestimmend nur die eigenen kommunalen Kat-8-Instrumente (Crans-Montana, Val de Bagnes) -> gelb. Der Bundesstandard (Lex Weber) faerbt NICHT. Uebrige Worklist-Gemeinden neutral.",
       "open_questions": [
-        "Weitere VS-Tourismusgemeinden mit eigenen Erstwohnungs-/Kontingent-Regimes erfassen (Zermatt, Champery, Saas-Fee, Nendaz, Anniviers, Leukerbad).",
-        "Konsolidierte RQC-Fassung nach Fusion Crans-Montana bestaetigen."
+        "Konsolidierte RQC-Fassung nach Fusion Crans-Montana bestaetigen.",
+        "Champéry, Saas-Fee, Nendaz, Anniviers, Leukerbad: eigene kommunale Regelungen prüfen (Primärquellen noch nicht verfügbar).",
+        "Zermatt: Primärtext des Reglements (2012) direkt online verlinken sobald abrufbar."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
@@ -801,16 +826,24 @@
       "canton": "BE",
       "bfs_number": null,
       "canton_number": 2,
-      "research_status": "integrated",
-      "summary": "Kanton Bern: KEIN aktives Wohnbaufoerderungsgesetz, KEINE kantonale Ermaechtigungsnorm fuer Quoten (Gemeinden stuetzen sich auf Gemeindeautonomie). Einziger kantonaler Markteingriff: Formularpflicht Anfangsmietzins (Offenlegung Vormiete, in Kraft 1.12.2025, Kat 5 - Transparenz, bewusst nicht farbbestimmend). Farbbestimmend sind kommunale Instrumente: Stadt Bern (Wohnraumschutz Kat 6 + Drittelsmix-Quote Kat 3 -> orange), Köniz und Burgdorf (>=1/3-Quoten Kat 3 -> blau). Thun-Quote (25%) sistiert; Biel nur Foerderung (Kat 4). Uebrige Worklist-Gemeinden neutral.",
+      "research_status": "audited",
+      "summary": "BE: kant. Formularpflicht (Kat 5), Stadt Bern Kat 6+3+4. Berner Oberland (kantonaler Richtplan D_06): Grindelwald EWAP seit 1989 (Kat 8, 35%), Lauterbrunnen BauR 2023 EWAP 20% + TBW-Verordnung (Kat 8), Adelboden EWAP-Verordnung 2014 (Kat 8, 40%), Lenk BauR 2025 OA 30% + KH/ZPP 100% TBW (Kat 8). Saanen Ortsansässigenanteil 70-100% (Kat 8), Zweisimmen EWA Art. 18 30% (Kat 8), Kandersteg Planungszone Nov. 2025 (Kat 8). Interlaken/Wilderswil: Kat 8, nicht kartenrelevant (Quelle nur SAB T2).",
       "territories_checked": [
-        "Kanton BE (2) - Formularpflicht Anfangsmietzins (Kat 5, nicht farbbestimmend); kein Foerdergesetz, keine Ermaechtigungsnorm",
-        "Bern (351) - Wohnraumschutz Art. 16a (Kat 6) + Drittelsmix Art. 16b (Kat 3) -> orange; Bodenfonds (Kat 4); Lex Airbnb (pending)",
-        "Köniz (355) - Preisguenstig-Quote BauR Art. 26a (Kat 3) -> blau",
-        "Burgdorf (404) - >=1/3-Quote BauR Art. 27a (Kat 3) -> blau",
-        "Thun (942) - 25%-Quote BauR Art. 7 sistiert (nicht in Kraft) -> neutral",
-        "Biel/Bienne (371) - RFGW Foerderung (Kat 4) -> neutral",
-        "Ostermundigen, Steffisburg, Lyss, Langenthal, Muri b. Bern, Spiez, Muensingen, Belp, Ittigen, Worb, Zollikofen, Muenchenbuchsee - keine bindenden Quoten gefunden -> neutral"
+        "Bern (kantonal)",
+        "Stadt Bern",
+        "Köniz",
+        "Burgdorf",
+        "Thun",
+        "Biel/Bienne",
+        "Grindelwald",
+        "Lauterbrunnen",
+        "Interlaken",
+        "Wilderswil",
+        "Adelboden",
+        "Kandersteg",
+        "Saanen/Gstaad",
+        "Zweisimmen",
+        "Lenk im Simmental"
       ],
       "sources_checked": [
         {
@@ -863,7 +896,16 @@
         "be-355-koeniz-quote",
         "be-404-burgdorf-quote",
         "be-942-thun-quote",
-        "be-371-biel-rfgw"
+        "be-371-biel-rfgw",
+        "be-576-ewap",
+        "be-843-ortsansaessigenanteil",
+        "be-794-erstwohnungsanteil",
+        "be-565-wop",
+        "be-584-ewap",
+        "be-581-ewap",
+        "be-594-ewap",
+        "be-561-ewap",
+        "be-792-ortsansaessigenanteil"
       ],
       "instruments_rejected_or_not_confirmed": [
         "Kantonales Wohnbaufoerderungsgesetz: ausgelaufen (PMG bis 2014); BWO: 'keine Foerderung'.",
@@ -878,7 +920,10 @@
       "open_questions": [
         "Thun: Rechtskraft von BauR Art. 7 + UeO Bostudenzelg (Ende 2026) verfolgen -> dann Kat 3.",
         "Burgdorf: exaktes Inkrafttreten/Schwelle Art. 27a praezisieren.",
-        "Biel: Initiativen 2026 (1/3-Kostenmiete) verfolgen."
+        "Biel: Initiativen 2026 (1/3-Kostenmiete) verfolgen.",
+        "Interlaken/Wilderswil: Primärtexte (BauR) direkt abrufbar machen -> dann map_relevant=true.",
+        "Saanen: Zonenplan Nr. 14 (EWA-Erweiterung Gstaad) bei Rechtskraft nachführen.",
+        "Kandersteg: Planungszone 2 Jahre (bis Nov. 2027); BauR-Revision bei AGR-Genehmigung nachführen."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"

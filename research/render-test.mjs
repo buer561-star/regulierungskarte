@@ -108,7 +108,7 @@ A(/E4E7EA/i.test(fill('#map path[data-kt="13"]')), `zurück auf 'farbbestimmend'
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 83, `Tabelle: 83 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 105, `Tabelle: 105 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 const rc = $$("#rtable tbody tr").length; A(rc === 4, `Filter Kat 6: ${rc} Zeilen (BS + GE + Bern + VD)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
