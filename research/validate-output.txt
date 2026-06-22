@@ -1,0 +1,215 @@
+
+==============================================================================
+0 · GRUNDZAHLEN
+==============================================================================
+COMMUNES (Gemeinden gesamt):            2131
+MMAP.paths (Gemeinde-Geometrien):       2115
+CITIES (Stadt-Geometrien):              8  -> [230, 261, 351, 371, 942, 1061, 1711, 3340]
+MAP.paths (Kanton-Geometrien):          26
+MUNI (kommunale Regimes):               18
+CANTONAL (kantonale Regimes):           10  -> [GE, VD, BS, ZH, GR, ZG, NE, NW, SZ, OW]
+PENDABG (pendent/abgelehnt):            12
+APPLIED (aktive Anwendung):             7
+EXCLUDED (ausgeklammert):               4
+NELVAL (NE-Mangelgemeinden):            10
+AREAS (Tabellenzeilen gesamt):          48
+
+==============================================================================
+CHECK 1 · Jede Regel-Gemeinde hat BFS + existiert in Gemeindeliste
+==============================================================================
+  ✓ Alle Regel-BFS existieren in der Gemeindeliste.
+
+==============================================================================
+CHECK 2 · Jede farbige Gemeinde hat eine Geometrie
+==============================================================================
+2a · Gemeindekarte (alle klassifizierten Gemeinden):
+  ✗ BFS 6454 Hauterive (NE) (NE) Stufe 3 OHNE MMAP-Geometrie
+2b · Mischkarte (instrumentCommunes):
+  ✗ instrumentCommune BFS 6454 Hauterive (NE) ohne CITIES- UND MMAP-Geometrie
+
+==============================================================================
+CHECK 3 · Jede Geometrie ist eindeutig einer bekannten BFS zugeordnet
+==============================================================================
+MMAP-Geometrien ohne COMMUNES-Eintrag: 3
+  ✗ MMAP-Geometrie 2239 hat KEINEN COMMUNES-Eintrag (verwaiste Geometrie)
+  ✗ MMAP-Geometrie 5395 hat KEINEN COMMUNES-Eintrag (verwaiste Geometrie)
+  ✗ MMAP-Geometrie 6513 hat KEINEN COMMUNES-Eintrag (verwaiste Geometrie)
+
+CITIES-Konsistenz:
+  ✓ Alle CITIES-Keys in COMMUNES und MMAP vorhanden.
+
+Geometrie-Abdeckung: 2112/2131 Gemeinden mit MMAP-Geometrie. Ohne Geometrie: 19
+  1057 Honau (LU) | 2061 Auboranges (FR) | 2066 Chapelle (Glâne) (FR) | 2072 Ecublens (FR) (FR) | 2089 Montet (Glâne) (FR) | 2200 Grolley (FR) | 2217 Ponthaux (FR) | 3932 Tschiertschen-Praden (GR) | 5064 Bodio (TI) | 5078 Prato (Leventina) (TI) | 5146 Astano (TI) | 5149 Bedigliora (TI) | 5181 Curio (TI) | 5200 Miglieglia (TI) | 5207 Novaggio (TI) | 6453 Enges (NE) | 6454 Hauterive (NE) (NE) | 6459 Saint-Blaise (NE) | 6461 La Tène (NE)
+
+==============================================================================
+CHECK 4 · Karte vs. Tabelle: gleiche Stufe je BFS?
+==============================================================================
+Zeilen, bei denen Tabellen-Stufe ≠ Karten-Stufe (klassifiziert): 8
+  • Dietikon (BFS 243, id mu-243): Tabelle=2 / Karte=0 · Status=unklar · projektbezogen
+  • Wädenswil (BFS 293, id mu-293): Tabelle=2 / Karte=0 · Status=unklar · kommunal
+  • Stadt Bern – gesetzliche Mietzinskontrolle (BFS 351, id pa-1): Tabelle=4 / Karte=3 · Status=pendent · kommunal
+  • Stadt Luzern – Wohnschutz (GEW-Unterstellung) (BFS 1061, id pa-2): Tabelle=4 / Karte=3 · Status=pendent · kommunal
+  • Stadt Schaffhausen – Wohnrauminitiative (BFS 2939, id pa-5): Tabelle=2 / Karte=0 · Status=abgelehnt · kommunal
+  • Stadt Wetzikon – Wohn-Initiative (BFS 121, id pa-6): Tabelle=2 / Karte=0 · Status=abgelehnt · kommunal
+  • Stadt Adliswil – preisgünstiger Wohnraum (BFS 131, id pa-8): Tabelle=2 / Karte=0 · Status=pendent · kommunal
+  • Brunnen Nord (Ingenbohl) (BFS 1364, id pj-0): Tabelle=2 / Karte=0 · Status=in_kraft · projektbezogen
+
+Hinweis: Differenzen sind ERWARTBAR, wenn der Zeilen-Status ≠ "in_kraft" ist
+(Tabelle = Katalog aller Regeln inkl. Status; Karte = nur effektiv geltende Färbung).
+
+Kritisch (Differenz TROTZ Status in_kraft): 1
+  ✗ Brunnen Nord (Ingenbohl) BFS 1364: Tabelle 2 / Karte 0
+
+BFS mit mehreren Tabellenzeilen (regelzentriert, je Fläche eine Karten-Farbe): 2
+  • Bern (BFS 351): mu-351=St3/in_kraft, pa-1=St4/pendent  → Karte zeigt St3
+  • Luzern (BFS 1061): mu-1061=St3/in_kraft, pa-2=St4/pendent  → Karte zeigt St3
+
+==============================================================================
+CHECK 5 · Pendent/abgelehnt/unklar bestimmen NIE die Hauptfarbe
+==============================================================================
+Gefärbte Gemeinden mit Status ≠ in_kraft: 0
+  ✓ Keine. Nur in_kraft-Regeln färben.
+
+PENDABG-Gemeinden – effektive Kartenstufe (soll = geltende/Baseline, NICHT der Vorschlag):
+  • Stadt Bern – gesetzliche Mietzinskontrolle (BFS 351, Status pendent, Vorschlag St4) → Karte St3 (Quelle: Stadt Bern)
+  • Stadt Luzern – Wohnschutz (GEW-Unterstellung) (BFS 1061, Status pendent, Vorschlag St4) → Karte St3 (Quelle: Stadt Luzern)
+  • Stadt Schaffhausen – Wohnrauminitiative (BFS 2939, Status abgelehnt, Vorschlag St2) → Karte St0 (Quelle: —)
+  • Stadt Wetzikon – Wohn-Initiative (BFS 121, Status abgelehnt, Vorschlag St2) → Karte St0 (Quelle: —)
+  • Stadt Adliswil – preisgünstiger Wohnraum (BFS 131, Status pendent, Vorschlag St2) → Karte St0 (Quelle: —)
+
+==============================================================================
+CHECK 6 · Ausgeschlossene Kategorien (Airbnb/Zweitwohnung) bestimmen NIE die Farbe
+==============================================================================
+Tessin (Lex Airbnb ausgeklammert): 106 Gemeinden, davon gefärbt (Stufe ≥1): 0
+  ✓ Ganz Tessin = Baseline (Airbnb färbt nicht).
+
+Luzern 1061: Stufe 3/vorkauf · Quelle: Stadt Luzern · Grundlage: Vorkaufsrecht-Reglement (Volksabstimmung 14.6.2026, in Kraft ab 09/2026) + Bodenpolitik
+  → ✓ Gefärbt durch Vorkauf (3a), NICHT durch die Airbnb-Regel.
+
+==============================================================================
+CHECK 7 · Kommunale Regel färbt NIE den ganzen Kanton
+==============================================================================
+7a · Kantonskarte nutzt cantonLevel(kt) – unabhängig von kommunalen Regeln:
+  ZH: Kantonskarte=St0
+  BE: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  LU: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  UR: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  SZ: Kantonskarte=St0
+  OW: Kantonskarte=St0
+  NW: Kantonskarte=St1
+  GL: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  ZG: Kantonskarte=St1
+  FR: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  SO: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  BS: Kantonskarte=St4
+  BL: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  SH: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  AR: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  AI: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  SG: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  GR: Kantonskarte=St1
+  AG: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  TG: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  TI: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  VD: Kantonskarte=St4
+  VS: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+  NE: Kantonskarte=St3
+  GE: Kantonskarte=St4
+  JU: Kantonskarte=St0 (kein CANTONAL-Eintrag → 0)
+
+7b · Anzahl gefärbter Gemeinden je Kanton in der GEMEINDEKARTE (classify ≥1):
+  ZH: 3/160 Gemeinden gefärbt
+  BE: 7/335 Gemeinden gefärbt
+  LU: 1/80 Gemeinden gefärbt
+  UR: 0/19 Gemeinden gefärbt
+  SZ: 0/30 Gemeinden gefärbt
+  OW: 0/7 Gemeinden gefärbt
+  NW: 0/11 Gemeinden gefärbt
+  GL: 0/3 Gemeinden gefärbt
+  ZG: 3/11 Gemeinden gefärbt
+  FR: 0/126 Gemeinden gefärbt
+  SO: 0/106 Gemeinden gefärbt
+  BS: 3/3 Gemeinden gefärbt
+  BL: 0/86 Gemeinden gefärbt
+  SH: 0/26 Gemeinden gefärbt
+  AR: 0/20 Gemeinden gefärbt
+  AI: 0/5 Gemeinden gefärbt
+  SG: 2/75 Gemeinden gefärbt
+  GR: 0/101 Gemeinden gefärbt
+  AG: 0/197 Gemeinden gefärbt
+  TG: 0/80 Gemeinden gefärbt
+  TI: 0/106 Gemeinden gefärbt
+  VD: 300/300 Gemeinden gefärbt
+  VS: 0/122 Gemeinden gefärbt
+  NE: 10/27 Gemeinden gefärbt
+  GE: 45/45 Gemeinden gefärbt
+  JU: 0/50 Gemeinden gefärbt
+
+7c · Geometrie-Größencheck (bbox-Fläche je Gemeinde vs. Kanton-Union, MMAP-Raum):
+  Gemeinden, deren bbox > 45% der Kanton-bbox abdeckt (Verdacht „färbt halben Kanton"): 2
+  ⚠ Glarus Süd (BFS 1631, GL): 65% der Kanton-bbox
+  ⚠ Basel (BFS 2701, BS): 49% der Kanton-bbox
+
+==============================================================================
+CHECK 8 · Kantonale Regeln färben Gemeinden nur, wenn vererbbar / aktiv angewandt
+==============================================================================
+  GE: level=4 inheritable=true status=in_kraft → 45 Gemeinden gefärbt (davon geerbt: 45)
+  VD: level=4 inheritable=true status=in_kraft → 300 Gemeinden gefärbt (davon geerbt: 300)
+  BS: level=4 inheritable=true status=in_kraft → 3 Gemeinden gefärbt (davon geerbt: 3)
+  ZH: level=0 inheritable=false status=in_kraft → 3 Gemeinden gefärbt (davon geerbt: 0)
+  GR: level=1 inheritable=false status=in_kraft → 0 Gemeinden gefärbt (davon geerbt: 0)
+  ZG: level=1 inheritable=false status=in_kraft → 3 Gemeinden gefärbt (davon geerbt: 0)
+  NE: level=3 inheritable=false status=in_kraft → 10 Gemeinden gefärbt (davon geerbt: 10)
+  NW: level=1 inheritable=false status=in_kraft → 0 Gemeinden gefärbt (davon geerbt: 0)
+  SZ: level=0 inheritable=false status=in_kraft → 0 Gemeinden gefärbt (davon geerbt: 0)
+  OW: level=0 inheritable=false status=in_kraft → 0 Gemeinden gefärbt (davon geerbt: 0)
+
+  NE-Spezialfall (LVAL, inheritable=false, aber NELVAL-Set): 10 geerbt, erwartet = NELVAL-Größe 10
+
+✗ NE nicht inheritable, aber 10 Gemeinden via Vererbung gefärbt
+
+==============================================================================
+LUZERN · TIEFENPRÜFUNG (Testfall)
+==============================================================================
+COMMUNES-Eintrag:        [1061, Luzern, LU, kom_luz, 48120]   (Format [bfs,name,kt,oldkey,dw])
+  → oldkey/Match-Key:    "kom_luz"  ← genau das vermutete "kom_luz"; in der LOGIK NICHT verwendet (nur BFS zählt).
+classify(1061):          Stufe 3 / Untertyp vorkauf / inherited=false / status=in_kraft
+  Quelle:                Stadt Luzern
+  Rechtsgrundlage:       Vorkaufsrecht-Reglement (Volksabstimmung 14.6.2026, in Kraft ab 09/2026) + Bodenpolitik
+MUNI[1061].status:       "in_kraft"  (Achtung: legal-Text sagt „in Kraft ab 09/2026"; heute 2026-06-22)
+cantonLevel("LU"):       0  → Kanton Luzern auf der Kantonskarte = Baseline (Gemeinde färbt Kanton NICHT).
+MMAP-Geometrie 1061:     vorhanden
+CITIES-Geometrie 1061:   vorhanden
+
+Gefärbte Gemeinden im Kanton LU (Gemeindekarte): 1/80
+  1061 Luzern (St3)
+  ✓ Nur die Stadt Luzern ist gefärbt – nicht der ganze Kanton.
+
+bbox Stadt Luzern (MMAP): w=96 h=54 area=5184
+bbox Kanton LU (Union):   w=296 h=328 area=97088
+Anteil Stadt-bbox / Kanton-bbox: 5.3%  ✓ plausibel (kleine Stadtfläche)
+
+PENDABG mit Luzern-Bezug: 1
+  • "Stadt Luzern – Wohnschutz (GEW-Unterstellung)" Status=pendent Vorschlag St4 → wirkt sich auf classify(1061) aus? NEIN ✓ (nur Tabelle)
+EXCLUDED mit Luzern-Bezug: 1
+  • "Stadt Luzern – Airbnb-90-Tage-Regel" → in classify referenziert? NEIN ✓ (EXCLUDED wird von classify nie gelesen)
+
+==============================================================================
+ZUSAMMENFASSUNG (maschinell)
+==============================================================================
+{
+  "communes": 2131,
+  "mmapGeoms": 2115,
+  "geomCoverageMissing": 19,
+  "orphanGeoms": 3,
+  "citiesIssues": 0,
+  "coloredNotInForce": 0,
+  "tableMapDiff_total": 8,
+  "tableMapDiff_critical_inforce": 1,
+  "oversizeGeoms": 2,
+  "tiColored": 0,
+  "luzern_level": 3,
+  "luzern_subtype": "vorkauf",
+  "luzern_cantonLevel": 0,
+  "luzern_coloredCommunesInCanton": 1
+}
