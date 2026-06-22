@@ -43,7 +43,8 @@
         "Kanton Basel-Stadt (canton_number 12)",
         "Basel (BFS 2701)",
         "Bettingen (BFS 2702)",
-        "Riehen (BFS 2703)"
+        "Riehen (BFS 2703)",
+        "Worklist (Basel, Riehen, Bettingen) vollständig geprüft; Riehen/Bettingen ohne eigenes Instrument über kantonales Recht hinaus"
       ],
       "sources_checked": [
         {
@@ -125,10 +126,16 @@
       "bfs_number": null,
       "canton_number": 3,
       "research_status": "integrated",
-      "summary": "Kanton Luzern: kantonal v.a. ermächtigend (PBG: Gemeinden können Förderzonen ausscheiden); primär sind die Gemeinden zuständig. Stadt Luzern (BFS 1061): Kurzzeitvermietungs-Reglement (Kat 8) seit 1.1.2025 in Kraft (farbbestimmend); Vorkaufsrecht (Kat 5) und aktive Bodenpolitik/Stiftung (Kat 4) am 14.6.2026 angenommen, Inkrafttreten/Umsetzung 2027 -> derzeit 'planned', nicht farbbestimmend.",
+      "summary": "Kanton Luzern: kantonal v.a. ermächtigend (PBG: Gemeinden können Förderzonen ausscheiden); primär sind die Gemeinden zuständig. Stadt Luzern (BFS 1061): Kurzzeitvermietungs-Reglement (Kat 8) seit 1.1.2025 in Kraft (farbbestimmend); Vorkaufsrecht (Kat 5) und aktive Bodenpolitik/Stiftung (Kat 4) am 14.6.2026 angenommen, Inkrafttreten/Umsetzung 2027 -> derzeit 'planned', nicht farbbestimmend. Worklist (grösste LU-Gemeinden) durchgegangen: eigene Instrumente in Horw (Förderung) und Kriens (Wohnbaureglement, angenommen 8.3.2026, Umsetzung ausstehend); Emmen/Ebikon/Sursee/Hochdorf ohne eigene bindende Instrumente. Keine NEUE Kartenfarbe (alle neuen Instrumente Förderung/planned).",
       "territories_checked": [
         "Kanton Luzern (canton_number 3)",
-        "Stadt Luzern (BFS 1061)"
+        "Stadt Luzern (BFS 1061) — Airbnb (Kat 8, in Kraft), Vorkauf (Kat 5, planned), Bodenpolitik (Kat 4, planned)",
+        "Emmen (1024) — keine eigenen bindenden Instrumente gefunden (nur Baugenossenschaften)",
+        "Kriens (1059) — Wohnbaureglement (Gegenvorschlag angenommen 8.3.2026): Airbnb-Einschränkung (Kat 8) + 10%-Förderziel (Kat 4); Umsetzung ausstehend (planned)",
+        "Horw (1058) — Reglement preisgünstiger Wohnraum (2018, Förderung Kat 4)",
+        "Ebikon (1054) — keine eigenen bindenden Instrumente gefunden",
+        "Sursee (1103) — keine eigenen bindenden Instrumente gefunden",
+        "Hochdorf (1031) — keine eigenen bindenden Instrumente gefunden"
       ],
       "sources_checked": [
         {
@@ -176,7 +183,10 @@
         "lu-3-pbg-foerderzonen",
         "lu-1061-kurzzeitvermietung",
         "lu-1061-vorkaufsrecht",
-        "lu-1061-bodenpolitik"
+        "lu-1061-bodenpolitik",
+        "lu-1058-foerderung-preisguenstig",
+        "lu-1059-kurzzeitvermietung",
+        "lu-1059-wohnbaufoerderung"
       ],
       "instruments_rejected_or_not_confirmed": [
         "Kantonale Mietzinskontrolle / GEW-Unterstellung der Stadt Luzern: kein aktuell geltender Stand bestätigt -> offen, nicht erfasst.",
@@ -188,7 +198,9 @@
       "open_questions": [
         "Vorkaufsrecht: exaktes Inkrafttretens-Datum 2027 + Reglementstext (städtische Rechtssammlung) verlinken; dann status->in_force, map_relevant->true.",
         "Kantonale Wohnbauförderung / GEW-Unterstellung Stadt Luzern: aktuellen Rechtsstand klären.",
-        "Weitere LU-Gemeinden (Emmen, Kriens) mit eigenen Instrumenten prüfen."
+        "Weitere LU-Gemeinden (Emmen, Kriens) mit eigenen Instrumenten prüfen.",
+        "Kriens: Inkrafttreten des Wohnbaureglements bestätigen -> dann Kat 8 (Airbnb) farbbestimmend.",
+        "Horw: Reglement-Text prüfen (verbindliche Quote -> Kat 3, sonst Förderung Kat 4)."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
@@ -201,10 +213,20 @@
       "bfs_number": null,
       "canton_number": 13,
       "research_status": "integrated",
-      "summary": "Kanton Basel-Landschaft: seit 1.1.2024 gilt das Gesetz über die Wohnbauförderung (WBFG, SGS 842) – reine Förderung (gemeinnütziger Wohnungsbau via Bürgschaften/Fonds; selbstgenutztes Wohneigentum; altersgerechte Umbauten). KEIN kantonaler Wohnschutz, KEINE Mietzinskontrolle, KEINE Zweckentfremdungsregel (anders als Basel-Stadt). Folglich keine farbbestimmenden Instrumente -> BL bleibt auf der Karte neutral.",
+      "summary": "Kanton Basel-Landschaft: seit 1.1.2024 gilt das Gesetz über die Wohnbauförderung (WBFG, SGS 842) – reine Förderung (gemeinnütziger Wohnungsbau via Bürgschaften/Fonds; selbstgenutztes Wohneigentum; altersgerechte Umbauten). KEIN kantonaler Wohnschutz, KEINE Mietzinskontrolle, KEINE Zweckentfremdungsregel (anders als Basel-Stadt). Folglich keine farbbestimmenden Instrumente -> BL bleibt auf der Karte neutral. Worklist (11 grösste BL-Gemeinden) durchgegangen: keine eigenen bindenden Wohnungsmarkt-Instrumente gefunden; BL bleibt neutral.",
       "territories_checked": [
         "Kanton Basel-Landschaft (canton_number 13)",
-        "gescreent: Allschwil (2762), Reinach, Münchenstein, Pratteln, Liestal"
+        "Allschwil (2762) — kein eigenes bindendes Wohnungsmarkt-Instrument (Quartierplan-/Zonenreglement projektbezogen)",
+        "Reinach (2773) — keine (Finanzierung über Quartierpläne, freiwillig)",
+        "Muttenz (2770) — keine gefunden",
+        "Pratteln (2831) — keine gefunden",
+        "Liestal (2829, Hauptort) — keine gefunden",
+        "Binningen (2765) — keine gefunden",
+        "Münchenstein (2769) — nur Mehrwertabgabe (Planungsabgabe, kein Wohnungsmarkt-Instrument)",
+        "Oberwil (2771) — keine gefunden",
+        "Aesch (2761) — keine gefunden",
+        "Birsfelden (2766) — keine gefunden",
+        "Therwil (2775) — keine gefunden"
       ],
       "sources_checked": [
         {

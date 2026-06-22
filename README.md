@@ -26,7 +26,7 @@ Live ansehen (öffentliches Repo, ohne Setup):
 - **Umfang:** nur Schweiz — **26 Kantone, 2115 Gemeinden, 10 Seen**. Liechtenstein und ausländische Enklaven (Büsingen, Campione) entfernt; CH-Sondergebiete (Staatswald Galm, 2 Kommunanzen) als neutrale Flächen.
 - **Amtliche ID-Liste:** „Politische Gemeinden 01.01.2024" (2131 BFS) als Referenz in `src/data/source/gemeinde-id-2024.json`.
 - ⚠ **Stichtags-Versatz:** ID-Liste = 2024, Geometrie = 2025 → 19 zwischenzeitlich fusionierte Gemeinden haben kein Polygon (Details in `docs/REBUILD_NOTES.md`).
-- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Basel-Stadt + Luzern + Basel-Landschaft** (11 Instrumente, Tier-1/2-Quellen; Audit je Gebiet in `src/data/audit-reports.json`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Basel/Riehen/Bettingen = Kat 7 (rot); Stadt Luzern = Kat 8 (gelb, Kurzzeitvermietung), Vorkauf (Kat 5) `planned` ab 2027; Basel-Landschaft = nur Förderung (WBFG) → neutral.
+- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: Basel-Stadt + Luzern + Basel-Landschaft** (14 Instrumente, Tier-1/2-Quellen; Audit je Gebiet in `src/data/audit-reports.json`). Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Basel/Riehen/Bettingen = Kat 7 (rot); Stadt Luzern = Kat 8 (gelb, Kurzzeitvermietung), Vorkauf (Kat 5) `planned` ab 2027; Basel-Landschaft = nur Förderung (WBFG) → neutral.
 
 ## Reproduzierbarer Build
 

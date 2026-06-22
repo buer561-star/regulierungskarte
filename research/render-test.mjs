@@ -30,6 +30,8 @@ A(fill('#map path[data-bfs="2702"]') === "#C5322B", `Bettingen (2702) = Kat 7 ro
 A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) ohne Instrument = neutral`);
 A(fill('#map path[data-bfs="1061"]') === "#F2C53D", `Luzern (1061) = Kat 8 gelb (Kurzzeitvermietung) (ist ${fill('#map path[data-bfs="1061"]')})`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="2762"]')), `Allschwil (BL 2762) neutral (BL nur Förderung, nicht farbbestimmend)`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="1058"]')), `Horw (LU 1058) neutral (Förderung, nicht farbbestimmend)`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="1059"]')), `Kriens (LU 1059) neutral (Wohnbaureglement planned, nicht farbbestimmend)`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -50,7 +52,7 @@ A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 11, `Tabelle: 11 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 14, `Tabelle: 14 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 const rc = $$("#rtable tbody tr").length; A(rc === 1, `Filter Kat 6: ${rc} Zeile (Bewilligungspflicht)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
