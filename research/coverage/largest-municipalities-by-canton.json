@@ -1,0 +1,1898 @@
+{
+  "generated": "2026-06-22",
+  "rule": "Pro Kanton: alle Gemeinden >=10'000 Einw. UNION Top-3 UNION Kantonshauptort. Quelle: swisstopo Einwohnerzahl (2025).",
+  "threshold": 10000,
+  "cantons": [
+    {
+      "nr": 1,
+      "kt": "ZH",
+      "name": "Zürich",
+      "capital": "Zürich",
+      "capital_found": true,
+      "count": 34,
+      "municipalities": [
+        {
+          "bfs": 261,
+          "name": "Zürich",
+          "pop": 433989,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 230,
+          "name": "Winterthur",
+          "pop": 119315,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 198,
+          "name": "Uster",
+          "pop": 36352,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 191,
+          "name": "Dübendorf",
+          "pop": 31506,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 243,
+          "name": "Dietikon",
+          "pop": 28201,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 121,
+          "name": "Wetzikon (ZH)",
+          "pop": 26462,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 293,
+          "name": "Wädenswil",
+          "pop": 25753,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 53,
+          "name": "Bülach",
+          "pop": 24186,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 295,
+          "name": "Horgen",
+          "pop": 23709,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 66,
+          "name": "Opfikon",
+          "pop": 21553,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 62,
+          "name": "Kloten",
+          "pop": 21272,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 247,
+          "name": "Schlieren",
+          "pop": 20581,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 199,
+          "name": "Volketswil",
+          "pop": 19723,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 131,
+          "name": "Adliswil",
+          "pop": 19707,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 96,
+          "name": "Regensdorf",
+          "pop": 19676,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 141,
+          "name": "Thalwil",
+          "pop": 18561,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 296,
+          "name": "Illnau-Effretikon",
+          "pop": 17679,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 69,
+          "name": "Wallisellen",
+          "pop": 17625,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 154,
+          "name": "Küsnacht (ZH)",
+          "pop": 15162,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 158,
+          "name": "Stäfa",
+          "pop": 15067,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 156,
+          "name": "Meilen",
+          "pop": 14751,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 138,
+          "name": "Richterswil",
+          "pop": 14209,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 161,
+          "name": "Zollikon",
+          "pop": 13570,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 118,
+          "name": "Rüti (ZH)",
+          "pop": 12862,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2,
+          "name": "Affoltern am Albis",
+          "pop": 12859,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 177,
+          "name": "Pfäffikon",
+          "pop": 12509,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 52,
+          "name": "Bassersdorf",
+          "pop": 12186,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 117,
+          "name": "Hinwil",
+          "pop": 11832,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 155,
+          "name": "Männedorf",
+          "pop": 11666,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 195,
+          "name": "Maur",
+          "pop": 10919,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 115,
+          "name": "Gossau (ZH)",
+          "pop": 10569,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 120,
+          "name": "Wald (ZH)",
+          "pop": 10562,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 250,
+          "name": "Urdorf",
+          "pop": 10424,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 56,
+          "name": "Embrach",
+          "pop": 10308,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 2,
+      "kt": "BE",
+      "name": "Bern",
+      "capital": "Bern",
+      "capital_found": true,
+      "count": 17,
+      "municipalities": [
+        {
+          "bfs": 351,
+          "name": "Bern",
+          "pop": 136988,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 371,
+          "name": "Biel/Bienne",
+          "pop": 55932,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 942,
+          "name": "Thun",
+          "pop": 43905,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 355,
+          "name": "Köniz",
+          "pop": 42958,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 363,
+          "name": "Ostermundigen",
+          "pop": 18195,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 404,
+          "name": "Burgdorf",
+          "pop": 17119,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 939,
+          "name": "Steffisburg",
+          "pop": 16467,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 306,
+          "name": "Lyss",
+          "pop": 16406,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 329,
+          "name": "Langenthal",
+          "pop": 16077,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 356,
+          "name": "Muri bei Bern",
+          "pop": 13530,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 768,
+          "name": "Spiez",
+          "pop": 13190,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 616,
+          "name": "Münsingen",
+          "pop": 13113,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 861,
+          "name": "Belp",
+          "pop": 11678,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 362,
+          "name": "Ittigen",
+          "pop": 11628,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 627,
+          "name": "Worb",
+          "pop": 11526,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 361,
+          "name": "Zollikofen",
+          "pop": 11477,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 546,
+          "name": "Münchenbuchsee",
+          "pop": 10426,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 3,
+      "kt": "LU",
+      "name": "Luzern",
+      "capital": "Luzern",
+      "capital_found": true,
+      "count": 7,
+      "municipalities": [
+        {
+          "bfs": 1061,
+          "name": "Luzern",
+          "pop": 85534,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1024,
+          "name": "Emmen",
+          "pop": 32380,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1059,
+          "name": "Kriens",
+          "pop": 29632,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1058,
+          "name": "Horw",
+          "pop": 15475,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 1054,
+          "name": "Ebikon",
+          "pop": 14662,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 1103,
+          "name": "Sursee",
+          "pop": 10810,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 1031,
+          "name": "Hochdorf",
+          "pop": 10033,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 4,
+      "kt": "UR",
+      "name": "Uri",
+      "capital": "Altdorf",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 1201,
+          "name": "Altdorf (UR)",
+          "pop": 10198,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1213,
+          "name": "Schattdorf",
+          "pop": 5462,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1206,
+          "name": "Erstfeld",
+          "pop": 3950,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 5,
+      "kt": "SZ",
+      "name": "Schwyz",
+      "capital": "Schwyz",
+      "capital_found": true,
+      "count": 5,
+      "municipalities": [
+        {
+          "bfs": 1322,
+          "name": "Freienbach",
+          "pop": 16943,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1301,
+          "name": "Einsiedeln",
+          "pop": 16464,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1372,
+          "name": "Schwyz",
+          "pop": 16181,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1331,
+          "name": "Küssnacht (SZ)",
+          "pop": 14044,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 1362,
+          "name": "Arth",
+          "pop": 12476,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 6,
+      "kt": "OW",
+      "name": "Obwalden",
+      "capital": "Sarnen",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 1407,
+          "name": "Sarnen",
+          "pop": 10742,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1404,
+          "name": "Kerns",
+          "pop": 6472,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1401,
+          "name": "Alpnach",
+          "pop": 6379,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 7,
+      "kt": "NW",
+      "name": "Nidwalden",
+      "capital": "Stans",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 1509,
+          "name": "Stans",
+          "pop": 8377,
+          "why": [
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1507,
+          "name": "Hergiswil (NW)",
+          "pop": 6187,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1502,
+          "name": "Buochs",
+          "pop": 5487,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 8,
+      "kt": "GL",
+      "name": "Glarus",
+      "capital": "Glarus",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 1630,
+          "name": "Glarus Nord",
+          "pop": 19639,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1632,
+          "name": "Glarus",
+          "pop": 12758,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1631,
+          "name": "Glarus Süd",
+          "pop": 9659,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 9,
+      "kt": "ZG",
+      "name": "Zug",
+      "capital": "Zug",
+      "capital_found": true,
+      "count": 5,
+      "municipalities": [
+        {
+          "bfs": 1711,
+          "name": "Zug",
+          "pop": 31995,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 1701,
+          "name": "Baar",
+          "pop": 24973,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1702,
+          "name": "Cham",
+          "pop": 17867,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 1707,
+          "name": "Risch",
+          "pop": 11449,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 1708,
+          "name": "Steinhausen",
+          "pop": 10338,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 10,
+      "kt": "FR",
+      "name": "Freiburg",
+      "capital": "Fribourg",
+      "capital_found": true,
+      "count": 4,
+      "municipalities": [
+        {
+          "bfs": 2196,
+          "name": "Fribourg",
+          "pop": 38660,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 2125,
+          "name": "Bulle",
+          "pop": 26749,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2228,
+          "name": "Villars-sur-Glâne",
+          "pop": 12444,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2054,
+          "name": "Estavayer",
+          "pop": 10296,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 11,
+      "kt": "SO",
+      "name": "Solothurn",
+      "capital": "Solothurn",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 2581,
+          "name": "Olten",
+          "pop": 18715,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2546,
+          "name": "Grenchen",
+          "pop": 18295,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2601,
+          "name": "Solothurn",
+          "pop": 16855,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 12,
+      "kt": "BS",
+      "name": "Basel-Stadt",
+      "capital": "Basel",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 2701,
+          "name": "Basel",
+          "pop": 176329,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 2703,
+          "name": "Riehen",
+          "pop": 22408,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2702,
+          "name": "Bettingen",
+          "pop": 1294,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 13,
+      "kt": "BL",
+      "name": "Basel-Landschaft",
+      "capital": "Liestal",
+      "capital_found": true,
+      "count": 11,
+      "municipalities": [
+        {
+          "bfs": 2762,
+          "name": "Allschwil",
+          "pop": 22110,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2773,
+          "name": "Reinach (BL)",
+          "pop": 20258,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2770,
+          "name": "Muttenz",
+          "pop": 18234,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2831,
+          "name": "Pratteln",
+          "pop": 16566,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2829,
+          "name": "Liestal",
+          "pop": 15834,
+          "why": [
+            "pop>=10k",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 2765,
+          "name": "Binningen",
+          "pop": 15664,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2769,
+          "name": "Münchenstein",
+          "pop": 12304,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2771,
+          "name": "Oberwil (BL)",
+          "pop": 11498,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2761,
+          "name": "Aesch (BL)",
+          "pop": 10745,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2766,
+          "name": "Birsfelden",
+          "pop": 10338,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 2775,
+          "name": "Therwil",
+          "pop": 10068,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 14,
+      "kt": "SH",
+      "name": "Schaffhausen",
+      "capital": "Schaffhausen",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 2939,
+          "name": "Schaffhausen",
+          "pop": 38666,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 2937,
+          "name": "Neuhausen am Rheinfall",
+          "pop": 11213,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 2920,
+          "name": "Thayngen",
+          "pop": 5770,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 15,
+      "kt": "AR",
+      "name": "Appenzell A.Rh.",
+      "capital": "Herisau",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 3001,
+          "name": "Herisau",
+          "pop": 15893,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 3024,
+          "name": "Teufen (AR)",
+          "pop": 6514,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 3023,
+          "name": "Speicher",
+          "pop": 4453,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 16,
+      "kt": "AI",
+      "name": "Appenzell I.Rh.",
+      "capital": "Appenzell",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 3112,
+          "name": "Schwende-Rüte",
+          "pop": 6060,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 3101,
+          "name": "Appenzell",
+          "pop": 6009,
+          "why": [
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 3111,
+          "name": "Oberegg",
+          "pop": 1931,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 17,
+      "kt": "SG",
+      "name": "St. Gallen",
+      "capital": "St. Gallen",
+      "capital_found": true,
+      "count": 11,
+      "municipalities": [
+        {
+          "bfs": 3203,
+          "name": "St. Gallen",
+          "pop": 78213,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 3340,
+          "name": "Rapperswil-Jona",
+          "pop": 28640,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 3427,
+          "name": "Wil (SG)",
+          "pop": 24980,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 3443,
+          "name": "Gossau (SG)",
+          "pop": 18454,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3408,
+          "name": "Uzwil",
+          "pop": 14279,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3271,
+          "name": "Buchs (SG)",
+          "pop": 13931,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3251,
+          "name": "Altstätten",
+          "pop": 12456,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3402,
+          "name": "Flawil",
+          "pop": 10631,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3238,
+          "name": "Widnau",
+          "pop": 10337,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3342,
+          "name": "Eschenbach (SG)",
+          "pop": 10169,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 3204,
+          "name": "Wittenbach",
+          "pop": 10026,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 18,
+      "kt": "GR",
+      "name": "Graubünden",
+      "capital": "Chur",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 3901,
+          "name": "Chur",
+          "pop": 39242,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 3851,
+          "name": "Davos",
+          "pop": 10800,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 3955,
+          "name": "Landquart",
+          "pop": 9191,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 19,
+      "kt": "AG",
+      "name": "Aargau",
+      "capital": "Aarau",
+      "capital_found": true,
+      "count": 12,
+      "municipalities": [
+        {
+          "bfs": 4021,
+          "name": "Baden",
+          "pop": 23587,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 4001,
+          "name": "Aarau",
+          "pop": 22290,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 4045,
+          "name": "Wettingen",
+          "pop": 21479,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 4082,
+          "name": "Wohlen (AG)",
+          "pop": 17481,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4280,
+          "name": "Oftringen",
+          "pop": 15080,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4258,
+          "name": "Rheinfelden",
+          "pop": 13854,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4095,
+          "name": "Brugg",
+          "pop": 13288,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4289,
+          "name": "Zofingen",
+          "pop": 12796,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4040,
+          "name": "Spreitenbach",
+          "pop": 12512,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4254,
+          "name": "Möhlin",
+          "pop": 11349,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4012,
+          "name": "Suhr",
+          "pop": 11340,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4201,
+          "name": "Lenzburg",
+          "pop": 11184,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 20,
+      "kt": "TG",
+      "name": "Thurgau",
+      "capital": "Frauenfeld",
+      "capital_found": true,
+      "count": 6,
+      "municipalities": [
+        {
+          "bfs": 4566,
+          "name": "Frauenfeld",
+          "pop": 26747,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 4671,
+          "name": "Kreuzlingen",
+          "pop": 23241,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 4401,
+          "name": "Arbon",
+          "pop": 15853,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 4461,
+          "name": "Amriswil",
+          "pop": 14643,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4946,
+          "name": "Weinfelden",
+          "pop": 12233,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 4436,
+          "name": "Romanshorn",
+          "pop": 11728,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 21,
+      "kt": "TI",
+      "name": "Tessin",
+      "capital": "Bellinzona",
+      "capital_found": true,
+      "count": 4,
+      "municipalities": [
+        {
+          "bfs": 5192,
+          "name": "Lugano",
+          "pop": 63495,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 5002,
+          "name": "Bellinzona",
+          "pop": 44743,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 5113,
+          "name": "Locarno",
+          "pop": 16394,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 5254,
+          "name": "Mendrisio",
+          "pop": 15068,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 22,
+      "kt": "VD",
+      "name": "Waadt",
+      "capital": "Lausanne",
+      "capital_found": true,
+      "count": 17,
+      "municipalities": [
+        {
+          "bfs": 5586,
+          "name": "Lausanne",
+          "pop": 144160,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 5938,
+          "name": "Yverdon-les-Bains",
+          "pop": 30202,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 5886,
+          "name": "Montreux",
+          "pop": 26828,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 5724,
+          "name": "Nyon",
+          "pop": 23016,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5591,
+          "name": "Renens (VD)",
+          "pop": 21408,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5890,
+          "name": "Vevey",
+          "pop": 20139,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5590,
+          "name": "Pully",
+          "pop": 19287,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5642,
+          "name": "Morges",
+          "pop": 17720,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5721,
+          "name": "Gland",
+          "pop": 14018,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5635,
+          "name": "Ecublens (VD)",
+          "pop": 13320,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5889,
+          "name": "La Tour-de-Peilz",
+          "pop": 12595,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5589,
+          "name": "Prilly",
+          "pop": 12417,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5892,
+          "name": "Blonay - Saint-Légier",
+          "pop": 12343,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5401,
+          "name": "Aigle",
+          "pop": 11412,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5606,
+          "name": "Lutry",
+          "pop": 10794,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5624,
+          "name": "Bussigny",
+          "pop": 10624,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 5822,
+          "name": "Payerne",
+          "pop": 10545,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 23,
+      "kt": "VS",
+      "name": "Wallis",
+      "capital": "Sion",
+      "capital_found": true,
+      "count": 8,
+      "municipalities": [
+        {
+          "bfs": 6266,
+          "name": "Sion",
+          "pop": 36624,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 6136,
+          "name": "Martigny",
+          "pop": 21759,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6153,
+          "name": "Monthey",
+          "pop": 18886,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6248,
+          "name": "Sierre",
+          "pop": 17663,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6002,
+          "name": "Brig-Glis",
+          "pop": 13976,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6037,
+          "name": "Val de Bagnes",
+          "pop": 10814,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6007,
+          "name": "Naters",
+          "pop": 10605,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6253,
+          "name": "Crans-Montana",
+          "pop": 10488,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 24,
+      "kt": "NE",
+      "name": "Neuenburg",
+      "capital": "Neuchâtel",
+      "capital_found": true,
+      "count": 6,
+      "municipalities": [
+        {
+          "bfs": 6458,
+          "name": "Neuchâtel",
+          "pop": 44898,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 6421,
+          "name": "La Chaux-de-Fonds",
+          "pop": 37233,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6487,
+          "name": "Val-de-Ruz",
+          "pop": 17499,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6513,
+          "name": "Laténa",
+          "pop": 11698,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6436,
+          "name": "Le Locle",
+          "pop": 10875,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6512,
+          "name": "Val-de-Travers",
+          "pop": 10649,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 25,
+      "kt": "GE",
+      "name": "Genf",
+      "capital": "Genève",
+      "capital_found": true,
+      "count": 13,
+      "municipalities": [
+        {
+          "bfs": 6621,
+          "name": "Genève",
+          "pop": 206635,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 6643,
+          "name": "Vernier",
+          "pop": 37460,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6628,
+          "name": "Lancy",
+          "pop": 36229,
+          "why": [
+            "pop>=10k",
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6630,
+          "name": "Meyrin",
+          "pop": 26882,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6608,
+          "name": "Carouge (GE)",
+          "pop": 22311,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6631,
+          "name": "Onex",
+          "pop": 18886,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6640,
+          "name": "Thônex",
+          "pop": 16690,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6612,
+          "name": "Chêne-Bougeries",
+          "pop": 13876,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6644,
+          "name": "Versoix",
+          "pop": 13846,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6623,
+          "name": "Le Grand-Saconnex",
+          "pop": 12806,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6633,
+          "name": "Plan-les-Ouates",
+          "pop": 12221,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6645,
+          "name": "Veyrier",
+          "pop": 11917,
+          "why": [
+            "pop>=10k"
+          ]
+        },
+        {
+          "bfs": 6607,
+          "name": "Bernex",
+          "pop": 10864,
+          "why": [
+            "pop>=10k"
+          ]
+        }
+      ]
+    },
+    {
+      "nr": 26,
+      "kt": "JU",
+      "name": "Jura",
+      "capital": "Delémont",
+      "capital_found": true,
+      "count": 3,
+      "municipalities": [
+        {
+          "bfs": 6711,
+          "name": "Delémont",
+          "pop": 12739,
+          "why": [
+            "pop>=10k",
+            "top3",
+            "Hauptort"
+          ]
+        },
+        {
+          "bfs": 6729,
+          "name": "Haute-Sorne",
+          "pop": 7362,
+          "why": [
+            "top3"
+          ]
+        },
+        {
+          "bfs": 6800,
+          "name": "Porrentruy",
+          "pop": 6601,
+          "why": [
+            "top3"
+          ]
+        }
+      ]
+    }
+  ],
+  "total_municipalities": 193
+}

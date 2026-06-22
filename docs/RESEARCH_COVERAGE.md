@@ -19,9 +19,15 @@ Für **jeden** Kanton prüfen:
 
 Erfassung je Befund als Instrument nach `DATA_MODEL.md` (Kategorie nach `INSTRUMENT_TAXONOMY.md`, Beleg nach `SOURCE_POLICY.md`).
 
-## 2. Die 50 grössten Gemeinden (einzeln)
+## 2. Grösste Gemeinden — PRO KANTON (einzeln, wegen Gemeindeautonomie)
 
-**Quelle der Liste:** abgeleitet aus der offiziellen swisstopo-Einwohnerzahl (`einwohnerzahl` in `src/data/source/gemeinden.geojson`, Stand 2025). **Nicht geraten.** Vor finaler Verwendung gegen **BFS STATPOP / amtliches Gemeindeverzeichnis** gegenprüfen (Stichtag fixieren).
+**Grundsatz (Gemeindeautonomie):** Gemeinden können **eigenständig** Instrumente beschliessen (z. B. Stadt Zürich Quote/Fonds, Stadt Luzern Airbnb-Reglement) — **unabhängig** davon, ob der Kanton delegiert. Die kommunale Recherche erfolgt deshalb **pro Kanton**, nicht über eine einzelne nationale Top-50-Liste (die kleine Kantone und Hauptorte übergeht).
+
+**Verbindliche Worklist:** `research/coverage/largest-municipalities-by-canton.json` (+ `.md`). Regel je Kanton: **alle Gemeinden ≥ 10'000 Einw. ∪ Top-3 ∪ Kantonshauptort**. Aktuell **193 Gemeinden** über alle 26 Kantone. Jede Worklist-Gemeinde wird im Audit **explizit** als geprüft (oder „nichts gefunden") markiert — keine stillen Lücken. Ergänzend gilt §3 (Trigger-Listen, grössenunabhängig).
+
+**Quelle:** offizielle swisstopo-Einwohnerzahl (`src/data/source/gemeinden.geojson`, 2025). **Nicht geraten.** Vor finaler Verwendung gegen **BFS STATPOP / amtliches Gemeindeverzeichnis** gegenprüfen (Stichtag fixieren).
+
+Die folgende nationale **Top-50-Tabelle** ist nur eine **Schnellreferenz** der absolut grössten Gemeinden; **maßgeblich ist die pro-Kanton-Worklist** oben.
 
 | # | Gemeinde | Kt | BFS | Einw. | # | Gemeinde | Kt | BFS | Einw. |
 |--:|---|---|--:|--:|--:|---|---|--:|--:|
@@ -51,7 +57,7 @@ Erfassung je Befund als Instrument nach `DATA_MODEL.md` (Kategorie nach `INSTRUM
 | 24 | Zug | ZG | 1711 | 31'995 | 49 | Wettingen | AG | 4045 | 21'479 |
 | 25 | Dübendorf | ZH | 191 | 31'506 | 50 | Renens (VD) | VD | 5591 | 21'408 |
 
-Für jede Top-50-Gemeinde prüfen: offizielle Website · Bau- und Zonenordnung · Nutzungsplanung · Wohnstrategie · preisgünstig-Reglemente · Baurecht · Genossenschaftsförderung · aktive Bodenpolitik · Vorkaufsrecht · Zweckänderungsbeschränkungen · Kurzzeitvermietung · Wohnschutz · relevantes Abstimmungsmaterial · pendente Vorlagen (mit klarem Status).
+Für **jede Gemeinde der pro-Kanton-Worklist** prüfen: offizielle Website · Bau- und Zonenordnung · Nutzungsplanung · Wohnstrategie · preisgünstig-Reglemente/Quoten · Baurecht · Genossenschaftsförderung · aktive Bodenpolitik · Vorkaufsrecht · Zweckänderungsbeschränkungen · Kurzzeitvermietung/Airbnb · Wohnschutz · relevantes Abstimmungsmaterial · pendente Vorlagen (mit klarem Status). Befund je Gemeinde festhalten — auch „geprüft, nichts gefunden".
 
 ## 3. Bedingte Gemeinde-Recherche
 

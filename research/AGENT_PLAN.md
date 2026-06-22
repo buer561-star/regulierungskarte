@@ -7,6 +7,7 @@ Gemeinsame Regeln für alle Agenten:
 - Verbindlich: `DATA_MODEL.md`, `INSTRUMENT_TAXONOMY.md`, `SOURCE_POLICY.md`, `GEO_VINTAGE_POLICY.md`, `RESEARCH_COVERAGE.md`, `WP_SEARCH_MATRIX.md`.
 - Bei Unsicherheit: kein Erzwingen — `needs_taxonomy_review=true` bzw. `confidence: low` / `status: unclear`.
 - Niemals DEMO-Daten als Forschung behandeln.
+- **Zwei Abdeckungs-Achsen (immer beide):** (a) **kantonale** Ebene (alle 26 Kantone); (b) **kommunale** Ebene **pro Kanton** wegen **Gemeindeautonomie** — Gemeinden (z. B. Stadt Zürich) können eigenständig Instrumente beschliessen, unabhängig davon, ob der Kanton delegiert. Eine nationale Single-Top-50-Liste ist **unzulässig** (übergeht kleine Kantone und Hauptorte). Maßgeblich ist die pro-Kanton-Worklist `research/coverage/largest-municipalities-by-canton.json`.
 
 ---
 
@@ -22,17 +23,21 @@ Gemeinsame Regeln für alle Agenten:
 - **Mission:** Pro Kanton (alle 26) Instrumente gemäß `RESEARCH_COVERAGE.md §1` erheben und nach Schema/Taxonomie strukturieren.
 - **Allowed:** Web-Recherche (Tier-1/2 bevorzugt); Vorschlags-JSON nach `research/findings/<KT>.json` schreiben (Staging, **nicht** Produktiv `src/data/`).
 - **Forbidden:** `src/data/instruments.json` direkt schreiben; Kategorien erzwingen; Tier-4-only als bestätigt markieren; Karte/UI ändern.
+- **Delegation/Autonomie-Scan:** stellt fest, ob der Kanton bindende Instrumente an Gemeinden **delegiert/ermächtigt** oder **Listen** (Mangelgemeinden, anwendende Gemeinden) führt → erzeugt die **Trigger-Liste** für Agent 3. Unabhängig davon übergibt er die pro-Kanton-Worklist (`research/coverage/largest-municipalities-by-canton.json`) an Agent 3, weil Gemeindeautonomie **immer** gilt.
 - **Input:** Kantonskürzel, Policies.
-- **Output:** Instrument-Objekte (Schema) mit Quelle, `source_quality`, `confidence`, `status`, `map_relevant`, Begründung.
+- **Output:** Instrument-Objekte (Schema) mit Quelle, `source_quality`, `confidence`, `status`, `map_relevant`, Begründung; plus Trigger-Liste + Worklist-Hinweis für Agent 3.
 - **Stop rules:** Ein Kanton pro Lauf; Stop, wenn nur Tier-3/4 vorhanden (als `unclear`/`low` markieren); kein Self-Merge in Produktivdaten.
 
 ## 3. municipal-legal-research-agent
-- **Mission:** Top-50-Gemeinden (`§2`) und **bedingte** Gemeinden (`§3`, lokale Aktivierung) erheben.
-- **Allowed:** Web-Recherche; Schreiben nach `research/findings/mun/<BFS>.json` (Staging).
-- **Forbidden:** Blind alle 2'000+ Gemeinden; Produktivdaten schreiben; Taxonomie erzwingen.
-- **Input:** BFS-Liste (aus Top-50 + kantonalen Aktivierungs-Triggern), Policies.
-- **Output:** wie Agent 2, je Gemeinde; inkl. „könnte, aber nicht eingeführt"-Fälle.
-- **Stop rules:** Nur recherchieren, wenn Trigger (kantonaler Rahmen) vorliegt; ein definiertes Batch pro Lauf.
+- **Mission:** Eigenständige (autonome) **kommunale** Instrumente erheben — **pro Kanton**, unabhängig davon, ob der Kanton delegiert (Gemeindeautonomie, z. B. Stadt Zürich Quote/Fonds, Stadt Luzern Airbnb). Zusätzlich **bedingte** Gemeinden, wo kantonales Recht lokale Aktivierung/Anwendbarkeit erzeugt.
+- **Coverage (verbindlich, beide):**
+  1. **Pro-Kanton-Worklist** = `research/coverage/largest-municipalities-by-canton.json` (Regel je Kanton: alle ≥ 10'000 Einw. ∪ Top-3 ∪ Kantonshauptort; aktuell **193** Gemeinden über 26 Kantone). **Kein** nationaler Single-Top-50.
+  2. **Trigger-Listen** (von Agent 2): wo der Kanton ein bindendes Instrument delegiert/designiert (Vorkauf, Wohnschutz, Mangelgemeinde-Liste, §49b-Quote …) → der **offiziellen Liste** der einführenden/betroffenen Gemeinden folgen — **größenunabhängig** (auch < 10'000).
+- **Allowed:** Web-Recherche (Tier-1/2: Gemeinde-Reglemente, BZO/Nutzungsplanung, Abstimmungen); Schreiben nach `research/findings/mun/<BFS>.json` (Staging).
+- **Forbidden:** Blind alle ~2'115 Gemeinden; Produktivdaten schreiben; Taxonomie/Status erzwingen; Tier-4-only als bestätigt.
+- **Input:** Pro-Kanton-Worklist + kantonale Trigger-Liste, Policies.
+- **Output:** Instrument-/Relations-Objekte je Gemeinde (Schema) inkl. „könnte, hat aber nicht eingeführt" und „geprüft, nichts gefunden"; je Worklist-Gemeinde ein `territories_checked`-Eintrag fürs Audit.
+- **Stop rules:** Ein Kanton (bzw. definiertes Batch) pro Lauf; **jede** Worklist-Gemeinde wird explizit als geprüft/leer markiert (keine stillen Lücken); kein Self-Merge in Produktivdaten.
 
 ## 4. source-evidence-audit-agent
 - **Mission:** Belegqualität bestehender/erhobener Instrumente gegen `SOURCE_POLICY.md` prüfen.
