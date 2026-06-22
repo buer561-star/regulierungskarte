@@ -442,6 +442,522 @@
       ],
       "confidence": "medium",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-GE",
+      "territory_name": "Genf",
+      "territory_type": "canton",
+      "canton": "GE",
+      "bfs_number": null,
+      "canton_number": 25,
+      "research_status": "integrated",
+      "summary": "Kanton Genf: staerkstes Mieterschutz-Regime der Schweiz, ueberwiegend KANTONAL. Farbbestimmend (Kat 5/6/7/8): LDTR (Mietzinskontrolle nach Sanierung Kat 7; Abbruch-/Umbaubewilligung Kat 6; Verkaufs-/Umwandlungsbewilligung Art. 39 Kat 5), RDTR-Kurzzeitvermietung 90 Tage (Kat 8), LGZD (Drittels-/LUP-Quote Kat 3; 10-jaehrige Preiskontrolle Kat 7), Vorkaufsrecht Kanton/Gemeinden (Kat 5). Geltung zonengebunden (Bauzonen 1-4 / Entwicklungszonen) im urbanen Kanton. Die 13 groessten Agglomerationsgemeinden der Worklist sind eingefaerbt (staerkste Kat 7 -> rot). Nicht farbbestimmend: LUP-20%-Ziel (Kat 3, staatliches Ziel), LGL-Subventionswohnungen (Kat 4), OCLPF-Vollzug (Kat 10). Gemeinden betreiben v.a. eigene Wohnbaustiftungen (Kat 4, nicht farbbestimmend).",
+      "territories_checked": [
+        "Kanton Genf (canton_number 25) - LDTR/LGZD/LGL/LUP",
+        "Genève (6621), Vernier (6643), Lancy (6628), Meyrin (6630), Carouge (6608), Onex (6631), Thônex (6640), Chêne-Bougeries (6612), Versoix (6644), Le Grand-Saconnex (6623), Plan-les-Ouates (6633), Veyrier (6645), Bernex (6607) - Agglomerationsgemeinden mit Bauzonen 1-4 -> kantonales Regime gilt -> rot (Kat 7)",
+        "Jede dieser Gemeinden hat eine EIGENE kommunale Wohnbaustiftung (Kat 4) -> nicht farbbestimmend; keine eigenen bindenden Marktregeln ueber das kantonale Recht hinaus"
+      ],
+      "sources_checked": [
+        {
+          "title": "LDTR (rsGE L 5 20)",
+          "url": "https://silgeneve.ch/legis/data/rsg_l5_20.htm",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Mietzinskontrolle nach Arbeiten (art. 10/12), Abbruch-/Umbaubewilligung (art. 5/7/9), Verkaufsbewilligung (art. 39); Geltung Bauzonen 1-4",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "LGZD (rsGE L 1 35)",
+          "url": "https://silgeneve.ch/legis/data/rsg_l1_35.htm",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Drittels-/Kategorienregel (art. 4A) und 10-jaehrige Miet-/Verkaufspreiskontrolle (art. 5) in Entwicklungszonen",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "LGL (rsGE I 4 05)",
+          "url": "https://silgeneve.ch/legis/data/rsg_i4_05.htm",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Vorkaufsrecht Kanton/Gemeinden (art. 3), subventionierte Wohnungen HBM/HLM/HM (art. 16)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "LUP (rsGE I 4 06)",
+          "url": "https://silgeneve.ch/legis/data/rsg_i4_06.htm",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Ziel 20% gemeinnuetzige Wohnungen + Fonds 35 Mio/Jahr",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Genf Airbnb-Regel (amtlich)",
+          "url": "https://www.ge.ch/louer-mon-logement-plateforme-hebergement-type-airbnb",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Erlaeuterung",
+          "what_it_proves": "Kurzzeitvermietung max. 90 Tage/Jahr, darueber bewilligungspflichtige Zweckaenderung",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ge-25-ldtr-mietzinskontrolle",
+        "ge-25-ldtr-bestandesschutz",
+        "ge-25-ldtr-alienation",
+        "ge-25-rdtr-kurzzeitvermietung",
+        "ge-25-lgzd-quote-drittel",
+        "ge-25-lgzd-preiskontrolle",
+        "ge-25-preemption",
+        "ge-25-lup-ziel",
+        "ge-25-lgl-subventioniert",
+        "ge-25-oclpf"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "LGZD-PLQ-Aenderung (Abstimmung 24.11.2024): vom Volk abgelehnt (~62% Nein) -> NICHT in Kraft.",
+        "Eigene kommunale Marktregeln (Mietzins/Abbruch/Airbnb) der GE-Gemeinden: keine ueber das kantonale Recht hinaus; Gemeinden = Produzenten (Stiftungen, Kat 4).",
+        "Kommunale Zuteilungs-Reglemente (z.B. Plan-les-Ouates, Bernex): nur eigener Bestand -> nicht farbbestimmend."
+      ],
+      "classification_notes": "Die LDTR (ein Gesetz, mehrere Wirkungen) wurde gemaess Taxonomie zerlegt: Mietzinskontrolle = Kat 7, Abbruch-/Umbaubewilligung = Kat 6, Verkaufsbewilligung = Kat 5. RDTR-Airbnb = Kat 8. LGZD: Quote = Kat 3, 10-Jahres-Preiskontrolle = Kat 7. Vorkaufsrecht = Kat 5. LUP-Ziel = Kat 3 (staatliches Ziel -> nicht farbbestimmend). LGL-Subvention = Kat 4, OCLPF = Kat 10.",
+      "map_relevance_notes": "Farbbestimmend nur Kat 5/6/7/8 in Kraft & bindend mit Tier-1/2-Beleg. Staerkste Kategorie je Gemeinde = Kat 7 -> die 13 eingefaerbten Agglomerationsgemeinden erscheinen rot. SCOPE: LDTR gilt in Bauzonen 1-4 (urbaner Kanton; 5. Zone/Villen ausgenommen), LGZD/Vorkauf in Entwicklungszonen - diese existieren in allen 13 Worklist-Gemeinden. Uebrige (nicht recherchierte) GE-Gemeinden vorerst neutral.",
+      "open_questions": [
+        "Restliche urbane GE-Gemeinden (ausserhalb der 13 Worklist-Gemeinden) mit Bauzonen 1-4 ergaenzen.",
+        "Exakte LRBPP-Mietbaender (periodisch angepasst) nur als Kontext.",
+        "Genève/Carouge: eigene Zuteilungs-Reglemente (nur Eigenbestand) ggf. gesondert dokumentieren."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-TI",
+      "territory_name": "Tessin",
+      "territory_type": "canton",
+      "canton": "TI",
+      "bfs_number": null,
+      "canton_number": 21,
+      "research_status": "integrated",
+      "summary": "Kanton Tessin: KEINE kantonale Mietzinskontrolle. Kantonal farbbestimmend ist die Kurzzeitvermietungs-Regel (Zweckaenderungs-Bewilligung ab 90 Tagen, RLE 705.110, Kat 8). Die Legge sull'abitazione (LA) ist reine Foerderung (Kat 4). Eigene kommunale Instrumente: Lugano (Art. 15 bis) und Bellinzona (Art. 15) mit bonusgebundener Quote preisguenstiger Wohnungen (Kat 3); Bellinzona zusaetzlich ein Zweitwohnungs-Plafond 8% (Art. 17, Kat 8). Worklist: Lugano & Bellinzona = Kat 3 (blau), Locarno & Mendrisio nur via kantonale Kurzzeit-Regel = Kat 8 (gelb). Locarno: eigene Umnutzungs-Planungszone NICHT beschlossen.",
+      "territories_checked": [
+        "Kanton Tessin (canton_number 21) - LA (Foerderung), RLE (Kurzzeitvermietung)",
+        "Lugano (5192) - eigene Quote Art. 15 bis NAPR (Kat 3) + kant. Kurzzeit (Kat 8) -> blau",
+        "Bellinzona (5002) - eigene Quote Art. 15 (Kat 3) + Zweitwohnungs-Plafond Art. 17 (Kat 8) + kant. Kurzzeit -> blau",
+        "Locarno (5113) - kein eigenes bindendes Instrument (Anti-Umnutzungs-Planungszone NICHT beschlossen); nur kant. Kurzzeit -> gelb (Kat 8)",
+        "Mendrisio (5254) - nur kommunale Sozialwohnungen (Kat 4) + Mietzuschuss (Kat 9); nur kant. Kurzzeit -> gelb (Kat 8)"
+      ],
+      "sources_checked": [
+        {
+          "title": "Legge sull'abitazione (LA, RL 861.100)",
+          "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/386",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Foerdermechanismus (Subventionen, Landkauf-Mitfinanzierung); subventionsgebundenes Mietzins-Monitoring (Art. 30-32), kein Marktdeckel",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "RLE 705.110 (Kurzzeitvermietung) + kant. Mitteilung",
+          "url": "https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato/?NEWS_ID=198630",
+          "source_tier": "tier_2_official",
+          "source_type": "Verordnung/Amtliche Mitteilung",
+          "what_it_proves": "Kurzzeitvermietung baubewilligungsfrei nur bis 90 Tage/Jahr; darueber Zweckaenderungs-Bewilligung (in Kraft 2.12.2022)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Lugano NAPR Art. 15 bis",
+          "url": "https://www4.ti.ch/fileadmin/DFE/DR-SL-COMMESSE/4251/E-Norme-di-attuazione-del-PR-Parte-Prima-09-04-2019.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunaler Nutzungsplan",
+          "what_it_proves": "Ausnuetzungsbonus gebunden an Mindestanteil subventionierter Wohnflaeche (RSi5 80% etc.)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Bellinzona PR Norme di Attuazione Art. 15 / Art. 17",
+          "url": "https://www4.ti.ch/fileadmin/GENERALE/IGDAC/ti_028b_1_version1_0_mn95/RE_ch08d8qu_ch08d8qu246100000.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunaler Nutzungsplan",
+          "what_it_proves": "Quote preisguenstig mit Dichtebonus (Art. 15, Zone B 60% / C-D 70%); Zweitwohnungs-Plafond 8% (Art. 17)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ti-21-rle-kurzzeitvermietung",
+        "ti-21-la-foerderung",
+        "ti-5192-quote-pigione-moderata",
+        "ti-5002-quote-pigione-moderata",
+        "ti-5002-residenze-secondarie"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kantonale Mietzinskontrolle: NICHT vorhanden (nur subventionsgebundenes Monitoring auf gefoerderten Objekten).",
+        "Locarno: eigene Anti-Umnutzungs-Planungszone (Erst-/Zweitwohnung) NICHT beschlossen -> kein eigenes Instrument; nur kantonale Kurzzeit-Regel.",
+        "Mendrisio: keine eigene Quote/Kurzzeit-Regel bestaetigt (kommunale Sozialwohnungen Kat 4 + Mietzuschuss Kat 9, nicht farbbestimmend).",
+        "Tassa di soggiorno / Registrierungsnummer: fiskalisch/prozessual (Kat 10), nicht farbbestimmend."
+      ],
+      "classification_notes": "Kantonale Kurzzeit-Regel = Kat 8 (Use-Control). LA = Kat 4 (Foerderung). Lugano/Bellinzona-Quoten = Kat 3 (bonusgebundene Quote, 'Ausnuetzungsbonus gegen preisguenstig'). Bellinzona Art. 17 = Kat 8 (eigene Zweitwohnungs-Beschraenkung, unabhaengig von Lex Weber).",
+      "map_relevance_notes": "Farbbestimmend: Lugano/Bellinzona via Kat 3 (staerker als Kat 8 in der Prioritaet) -> blau; Locarno/Mendrisio via die kantonale Kurzzeit-Regel (Kat 8) -> gelb. Die kantonale Kurzzeit-Regel gilt kantonsweit; eingefaerbt sind hier die 4 recherchierten Worklist-Gemeinden (uebrige TI-Gemeinden vorerst neutral).",
+      "open_questions": [
+        "Kantonale Kurzzeit-Regel auf weitere TI-Gemeinden ausweiten (gilt kantonsweit in Bauzonen).",
+        "Bellinzona: Art. 15/17 im konsolidierten Gesamt-PR (nach Fusion 2017) bestaetigen.",
+        "Exakter Wortlaut RLE Art. 3 cpv. 1 lett. p (komprimiertes PDF) direkt verifizieren."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-ZH",
+      "territory_name": "Zürich",
+      "territory_type": "canton",
+      "canton": "ZH",
+      "bfs_number": null,
+      "canton_number": 1,
+      "research_status": "integrated",
+      "summary": "Kanton Zuerich: §49b PBG ist nur ERMAECHTIGEND; KEIN kantonaler Mietzinsschutz. Stadt Zuerich foerdert stark (300-Mio-Wohnraumfonds Kat 4, Drittelziel), aber die verbindliche 75%-Quote (BZO-Revision) und alle kommunalen Quoten (Duebendorf 40%, Staefa 50%, Waedenswil 20%, Wallisellen ~25-40%, Thalwil 75%) sind PENDING/noch nicht rechtskraeftig; Kuesnacht/Richterswil nur freiwillige Boni. Folglich derzeit KEINE farbbestimmenden ZH-Gemeinden. Airbnb-Regeln (Stadt Zuerich, Daettlikon, Kilchberg) ebenfalls pending/contested.",
+      "territories_checked": [
+        "Kanton ZH (1) - §49b PBG ermaechtigend",
+        "Zuerich (261) - Wohnraumfonds (Kat 4) + 75%-Quote (pending) + Airbnb (pending) -> neutral",
+        "Winterthur (230) - keine bindende in-Kraft-Quote bestaetigt -> neutral",
+        "Duebendorf (191) 40%, Staefa (158) 50%, Waedenswil (293) 20%, Wallisellen (69) ~25-40%, Thalwil (141) 75% - Quoten festgesetzt, aber noch nicht in Kraft (kant. Genehmigung/Beschwerde) -> neutral",
+        "Kuesnacht (154), Richterswil (138) - nur freiwillige Ausnuetzungsboni -> neutral",
+        "Uebrige Worklist-Gemeinden: keine bindenden Instrumente gefunden"
+      ],
+      "sources_checked": [
+        {
+          "title": "PBG §49b / Bezahlbarer Wohnraum (Kanton ZH, amtlich)",
+          "url": "https://www.zh.ch/de/planen-bauen/raumplanung/raumplanung-flexdata/fachthema-projekt/bezahlbarer-wohnraum-und-raumplanung.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Erlaeuterung",
+          "what_it_proves": "§49b ermaechtigend; Adoptierende Gemeinden (Duebendorf/Rueschlikon/Schwerzenbach)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt Zuerich BZO-Revision §49b (75%-Quote)",
+          "url": "https://www.stadt-zuerich.ch/de/planen-und-bauen/stadtplanung/bau-zonenordnung/revision/49b.html",
+          "source_tier": "tier_1_primary",
+          "source_type": "Amtliche Planungsseite",
+          "what_it_proves": "75% der Mehrausnuetzung preisguenstig; UmV §49b angenommen 14.6.2026; Quote noch nicht in Kraft",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt Zuerich Wohnraumfonds startet 2025",
+          "url": "https://www.stadt-zuerich.ch/de/aktuell/medienmitteilungen/2024/10/wohnraumfonds-startet-2025.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Medienmitteilung",
+          "what_it_proves": "300-Mio-Fonds (Kat 4), in Kraft 1.1.2025",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "zh-1-pbg-49b",
+        "zh-261-wohnraumfonds",
+        "zh-261-49b-quote"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kommunale Quoten Duebendorf/Staefa/Waedenswil/Wallisellen/Thalwil: festgesetzt, aber noch nicht rechtskraeftig -> nicht erfasst als farbbestimmend.",
+        "Airbnb-Regeln (Stadt Zuerich-Initiative, Daettlikon/Kilchberg BZO-Verbote): pending/kant. Genehmigung offen.",
+        "Kuesnacht/Richterswil: freiwillige Ausnuetzungsboni -> nicht farbbestimmend.",
+        "Kein kantonaler Wohnschutz/keine Mietzinskontrolle in ZH (kant. Wohnschutz-Initiative am 14.6.2026 abgelehnt)."
+      ],
+      "classification_notes": "§49b = ermaechtigend (Kat 3, theoretical_only). Stadt Zuerich Wohnraumfonds = Kat 4. 75%-Quote = Kat 3 (status pending). Freiwillige Boni und politische Ziele (Drittelziel) sind nicht farbbestimmend.",
+      "map_relevance_notes": "Derzeit KEINE farbbestimmenden ZH-Gemeinden: alle verbindlichen Quoten sind noch nicht in Kraft (Genehmigung/Beschwerde haengig). Bei Inkrafttreten werden Duebendorf/Staefa/Waedenswil/Wallisellen/Thalwil und Stadt Zuerich Kat 3 (blau).",
+      "open_questions": [
+        "Inkrafttreten der BZO-Quoten verfolgen (dann Kat 3 farbbestimmend).",
+        "Winterthur vertieft pruefen (Foerderung vs. Quote).",
+        "Daettlikon/Kilchberg/Stadt-Zuerich Airbnb: kant. Genehmigung abwarten."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-VS",
+      "territory_name": "Wallis",
+      "territory_type": "canton",
+      "canton": "VS",
+      "bfs_number": null,
+      "canton_number": 23,
+      "research_status": "integrated",
+      "summary": "Kanton Wallis: dezentral. Kanton vollzieht nur das Bundes-Lex-Weber (LcLRS, Kat 10) und foerdert (Loi sur le logement, Kat 4) - keine kantonale Mietzinskontrolle/Quote. Farbbestimmend sind EIGENE kommunale Zweitwohnungs-/Erstwohnungsregimes der Tourismusgemeinden: Crans-Montana (RQC 70% Erstwohnungsanteil, Kat 8) und Val de Bagnes/Verbier (T3/T4-Zonen + Erstwohnungs-Kontingentierung, Kat 8) -> gelb. Sion/Martigny/Monthey/Sierre/Brig-Glis/Naters: kein eigenes Instrument ueber Bund/Kanton hinaus -> neutral.",
+      "territories_checked": [
+        "Kanton VS (23) - LcLRS (Kat 10), Loi logement (Kat 4)",
+        "Crans-Montana (6253) - RQC 70% Erstwohnung + Kontingent (Kat 8) -> gelb",
+        "Val de Bagnes (6037) - T3/T4 RS-Zonen + Erstwohnungs-Kontingentierung (Kat 8) -> gelb",
+        "Sion (6266) ~7.8% Zweitw. (<20%), Martigny (6136), Monthey (6153), Sierre (6248), Brig-Glis (6002) ~16.9% (<20%), Naters (6007) ~38% (nur Bundes-Lex-Weber) - kein eigenes Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "RQC Crans-Montana (homologue 19.12.2007)",
+          "url": "https://www.vs.ch/documents/17311/4061132/20071219_rand_reg.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Reglement",
+          "what_it_proves": "70% Erstwohnungsanteil (art. 6), Ersatzabgabe (art. 8), Kontingentierung (art. 10-12)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Val de Bagnes RCCZ / Directive Kontingentierung",
+          "url": "https://www.valdebagnes.ch/_docn/4040797/04.1_Directive_pour_le_contingentement_des_logements_en_habitat_collectif.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunale Directive",
+          "what_it_proves": "Jaehrliches Kontingent 15 Erstwohnungs-Mietwohnungen (villages d'en bas)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Loi d'application LRS (LcLRS) / aide au logement (Kanton VS)",
+          "url": "https://www.vs.ch/web/seti/residences-secondaires-lat",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Kanton vollzieht Lex Weber; keine eigene Quote; Foerderung",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "BGE 135 I 233 (RQC bestaetigt)",
+          "url": "http://relevancy.bger.ch/cgi-bin/JumpCGI?id=BGE-135-I-233&lang=fr",
+          "source_tier": "tier_3_professional",
+          "source_type": "Bundesgericht",
+          "what_it_proves": "Bestaetigt die RQC-Erstwohnungsregelung der Haut-Plateau-Gemeinden",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "vs-23-lclrs",
+        "vs-23-loi-logement",
+        "vs-6253-rqc",
+        "vs-6037-zonen-rs",
+        "vs-6037-contingentement"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Bundes-Lex-Weber/ZWG: Kontext, NICHT flaechendeckend eingefaerbt (sonst ~90 VS-Gemeinden).",
+        "Sion/Martigny/Monthey/Sierre/Brig-Glis/Naters: nur Taxe de sejour / kein eigenes bindendes Wohnungsmarkt-Instrument.",
+        "Kantonale Mietzinskontrolle: nicht vorhanden.",
+        "Weitere Tourismusgemeinden (Zermatt 30% Erstwohnungsanteil, Champery, Saas-Fee u.a.): eigene Regimes vorhanden, aber nicht auf der Worklist -> spaeter."
+      ],
+      "classification_notes": "Eigene kommunale Erstwohnungs-/Zweitwohnungs-/Kontingent-Regimes = Kat 8 (Nutzungssteuerung), nicht 6/7. Kantonale LcLRS = Kat 10 (Vollzug), Loi logement = Kat 4 (Foerderung).",
+      "map_relevance_notes": "Farbbestimmend nur die eigenen kommunalen Kat-8-Instrumente (Crans-Montana, Val de Bagnes) -> gelb. Der Bundesstandard (Lex Weber) faerbt NICHT. Uebrige Worklist-Gemeinden neutral.",
+      "open_questions": [
+        "Weitere VS-Tourismusgemeinden mit eigenen Erstwohnungs-/Kontingent-Regimes erfassen (Zermatt, Champery, Saas-Fee, Nendaz, Anniviers, Leukerbad).",
+        "Konsolidierte RQC-Fassung nach Fusion Crans-Montana bestaetigen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-FR",
+      "territory_name": "Freiburg",
+      "territory_type": "canton",
+      "canton": "FR",
+      "bfs_number": null,
+      "canton_number": 10,
+      "research_status": "integrated",
+      "summary": "Kanton Freiburg: KEIN aktives Wohnraumgesetz (Grosser Rat lehnte 2025 erneut ein kantonales Wohnungsgesetz ab, 63:36), KEIN LDTR-aequivalent, KEINE Mietzinskontrolle, KEINE kantonale Quote, KEIN kantonales Vorkaufsrecht. Einziges Gesetz: LCLS (RSF 87.2), eine auslaufende einkommensabhaengige Subjekthilfe (Kat 9). Gemeinden (Fribourg, Bulle, Villars-sur-Glâne, Estavayer): keine bindenden Quoten; Villars-sur-Glâne mit Foerder-Reglement (Kat 4/9). FR ist vollstaendig neutral auf der Karte.",
+      "territories_checked": [
+        "Kanton FR (10) - LCLS (Kat 9, auslaufend); kein Wohnraumgesetz",
+        "Fribourg (2196) - keine bindende Quote (RCU geprueft); Wohnbaustiftung Kat 4 -> neutral",
+        "Bulle (2125) - kein eigenes Instrument (PAL/RCU Standardzonierung) -> neutral",
+        "Villars-sur-Glâne (2228) - Aide-au-logement-Reglement 2026 (Kat 4/9) -> neutral",
+        "Estavayer (2054) - kein eigenes Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Loi encourageant la construction de logements a caractere social (RSF 87.2)",
+          "url": "https://bdlf.fr.ch/api/fr/texts_of_law/87.2",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Einkommensabhaengige Mietzinsverbilligung (Kat 9), seit 2001 geschlossen, Auslauf 2026",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Grand Conseil refuse une loi cantonale sur le logement (2025)",
+          "url": "https://www.rts.ch/audio-podcast/2025/audio/le-grand-conseil-fribourgeois-a-refuse-de-creer-une-loi-cantonale-sur-le-logement-29094478.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Medien/Parlament",
+          "what_it_proves": "FR ohne kantonales Wohnungsgesetz; Motion 2025 abgelehnt",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Villars-sur-Glâne: Reglement aide au logement (2026)",
+          "url": "https://www.villars-sur-glane.ch/wp-content/uploads/2020/12/000.00.02_Re_Reglement-communal-relatif-a-laide-au-logement_-2026-1.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Reglement",
+          "what_it_proves": "Mietzuschuss (Kat 9) + Stiftung/Baurecht (Kat 4); keine Quote",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "fr-10-lcls",
+        "fr-2228-aide-logement"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kantonales Wohnraumgesetz / LDTR / Mietzinskontrolle / Quote / Vorkaufsrecht: existieren in FR NICHT.",
+        "Fribourg/Bulle/Estavayer: keine bindenden kommunalen Instrumente; Wohnbaustiftungen = Kat 4.",
+        "Bundesrecht (OR/Lex Weber/Lex Koller): Kontext, nicht erfasst."
+      ],
+      "classification_notes": "LCLS = Kat 9 (auslaufende Subjekthilfe). Villars-sur-Glâne-Reglement = Kat 4 (Produktion/Bodenpolitik) mit Kat-9-Mietzuschuss. Keine farbbestimmenden Instrumente.",
+      "map_relevance_notes": "FR hat KEINE farbbestimmenden Instrumente -> Kanton und alle Worklist-Gemeinden neutral. Gueltiges Ergebnis (Foerder-/Nicht-Regulierungskanton).",
+      "open_questions": [
+        "Allfaellige kommunale Quoten in weiteren FR-Gemeinden pruefen (derzeit keine bekannt).",
+        "Stadt Fribourg: geplantes allgemeines Wohnungs-Reglement (in Entwicklung) verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-BE",
+      "territory_name": "Bern",
+      "territory_type": "canton",
+      "canton": "BE",
+      "bfs_number": null,
+      "canton_number": 2,
+      "research_status": "integrated",
+      "summary": "Kanton Bern: KEIN aktives Wohnbaufoerderungsgesetz, KEINE kantonale Ermaechtigungsnorm fuer Quoten (Gemeinden stuetzen sich auf Gemeindeautonomie). Einziger kantonaler Markteingriff: Formularpflicht Anfangsmietzins (Offenlegung Vormiete, in Kraft 1.12.2025, Kat 5 - Transparenz, bewusst nicht farbbestimmend). Farbbestimmend sind kommunale Instrumente: Stadt Bern (Wohnraumschutz Kat 6 + Drittelsmix-Quote Kat 3 -> orange), Köniz und Burgdorf (>=1/3-Quoten Kat 3 -> blau). Thun-Quote (25%) sistiert; Biel nur Foerderung (Kat 4). Uebrige Worklist-Gemeinden neutral.",
+      "territories_checked": [
+        "Kanton BE (2) - Formularpflicht Anfangsmietzins (Kat 5, nicht farbbestimmend); kein Foerdergesetz, keine Ermaechtigungsnorm",
+        "Bern (351) - Wohnraumschutz Art. 16a (Kat 6) + Drittelsmix Art. 16b (Kat 3) -> orange; Bodenfonds (Kat 4); Lex Airbnb (pending)",
+        "Köniz (355) - Preisguenstig-Quote BauR Art. 26a (Kat 3) -> blau",
+        "Burgdorf (404) - >=1/3-Quote BauR Art. 27a (Kat 3) -> blau",
+        "Thun (942) - 25%-Quote BauR Art. 7 sistiert (nicht in Kraft) -> neutral",
+        "Biel/Bienne (371) - RFGW Foerderung (Kat 4) -> neutral",
+        "Ostermundigen, Steffisburg, Lyss, Langenthal, Muri b. Bern, Spiez, Muensingen, Belp, Ittigen, Worb, Zollikofen, Muenchenbuchsee - keine bindenden Quoten gefunden -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Stadt Bern Bauordnung (BO) Art. 16a/16b",
+          "url": "https://stadtrecht.bern.ch/lex-721_1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Wohnraumschutz (Art. 16a, Abbruch-/Umnutzungsschutz <1% Leerstand) + Drittelsmix-Quote (Art. 16b, 1/3 preisguenstig + 20% Bonus)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Köniz BauR Art. 26a + Verordnung 721.15",
+          "url": "https://www.koeniz.ch/public/upload/assets/17327/721.15_verordnung_artikel_51_baureglement.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Preisguenstig-Quote bei Aufzonungen (Kostenmiete), in Kraft seit 1.5.2021",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Burgdorf Gegenvorschlag BauR Art. 27a",
+          "url": "https://www.burgdorf.ch/wGlobal/wGlobal/scripts/accessDocument.php?forceDownload=0&document=%2Fde%2Faktuelles%2Fprojekte%2Fdetail%2FInitiative-bezahlbares-Wohnen%2F20220617-Gegenvorschlag-Initiative-bezahlbares-Wohnen-EB-Auf.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "i.d.R. >=1/3 preisguenstig bei Zonierungen/UeO",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Formularpflicht Anfangsmietzins BE (BWO)",
+          "url": "https://www.bwo.admin.ch/de/kantonale-hilfen",
+          "source_tier": "tier_2_official",
+          "source_type": "Bundesamt fuer Wohnungswesen",
+          "what_it_proves": "Bern: aktive Formularpflicht (Vormiete-Offenlegung) seit 1.12.2025",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Thun BauR Art. 7 (sistiert)",
+          "url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
+          "source_tier": "tier_2_official",
+          "source_type": "Reglementssammlung",
+          "what_it_proves": "25%-Quote BauR Art. 7 'noch nicht in Kraft' (DIJ-Verfuegung 18.11.2024)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "be-2-vormiete-formularpflicht",
+        "be-351-drittelsmix",
+        "be-351-wohnraumschutz",
+        "be-351-bodenfonds",
+        "be-351-lex-airbnb",
+        "be-355-koeniz-quote",
+        "be-404-burgdorf-quote",
+        "be-942-thun-quote",
+        "be-371-biel-rfgw"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kantonales Wohnbaufoerderungsgesetz: ausgelaufen (PMG bis 2014); BWO: 'keine Foerderung'.",
+        "Kantonale Ermaechtigungsnorm fuer Quoten im BauG: existiert NICHT.",
+        "Thun 25%-Quote (Art. 7) + Arealbonus: sistiert (Beschwerde) -> nicht farbbestimmend.",
+        "Bern Lex Airbnb: beim Verwaltungsgericht haengig -> nicht farbbestimmend.",
+        "Biel Zwischennutzungs-/Leerstands-Meldepflicht: Kat 10 (prozessual) -> nicht farbbestimmend.",
+        "Kein kommunales Vorkaufsrecht/keine kommunale Mietzinskontrolle gefunden."
+      ],
+      "classification_notes": "Formularpflicht = Kat 5, aber Transparenz-/Dokumentationspflicht -> nicht farbbestimmend. Bern: Art. 16a = Kat 6 (Bestandesschutz), Art. 16b = Kat 3 (Quote) -> staerkste Kat 6 (orange). Köniz/Burgdorf = Kat 3 (blau). Bodenfonds/RFGW = Kat 4.",
+      "map_relevance_notes": "Farbbestimmend: Bern (Kat 6 -> orange), Köniz + Burgdorf (Kat 3 -> blau). Thun neutral (Quote sistiert). Kanton selbst neutral (Formularpflicht nicht farbbestimmend).",
+      "open_questions": [
+        "Thun: Rechtskraft von BauR Art. 7 + UeO Bostudenzelg (Ende 2026) verfolgen -> dann Kat 3.",
+        "Burgdorf: exaktes Inkrafttreten/Schwelle Art. 27a praezisieren.",
+        "Biel: Initiativen 2026 (1/3-Kostenmiete) verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-ZG",
+      "territory_name": "Zug",
+      "territory_type": "canton",
+      "canton": "ZG",
+      "bfs_number": null,
+      "canton_number": 9,
+      "research_status": "integrated",
+      "summary": "Kanton Zug: KEIN Verfassungsartikel zum Wohnen; das WFG (BGS 851.211) ist ein Foerdergesetz (Kat 4), keine Quote; §18 Abs. 4 PBG ermaechtigt Gemeinden zu Quoten. KEINE Mietzinskontrolle. Farbbestimmend sind kommunale in-Kraft-Quoten: Stadt Zug (§37 BO, 50% in Spezialzonen), Baar (§36c/d) und Steinhausen (gebietsspezifisch 20%) -> Kat 3 (blau). Cham (§14) und Risch (Art. 40) angenommen, aber noch nicht in Kraft (Beschwerde bzw. Genehmigung) -> neutral.",
+      "territories_checked": [
+        "Kanton ZG (9) - WFG (Kat 4), §18 Abs. 4 PBG (ermaechtigend)",
+        "Zug (1711) - §37 BO Zone preisguenstig 50% (Kat 3) -> blau",
+        "Baar (1701) - §36c/§36d BO gebietsspezifische Quoten (Kat 3) -> blau",
+        "Steinhausen (1708) - §12 BO gebietsspezifisch 20% (Kat 3, in Kraft 2.4.2026) -> blau",
+        "Cham (1702) - §14 BO Quote unter Beschwerde -> neutral",
+        "Risch (1707) - Art. 40 BO Quote vor Genehmigung -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Stadt Zug BO §37/§38 + Verordnung",
+          "url": "https://zug.tlex.ch/app/de/texts_of_law/7.1-1.2",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Zone fuer preisguenstigen Wohnungsbau: mind. 50% Geschossflaeche, +10% Bonus, in Kraft 2009/2010",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Baar BO §36c/§36d (Stand 17.4.2025)",
+          "url": "https://www.baar.ch/_docn/6561167/Bauordnung_Gemeinde_Baar_mit_Nachf%C3%BChrungen_bis_17.04.2025.pdf",
+          "source_tier": "tier_2_official",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Unterfeld Sued >=10'000 m2 preisguenstig (§36c); Spinnerei via §18 Abs. 4 PBG (§36d)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Steinhausen BO §12 + Bebauungsplaene",
+          "url": "https://ortsplanung-steinhausen.ch/wp-content/uploads/2025/03/03-02-Revision-Nutzungsplanung_Bauordnung.pdf",
+          "source_tier": "tier_2_official",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Gebietsspezifisch >=20% preisguenstig, in Kraft 2.4.2026",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Kanton Zug WFG (BGS 851.211) + PBG §18",
+          "url": "https://bgs.zg.ch/app/de/texts_of_law/851.211",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Foerderung (Kat 4); §18 Abs. 4 PBG ermaechtigt Gemeinden zu Quoten",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "zg-9-wfg",
+        "zg-9-pbg-18",
+        "zg-1711-zug-quote",
+        "zg-1701-baar-quote",
+        "zg-1708-steinhausen-quote",
+        "zg-1702-cham-quote",
+        "zg-1707-risch-quote"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kein kantonaler Verfassungsartikel zum Wohnen; WFG = Foerderung, keine Quote.",
+        "Cham §14 / Risch Art. 40: angenommen, aber nicht in Kraft (Beschwerde / kant. Genehmigung) -> nicht farbbestimmend.",
+        "Stadt Zug §30 (allgemeine 20%/40%-Quote): Entwurf, Abstimmung 2027 -> nicht erfasst.",
+        "Mehrwertabgabe-Ausweitung (Initiative): am 18.5.2025 abgelehnt.",
+        "Keine Mietzinskontrolle in ZG."
+      ],
+      "classification_notes": "WFG = Kat 4, §18 Abs. 4 PBG = ermaechtigend (Kat 3 theoretical_only). Kommunale Quoten = Kat 3 (gebiets-/zonenspezifisch verbindlich).",
+      "map_relevance_notes": "Farbbestimmend: Zug, Baar, Steinhausen (Kat 3 -> blau). Cham/Risch neutral bis Inkrafttreten. Kanton neutral.",
+      "open_questions": [
+        "Cham (Beschwerde) und Risch (Genehmigung) sowie Stadt Zug §30 (2027) verfolgen -> dann Kat 3.",
+        "Baar/Spinnerei: konkrete Quote im Bebauungsplan praezisieren."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
     }
   ]
 }

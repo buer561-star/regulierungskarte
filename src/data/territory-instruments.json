@@ -425,6 +425,1230 @@
       "relation_type": "own",
       "map_relevant": true,
       "note": "Eigenes kommunales Zweitwohnungs-/Erstwohnungsanteil-Recht (in Kraft, aktiv vollzogen) -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-ldtr-alienation",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-rdtr-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-quote-drittel",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lgzd-preiskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6621,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6643,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6628,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6630,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6608,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6631,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6640,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6612,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6644,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6623,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6633,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6645,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 6607,
+      "canton_number": 25,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Geltung in den Bau-/Entwicklungszonen dieser Agglomerationsgemeinde -> farbbestimmend"
+    },
+    {
+      "instrument_id": "ge-25-lup-ziel",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-lgl-subventioniert",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ge-25-oclpf",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 25,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Recht (Genf)."
+    },
+    {
+      "instrument_id": "ti-21-rle-kurzzeitvermietung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Norm; farbbestimmend ueber die Gemeinden (Bewilligung kommunal)."
+    },
+    {
+      "instrument_id": "ti-21-rle-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 5192,
+      "canton_number": 21,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Kantonale Kurzzeitvermietungs-Regel gilt; Bewilligung durch die Gemeinde -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "ti-21-rle-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 5002,
+      "canton_number": 21,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Kantonale Kurzzeitvermietungs-Regel gilt; Bewilligung durch die Gemeinde -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "ti-21-rle-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 5113,
+      "canton_number": 21,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Kantonale Kurzzeitvermietungs-Regel gilt; Bewilligung durch die Gemeinde -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "ti-21-rle-kurzzeitvermietung",
+      "territory_type": "municipality",
+      "bfs_number": 5254,
+      "canton_number": 21,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Kantonale Kurzzeitvermietungs-Regel gilt; Bewilligung durch die Gemeinde -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "ti-21-la-foerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ti-5192-quote-pigione-moderata",
+      "territory_type": "municipality",
+      "bfs_number": 5192,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigene kommunale Quote (Art. 15 bis) -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "ti-5002-quote-pigione-moderata",
+      "territory_type": "municipality",
+      "bfs_number": 5002,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigene kommunale Quote (Art. 15) -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "ti-5002-residenze-secondarie",
+      "territory_type": "municipality",
+      "bfs_number": 5002,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigene kommunale Zweitwohnungs-Beschraenkung (Art. 17) -> Kat 8."
+    },
+    {
+      "instrument_id": "zh-1-pbg-49b",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Ermaechtigende kantonale Norm; nicht farbbestimmend, keine automatische Vererbung."
+    },
+    {
+      "instrument_id": "zh-261-wohnraumfonds",
+      "territory_type": "municipality",
+      "bfs_number": 261,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "zh-261-49b-quote",
+      "territory_type": "municipality",
+      "bfs_number": 261,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "BZO-Revision noch nicht in Kraft -> nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "vs-23-lclrs",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Vollzug Bundes-Lex-Weber; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "vs-23-loi-logement",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "vs-6253-rqc",
+      "territory_type": "municipality",
+      "bfs_number": 6253,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigenes kommunales Erstwohnungs-/Kontingent-Reglement -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "vs-6037-zonen-rs",
+      "territory_type": "municipality",
+      "bfs_number": 6037,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigene Zonen-Nutzungssteuerung -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "vs-6037-contingentement",
+      "territory_type": "municipality",
+      "bfs_number": 6037,
+      "canton_number": 23,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigene Kontingentierung -> farbbestimmend (Kat 8)."
+    },
+    {
+      "instrument_id": "fr-10-lcls",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 10,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Auslaufende kantonale Subjekthilfe; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "fr-2228-aide-logement",
+      "territory_type": "municipality",
+      "bfs_number": 2228,
+      "canton_number": 10,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "be-2-vormiete-formularpflicht",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Offenlegungspflicht; bewusst nicht farbbestimmend (Transparenzregel)."
+    },
+    {
+      "instrument_id": "be-351-drittelsmix",
+      "territory_type": "municipality",
+      "bfs_number": 351,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Verbindliche Quote bei Umzonung -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "be-351-wohnraumschutz",
+      "territory_type": "municipality",
+      "bfs_number": 351,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Bestandesschutz bei Wohnungsnot -> farbbestimmend (Kat 6)."
+    },
+    {
+      "instrument_id": "be-351-bodenfonds",
+      "territory_type": "municipality",
+      "bfs_number": 351,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "be-351-lex-airbnb",
+      "territory_type": "municipality",
+      "bfs_number": 351,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Beim Verwaltungsgericht haengig -> nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "be-355-koeniz-quote",
+      "territory_type": "municipality",
+      "bfs_number": 355,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Verbindliche Quote -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "be-404-burgdorf-quote",
+      "territory_type": "municipality",
+      "bfs_number": 404,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Verbindliche Quote -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "be-942-thun-quote",
+      "territory_type": "municipality",
+      "bfs_number": 942,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Sistiert (nicht in Kraft) -> nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "be-371-biel-rfgw",
+      "territory_type": "municipality",
+      "bfs_number": 371,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-9-wfg",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-9-pbg-18",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Ermaechtigende Norm; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-1711-zug-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1711,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Verbindliche 50%-Quote (Kat 3) -> farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-1701-baar-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1701,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Gebietsspezifische verbindliche Quote (Kat 3) -> farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-1708-steinhausen-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1708,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Gebietsspezifische 20%-Quote (Kat 3) -> farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-1702-cham-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1702,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Unter Beschwerde -> nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "zg-1707-risch-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1707,
+      "canton_number": 9,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Vor kantonaler Genehmigung -> nicht farbbestimmend."
     }
   ]
 }

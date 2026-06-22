@@ -37,6 +37,27 @@ A(/E4E7EA/i.test(fill('#map path[data-bfs="6421"]')), `La Chaux-de-Fonds (6421) 
 A(fill('#map path[data-bfs="3851"]') === "#F2C53D", `Davos (3851) = Kat 8 gelb (Erstwohnungsanteil) (ist ${fill('#map path[data-bfs="3851"]')})`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="3901"]')), `Chur (3901) neutral (Initiative abgelehnt)`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="3955"]')), `Landquart (3955) neutral (kein eigenes Instrument)`);
+// GE: LDTR/LGZD -> Agglomerationsgemeinden rot (Kat 7)
+A(fill('#map path[data-bfs="6621"]') === "#C5322B", `Genève (6621) = Kat 7 rot (LDTR) (ist ${fill('#map path[data-bfs="6621"]')})`);
+A(fill('#map path[data-bfs="6643"]') === "#C5322B", `Vernier (6643) = Kat 7 rot (LDTR)`);
+// TI: Lugano/Bellinzona Quote (Kat 3 blau), Locarno/Mendrisio Kurzzeit (Kat 8 gelb)
+A(fill('#map path[data-bfs="5192"]') === "#3B7DC4", `Lugano (5192) = Kat 3 blau (Quote) (ist ${fill('#map path[data-bfs="5192"]')})`);
+A(fill('#map path[data-bfs="5113"]') === "#F2C53D", `Locarno (5113) = Kat 8 gelb (Kurzzeit) (ist ${fill('#map path[data-bfs="5113"]')})`);
+// VS: Crans-Montana / Val de Bagnes Kat 8 gelb; Sion neutral
+A(fill('#map path[data-bfs="6253"]') === "#F2C53D", `Crans-Montana (6253) = Kat 8 gelb (Erstwohnungsanteil)`);
+A(fill('#map path[data-bfs="6037"]') === "#F2C53D", `Val de Bagnes (6037) = Kat 8 gelb`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="6266"]')), `Sion (6266) neutral`);
+// BE: Bern Kat 6 orange; Köniz/Burgdorf Kat 3 blau; Thun neutral (sistiert)
+A(fill('#map path[data-bfs="351"]') === "#E8883A", `Bern (351) = Kat 6 orange (Wohnraumschutz) (ist ${fill('#map path[data-bfs="351"]')})`);
+A(fill('#map path[data-bfs="355"]') === "#3B7DC4", `Köniz (355) = Kat 3 blau (Quote)`);
+A(fill('#map path[data-bfs="404"]') === "#3B7DC4", `Burgdorf (404) = Kat 3 blau (Quote)`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="942"]')), `Thun (942) neutral (Quote sistiert)`);
+// ZG: Zug/Baar/Steinhausen Kat 3 blau; Cham neutral (Beschwerde)
+A(fill('#map path[data-bfs="1711"]') === "#3B7DC4", `Zug (1711) = Kat 3 blau (50%-Zone)`);
+A(fill('#map path[data-bfs="1701"]') === "#3B7DC4", `Baar (1701) = Kat 3 blau`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="1702"]')), `Cham (1702) neutral (Quote unter Beschwerde)`);
+// ZH: Stadt Zürich neutral (75%-Quote noch nicht in Kraft)
+A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) neutral (Quote pending, Fonds=Förderung)`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -57,9 +78,9 @@ A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 20, `Tabelle: 20 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 61, `Tabelle: 61 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
-const rc = $$("#rtable tbody tr").length; A(rc === 1, `Filter Kat 6: ${rc} Zeile (Bewilligungspflicht)`);
+const rc = $$("#rtable tbody tr").length; A(rc === 3, `Filter Kat 6: ${rc} Zeilen (BS + GE-LDTR + Bern Wohnraumschutz)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 
 // Detail: Basel hover zeigt Instrumente
@@ -78,7 +99,8 @@ A($("#demobanner") === null, `kein DEMO-Banner mehr`);
 A(!!$('.navitem[data-view="audit"]'), `Audit-Navigation existiert`);
 $('.navitem[data-view="audit"]').dispatchEvent(new window.Event("click"));
 A($("#v-audit").classList.contains("active"), `Audit-Ansicht aktiv`);
-A($$("#audit-wrap .acard").length >= 5, `Audit-Liste zeigt >=5 Berichte (BS, LU, BL, NE, GR)`);
+A($$("#audit-wrap .acard").length >= 12, `Audit-Liste zeigt >=12 Berichte (ist ${$$("#audit-wrap .acard").length})`);
+A(/Genf/.test($("#audit-wrap").innerHTML) && /Bern/.test($("#audit-wrap").innerHTML) && /Wallis/.test($("#audit-wrap").innerHTML) && /Zug/.test($("#audit-wrap").innerHTML), `Auditberichte GE + BE + VS + ZG in Liste`);
 A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML) && /Basel-Landschaft/.test($("#audit-wrap").innerHTML) && /Neuenburg/.test($("#audit-wrap").innerHTML) && /Graubünden/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU + BL + NE + GR in Liste`);
 A(!!$('#audit-wrap .acard[data-audit="audit-LU"]') && !!$('#audit-wrap .acard[data-audit="audit-BL"]') && !!$('#audit-wrap .acard[data-audit="audit-NE"]') && !!$('#audit-wrap .acard[data-audit="audit-GR"]'), `LU-, BL-, NE- und GR-Auditbericht vorhanden`);
 $('#audit-wrap .acard[data-audit="audit-BS"]').dispatchEvent(new window.Event("click"));
