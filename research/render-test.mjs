@@ -38,5 +38,7 @@ $('#filters .filterchip[data-id="DEMO_C"]').dispatchEvent(new window.Event("clic
 const rc = $$("#rtable tbody tr").length; A(rc >= 1 && rc < 2115, `Filter DEMO_C: ${rc} Zeilen (Teilmenge)`);
 $('#map path[data-bfs="261"]').dispatchEvent(new window.Event("mouseenter"));
 A(/Zürich/.test($("#detail").innerHTML), `Detailpanel zeigt Zürich bei Hover`);
+const db = $("#demobanner");
+A(db && /DEMO-Daten/.test(db.innerHTML) && db.style.display === "block", `DEMO-Warnbanner sichtbar`);
 console.log(fails ? `\n${fails} Test(s) FEHLGESCHLAGEN` : "\nAlle Tests bestanden.");
 process.exit(fails ? 1 : 0);

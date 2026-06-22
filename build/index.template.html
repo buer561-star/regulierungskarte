@@ -97,6 +97,8 @@
   .infocard .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);}
   .infocard .v{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;margin-top:4px;}
   .infocard .s{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .demobanner{background:#FFF4E5;border:1px solid #E8A33D;border-left:4px solid #E8883A;color:#7a4a12;border-radius:var(--radius);padding:10px 14px;margin:0 0 18px;font-size:13px;font-family:"IBM Plex Mono",monospace;line-height:1.5;}
+  .demobanner b{color:#5a3300;}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -117,6 +119,7 @@
   </aside>
 
   <main class="content">
+    <div class="demobanner" id="demobanner"><b>⚠ DEMO-Daten — nicht research-verifiziert.</b> Die angezeigten Instrumente (DEMO_A/B/C) und ihre Gemeinde-Zuordnungen sind Platzhalter zur Funktionsdemonstration und ersetzen keine geprüften Forschungsdaten.</div>
     <!-- 01 KARTE -->
     <section class="view active" id="v-karte">
       <div class="vhead">
@@ -189,13 +192,18 @@ const NS = "http://www.w3.org/2000/svg";
 const KT_ABBR = {1:"ZH",2:"BE",3:"LU",4:"UR",5:"SZ",6:"OW",7:"NW",8:"GL",9:"ZG",10:"FR",11:"SO",12:"BS",13:"BL",14:"SH",15:"AR",16:"AI",17:"SG",18:"GR",19:"AG",20:"TG",21:"TI",22:"VD",23:"VS",24:"NE",25:"GE",26:"JU"};
 const ktNameByNr = {}; RAW.cantons.forEach(c=>ktNameByNr[c.nr]=c.name);
 
-/* ===== INSTRUMENTE (PLATZHALTER – später ersetzen) ===== */
+/* ===== INSTRUMENTE =====
+   !! DEMO-PLATZHALTER — NICHT RESEARCH-VERIFIZIERT !!
+   Reine Demodaten zur Funktionsdemonstration. NICHT als Forschungsergebnis verwenden.
+   Vor Produktivnutzung durch echte Daten ersetzen (geplant: src/data/instruments.json;
+   siehe docs/DATA_MODEL.md). Jedes Demo-Objekt traegt demo:true; daran haengen das
+   UI-Warnbanner (DEMO_MODE) und der Validator (validation/validate-data.mjs). ===== */
 const INSTRUMENTE = [
   {id:"DEMO_A", name:"Demo-Instrument A", color:"#3B7DC4", demo:true},
   {id:"DEMO_B", name:"Demo-Instrument B", color:"#4F9D69", demo:true},
   {id:"DEMO_C", name:"Demo-Instrument C", color:"#E8883A", demo:true},
 ];
-/* ===== GEM_INSTR: bfs -> [instrumentId,...] (DEMO-Zuordnungen – später ersetzen) ===== */
+/* ===== GEM_INSTR: bfs -> [instrumentId,...] — DEMO-Zuordnungen, NICHT verifiziert ===== */
 const GEM_INSTR = {
   261:["DEMO_A","DEMO_B"],  // Zürich
   351:["DEMO_A"],           // Bern
@@ -209,6 +217,7 @@ const GEM_INSTR = {
   942:["DEMO_C"],           // Thun
 };
 const INSTR_BY_ID = Object.fromEntries(INSTRUMENTE.map(i=>[i.id,i]));
+const DEMO_MODE = INSTRUMENTE.some(i=>i.demo); // steuert DEMO-Warnbanner; false, sobald keine Demo-Instrumente mehr vorhanden
 const NEUTRAL = getComputedStyle(document.documentElement).getPropertyValue("--land").trim() || "#E4E7EA";
 
 const gemByBfs = {}; RAW.gemeinden.forEach(g=>gemByBfs[g.bfs]=g);
@@ -358,6 +367,7 @@ function downloadSVG(){
 /* ================= View / Init ================= */
 function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".navitem").forEach(n=>n.classList.toggle("active",n.dataset.view===v)); window.scrollTo({top:0}); }
 function init(){
+  const _db=document.getElementById("demobanner"); if(_db) _db.style.display = DEMO_MODE ? "block" : "none";
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
   document.getElementById("foot-k").textContent=RAW.meta.counts.cantons;
   document.getElementById("t-total").textContent=RAW.meta.counts.gemeinden;
