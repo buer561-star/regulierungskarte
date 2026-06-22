@@ -15147,7 +15147,7 @@
       "bfs_number": 581,
       "canton_number": 2,
       "relation_type": "own",
-      "map_relevant": true,
+      "map_relevant": false,
       "note": "Interlaken: Nutzungssteuerung des Bestands"
     },
     {
@@ -15156,7 +15156,7 @@
       "bfs_number": 594,
       "canton_number": 2,
       "relation_type": "own",
-      "map_relevant": true,
+      "map_relevant": false,
       "note": "Wilderswil: Nutzungssteuerung des Bestands"
     },
     {

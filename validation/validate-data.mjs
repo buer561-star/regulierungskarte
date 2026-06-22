@@ -85,6 +85,7 @@ if (instruments === null || relations === null) {
 const instr = instruments || [];
 const rel = relations || [];
 const instrIds = new Set(instr.map((i) => i.instrument_id));
+const instrById = Object.fromEntries(instr.map((i) => [i.instrument_id, i]));
 const realInstr = instr.filter((i) => i.demo !== true);
 const resolveBfs = (b) => geo.bfs.has(b) ? b : (aliasMap.has(b) ? aliasMap.get(b).valid_bfs : null);
 
@@ -128,6 +129,12 @@ for (const r of rel) {
   } else if (r.territory_type === "canton") {
     if (!(Number.isInteger(r.canton_number) && r.canton_number >= 1 && r.canton_number <= 26)) { log("ERROR", "C-REL-KT", `${tag}: ungültige canton_number ${r.canton_number}`); relErr++; }
     if (r.map_relevant === true && r.relation_type !== "aggregate") log("WARN", "C-REL-AGG", `${tag}: kantonale map_relevant-Relation sollte relation_type="aggregate" tragen (Aggregation ≠ kantonales Recht).`);
+  }
+  // C-REL-MAP: Relation darf nur farbbestimmend sein, wenn das Instrument es auch ist
+  // (Umkehrung erlaubt: kantonsweiter Anker map_relevant=false trotz farbbestimmender Gemeinde-Relationen).
+  const inst = instrById[r.instrument_id];
+  if (inst && r.map_relevant === true && inst.map_relevant !== true) {
+    log("ERROR", "C-REL-MAP", `${tag}: Relation map_relevant=true, aber Instrument map_relevant=${inst.map_relevant} → würde Karte fälschlich einfärben`); relErr++;
   }
 }
 if (rel.length && !relErr) log("OK", "REL", "alle Relationen referenzieren gültige BFS/Kantone und existierende Instrumente.");
