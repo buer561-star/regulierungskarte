@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "as_of_geometry": "2025",
+  "_readme": "RELATIONEN Instrument -> Territorium (Produktivdaten). Trennt das Instrument (instruments.json) von seiner geografischen Geltung. Erlaubt 1:n (z. B. eine kantonale Regel, die mehrere Gemeinden via Vererbung/Anwendung betrifft). Der Karten-Build leitet daraus die Gemeinde-Einfaerbung ab (territory_type=municipality, aufgeloeste bfs_number, map_relevant). relation_type dokumentiert, WIE die Geltung zustande kommt. canton-Relationen, die als Flaeche nur via Gemeinden wirken, sind als 'aggregate' zu kennzeichnen (keine kantonsweite Rechtsbehauptung). Noch KEINE realen Daten.",
+  "_relation_template": {
+    "instrument_id": "",
+    "territory_type": "municipality | canton | federal | special_area",
+    "bfs_number": null,
+    "canton_number": null,
+    "relation_type": "own | inherited | applied | activated | aggregate",
+    "map_relevant": null,
+    "note": ""
+  },
+  "relations": []
+}

@@ -5,13 +5,13 @@
  * Aufruf:  node validation/validate-data.mjs
  *
  * Eingaben:
- *  - Aktive Geometrie (Master 2025): build/ch-map.generated.json
- *      Fallback: eingebettetes mapdata-JSON aus index.html
- *  - Instrumente: src/data/instruments.json (Produktiv)  ODER
- *      DEMO-Konstanten INSTRUMENTE/GEM_INSTR aus build/index.template.html (Modus DEMO)
- *  - Optional: src/data/bfs-aliases.json
+ *  - Aktive Geometrie (Master 2025): build/ch-map.generated.json (Fallback: index.html mapdata)
+ *  - Produktiv:  src/data/instruments.json  (Instrument-Tabelle)
+ *                src/data/territory-instruments.json  (Relationen)
+ *                src/data/bfs-aliases.json  (aktive Aliase)
+ *  - Demo (nur Warnung): inline INSTRUMENTE/GEM_INSTR aus build/index.template.html
  *
- * Prüfungen C1..C10 siehe validation/VALIDATION_PLAN.md
+ * Prüfungen siehe validation/VALIDATION_PLAN.md.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -20,16 +20,18 @@ import { fileURLToPath } from "node:url";
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const P = (...p) => path.join(root, ...p);
 const exists = (p) => fs.existsSync(p);
+const readJSON = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 const STATUS_NON_MAP = new Set(["pending", "planned", "rejected", "unclear", "historical"]);
+const REQUIRED = ["instrument_id", "instrument_name", "territory_type", "status", "source_quality", "legal_basis", "primary_source_url"];
 
 let errors = 0, warns = 0;
 const log = (lvl, id, msg) => { if (lvl === "ERROR") errors++; if (lvl === "WARN") warns++; console.log(`  [${lvl}] ${id}: ${msg}`); };
 const head = (t) => console.log("\n" + t);
 
-/* ---------- 1. Aktive Geometrie laden ---------- */
+/* ---------- Geometrie ---------- */
 function loadGeometry() {
   if (exists(P("build", "ch-map.generated.json"))) {
-    const d = JSON.parse(fs.readFileSync(P("build", "ch-map.generated.json"), "utf8"));
+    const d = readJSON(P("build", "ch-map.generated.json"));
     return { src: "build/ch-map.generated.json", bfs: new Set(d.gemeinden.map((g) => g.bfs)), kt: new Set(d.cantons.map((c) => c.nr)) };
   }
   if (exists(P("index.html"))) {
@@ -39,102 +41,89 @@ function loadGeometry() {
   return null;
 }
 
-/* ---------- 2. Instrument-Daten laden (real oder demo) ---------- */
-function loadInstruments() {
-  if (exists(P("src", "data", "instruments.json"))) {
-    const d = JSON.parse(fs.readFileSync(P("src", "data", "instruments.json"), "utf8"));
-    const instr = d.instruments || [];
-    const gem = {};
-    instr.filter((i) => i.territory_type === "municipality" && i.bfs_number != null && i.map_relevant)
-      .forEach((i) => { (gem[i.bfs_number] ||= []).push(i.instrument_id); });
-    return { mode: "PROD", src: "src/data/instruments.json", instruments: instr, gemInstr: gem, ids: new Set(instr.map((i) => i.instrument_id)) };
-  }
-  // Fallback: DEMO aus Template extrahieren
+/* ---------- Demo aus Template (nur Warnung) ---------- */
+function loadDemo() {
+  if (!exists(P("build", "index.template.html"))) return null;
   const tpl = fs.readFileSync(P("build", "index.template.html"), "utf8");
   const im = tpl.match(/const INSTRUMENTE\s*=\s*(\[[\s\S]*?\]);/);
   const gm = tpl.match(/const GEM_INSTR\s*=\s*(\{[\s\S]*?\});/);
-  if (!im || !gm) throw new Error("DEMO-Konstanten im Template nicht gefunden");
+  if (!im || !gm) return null;
   const INSTRUMENTE = new Function("return (" + im[1] + ")")();
   const GEM_INSTR = new Function("return (" + gm[1] + ")")();
-  return {
-    mode: "DEMO", src: "build/index.template.html (inline DEMO)",
-    instruments: INSTRUMENTE.map((i) => ({ instrument_id: i.id, demo: !!i.demo })),
-    gemInstr: GEM_INSTR, ids: new Set(INSTRUMENTE.map((i) => i.id)),
-  };
-}
-
-/* ---------- 3. Aliase (optional) ---------- */
-function loadAliases() {
-  if (!exists(P("src", "data", "bfs-aliases.json"))) return { map: new Map(), present: false };
-  const d = JSON.parse(fs.readFileSync(P("src", "data", "bfs-aliases.json"), "utf8"));
-  const map = new Map((d.aliases || []).map((a) => [a.old_bfs, a]));
-  return { map, present: true };
+  return { instruments: INSTRUMENTE, gemInstr: GEM_INSTR, demoCount: INSTRUMENTE.filter((i) => i.demo).length };
 }
 
 /* ================= Lauf ================= */
 console.log("=".repeat(74) + "\nVALIDATE-DATA · read-only\n" + "=".repeat(74));
 const geo = loadGeometry();
-if (!geo) { console.log("[ERROR] Keine aktive Geometrie gefunden (build/ch-map.generated.json oder index.html)."); process.exit(2); }
-const data = loadInstruments();
-const ali = loadAliases();
-const isDemo = data.mode === "DEMO";
+if (!geo) { console.log("[ERROR] Keine aktive Geometrie gefunden."); process.exit(2); }
+
+const instruments = exists(P("src", "data", "instruments.json")) ? (readJSON(P("src", "data", "instruments.json")).instruments || []) : null;
+const relations = exists(P("src", "data", "territory-instruments.json")) ? (readJSON(P("src", "data", "territory-instruments.json")).relations || []) : null;
+const aliasDoc = exists(P("src", "data", "bfs-aliases.json")) ? readJSON(P("src", "data", "bfs-aliases.json")) : { aliases: [] };
+const aliasMap = new Map((aliasDoc.aliases || []).map((a) => [a.old_bfs, a]));
+const demo = loadDemo();
+
 console.log(`Geometrie: ${geo.src}  (${geo.bfs.size} Gemeinden, ${geo.kt.size} Kantone)`);
-console.log(`Instrumente: ${data.src}  → Modus ${data.mode} (${data.instruments.length} Instrumente, ${Object.keys(data.gemInstr).length} Gemeinde-Zuordnungen)`);
-console.log(`Aliase: ${ali.present ? "src/data/bfs-aliases.json" : "keine"}`);
+console.log(`Produktiv: instruments.json=${instruments ? instruments.length : "FEHLT"}  ·  territory-instruments.json=${relations ? relations.length : "FEHLT"}  ·  aktive Aliase=${aliasMap.size}`);
+console.log(`Demo (Template): ${demo ? demo.demoCount + " Demo-Instrumente, " + Object.keys(demo.gemInstr).length + " Zuordnungen" : "keine"}`);
 
-const resolveBfs = (b) => geo.bfs.has(b) ? b : (ali.map.has(b) ? ali.map.get(b).valid_bfs : null);
-
-/* C1 + C9: Gemeinde-Zuordnungen referenzieren gültige BFS / kein stilles Verschwinden */
-head("C1/C9 · Gemeinde-BFS gegen aktive Geometrie");
-let c1 = 0;
-for (const b of Object.keys(data.gemInstr).map(Number)) {
-  const r = resolveBfs(b);
-  if (r == null) { log("ERROR", "C1/C9", `BFS ${b} hat kein Polygon in der aktiven Geometrie und keinen Alias → Zuordnung würde unsichtbar verschwinden`); c1++; }
-  else if (r !== b) { log("WARN", "C1", `BFS ${b} via Alias → ${r} aufgelöst`); }
+if (instruments === null || relations === null) {
+  log("ERROR", "FILES", "Produktionsdateien fehlen (src/data/instruments.json und/oder territory-instruments.json).");
 }
-if (!c1) log("OK", "C1/C9", `alle ${Object.keys(data.gemInstr).length} Gemeinde-Zuordnungen haben ein Polygon`);
+const instr = instruments || [];
+const rel = relations || [];
+const instrIds = new Set(instr.map((i) => i.instrument_id));
+const realInstr = instr.filter((i) => i.demo !== true);
+const resolveBfs = (b) => geo.bfs.has(b) ? b : (aliasMap.has(b) ? aliasMap.get(b).valid_bfs : null);
 
-/* C2: referenzierte Instrument-IDs existieren */
-head("C2 · GEM_INSTR-IDs existieren in der Instrument-Tabelle");
-let c2 = 0;
-for (const [b, ids] of Object.entries(data.gemInstr)) for (const id of ids) if (!data.ids.has(id)) { log("ERROR", "C2", `BFS ${b} referenziert unbekannte Instrument-ID "${id}"`); c2++; }
-if (!c2) log("OK", "C2", "alle referenzierten Instrument-IDs existieren");
+/* C-EMPTY: leere Produktivdaten = bestanden */
+head("Produktivdaten-Status");
+if (!instr.length && !rel.length) log("INFO", "EMPTY", "Produktivdaten leer → bestanden (keine echten Instrumente zu prüfen).");
+else log("INFO", "PROD", `${realInstr.length} echte Instrumente, ${rel.length} Relationen werden geprüft.`);
 
-/* C3..C6, C8: Felder echter Instrumente */
-head("C3–C6/C8 · Pflichtfelder echter Instrumente");
-if (isDemo) {
-  log("INFO", "C3–C6/C8", "übersprungen (DEMO-Modus, keine Produktivdaten)");
-} else {
-  for (const i of data.instruments) {
-    if (i.demo) continue;
-    const cat = i.exclusive_category_id;
-    if (!(i.needs_taxonomy_review === true) && !(Number.isInteger(cat) && cat >= 1 && cat <= 10)) log("ERROR", "C3", `${i.instrument_id}: keine gültige exklusive Kategorie (1..10) und needs_taxonomy_review≠true`);
-    if (!i.status) log("ERROR", "C4", `${i.instrument_id}: status fehlt`);
-    if (!i.source_quality) log("ERROR", "C5", `${i.instrument_id}: source_quality fehlt`);
-    if (!i.last_checked) log("WARN", "C6", `${i.instrument_id}: last_checked fehlt`);
-    if (i.map_relevant === true && STATUS_NON_MAP.has(i.status)) log("ERROR", "C8", `${i.instrument_id}: status="${i.status}" darf nicht map_relevant sein`);
+/* C-DEMO: Demo vorhanden → Warnung */
+head("Demo-Daten");
+if (demo && demo.demoCount > 0) log("WARN", "DEMO", `App nutzt noch ${demo.demoCount} DEMO-Instrumente (build/index.template.html). Vor Produktivnutzung ersetzen.`);
+else log("INFO", "DEMO", "keine Demo-Instrumente.");
+// optionale Demo-BFS-Plausibilität (kein Fehler)
+if (demo) for (const b of Object.keys(demo.gemInstr).map(Number)) if (resolveBfs(b) == null) log("WARN", "DEMO-GEO", `Demo-BFS ${b} ohne Polygon/Alias.`);
+
+/* C3/C4/C5/C6/C8: echte Instrumente */
+head("Echte Instrumente · Pflichtfelder / Kategorie / Map-Regel");
+let fieldErr = 0;
+for (const i of realInstr) {
+  const idn = i.instrument_id || "(ohne id)";
+  for (const f of REQUIRED) if (i[f] === undefined || i[f] === null || i[f] === "") { log("ERROR", "C-FIELDS", `${idn}: Pflichtfeld "${f}" fehlt`); fieldErr++; }
+  const cat = i.exclusive_category_id;
+  if (i.needs_taxonomy_review !== true && !(Number.isInteger(cat) && cat >= 1 && cat <= 10)) { log("ERROR", "C-CAT", `${idn}: keine gültige exklusive Kategorie (1..10) und needs_taxonomy_review≠true`); fieldErr++; }
+  if (i.map_relevant === true && STATUS_NON_MAP.has(i.status)) { log("ERROR", "C-MAP", `${idn}: status="${i.status}" darf nicht map_relevant=true sein`); fieldErr++; }
+  if (!i.last_checked) log("WARN", "C-CHK", `${idn}: last_checked fehlt`);
+  if (!i.confidence) log("WARN", "C-CONF", `${idn}: confidence fehlt`);
+}
+if (realInstr.length && !fieldErr) log("OK", "INSTR", "alle echten Instrumente erfüllen Pflichtfelder/Kategorie/Map-Regel.");
+if (!realInstr.length) log("INFO", "INSTR", "keine echten Instrumente vorhanden.");
+
+/* C-REL: Relationen gegen Geometrie + Instrument-IDs */
+head("Relationen · BFS/Kanton gültig, Instrument vorhanden");
+let relErr = 0;
+for (const r of rel) {
+  const tag = r.instrument_id || "(ohne id)";
+  if (!instrIds.has(r.instrument_id)) { log("ERROR", "C-REL-ID", `Relation referenziert unbekannte instrument_id "${r.instrument_id}"`); relErr++; }
+  if (r.territory_type === "municipality") {
+    const res = resolveBfs(r.bfs_number);
+    if (res == null) { log("ERROR", "C-REL-BFS", `${tag}: bfs ${r.bfs_number} ohne Polygon/Alias → würde unsichtbar verschwinden`); relErr++; }
+    else if (res !== r.bfs_number) log("WARN", "C-REL-ALIAS", `${tag}: bfs ${r.bfs_number} via Alias → ${res}`);
+  } else if (r.territory_type === "canton") {
+    if (!(Number.isInteger(r.canton_number) && r.canton_number >= 1 && r.canton_number <= 26)) { log("ERROR", "C-REL-KT", `${tag}: ungültige canton_number ${r.canton_number}`); relErr++; }
+    if (r.map_relevant === true && r.relation_type !== "aggregate") log("WARN", "C-REL-AGG", `${tag}: kantonale map_relevant-Relation sollte relation_type="aggregate" tragen (Aggregation ≠ kantonales Recht).`);
   }
-  if (!errors) log("OK", "C3–C6/C8", "Pflichtfelder/Map-Regeln erfüllt");
 }
-
-/* C7: DEMO-Kennzeichnung */
-head("C7 · DEMO-Daten-Kennzeichnung");
-if (isDemo) {
-  const unmarked = data.instruments.filter((i) => !i.demo);
-  if (unmarked.length) log("ERROR", "C7", `${unmarked.length} Instrument(e) im DEMO-Modus ohne demo-Markierung`);
-  else log("INFO", "C7", "nur DEMO-Daten vorhanden; alle als demo markiert; keine Produktivdaten");
-} else {
-  const stray = data.instruments.filter((i) => i.demo);
-  if (stray.length) log("WARN", "C7", `${stray.length} als demo markierte Instrument(e) in Produktivdaten`);
-  else log("OK", "C7", "keine Demo-Instrumente in Produktivdaten");
-}
-
-/* C10: Aggregations-Kennzeichnung (UI-Invariante) */
-head("C10 · Kantons-Aggregation");
-log("INFO", "C10", "Kantonsfärbung ist Aggregat über Gemeinde-Instrumente, NICHT kantonales Recht — in der UI explizit zu kennzeichnen (noch offen).");
+if (rel.length && !relErr) log("OK", "REL", "alle Relationen referenzieren gültige BFS/Kantone und existierende Instrumente.");
+if (!rel.length) log("INFO", "REL", "keine Relationen vorhanden.");
 
 /* ---------- Summary ---------- */
 console.log("\n" + "=".repeat(74));
-console.log(`ERGEBNIS: ${errors} ERROR, ${warns} WARN  ·  Modus ${data.mode}`);
+console.log(`ERGEBNIS: ${errors} ERROR, ${warns} WARN`);
 console.log("=".repeat(74));
 process.exit(errors ? 1 : 0);

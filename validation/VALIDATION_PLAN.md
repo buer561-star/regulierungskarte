@@ -11,8 +11,11 @@ node validation/validate-data.mjs
 ## Eingaben
 
 - **Aktive Geometrie (Master = 2025):** `build/ch-map.generated.json` (Fallback: eingebettetes `mapdata` aus `index.html`). Liefert gültige BFS-Menge + Kantonsnummern.
-- **Instrument-Daten:** `src/data/instruments.json` (Produktiv, falls vorhanden) **oder** — solange nicht vorhanden — die inline **DEMO**-Konstanten `INSTRUMENTE`/`GEM_INSTR` aus `build/index.template.html` (Modus „DEMO").
-- **Aliase (optional):** `src/data/bfs-aliases.json`.
+- **Produktiv-Instrumente:** `src/data/instruments.json` (Tabelle) + `src/data/territory-instruments.json` (Relationen). **Leere Produktivdaten gelten als bestanden.**
+- **Demo (nur Warnung):** inline `INSTRUMENTE`/`GEM_INSTR` aus `build/index.template.html` — Existenz erzeugt eine **WARN** (kein ERROR), bis Demo ersetzt ist.
+- **Aliase:** `src/data/bfs-aliases.json` (aktive `aliases`; `_candidates_unverified` werden ignoriert).
+
+> Stand: Der Validator läuft jetzt gegen die **Produktionsdateien** (Relationen gegen Geometrie/Instrumente) und warnt parallel über noch vorhandene Demo-Daten. Prüf-IDs im Code: `C-FIELDS, C-CAT, C-MAP, C-REL-ID, C-REL-BFS, C-REL-KT, C-REL-AGG` (Mapping zu C1–C10 unten).
 
 ## Prüfungen
 

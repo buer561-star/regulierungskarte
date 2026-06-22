@@ -10,7 +10,8 @@ Klassifiziert wird über **Instrumente**, nicht über Karten-Stufen. Ein Territo
 
 | Datei | Inhalt |
 |---|---|
-| `src/data/instruments.json` | **Kanonische** Instrument-Tabelle (eine Zeile = ein Instrument je Territorium) |
+| `src/data/instruments.json` | **Kanonische** Instrument-Tabelle (ein Eintrag = ein Instrument; territoriale Geltung separat) |
+| `src/data/territory-instruments.json` | **Relationen** Instrument↔Territorium (`relation_type`: own/inherited/applied/activated/aggregate); Quelle der Karten-Ableitung |
 | `src/data/bfs-aliases.json` | Alt→aktuell BFS-Auflösung (siehe `GEO_VINTAGE_POLICY.md`) |
 | `src/data/demo/instruments.demo.json` *(optional)* | Demo-Instrumente, falls aus dem Tool ausgelagert (Phase 8) |
 | Build-Ableitung | `INSTRUMENTE` (Legende/Filter) + `GEM_INSTR` (bfs→[instrument_id]) werden **generiert**, nicht von Hand gepflegt |
@@ -92,8 +93,9 @@ Format:
 ## Ableitung für die Karte (Build)
 
 ```
-instruments.json
-  → (territory_type=municipality, map_relevant=true)
+territory-instruments.json (relations, territory_type=municipality, map_relevant)
+  + instruments.json (Definition: exclusive_category_id, status, color/category)
+  + bfs-aliases.json (alt→aktuell)
   → GEM_INSTR_MAP: bfs_number → [ {instrument_id, exclusive_category_id, color?} ]
   → INSTRUMENTE: eindeutige Instrument-/Kategorie-Liste für Legende & Filter
 ```
@@ -102,8 +104,8 @@ instruments.json
 
 ## Was der Code später brauchen wird (Checkliste)
 
-- [ ] Loader für `src/data/instruments.json` + `bfs-aliases.json` (statt inline-Konstanten).
-- [ ] Build-Ableitung `INSTRUMENTE`/`GEM_INSTR` aus `instruments.json`.
+- [ ] Loader für `src/data/instruments.json` + `territory-instruments.json` + `bfs-aliases.json` (statt inline-Konstanten).
+- [ ] Build-Ableitung `INSTRUMENTE`/`GEM_INSTR` aus Relationen + Instrumenten.
 - [ ] Kartenmodi 1–3 (Instrument/Kategorie/Status), Mehrfachzuordnung-Darstellung.
 - [ ] Trennung „Standardfärbung" (`map_relevant`) vs. „explizit gefiltert".
 - [ ] Aggregations-Kennzeichnung in der Kantonsansicht.
