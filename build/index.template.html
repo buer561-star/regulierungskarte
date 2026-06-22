@@ -381,17 +381,17 @@ function buildMap(){
   const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
   els.land={}; els.kt={};
   if(mapMode==="gem"){
-    RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",communeColor(g.bfs));
+    RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.style.fill=communeColor(g.bfs);
       p.addEventListener("mouseenter",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       p.addEventListener("click",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       svg.appendChild(p); els.land[g.bfs]=p; });
-    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL);
+    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.style.fill=NEUTRAL;
       p.addEventListener("mouseenter",()=>detailSonder(s)); svg.appendChild(p); });
     RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
     RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
     RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
   } else {
-    RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.setAttribute("fill",cantonColor(c.nr));
+    RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.style.fill=cantonColor(c.nr);
       p.addEventListener("mouseenter",()=>{markSel("kt",c.nr);detailKanton(c.nr);});
       p.addEventListener("click",()=>{markSel("kt",c.nr);detailKanton(c.nr);});
       svg.appendChild(p); els.kt[c.nr]=p; });
@@ -400,8 +400,8 @@ function buildMap(){
   }
 }
 function repaint(){
-  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].setAttribute("fill",communeColor(+bfs)); } }
-  else { for(const nr in els.kt){ els.kt[nr].setAttribute("fill",cantonColor(+nr)); } }
+  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].style.fill=communeColor(+bfs); } }
+  else { for(const nr in els.kt){ els.kt[nr].style.fill=cantonColor(+nr); } }
 }
 function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
 
@@ -462,10 +462,10 @@ function renderLegend(){
 function colCommuneFixed(bfs){ const s=catsOf(commMap[bfs]); for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
 function colCantonFixed(nr){ const s=ktCatMap[nr]; if(s) for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
 function buildMini(svg,mode){ if(!svg) return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
-  if(mode==="gem"){ RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",colCommuneFixed(g.bfs)); svg.appendChild(p); });
-    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL); svg.appendChild(p); });
+  if(mode==="gem"){ RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.style.fill=colCommuneFixed(g.bfs); svg.appendChild(p); });
+    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.style.fill=NEUTRAL; svg.appendChild(p); });
     RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake"))); RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
-  } else { RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.setAttribute("fill",colCantonFixed(c.nr)); svg.appendChild(p); });
+  } else { RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.style.fill=colCantonFixed(c.nr); svg.appendChild(p); });
     RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake"))); }
   RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
 }
