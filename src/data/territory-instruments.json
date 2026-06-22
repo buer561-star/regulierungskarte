@@ -2261,6 +2261,114 @@
       "relation_type": "inherited",
       "map_relevant": true,
       "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "ur-4-pbg-89",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 4,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Ermaechtigende kantonale Norm; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "sz-1322-freienbach-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1322,
+      "canton_number": 5,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Eigenes bindendes Preisguenstig-Regime -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "ow-6-kweg",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 6,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "nw-7-wrfg",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 7,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "nw-1509-stans-soziales-wohnen",
+      "territory_type": "municipality",
+      "bfs_number": 1509,
+      "canton_number": 7,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Bindende Sondernutzungszone soziales Wohnen -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "sg-17-wohnbaufoerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 17,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "sg-3203-wohnraumfonds",
+      "territory_type": "municipality",
+      "bfs_number": 3203,
+      "canton_number": 17,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung/Bodenpolitik; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ar-15-wfg",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 15,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ai-16-wohnbaufoerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 16,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ju-26-aide-logement",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 26,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ju-26-droit-emption",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 26,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Baulandmobilisierung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ju-6711-delemont-quote",
+      "territory_type": "municipality",
+      "bfs_number": 6711,
+      "canton_number": 26,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Bindende 10%-Quote (Sektoren MDa/MDb) -> farbbestimmend (Kat 3)."
     }
   ]
 }

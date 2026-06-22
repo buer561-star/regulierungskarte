@@ -1021,6 +1021,387 @@
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-UR",
+      "territory_name": "Uri",
+      "territory_type": "canton",
+      "canton": "UR",
+      "bfs_number": null,
+      "canton_number": 4,
+      "research_status": "integrated",
+      "summary": "Kanton Uri: PBG Art. 89 ermaechtigt Gemeinden zu Erst-/Zweitwohnungsanteilen, schreibt selbst keine vor; keine Worklist-Gemeinde hat sie eingefuehrt. Kein kantonales Foerdergesetz mit Quoten, keine Mietzinskontrolle. Altdorf/Schattdorf/Erstfeld: keine bindenden Instrumente -> neutral. (8 Kleingemeinden >20% Zweitwohnungen unter Bundes-ZWG, nicht auf Worklist.)",
+      "territories_checked": [
+        "Kanton UR (4) - PBG Art. 89 ermaechtigend",
+        "Altdorf (1201), Schattdorf (1213), Erstfeld (1206) - Bauordnungen geprueft, keine Quote/Erstwohnungsanteil/Mietzinskontrolle/Vorkaufsrecht -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "PBG Uri (RB 40.1111)",
+          "url": "https://rechtsbuch.ur.ch/app/de/texts_of_law/40.1111",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Art. 89 ermaechtigt Gemeinden zu Erst-/Zweitwohnungsanteilen (kein Zwang)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ur-4-pbg-89"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Worklist-Gemeinden ohne eigenes Instrument.",
+        "Bundes-ZWG (Andermatt etc.): Kontext, nicht erfasst."
+      ],
+      "classification_notes": "PBG Art. 89 = ermaechtigend (Kat 8 theoretical).",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> UR neutral.",
+      "open_questions": [
+        "Falls eine UR-Gemeinde Art. 89 nutzt, als Kat 8 erfassen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-SZ",
+      "territory_name": "Schwyz",
+      "territory_type": "canton",
+      "canton": "SZ",
+      "bfs_number": null,
+      "canton_number": 5,
+      "research_status": "integrated",
+      "summary": "Kanton Schwyz: kein kantonales bindendes Quoten-/Erstwohnungsregime; PBG ermaechtigt Gemeinden. Farbbestimmend nur Freienbach (1322): Baureglement Art. 24a + RPW 2020 mit Zweckentfremdungsverbot + verbindlichem Mietzinsplan auf bezeichneten preisguenstigen Einheiten (Kat 3) -> blau. Einsiedeln/Schwyz/Kuessnacht/Arth: nur freiwillige Boni bzw. nichts -> neutral. (6 Kleingemeinden >20% Zweitwohnungen unter Bundes-ZWG, nicht auf Worklist.)",
+      "territories_checked": [
+        "Kanton SZ (5) - PBG ermaechtigend; Grundstueckgewinnsteuer-Erleichterung 2025 = Steueranreiz (nicht farbbestimmend)",
+        "Freienbach (1322) - BR Art. 24a + RPW (Kat 3) -> blau",
+        "Einsiedeln (1301) - nur freiwillige Gestaltungsplan-Boni -> neutral",
+        "Schwyz (1372) - Baureglement ohne Quote -> neutral",
+        "Kuessnacht (1331) - freiwilliger Ausnuetzungsbonus (seit 1996), Gesamtrevision nicht in Kraft -> neutral",
+        "Arth (1362) - keine -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Baureglement Freienbach Art. 24a",
+          "url": "https://www.freienbach.ch/_docn/1403057/Baureglement_Freienbach_202204.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Art. 24a: Zweckentfremdungsverbot (Grundbuch) + Mietzinsplan auf preisguenstigen Flaechen",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Reglement preisguenstiger Wohnraum (RPW) Freienbach",
+          "url": "https://www.ortsplanung.ch/freienbach/baofreienbach/frebaoparagraf/parrpwfre004.html",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Eignung/Mietzins/Kontrolle des preisguenstigen Wohnraums (2020)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "sz-1322-freienbach-quote"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Freienbach 20%-Initiative (30.11.2025): allgemeine Anregung -> noch nicht in Kraft.",
+        "Kuessnacht/Einsiedeln: freiwillige Boni -> nicht farbbestimmend.",
+        "Bundes-ZWG (Morschach etc.): Kontext."
+      ],
+      "classification_notes": "Freienbach Art. 24a/RPW = Kat 3 (Mietzinsplan-Element grenzt an 6/7; needs_taxonomy_review).",
+      "map_relevance_notes": "Farbbestimmend nur Freienbach (Kat 3 -> blau). Uebrige SZ-Worklist neutral.",
+      "open_questions": [
+        "Freienbach 20%-Quote bei Inkrafttreten als bindende Quote nachfuehren.",
+        "Kuessnacht Gesamtrevision (Abstimmung/Beschwerden) verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-OW",
+      "territory_name": "Obwalden",
+      "territory_type": "canton",
+      "canton": "OW",
+      "bfs_number": null,
+      "canton_number": 6,
+      "research_status": "integrated",
+      "summary": "Kanton Obwalden: kWEG = reine Foerderung (Kat 4); PBG Art. 28a (Mehrwertbeteiligung) ermaechtigend; kantonaler Leitfaden bezahlbarer Wohnraum (2025) unverbindlich. Keine Quote, keine Mietzinskontrolle, kein Zweitwohnungsregime. Sarnen/Kerns/Alpnach: keine bindenden Instrumente -> neutral.",
+      "territories_checked": [
+        "Kanton OW (6) - kWEG (Kat 4), PBG Art. 28a (ermaechtigend), Leitfaden (unverbindlich)",
+        "Sarnen (1407), Kerns (1404) - BZR geprueft (nur Wohnanteil-Hoechstgrenzen) -> neutral",
+        "Alpnach (1401) - BZR-Revision = Hochwasser (Amtsblatt); BZR nur als Bild-PDF -> neutral (medium)"
+      ],
+      "sources_checked": [
+        {
+          "title": "kWEG (GDB 880.1)",
+          "url": "https://gdb.ow.ch/app/de/texts_of_law/880.1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Wohnbau-/Eigentumsfoerderung (Buergschaften, Vorschuesse, Beitraege); keine Quote",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Leitfaden bezahlbarer Wohnraum OW (2025)",
+          "url": "https://www.ow.ch/_docn/435611/Leitfaden_bezahlbarer_Wohnraum_03.12.2025.pdf",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtlicher Leitfaden",
+          "what_it_proves": "Ausdruecklich unverbindlich; bestaetigt: keine OW-Gemeinde mit Quoten",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ow-6-kweg"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Sarnen/Kerns/Alpnach: keine bindenden Instrumente.",
+        "Alpnach BZR nur Bild-PDF -> nicht zeilenweise gelesen (Amtsblatt-Befund)."
+      ],
+      "classification_notes": "kWEG = Kat 4 (Foerderung).",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> OW neutral.",
+      "open_questions": [
+        "Alpnach BZR bei Verfuegbarkeit eines Text-PDF nachpruefen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-NW",
+      "territory_name": "Nidwalden",
+      "territory_type": "canton",
+      "canton": "NW",
+      "bfs_number": null,
+      "canton_number": 7,
+      "research_status": "integrated",
+      "summary": "Kanton Nidwalden: WRFG = reine Foerderung (Kat 4), ausdruecklich keine Quoten. Farbbestimmend nur Stans (1509): ueberlagernde Sondernutzungszone soziales Wohnen (BZR Art. 36, Kostenmiete + Zuteilung, in Kraft 1.1.2025, Kat 3) -> blau. Hergiswil (freiwilliger Bonus) und Buochs: keine bindenden Instrumente -> neutral.",
+      "territories_checked": [
+        "Kanton NW (7) - WRFG (Kat 4); RR 2023: kein Bedarf an zusaetzlichen Instrumenten",
+        "Stans (1509) - BZR Art. 36 Sondernutzungszone soziales Wohnen (Kat 3) -> blau",
+        "Hergiswil (1507) - freiwilliger Nutzungsbonus fuer Gemeinnuetzige -> neutral",
+        "Buochs (1502) - BZR ohne bindendes Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "WRFG (NG 751.3)",
+          "url": "https://gesetze.nw.ch/app/de/texts_of_law/751.3",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Foerderung (Baurecht/Darlehen/Buergschaften); keine Quoten",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Bau- und Zonenreglement Stans (29.11.2023)",
+          "url": "https://www.stans.ch/_docn/5336779/Gemeinde_Stans._Bau-_und_Zonenreglement_vom_29.11.2023.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Art. 36 Sondernutzungszone soziales Wohnen: Kostenmiete + Zuteilung an einkommensschwache Haushalte",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "nw-7-wrfg",
+        "nw-1509-stans-soziales-wohnen"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Hergiswil: freiwilliger Bonus -> nicht farbbestimmend.",
+        "'10%-Quote' = abgelehnte Bundesinitiative 2020, nicht NW-Recht."
+      ],
+      "classification_notes": "WRFG = Kat 4. Stans Art. 36 = Kat 3 (gebietsspezifisch, Kostenmiete).",
+      "map_relevance_notes": "Farbbestimmend nur Stans (Kat 3 -> blau). Uebrige NW-Worklist neutral.",
+      "open_questions": [
+        "Stans Art. 36 Wortlaut bei Bedarf bestaetigen (3 vs 4)."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-SG",
+      "territory_name": "St. Gallen",
+      "territory_type": "canton",
+      "canton": "SG",
+      "bfs_number": null,
+      "canton_number": 17,
+      "research_status": "integrated",
+      "summary": "Kanton St. Gallen: nur Wohnbaufoerderung (Kat 4, Vollzug Bundesprogramme); keine kantonale Quote, keine Mietzinskontrolle, keine §49b-Ermaechtigung (Mindestanteil im PBG abgelehnt). Alle 11 Worklist-Gemeinden neutral: Stadt St. Gallen und Rapperswil-Jona haben Foerderung/Bodenpolitik (Kat 4, nicht farbbestimmend); Wil-Initiative abgelehnt (59.2% Nein); uebrige ohne Instrument.",
+      "territories_checked": [
+        "Kanton SG (17) - Wohnbaufoerderung (Kat 4); keine Quote/Mietzinskontrolle/§49b",
+        "St. Gallen (3203) - Fonds SRS 733.5 + Bodenpolitik (Kat 4) -> neutral",
+        "Rapperswil-Jona (3340) - Foerderung-Reglement (Kat 4, Fonds-Initiative zurueckgezogen) -> neutral",
+        "Wil (3427) - Initiative 'Wil will wohnen' abgelehnt (59.2% Nein) -> neutral",
+        "Gossau/Uzwil/Buchs/Altstaetten/Flawil/Widnau/Eschenbach/Wittenbach - keine bindenden Instrumente -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Wohnbaufoerderung Kanton SG",
+          "url": "https://www.sg.ch/bauen/wohnbaufoerderung.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Vollzug Bundesprogramme (Darlehen/Buergschaften); keine Quote",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt St. Gallen Reglement preisguenstiger Wohnraum (SRS 733.5)",
+          "url": "https://st.gallen.tlex.ch/app/de/texts_of_law/733.5",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Fonds zur Mietzinsverguenstigung/Liegenschaftserwerb (Kat 4)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "sg-17-wohnbaufoerderung",
+        "sg-3203-wohnraumfonds"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Stadt St. Gallen: keine bindende Quote/Mietzinskontrolle (explizit abgelehnt).",
+        "Wil-Initiative abgelehnt; Rapperswil-Jona-Fonds-Initiative zurueckgezogen.",
+        "SG Airbnb: nur Kurtaxe (kein Wohnungsmarkt-Instrument)."
+      ],
+      "classification_notes": "Kantonale + staedtische Foerderung = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> SG neutral.",
+      "open_questions": [
+        "Laufende Ortsplanungsrevisionen (St. Gallen, Flawil) verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-AR",
+      "territory_name": "Appenzell A.Rh.",
+      "territory_type": "canton",
+      "canton": "AR",
+      "bfs_number": null,
+      "canton_number": 15,
+      "research_status": "integrated",
+      "summary": "Kanton Appenzell Ausserrhoden: WFG = reine Foerderung (Kat 4); Baugesetz ohne Affordability-/Wohnschutz-/Vorkaufs-Norm (Volltext geprueft). Herisau/Teufen/Speicher: nur ordentliche Wohnanteil-Regeln -> neutral.",
+      "territories_checked": [
+        "Kanton AR (15) - WFG (Kat 4); Baugesetz ohne Quote/Wohnschutz/Vorkaufsrecht",
+        "Herisau (3001), Teufen (3024), Speicher (3023) - Baureglemente Volltext geprueft, keine Instrumente -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "WFG Appenzell A.Rh.",
+          "url": "https://ar.ch/verwaltung/departement-finanzen/amt-fuer-immobilien/foerdergelder-bundkanton/wohnraumfoerderungsgesetz-wfg/",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Darlehen an Genossenschaften; keine Quote",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Baugesetz AR (bGS 721.1)",
+          "url": "https://ar.clex.ch/app/de/texts_of_law/721.1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine preisguenstig/gemeinnuetzig/Wohnschutz/Mietzins/Vorkaufs-Bestimmung",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ar-15-wfg"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Worklist-Gemeinden ohne eigenes Instrument (Baureglemente Volltext geprueft)."
+      ],
+      "classification_notes": "WFG = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> AR neutral.",
+      "open_questions": [
+        "Herisau Ortsplanungsrevision (Fruehphase) verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-AI",
+      "territory_name": "Appenzell I.Rh.",
+      "territory_type": "canton",
+      "canton": "AI",
+      "bfs_number": null,
+      "canton_number": 16,
+      "research_status": "integrated",
+      "summary": "Kanton Appenzell Innerrhoden: nur Foerderung (Kat 4, Sanierungsbeitraege; Fachstelle SG/AI/TG); kein §49b, keine Mietzinskontrolle, kein Zweitwohnungsregime (alle Bezirke <20%). Bezirke machen die Nutzungsplanung. Schwende-Ruete/Appenzell/Oberegg: keine bindenden Instrumente (Schwende-Ruete: Bodenpolitik-Fonds RFAB = Kat 4) -> neutral.",
+      "territories_checked": [
+        "Kanton AI (16) - Wohnbaufoerderung (Kat 4); Baugesetz ohne Quote",
+        "Schwende-Ruete (3112) - Bodenpolitik-Fonds RFAB (Kat 4) -> neutral",
+        "Appenzell (3101), Oberegg (3111) - Baureglemente ohne Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Wohnbaufoerderung AI/SG/TG (Fachstelle)",
+          "url": "https://www.sg.ch/bauen/wohnbaufoerderung.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Gemeinsame Wohnbaufoerderung; Sanierungsbeitraege",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ai-16-wohnbaufoerderung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Initiative 'Wohnen fuer alle' (Landsgemeinde 2015) abgelehnt.",
+        "Schwende-Ruete RFAB = Bodenpolitik-Fonds (Kat 4), nicht farbbestimmend."
+      ],
+      "classification_notes": "Foerderung = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> AI neutral.",
+      "open_questions": [
+        "Bezirks-Nutzungsplanungen bei Bedarf vertiefen."
+      ],
+      "confidence": "medium",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-JU",
+      "territory_name": "Jura",
+      "territory_type": "canton",
+      "canton": "JU",
+      "bfs_number": null,
+      "canton_number": 26,
+      "research_status": "integrated",
+      "summary": "Kanton Jura: kantonal nur Foerderung (Kat 4) + Baulandmobilisierung (droit d'emption, Kat 5, nicht Wohnungsmarkt) + droit de preemption (fallweise, richterlich); der LDTR-Analog (RSJU 843.1) ist seit 2004 abrogiert -> keine Mietzinskontrolle/kein Bestandesschutz. Farbbestimmend nur Delémont (6711): RCC Art. 209 schreibt in zwei Verdichtungssektoren mind. 10% logements a loyer modere vor (Kat 3) -> blau. Haute-Sorne/Porrentruy neutral.",
+      "territories_checked": [
+        "Kanton JU (26) - Aide au logement (Kat 4), droit d'emption (Kat 5, Baulandmobilisierung), LDTR-Analog abrogiert 2004",
+        "Delémont (6711) - RCC Art. 209: 10% logements a loyer modere (Sektoren MDa/MDb, Kat 3) -> blau",
+        "Haute-Sorne (6729) - kein Instrument (PAL-Unifizierung laufend) -> neutral",
+        "Porrentruy (6800) - RCC Volltext geprueft, kein Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "RCC Delémont Art. 209",
+          "url": "https://www.delemont.ch/Htdocs/Files/v/18958.pdf/05DeveloppementDurableEconomie/PAL/RCC_Delemont_avec_page_titre.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Art. 209: MDa/MDb mind. 10% logements a loyer modere",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Aide au logement (Kanton JU)",
+          "url": "https://www.jura.ch/fr/Autorites/Administration/DES/Economie-et-Emploi-SEE/Aide-au-logement/SEE-Aide-au-logement.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Foerderung gemeinnuetziger Traeger (Kat 4)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Droit d'emption (Art. 132 LATC)",
+          "url": "https://www.jura.ch/fr/Autorites/Administration/DEC/SDT/Amenagement-du-territoire/Droit-d-emption/Droit-d-emption.html",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Seite",
+          "what_it_proves": "Baulandmobilisierung (nicht Wohnungsmarkt)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ju-26-aide-logement",
+        "ju-26-droit-emption",
+        "ju-6711-delemont-quote"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "LDTR-Analog (RSJU 843.1): abrogiert 20.10.2004 -> nicht in Kraft.",
+        "Haute-Sorne/Porrentruy: kein bindendes Instrument.",
+        "Bundesrecht (OR/Lex Weber/Lex Koller): Kontext."
+      ],
+      "classification_notes": "Aide au logement = Kat 4; droit d'emption = Kat 5 (Baulandmobilisierung, nicht farbbestimmend); Delémont RCC Art. 209 = Kat 3.",
+      "map_relevance_notes": "Farbbestimmend nur Delémont (Kat 3 -> blau). Uebriges JU neutral.",
+      "open_questions": [
+        "Haute-Sorne konsolidiertes RCC nach PAL-Unifizierung pruefen.",
+        "Delémont droit d'emption (Genossenschaft, Parzelle 2510) = projektbezogen (Kat 4), nicht erfasst."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
     }
   ]
 }
