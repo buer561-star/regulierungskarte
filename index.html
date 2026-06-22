@@ -48,7 +48,7 @@
   .maprow{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;}
   @media(max-width:980px){.maprow{grid-template-columns:1fr;}}
   .mapwrap{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:12px;}
-  svg.chmap{width:100%;height:auto;display:block;}
+  svg.chmap{width:100%;height:auto;display:block;aspect-ratio:2000/1282.3;}
   svg.chmap .land{fill:var(--land);stroke:var(--land-line);stroke-width:0.5;vector-effect:non-scaling-stroke;cursor:pointer;}
   svg.chmap .land:hover{opacity:.78;}
   svg.chmap .land.sel{stroke:var(--ink);stroke-width:1.6;vector-effect:non-scaling-stroke;}
@@ -376,8 +376,9 @@ function cantonColor(nr){ const c=pickCat(cantonCats(nr)); return c?CATS[c].colo
 /* ================= Karte ================= */
 function path(d, cls){ const p=document.createElementNS(NS,"path"); p.setAttribute("d",d); if(cls)p.setAttribute("class",cls); return p; }
 function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+function setMapAspect(svg){ const v=(RAW.meta.viewBox||"").split(/\s+/).map(Number); if(v.length===4 && v[2]>0 && v[3]>0){ svg.style.aspectRatio = v[2]+" / "+v[3]; } }
 function buildMap(){
-  const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox);
+  const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
   els.land={}; els.kt={};
   if(mapMode==="gem"){
     RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",communeColor(g.bfs));
@@ -460,7 +461,7 @@ function renderLegend(){
 /* Audit: zwei statische Übersichtskarten (fixe farbbestimmende Klassifikation) */
 function colCommuneFixed(bfs){ const s=catsOf(commMap[bfs]); for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
 function colCantonFixed(nr){ const s=ktCatMap[nr]; if(s) for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
-function buildMini(svg,mode){ if(!svg) return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox);
+function buildMini(svg,mode){ if(!svg) return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
   if(mode==="gem"){ RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",colCommuneFixed(g.bfs)); svg.appendChild(p); });
     RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL); svg.appendChild(p); });
     RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake"))); RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
