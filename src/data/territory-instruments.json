@@ -1649,6 +1649,618 @@
       "relation_type": "own",
       "map_relevant": false,
       "note": "Vor kantonaler Genehmigung -> nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 22,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonsgesetz (LPPPL); farbbestimmend ueber die Pénurie-Gemeinden."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5586,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5938,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5886,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5724,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5591,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5890,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5590,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5642,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5721,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5635,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5889,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5589,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5892,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5606,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5624,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 5822,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 22,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonsgesetz (LPPPL); farbbestimmend ueber die Pénurie-Gemeinden."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5586,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5938,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5886,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5724,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5591,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5890,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5590,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5642,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5721,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5635,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5889,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5589,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5892,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5606,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5624,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-bestandesschutz",
+      "territory_type": "municipality",
+      "bfs_number": 5822,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 22,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonsgesetz (LPPPL); farbbestimmend ueber die Pénurie-Gemeinden."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5586,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5938,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5886,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5724,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5591,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5890,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5590,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5642,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5721,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5635,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5889,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5589,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5892,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5606,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5624,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-verkauf",
+      "territory_type": "municipality",
+      "bfs_number": 5822,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 22,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonsgesetz (LPPPL); farbbestimmend ueber die Pénurie-Gemeinden."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5586,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5938,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5886,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5724,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5591,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5890,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5590,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5642,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5721,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5635,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5889,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5589,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5892,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5606,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5624,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
+    },
+    {
+      "instrument_id": "vd-22-lpppl-preemption",
+      "territory_type": "municipality",
+      "bfs_number": 5822,
+      "canton_number": 22,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gemeinde in einem Pénurie-Bezirk (Leerstand <1.5%) -> LPPPL gilt -> farbbestimmend."
     }
   ]
 }

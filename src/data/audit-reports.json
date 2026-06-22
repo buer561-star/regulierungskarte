@@ -958,6 +958,69 @@
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-VD",
+      "territory_name": "Waadt",
+      "territory_type": "canton",
+      "canton": "VD",
+      "bfs_number": null,
+      "canton_number": 22,
+      "research_status": "integrated",
+      "summary": "Kanton Waadt: starkes Mieterschutz-Regime ueber die LPPPL (in Kraft 2018). In den Bezirken mit Wohnungsnot (Leerstand dauerhaft <1.5%) sind Abbruch/Umbau/Renovation/Umnutzung (Kat 6) und Verkauf vermieteter Wohnungen (Kat 5) bewilligungspflichtig, plus Mietzinskontrolle nach umfassender Renovation (Kat 7) und gemeindliches Vorkaufsrecht (Kat 5). Staerkste Kategorie Kat 7 -> Pénurie-Gemeinden rot. Per 2026-Liste sind ALLE Bezirke ausser Aigle in Pénurie -> 16 der 17 Worklist-Gemeinden rot; Aigle (5401) neutral. Viele Gemeinden betreiben zusaetzlich eigene Instrumente (LUP-Quoten, Bodenpolitik, Belegungs-Reglemente), die die Farbe nicht aendern.",
+      "territories_checked": [
+        "Kanton VD (22) - LPPPL (Pénurie-Bezirke: Leerstand <1.5%)",
+        "Lausanne (5586), Yverdon (5938), Montreux (5886), Nyon (5724), Renens (5591), Vevey (5890), Pully (5590), Morges (5642), Gland (5721), Ecublens (5635), La Tour-de-Peilz (5889), Prilly (5589), Blonay-Saint-Légier (5892), Lutry (5606), Bussigny (5624), Payerne (5822) - in Pénurie-Bezirken -> LPPPL -> rot (Kat 7)",
+        "Aigle (5401) - einziger Bezirk NICHT in Pénurie (~1.58%) -> LPPPL gilt nicht -> neutral",
+        "Eigene kommunale Instrumente (nicht farbveraendernd): Nyon (>=25% LUP via Plaene + Belegungs-Reglement + Bodenpolitik), Vevey (20%-LUP-Quote 2025 + Fonds 50 Mio), Renens (50%-LUP PACom, vor Genehmigung), Morges (Préemptions-Reglement + 15%-PACom pending), Pully/Lutry/Ecublens/La Tour-de-Peilz/Bussigny/Yverdon/Montreux (Belegungs-/Aide-Reglemente, Baurecht an Genossenschaften)"
+      ],
+      "sources_checked": [
+        {
+          "title": "LPPPL (RSV 840.15) - Gesetzestext",
+          "url": "https://www.lexfind.ch/tolv/94298/fr",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Bewilligungspflicht Abbruch/Umbau/Renovation/Umnutzung + Verkauf vermieteter Wohnungen in Pénurie-Bezirken; Mietzinskontrolle nach Renovation; gemeindliches Vorkaufsrecht",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Préservation du parc locatif (Kanton VD, amtlich)",
+          "url": "https://www.vd.ch/territoire-et-construction/logement/preservation",
+          "source_tier": "tier_2_official",
+          "source_type": "Amtliche Erlaeuterung",
+          "what_it_proves": "Geltung nur in Pénurie-Bezirken (Leerstand <1.5% 3-Jahres-Schnitt); Bewilligungen durch Direction du logement; Mietzinskontrolle nach Renovation",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Liste der Pénurie-Bezirke 2026 (Aigle ausgenommen)",
+          "url": "https://www.vd.ch/actualites/communiques-de-presse-de-letat-de-vaud/detail/communique/publication-de-la-liste-des-districts-en-situation-de-penurie-de-logements-vacants",
+          "source_tier": "tier_2_official",
+          "source_type": "Medienmitteilung",
+          "what_it_proves": "2026: alle Bezirke in Pénurie ausser Aigle (~1.58%)",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "vd-22-lpppl-mietzinskontrolle",
+        "vd-22-lpppl-bestandesschutz",
+        "vd-22-lpppl-verkauf",
+        "vd-22-lpppl-preemption"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Aigle (5401): Bezirk nicht in Pénurie -> LPPPL gilt nicht; kein eigenes Instrument -> neutral.",
+        "Kommunale LUP-Quoten (Renens 50%, Morges 15%): PACom noch nicht in Kraft (kant. Genehmigung) -> nicht separat erfasst.",
+        "Bundesrecht (OR/Lex Weber/Lex Koller): Kontext.",
+        "Lausanne (5586): eigene Instrumente nicht einzeln recherchiert; via LPPPL ohnehin rot."
+      ],
+      "classification_notes": "LPPPL in vier Instrumente zerlegt: Mietzinskontrolle nach Renovation = Kat 7; Abbruch-/Umbaubewilligung = Kat 6; Verkaufsbewilligung = Kat 5; gemeindliches Vorkaufsrecht = Kat 5. Staerkste = Kat 7. Kommunale LUP-Quoten waeren Kat 3, aendern die Farbe nicht.",
+      "map_relevance_notes": "Farbbestimmend nur in Pénurie-Bezirken. Staerkste Kategorie je Gemeinde = Kat 7 -> die 16 Worklist-Gemeinden in Pénurie-Bezirken rot. Aigle (5401) neutral. LPPPL gilt bezirksweit, also auch fuer nicht-Worklist-Gemeinden dort (spaeter ergaenzen).",
+      "open_questions": [
+        "Restliche VD-Gemeinden in Pénurie-Bezirken (ausserhalb der Worklist) ergaenzen.",
+        "Lausanne und weitere Staedte: eigene LUP-Quoten/Préemption/Reglemente einzeln erfassen (Kat 3/5).",
+        "Pénurie-Liste jaehrlich nachfuehren."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
     }
   ]
 }
