@@ -135,6 +135,20 @@
   .grp h3 .dot{width:12px;height:12px;border-radius:3px;}
   .irow{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:13px;padding:6px 0;border-bottom:1px solid var(--hairline);}
   .irow .it{font-weight:600;} .irow .meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);} .irow .meta a{color:var(--brand);text-decoration:none;}
+  /* Karte: Basis-Umschalter + Kategorie-Zähler */
+  .basistog{display:flex;border:1px solid var(--hairline-strong);border-radius:99px;overflow:hidden;margin-bottom:11px;}
+  .basistog .btog{flex:1;font-family:"IBM Plex Mono",monospace;font-size:10.5px;background:var(--surface);border:none;color:var(--ink-soft);padding:6px 8px;cursor:pointer;}
+  .basistog .btog.won{background:var(--ink);color:#fff;}
+  .instr-row{justify-content:flex-start;}
+  .instr-row .catn{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-faint);}
+  .instr-row.cat-empty{opacity:.45;}
+  .phint{font-size:11px;color:var(--ink-faint);margin:2px 0 9px;line-height:1.45;}
+  /* Audit: zwei Übersichtskarten */
+  .auditmaps{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:4px 0 12px;}
+  .auditmaps figure{margin:0;}
+  .auditmaps figcaption{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}
+  .auditmaps svg.chmap .land{cursor:default;}
+  @media(max-width:980px){.auditmaps{grid-template-columns:1fr;}}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -163,7 +177,7 @@
       <div class="vhead">
         <p class="eb">Choroplethenkarte · Instrumente</p>
         <h1>Karte nach Instrument-Kategorien</h1>
-        <p>Eingefärbt wird nach der <b>exklusiven Kategorie</b> (1–10) der <b>farbbestimmenden</b> Instrumente je Gebiet. Wähle rechts, welche Kategorien angezeigt werden. Bei mehreren gilt die stärkste. Pendente/abgelehnte/unklare oder rein prozessuale Instrumente erscheinen im Detail/Tabelle, färben aber nicht.</p>
+        <p>Eingefärbt wird nach der <b>exklusiven Kategorie</b> (1–10) je Gebiet. Rechts wählst du <b>einen oder mehrere</b> der 10 Instrument-Typen — die Karte zeigt sie sofort interaktiv. Mit <b>farbbestimmend</b> erscheinen nur in Kraft getretene, bindende Instrumente (Tier-1/2); mit <b>alle Instrumente</b> auch Förderung/Vollzug/Pendentes. Hat ein Gebiet mehrere gewählte Typen, gilt der stärkste (Priorität 7&gt;6&gt;5&gt;3&gt;8&gt;…).</p>
       </div>
       <div class="maptools">
         <span class="mmwrap">
@@ -179,7 +193,12 @@
         </div>
         <div>
           <div class="panel">
-            <h3>Kategorien anzeigen</h3>
+            <h3>Instrumente auf der Karte</h3>
+            <div class="basistog">
+              <button id="basis-map" class="btog won" title="Nur in Kraft + bindend + Tier-1/2">farbbestimmend</button>
+              <button id="basis-all" class="btog" title="Alle erfassten Instrumente (inkl. Förderung/Vollzug/Pendentes)">alle Instrumente</button>
+            </div>
+            <p class="phint">Typ(en) anwählen — die Zahl zeigt, wie viele Gebiete den Typ haben (je nach Modus Gemeinden/Kantone).</p>
             <div id="cat-controls"></div>
             <div class="pbtns">
               <button id="cat-all">alle</button>
@@ -228,6 +247,14 @@
         <h1>Auditberichte &amp; Quellen</h1>
         <p>Nachvollziehbarkeit je Gebiet: <b>was recherchiert wurde</b>, welche <b>Quellen</b> geprüft wurden, welche <b>Instrumente</b> gefunden, wie <b>eingestuft</b>, und welche <b>Unsicherheiten</b> bleiben. Read-only — diese Ebene verändert weder Karte noch Klassifikation noch Relationen.</p>
       </div>
+      <div class="blocklabel">Übersichtskarten (farbbestimmende Instrumente)</div>
+      <p class="d-v" style="margin:-4px 0 12px;max-width:74ch">Dieselbe Klassifikation als <b>Kantonskarte</b> (Aggregat je Kanton) und als <b>Gemeindekarte</b> — links das kantonale, rechts das kommunale Bild.</p>
+      <div class="auditmaps">
+        <figure><figcaption>Kantonsebene · Aggregat</figcaption><div class="mapwrap"><svg class="chmap" id="amap-kanton" xmlns="http://www.w3.org/2000/svg"></svg></div></figure>
+        <figure><figcaption>Gemeindeebene</figcaption><div class="mapwrap"><svg class="chmap" id="amap-gem" xmlns="http://www.w3.org/2000/svg"></svg></div></figure>
+      </div>
+      <div class="legend" id="amap-legend"></div>
+      <div class="blocklabel">Auditberichte</div>
       <div class="filters" id="audit-filters"></div>
       <div id="audit-list"><div id="audit-wrap"></div></div>
       <div id="audit-detail" style="display:none"></div>
@@ -321,25 +348,30 @@ function mapRelevanceReason(it){
 }
 
 const catsOf = (ids)=>{ const s=new Set(); (ids||[]).forEach(id=>{const it=instrById[id]; if(it&&it.exclusive_category_id) s.add(it.exclusive_category_id);}); return s; };
-const commCatsMap = (bfs)=> catsOf(commMap[bfs]);
 
-/* Kanton -> farbbestimmende Kategorien (Aggregat aus Gemeinden), einmal vorberechnet */
-const ktCatSet = {};
-Object.keys(commMap).forEach(b=>{ const g=gemByBfs[+b]; if(!g) return; (ktCatSet[g.kt] ||= new Set()); commCatsMap(+b).forEach(c=>ktCatSet[g.kt].add(c)); });
+/* Kanton -> Kategorien, vorberechnet für beide Basen (farbbestimmend vs. alle Instrumente) */
+const ktCatMap = {}, ktCatAll = {};
+const addK=(o,nr,c)=>{ (o[nr] ||= new Set()).add(c); };
+RAW.gemeinden.forEach(g=>{ catsOf(commMap[g.bfs]).forEach(c=>addK(ktCatMap,g.kt,c)); catsOf(commAll[g.bfs]).forEach(c=>addK(ktCatAll,g.kt,c)); });
+Object.keys(ktOwn).forEach(nr=>{ ktOwn[nr].forEach(id=>{ const it=instrById[id]; if(!it||!it.exclusive_category_id) return; addK(ktCatAll,+nr,it.exclusive_category_id); if(it.map_relevant) addK(ktCatMap,+nr,it.exclusive_category_id); }); });
 
-/* verwendete Kategorien (Legende/Filter) */
-const usedCats = new Set(); Object.keys(commMap).forEach(b=>commCatsMap(+b).forEach(c=>usedCats.add(c)));
+/* farbbestimmende Kategorien (Legende / Audit-Karten) */
+const usedCats = new Set(); RAW.gemeinden.forEach(g=>catsOf(commMap[g.bfs]).forEach(c=>usedCats.add(c)));
 if(!usedCats.size) INSTR.forEach(i=>{ if(i.exclusive_category_id) usedCats.add(i.exclusive_category_id); });
 const usedCatList = [...usedCats].sort((a,b)=>a-b);
+const CATLIST = [1,2,3,4,5,6,7,8,9,10]; // alle 10 Typen wählbar
 
 /* ================= State ================= */
 let mapMode = "gem";
-const selected = new Set(usedCatList);
+let colorBasis = "map";              // "map" = nur farbbestimmend; "all" = alle erfassten Instrumente
+const selected = new Set(CATLIST);
 const els = { land:{}, kt:{} };
 
+function commCats(bfs){ return catsOf(colorBasis==="all" ? commAll[bfs] : commMap[bfs]); }
+function cantonCats(nr){ return (colorBasis==="all"?ktCatAll:ktCatMap)[nr] || new Set(); }
 function pickCat(catSet){ for(const c of CAT_PRIORITY){ if(catSet.has(c) && selected.has(c)) return c; } return null; }
-function communeColor(bfs){ const c=pickCat(commCatsMap(bfs)); return c?CATS[c].color:NEUTRAL; }
-function cantonColor(nr){ const set=ktCatSet[nr]; if(!set) return NEUTRAL; const c=pickCat(set); return c?CATS[c].color:NEUTRAL; }
+function communeColor(bfs){ const c=pickCat(commCats(bfs)); return c?CATS[c].color:NEUTRAL; }
+function cantonColor(nr){ const c=pickCat(cantonCats(nr)); return c?CATS[c].color:NEUTRAL; }
 
 /* ================= Karte ================= */
 function path(d, cls){ const p=document.createElementNS(NS,"path"); p.setAttribute("d",d); if(cls)p.setAttribute("class",cls); return p; }
@@ -408,15 +440,38 @@ function detailSonder(s){ const el=document.getElementById("detail");
 }
 
 /* ================= Kategorie-Controls + Legende ================= */
+function catCountNow(c){ let n=0;
+  if(mapMode==="gem"){ for(const g of RAW.gemeinden){ if(commCats(g.bfs).has(c)) n++; } }
+  else { for(const k of RAW.cantons){ if(cantonCats(k.nr).has(c)) n++; } }
+  return n; }
 function renderCatControls(){
   const box=document.getElementById("cat-controls");
-  box.innerHTML = usedCatList.length ? usedCatList.map(c=>`<label class="instr-row"><input type="checkbox" data-cat="${c}" ${selected.has(c)?"checked":""}><span class="sw" style="background:${CATS[c].color}"></span><span class="instr-name">${c} · ${CATS[c].name}</span></label>`).join("")
-    : `<div class="d-v">Keine farbbestimmenden Instrumente erfasst.</div>`;
+  box.innerHTML = CATLIST.map(c=>{ const n=catCountNow(c);
+    return `<label class="instr-row${n?"":" cat-empty"}"><input type="checkbox" data-cat="${c}" ${selected.has(c)?"checked":""}><span class="sw" style="background:${CATS[c].color}"></span><span class="instr-name">${c} · ${CATS[c].name}</span><span class="catn">${n}</span></label>`;
+  }).join("");
   box.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>{const c=+cb.dataset.cat; if(cb.checked)selected.add(c); else selected.delete(c); repaint();}));
 }
-function setAll(on){ selected.clear(); if(on)usedCatList.forEach(c=>selected.add(c)); renderCatControls(); repaint(); }
+function setAll(on){ selected.clear(); if(on)CATLIST.forEach(c=>selected.add(c)); renderCatControls(); repaint(); }
+function setBasis(b){ colorBasis=b; const m=document.getElementById("basis-map"),a=document.getElementById("basis-all"); if(m)m.classList.toggle("won",b==="map"); if(a)a.classList.toggle("won",b==="all"); renderCatControls(); renderLegend(); repaint(); }
 function renderLegend(){
-  document.getElementById("legend").innerHTML = usedCatList.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("") + `<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
+  const cats=CATLIST.filter(c=>catCountNow(c)>0);
+  document.getElementById("legend").innerHTML = cats.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("") + `<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
+}
+/* Audit: zwei statische Übersichtskarten (fixe farbbestimmende Klassifikation) */
+function colCommuneFixed(bfs){ const s=catsOf(commMap[bfs]); for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
+function colCantonFixed(nr){ const s=ktCatMap[nr]; if(s) for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
+function buildMini(svg,mode){ if(!svg) return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox);
+  if(mode==="gem"){ RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",colCommuneFixed(g.bfs)); svg.appendChild(p); });
+    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL); svg.appendChild(p); });
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake"))); RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
+  } else { RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.setAttribute("fill",colCantonFixed(c.nr)); svg.appendChild(p); });
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake"))); }
+  RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
+}
+function renderAuditMaps(){
+  buildMini(document.getElementById("amap-kanton"),"kanton");
+  buildMini(document.getElementById("amap-gem"),"gem");
+  const el=document.getElementById("amap-legend"); if(el) el.innerHTML = usedCatList.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("")+`<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
 }
 
 /* ================= Tabelle (Instrument-Katalog) ================= */
@@ -579,9 +634,11 @@ function init(){
   document.getElementById("foot-t").textContent=terr.size;
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
   document.getElementById("t-total").textContent=INSTR.length;
-  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList(); renderErklaert();
+  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList(); renderAuditMaps(); renderErklaert();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
-  document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();}));
+  document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderCatControls();renderLegend();}));
+  document.getElementById("basis-map").addEventListener("click",()=>setBasis("map"));
+  document.getElementById("basis-all").addEventListener("click",()=>setBasis("all"));
   document.getElementById("cat-all").addEventListener("click",()=>setAll(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAll(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);

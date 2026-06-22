@@ -85,10 +85,26 @@ A(/E4E7EA/i.test(fill('#map path[data-bfs="2701"]')), `'keine': Basel neutral`);
 $("#cat-all").dispatchEvent(new window.Event("click"));
 A(fill('#map path[data-bfs="2701"]') === "#C5322B", `'alle': Basel wieder rot`);
 
+// Karte interaktiv: alle 10 Instrument-Typen waehlbar + Basis-Umschalter
+A($$("#cat-controls label").length === 10, `Kategorie-Steuerung: alle 10 Typen (ist ${$$("#cat-controls label").length})`);
+A(!!$("#basis-map") && !!$("#basis-all"), `Basis-Umschalter (farbbestimmend / alle Instrumente) vorhanden`);
+// nur Kat 8 anzeigen -> Luzern gelb, Basel neutral (hat kein Kat 8)
+$("#cat-none").dispatchEvent(new window.Event("click"));
+const cb8=$('#cat-controls input[data-cat="8"]'); cb8.checked=true; cb8.dispatchEvent(new window.Event("change"));
+A(fill('#map path[data-bfs="1061"]') === "#F2C53D", `nur Kat 8: Luzern gelb`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2701"]')), `nur Kat 8: Basel neutral`);
+$("#cat-all").dispatchEvent(new window.Event("click"));
+
 // Kantonskarte: BS (12) eingefaerbt (Aggregat) rot
 $('.mmbtn[data-mm="kanton"]').dispatchEvent(new window.Event("click"));
 A($$("#map path.area[data-kt]").length === 26, `Kantonskarte: 26 Kanton-Pfade`);
 A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat)`);
+// Basis "alle Instrumente": Förder-Kanton BL zeigt Kat 4 (grün), unter 'farbbestimmend' neutral
+A(/E4E7EA/i.test(fill('#map path[data-kt="13"]')), `BL (13) neutral unter 'farbbestimmend'`);
+$("#basis-all").dispatchEvent(new window.Event("click"));
+A(fill('#map path[data-kt="13"]') === "#4F9D69", `BL (13) = Kat 4 grün unter 'alle Instrumente' (ist ${fill('#map path[data-kt="13"]')})`);
+$("#basis-map").dispatchEvent(new window.Event("click"));
+A(/E4E7EA/i.test(fill('#map path[data-kt="13"]')), `zurück auf 'farbbestimmend': BL (13) wieder neutral`);
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
@@ -122,6 +138,13 @@ const ad = $("#audit-detail");
 A(ad && ad.style.display !== "none", `Audit-Detail geöffnet`);
 A(/Basel/.test(ad.innerHTML) && /Bettingen/.test(ad.innerHTML) && /Riehen/.test(ad.innerHTML), `Bericht zeigt Basel, Bettingen, Riehen`);
 A(/gesetzessammlung\.bs\.ch/.test(ad.innerHTML), `Bericht zeigt Quellen (Tier-1-Link)`);
+
+// Audit & Quellen: zwei Übersichtskarten (kantonal + Gemeinde)
+A($$("#amap-gem path.area[data-bfs]").length === 2115, `Audit-Gemeindekarte: 2115 Gemeinde-Pfade`);
+A($$("#amap-kanton path.area[data-kt]").length === 26, `Audit-Kantonskarte: 26 Kanton-Pfade`);
+A(fill('#amap-kanton path[data-kt="12"]') === "#C5322B", `Audit-Kantonskarte: BS rot`);
+A(fill('#amap-gem path[data-bfs="2701"]') === "#C5322B", `Audit-Gemeindekarte: Basel rot`);
+A(fill('#amap-gem path[data-bfs="5586"]') === "#C5322B", `Audit-Gemeindekarte: Lausanne rot (LPPPL)`);
 
 // Instrumente erklärt (Navigation 05)
 A(!!$('.navitem[data-view="erklaert"]'), `Navigation '05 Instrumente erklärt' existiert`);

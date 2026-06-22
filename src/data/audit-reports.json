@@ -517,9 +517,9 @@
         "Kommunale Zuteilungs-Reglemente (z.B. Plan-les-Ouates, Bernex): nur eigener Bestand -> nicht farbbestimmend."
       ],
       "classification_notes": "Die LDTR (ein Gesetz, mehrere Wirkungen) wurde gemaess Taxonomie zerlegt: Mietzinskontrolle = Kat 7, Abbruch-/Umbaubewilligung = Kat 6, Verkaufsbewilligung = Kat 5. RDTR-Airbnb = Kat 8. LGZD: Quote = Kat 3, 10-Jahres-Preiskontrolle = Kat 7. Vorkaufsrecht = Kat 5. LUP-Ziel = Kat 3 (staatliches Ziel -> nicht farbbestimmend). LGL-Subvention = Kat 4, OCLPF = Kat 10.",
-      "map_relevance_notes": "Farbbestimmend nur Kat 5/6/7/8 in Kraft & bindend mit Tier-1/2-Beleg. Staerkste Kategorie je Gemeinde = Kat 7 -> die 13 eingefaerbten Agglomerationsgemeinden erscheinen rot. SCOPE: LDTR gilt in Bauzonen 1-4 (urbaner Kanton; 5. Zone/Villen ausgenommen), LGZD/Vorkauf in Entwicklungszonen - diese existieren in allen 13 Worklist-Gemeinden. Uebrige (nicht recherchierte) GE-Gemeinden vorerst neutral.",
+      "map_relevance_notes": "Farbbestimmend nur Kat 5/6/7/8 in Kraft & bindend mit Tier-1/2-Beleg. Staerkste Kategorie je Gemeinde = Kat 7 -> ALLE 45 Genfer Gemeinden erscheinen rot (kantonsweites Regime LDTR/LGZD/Vorkauf in den Bau-/Entwicklungszonen; reine 5.-Zone-/Villen-Lagen sind weniger betroffen, das Regime gilt aber kantonsweit).",
       "open_questions": [
-        "Restliche urbane GE-Gemeinden (ausserhalb der 13 Worklist-Gemeinden) mit Bauzonen 1-4 ergaenzen.",
+        "Reine Villen-/5.-Zone-Gemeinden sind materiell weniger betroffen (LDTR greift v.a. in Bauzonen 1-4) - bei Bedarf differenzieren.",
         "Exakte LRBPP-Mietbaender (periodisch angepasst) nur als Kontext.",
         "Genève/Carouge: eigene Zuteilungs-Reglemente (nur Eigenbestand) ggf. gesondert dokumentieren."
       ],
@@ -590,11 +590,11 @@
         "Tassa di soggiorno / Registrierungsnummer: fiskalisch/prozessual (Kat 10), nicht farbbestimmend."
       ],
       "classification_notes": "Kantonale Kurzzeit-Regel = Kat 8 (Use-Control). LA = Kat 4 (Foerderung). Lugano/Bellinzona-Quoten = Kat 3 (bonusgebundene Quote, 'Ausnuetzungsbonus gegen preisguenstig'). Bellinzona Art. 17 = Kat 8 (eigene Zweitwohnungs-Beschraenkung, unabhaengig von Lex Weber).",
-      "map_relevance_notes": "Farbbestimmend: Lugano/Bellinzona via Kat 3 (staerker als Kat 8 in der Prioritaet) -> blau; Locarno/Mendrisio via die kantonale Kurzzeit-Regel (Kat 8) -> gelb. Die kantonale Kurzzeit-Regel gilt kantonsweit; eingefaerbt sind hier die 4 recherchierten Worklist-Gemeinden (uebrige TI-Gemeinden vorerst neutral).",
+      "map_relevance_notes": "Farbbestimmend: Lugano/Bellinzona via Kat 3 (blau). Die kantonale Kurzzeit-Regel (Kat 8) gilt KANTONSWEIT in Bauzonen -> alle uebrigen TI-Gemeinden erscheinen gelb (Kat 8). Bellinzona zusaetzlich Zweitwohnungs-Plafond (Kat 8).",
       "open_questions": [
-        "Kantonale Kurzzeit-Regel auf weitere TI-Gemeinden ausweiten (gilt kantonsweit in Bauzonen).",
         "Bellinzona: Art. 15/17 im konsolidierten Gesamt-PR (nach Fusion 2017) bestaetigen.",
-        "Exakter Wortlaut RLE Art. 3 cpv. 1 lett. p (komprimiertes PDF) direkt verifizieren."
+        "Exakter Wortlaut RLE Art. 3 cpv. 1 lett. p (komprimiertes PDF) direkt verifizieren.",
+        "Weitere kommunale Quoten (Lugano/Bellinzona-Typ) in anderen TI-Gemeinden pruefen."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
@@ -1013,11 +1013,11 @@
         "Lausanne (5586): eigene Instrumente nicht einzeln recherchiert; via LPPPL ohnehin rot."
       ],
       "classification_notes": "LPPPL in vier Instrumente zerlegt: Mietzinskontrolle nach Renovation = Kat 7; Abbruch-/Umbaubewilligung = Kat 6; Verkaufsbewilligung = Kat 5; gemeindliches Vorkaufsrecht = Kat 5. Staerkste = Kat 7. Kommunale LUP-Quoten waeren Kat 3, aendern die Farbe nicht.",
-      "map_relevance_notes": "Farbbestimmend nur in Pénurie-Bezirken. Staerkste Kategorie je Gemeinde = Kat 7 -> die 16 Worklist-Gemeinden in Pénurie-Bezirken rot. Aigle (5401) neutral. LPPPL gilt bezirksweit, also auch fuer nicht-Worklist-Gemeinden dort (spaeter ergaenzen).",
+      "map_relevance_notes": "Farbbestimmend nur in Pénurie-Bezirken. Staerkste Kategorie je Gemeinde = Kat 7 -> ALLE Gemeinden in Pénurie-Bezirken (alle VD-Bezirke ausser Aigle) erscheinen rot. Der Bezirk Aigle (15 Gemeinden, Leerstand >1.5%) bleibt neutral.",
       "open_questions": [
-        "Restliche VD-Gemeinden in Pénurie-Bezirken (ausserhalb der Worklist) ergaenzen.",
+        "Pénurie-Liste jaehrlich nachfuehren (Bezirk Aigle ggf. wieder unterstellt -> dann auch dort farbbestimmend).",
         "Lausanne und weitere Staedte: eigene LUP-Quoten/Préemption/Reglemente einzeln erfassen (Kat 3/5).",
-        "Pénurie-Liste jaehrlich nachfuehren."
+        "Kommunale Quoten (Renens 50% etc.) bei Inkrafttreten ergaenzen."
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
