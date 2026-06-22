@@ -1402,6 +1402,281 @@
       ],
       "confidence": "high",
       "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-TG",
+      "territory_name": "Thurgau",
+      "territory_type": "canton",
+      "canton": "TG",
+      "bfs_number": null,
+      "canton_number": 20,
+      "research_status": "integrated",
+      "summary": "Kanton Thurgau: nur Wohnbaufoerderung (Kat 4); PBG ohne Affordability-Quote/Ermaechtigung, ohne Wohnschutz/Mietzinskontrolle, ohne housing-Vorkaufsrecht. Alle 6 Worklist-Gemeinden neutral: Frauenfeld hat ein Foerder-Reglement (Kat 4, Quote nur Verhandlungsziel); Kreuzlingen/Arbon/Amriswil/Weinfelden/Romanshorn ohne bindendes Instrument (Baureglemente Volltext geprueft).",
+      "territories_checked": [
+        "Kanton TG (20) - Foerderung (RB 842.1, Kat 4); PBG ohne Quote/Wohnschutz/housing-Vorkaufsrecht",
+        "Frauenfeld (4566) - Foerder-Reglement/Verordnung (Kat 4) -> neutral",
+        "Kreuzlingen (4671), Arbon (4401), Amriswil (4461), Weinfelden (4946), Romanshorn (4436) - Baureglemente Volltext geprueft, keine bindenden Instrumente -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "PBG Thurgau (RB 700)",
+          "url": "https://www.rechtsbuch.tg.ch/app/de/texts_of_law/700",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine Affordability-Quote/Wohnschutz/Mietzinskontrolle; §36a Vorkaufsrecht nur Erschliessungsanlagen",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Gesetz Foerderung Wohnungsbau (RB 842.1)",
+          "url": "https://www.rechtsbuch.tg.ch/app/de/texts_of_law/842.1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Foerderung (Verbilligung/Darlehen/Buergschaften); Mietzinsgenehmigung nur fuer subventionierte Objekte",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Frauenfeld Verordnung preisguenstiger Wohnraum (908.0.20)",
+          "url": "https://www.frauenfeld.ch/public/upload/assets/40000/F%C3%B6rderung%20von%20preisg%C3%BCnstigem%20Wohnraum,%20Verordnung.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Foerderung (Grundstuecksabgabe/Darlehen/Kostenmiete auf stadteigenen Wohnungen); Art. 6 Raumplanung nur Verhandlungsziel",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "tg-20-foerderung",
+        "tg-4566-frauenfeld-foerderung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Frauenfeld Art. 6 (10-20%): Verhandlungsziel, keine bindende Quote (TG ohne Ermaechtigungsnorm).",
+        "Kreuzlingen: 'bezahlbarer Wohnraum' nur Legislaturziel.",
+        "Mindest-/Wohnanteil in BZO = ordentliche Nutzungsmischung, keine Affordability."
+      ],
+      "classification_notes": "Kantonale + Frauenfelder Foerderung = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> TG neutral.",
+      "open_questions": [
+        "Kreuzlingen: angekuendigte 'verbindliche Rahmenbedingungen' verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-GL",
+      "territory_name": "Glarus",
+      "territory_type": "canton",
+      "canton": "GL",
+      "bfs_number": null,
+      "canton_number": 8,
+      "research_status": "integrated",
+      "summary": "Kanton Glarus: Verfassung Art. 31 = Kann-Bestimmung; KEIN aktives Wohnbaufoerderungsgesetz (GLP-Memorialsantrag 2025/2026 abgelehnt). RBG ohne Quote/Wohnschutz/Mietzinskontrolle/housing-Vorkaufsrecht. Alle 3 Gemeinden (Glarus Nord/Glarus/Glarus Sued) neutral (Baureglemente Volltext geprueft); Schwaendis frueherer Erstwohnungsanteil 2019 ersatzlos aufgehoben.",
+      "territories_checked": [
+        "Kanton GL (8) - KV Art. 31 (kann), RBG ohne Instrumente, kein Foerdergesetz",
+        "Glarus Nord (1630), Glarus (1632), Glarus Sued (1631) - Baureglemente geprueft, keine bindenden Instrumente -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Kantonsverfassung Glarus (Art. 31)",
+          "url": "https://gesetze.gl.ch/app/de/texts_of_law/I%20A/1/1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsverfassung",
+          "what_it_proves": "Art. 31: Kanton 'kann' Wohnungsbau foerdern (Ermaechtigung, kein Instrument)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Raumentwicklungs- und Baugesetz GL (RBG, VII B/1/1)",
+          "url": "https://gesetze.gl.ch/app/de/texts_of_law/VII%20B/1/1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine Quote/Wohnschutz/Mietzinskontrolle; Kaufrechte = Baulandmobilisierung",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "gl-8-verfassung-wohnbau"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "GLP-Memorialsantrag (>=5% gemeinnuetzig): abgelehnt (Regierung 2025, Landsgemeinde 3.5.2026).",
+        "Schwaendi Erstwohnungsanteil: 2019 ersatzlos aufgehoben.",
+        "Glarus Sued unified Baureglement: noch Entwurf (nicht in Kraft)."
+      ],
+      "classification_notes": "KV Art. 31 = Kat 4 (Kann/politisches Ziel).",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> GL neutral.",
+      "open_questions": [
+        "Glarus Sued: einheitliches Baureglement bei Inkraftsetzung pruefen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-AG",
+      "territory_name": "Aargau",
+      "territory_type": "canton",
+      "canton": "AG",
+      "bfs_number": null,
+      "canton_number": 19,
+      "research_status": "integrated",
+      "summary": "Kanton Aargau: bewusst passiv. Baugesetz ohne Affordability-Quote/Ermaechtigung; Muster-BNO nur freiwilliger Bonus; Wohnbaufoerderung im Abbau. Keine Mietzinskontrolle/Wohnschutz/Vorkaufsrecht/Airbnb-Regel. Alle 12 Worklist-Gemeinden neutral (Baden in-Kraft-BNO verbatim geprueft: nur unverbindliches Planungsziel; Aarau/Wettingen Revisionen mit nur freiwilligem Bonus, nicht in Kraft).",
+      "territories_checked": [
+        "Kanton AG (19) - BauG (SAR 713.100) ohne Quote/Ermaechtigung; Foerderung auslaufend",
+        "Baden (4021) - BNO 700.100 verbatim: 'preisguenstig' nur Planungsziel, keine Quote -> neutral",
+        "Aarau (4001), Wettingen (4045) - BNO/Revisionen nur freiwilliger Bonus (nicht in Kraft) -> neutral",
+        "Wohlen (4082), Oftringen (4280), Rheinfelden (4258), Brugg (4095), Zofingen (4289), Spreitenbach (4040), Möhlin (4254), Suhr (4012), Lenzburg (4201) - BNO geprueft, keine Instrumente -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Baugesetz Aargau (SAR 713.100)",
+          "url": "https://gesetzessammlungen.ag.ch/app/de/texts_of_law/713.100",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine Affordability-Quote/§49b-Ermaechtigung/Wohnschutz/Mietzinskontrolle",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Baden BNO 700.100 (in Kraft)",
+          "url": "https://www.baden.ch/public/upload/assets/50182/700.100_Bau_und_Nutzungsordnung.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "'preisguenstig' nur unverbindliches Planungsziel; keine bindende Quote",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "BWO Baukasten / Kantonale Hilfen",
+          "url": "https://www.bwo.admin.ch/de/kantonale-hilfen",
+          "source_tier": "tier_2_official",
+          "source_type": "Bundesamt fuer Wohnungswesen",
+          "what_it_proves": "AG nicht unter Quoten-/Wohnschutz-/Vorkaufs-Kantonen; Foerderung im Abbau",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "ag-19-wohnbaufoerderung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Alle 12 Worklist-Gemeinden ohne bindendes Instrument.",
+        "Pendente BNO-Revisionen (Baden ~2027, Wettingen) nur freiwillige Boni -> nicht erfasst.",
+        "Grosser Rat lehnte Wohnungs-Vorstoesse wiederholt ab."
+      ],
+      "classification_notes": "Auslaufende Foerderung = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> AG neutral.",
+      "open_questions": [
+        "Baden/Wettingen BNO-Revisionen verfolgen (falls je bindende Quote)."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-SO",
+      "territory_name": "Solothurn",
+      "territory_type": "canton",
+      "canton": "SO",
+      "bfs_number": null,
+      "canton_number": 11,
+      "research_status": "integrated",
+      "summary": "Kanton Solothurn: PBG ohne Affordability-Quote/Wohnschutz/Mietzinskontrolle/Vorkaufsrecht; BWO 'keine Foerderung'. Einziges kantonales Item: WAG-Betriebsbewilligung fuer gewerbsmaessige Beherbergung (inkl. Airbnb) - allgemeines Gastgewerberecht, KEIN dediziertes Wohnungsmarkt-Instrument -> nicht farbbestimmend. Olten/Solothurn/Grenchen: Zonenreglemente verbatim geprueft, keine bindenden Instrumente -> neutral.",
+      "territories_checked": [
+        "Kanton SO (11) - PBG (BGS 711.1) ohne Quote/Wohnschutz; WAG-Beherbergungsbewilligung (Kat 8, nicht farbbestimmend)",
+        "Olten (2581) - Zonenreglement verbatim: keine Quote/Airbnb/Wohnschutz/Vorkaufsrecht -> neutral",
+        "Solothurn (2601) - revidiertes Zonenreglement verbatim: kein Instrument -> neutral",
+        "Grenchen (2546) - Zonenreglement verbatim: nur Wohnanteil-Nutzungsmischung -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "WAG Solothurn (BGS 940.11) §4/§9",
+          "url": "https://bgs.so.ch/app/de/texts_of_law/940.11",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Betriebsbewilligung fuer gewerbsmaessige Beherbergung inkl. Airbnb (allgemeines Gastgewerberecht)",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "PBG Solothurn (BGS 711.1)",
+          "url": "https://bgs.so.ch/app/de/texts_of_law/711.1",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine Affordability-Quote/Wohnschutz/Mietzinskontrolle/Vorkaufsrecht",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Olten Zonenreglement (in Kraft)",
+          "url": "https://www.olten.ch/_docn/983227/Zonenreglement_mit_Anhangen_nachgefuhrt_Dez.2013.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Keine Quote/Airbnb/Wohnschutz/Vorkaufsrecht",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "so-11-wag-beherbergung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "WAG-Beherbergungsbewilligung: allgemeines Gastgewerberecht (kein Naechte-Deckel/keine Erstwohnungspflicht) -> nicht farbbestimmend.",
+        "Olten/Solothurn/Grenchen: Ortsplanungsrevisionen ohne Wohnungsmarkt-Instrument.",
+        "BWO: SO keine Wohnbaufoerderung."
+      ],
+      "classification_notes": "WAG-Beherbergung = Kat 8 (allgemeines Bewilligungsrecht, needs_taxonomy_review), nicht farbbestimmend.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> SO neutral.",
+      "open_questions": [
+        "Ob die VWAG/AWA-Praxis (Schwelle CHF 10'000) schriftlich kodifiziert ist."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "audit_id": "audit-SH",
+      "territory_name": "Schaffhausen",
+      "territory_type": "canton",
+      "canton": "SH",
+      "bfs_number": null,
+      "canton_number": 14,
+      "research_status": "integrated",
+      "summary": "Kanton Schaffhausen: Wohnbaufoerderung (Kat 4, Altprogramme im Abbau); Baugesetz ohne Affordability-Quote/Ermaechtigung; Abbruchbewilligung nur Ortsbild/Denkmal; keine Mietzinskontrolle/kein Vorkaufsrecht/keine Airbnb-Regel. Stadt Schaffhausen/Neuhausen/Thayngen: Bauordnungen verbatim geprueft, keine bindenden Instrumente -> neutral. Stadt-Wohrauminitiative (10% gemeinnuetzig + Verkaufsverbot) am 18.5.2025 abgelehnt; Gegenvorschlag vom Parlament gestrichen.",
+      "territories_checked": [
+        "Kanton SH (14) - Baugesetz (SHR 700.100) ohne Quote; Foerderung (Kat 4)",
+        "Schaffhausen (2939) - Bauordnung + Teilrevision 2025 verbatim: kein Instrument; Vier-Saeulen-Strategie = Kat 4 -> neutral",
+        "Neuhausen am Rheinfall (2937) - Bauordnung 1988 (Revision 2018 abgelehnt) verbatim: kein Instrument -> neutral",
+        "Thayngen (2920) - BNO 2006 verbatim: kein Instrument -> neutral"
+      ],
+      "sources_checked": [
+        {
+          "title": "Baugesetz Schaffhausen (SHR 700.100)",
+          "url": "https://rechtsbuch.sh.ch/app/de/texts_of_law/700.100",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kantonsgesetz",
+          "what_it_proves": "Keine Affordability-Quote/Ermaechtigung; Abbruchbewilligung nur Ortsbild/Denkmal",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Stadt Schaffhausen Teilrevision Bauordnung 2025",
+          "url": "https://www.stadt-schaffhausen.ch/_docn/6076198/VdSR_02.09.2025_Teilrevision_Bauordnung_und_Zonenplan.pdf",
+          "source_tier": "tier_1_primary",
+          "source_type": "Kommunales Recht",
+          "what_it_proves": "Verbatim: keine preisguenstig/gemeinnuetzig/Airbnb/Wohnschutz-Bestimmung",
+          "last_checked": "2026-06-22"
+        },
+        {
+          "title": "Abstimmung Stadt SH 18.5.2025 (Wohrauminitiative abgelehnt)",
+          "url": "https://www.stadt-schaffhausen.ch/abstimmungen/termine/6300514",
+          "source_tier": "tier_2_official",
+          "source_type": "Abstimmungsergebnis",
+          "what_it_proves": "Wohrauminitiative abgelehnt (50.49% Nein); kein Gegenvorschlag auf dem Stimmzettel",
+          "last_checked": "2026-06-22"
+        }
+      ],
+      "instruments_found": [
+        "sh-14-wohnbaufoerderung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Stadt SH Wohrauminitiative (10% gemeinnuetzig + Verkaufsverbot): abgelehnt 18.5.2025; Gegenvorschlag im Parlament gestrichen.",
+        "Vier-Saeulen-Strategie = Bodenpolitik (Kat 4), nicht farbbestimmend.",
+        "Neuhausen Gesamtrevision 2018 abgelehnt."
+      ],
+      "classification_notes": "Foerderung = Kat 4.",
+      "map_relevance_notes": "Keine farbbestimmenden Instrumente -> SH neutral.",
+      "open_questions": [
+        "Verfassung enthaelt keinen Wohnartikel; Entwicklungen verfolgen."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
     }
   ]
 }

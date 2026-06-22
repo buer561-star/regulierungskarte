@@ -2369,6 +2369,60 @@
       "relation_type": "own",
       "map_relevant": true,
       "note": "Bindende 10%-Quote (Sektoren MDa/MDb) -> farbbestimmend (Kat 3)."
+    },
+    {
+      "instrument_id": "tg-20-foerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 20,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "tg-4566-frauenfeld-foerderung",
+      "territory_type": "municipality",
+      "bfs_number": 4566,
+      "canton_number": 20,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "gl-8-verfassung-wohnbau",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 8,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Ermaechtigende Kann-Bestimmung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "ag-19-wohnbaufoerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 19,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung (auslaufend); nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "so-11-wag-beherbergung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 11,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Allgemeine Gastgewerbe-Bewilligung; nicht farbbestimmend."
+    },
+    {
+      "instrument_id": "sh-14-wohnbaufoerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 14,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonale Foerderung; nicht farbbestimmend."
     }
   ]
 }

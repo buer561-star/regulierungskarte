@@ -68,6 +68,10 @@ A(fill('#map path[data-bfs="1509"]') === "#3B7DC4", `Stans (1509, NW) = Kat 3 bl
 A(fill('#map path[data-bfs="6711"]') === "#3B7DC4", `Delémont (6711, JU) = Kat 3 blau (10%-Quote)`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="3203"]')), `St. Gallen (3203) neutral (nur Förderung)`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="1201"]')), `Altdorf (1201, UR) neutral`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="4021"]')), `Baden (4021, AG) neutral`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2581"]')), `Olten (2581, SO) neutral`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2939"]')), `Schaffhausen (2939) neutral`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="4566"]')), `Frauenfeld (4566, TG) neutral`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -88,7 +92,7 @@ A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente
-A($$("#rtable tbody tr").length === 77, `Tabelle: 77 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+A($$("#rtable tbody tr").length === 83, `Tabelle: 83 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
 const rc = $$("#rtable tbody tr").length; A(rc === 4, `Filter Kat 6: ${rc} Zeilen (BS + GE + Bern + VD)`);
 $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
@@ -109,7 +113,7 @@ A($("#demobanner") === null, `kein DEMO-Banner mehr`);
 A(!!$('.navitem[data-view="audit"]'), `Audit-Navigation existiert`);
 $('.navitem[data-view="audit"]').dispatchEvent(new window.Event("click"));
 A($("#v-audit").classList.contains("active"), `Audit-Ansicht aktiv`);
-A($$("#audit-wrap .acard").length >= 21, `Audit-Liste zeigt >=21 Berichte (ist ${$$("#audit-wrap .acard").length})`);
+A($$("#audit-wrap .acard").length >= 26, `Audit-Liste: alle 26 Kantone (ist ${$$("#audit-wrap .acard").length})`);
 A(/Genf/.test($("#audit-wrap").innerHTML) && /Bern/.test($("#audit-wrap").innerHTML) && /Wallis/.test($("#audit-wrap").innerHTML) && /Zug/.test($("#audit-wrap").innerHTML), `Auditberichte GE + BE + VS + ZG in Liste`);
 A(/Basel-Stadt/.test($("#audit-wrap").innerHTML) && /Luzern/.test($("#audit-wrap").innerHTML) && /Basel-Landschaft/.test($("#audit-wrap").innerHTML) && /Neuenburg/.test($("#audit-wrap").innerHTML) && /Graubünden/.test($("#audit-wrap").innerHTML), `Auditberichte BS + LU + BL + NE + GR in Liste`);
 A(!!$('#audit-wrap .acard[data-audit="audit-LU"]') && !!$('#audit-wrap .acard[data-audit="audit-BL"]') && !!$('#audit-wrap .acard[data-audit="audit-NE"]') && !!$('#audit-wrap .acard[data-audit="audit-GR"]'), `LU-, BL-, NE- und GR-Auditbericht vorhanden`);
