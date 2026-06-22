@@ -58,14 +58,25 @@ console.log("=".repeat(74) + "\nVALIDATE-DATA · read-only\n" + "=".repeat(74));
 const geo = loadGeometry();
 if (!geo) { console.log("[ERROR] Keine aktive Geometrie gefunden."); process.exit(2); }
 
-const instruments = exists(P("src", "data", "instruments.json")) ? (readJSON(P("src", "data", "instruments.json")).instruments || []) : null;
-const relations = exists(P("src", "data", "territory-instruments.json")) ? (readJSON(P("src", "data", "territory-instruments.json")).relations || []) : null;
+// Optionaler Staging-Modus: node validate-data.mjs --findings <pfad-zu-findings.json>
+const _fi = process.argv.indexOf("--findings");
+const findingsPath = _fi >= 0 ? process.argv[_fi + 1] : null;
+let instruments, relations, prodLabel;
+if (findingsPath) {
+  const fp = path.isAbsolute(findingsPath) ? findingsPath : path.join(process.cwd(), findingsPath);
+  const d = readJSON(fp);
+  instruments = d.instruments || []; relations = d.relations || []; prodLabel = `--findings ${findingsPath}`;
+} else {
+  instruments = exists(P("src", "data", "instruments.json")) ? (readJSON(P("src", "data", "instruments.json")).instruments || []) : null;
+  relations = exists(P("src", "data", "territory-instruments.json")) ? (readJSON(P("src", "data", "territory-instruments.json")).relations || []) : null;
+  prodLabel = "src/data/ (Produktiv)";
+}
 const aliasDoc = exists(P("src", "data", "bfs-aliases.json")) ? readJSON(P("src", "data", "bfs-aliases.json")) : { aliases: [] };
 const aliasMap = new Map((aliasDoc.aliases || []).map((a) => [a.old_bfs, a]));
 const demo = loadDemo();
 
 console.log(`Geometrie: ${geo.src}  (${geo.bfs.size} Gemeinden, ${geo.kt.size} Kantone)`);
-console.log(`Produktiv: instruments.json=${instruments ? instruments.length : "FEHLT"}  ·  territory-instruments.json=${relations ? relations.length : "FEHLT"}  ·  aktive Aliase=${aliasMap.size}`);
+console.log(`Quelle [${prodLabel}]: instrumente=${instruments ? instruments.length : "FEHLT"}  ·  relationen=${relations ? relations.length : "FEHLT"}  ·  aktive Aliase=${aliasMap.size}`);
 console.log(`Demo (Template): ${demo ? demo.demoCount + " Demo-Instrumente, " + Object.keys(demo.gemInstr).length + " Zuordnungen" : "keine"}`);
 
 if (instruments === null || relations === null) {
