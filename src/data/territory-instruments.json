@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of_geometry": "2025",
-  "_readme": "RELATIONEN Instrument -> Territorium (Produktivdaten). Trennt das Instrument (instruments.json) von seiner geografischen Geltung. Erlaubt 1:n (z. B. eine kantonale Regel, die mehrere Gemeinden via Vererbung/Anwendung betrifft). Der Karten-Build leitet daraus die Gemeinde-Einfaerbung ab (territory_type=municipality, aufgeloeste bfs_number, map_relevant). relation_type dokumentiert, WIE die Geltung zustande kommt. canton-Relationen, die als Flaeche nur via Gemeinden wirken, sind als 'aggregate' zu kennzeichnen (keine kantonsweite Rechtsbehauptung). Noch KEINE realen Daten.",
+  "_readme": "RELATIONEN Instrument->Territorium (Produktivdaten). Stand: Pilot Basel-Stadt (2026-06-22). Karten-Ableitung: territory_type=municipality + map_relevant. canton-Relationen relation_type=own (nicht farbbestimmend).",
   "_relation_template": {
     "instrument_id": "",
     "territory_type": "municipality | canton | federal | special_area",
@@ -11,5 +11,186 @@
     "map_relevant": null,
     "note": ""
   },
-  "relations": []
+  "relations": [
+    {
+      "instrument_id": "bs-12-bewilligungspflicht-bestand",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Eigentuemer-Ebene: kantonales Recht (Stadtkanton)"
+    },
+    {
+      "instrument_id": "bs-12-bewilligungspflicht-bestand",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot (<=1.5%, aktuell erfuellt)"
+    },
+    {
+      "instrument_id": "bs-12-bewilligungspflicht-bestand",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot (<=1.5%, aktuell erfuellt)"
+    },
+    {
+      "instrument_id": "bs-12-bewilligungspflicht-bestand",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot (<=1.5%, aktuell erfuellt)"
+    },
+    {
+      "instrument_id": "bs-12-mietzinskontrolle",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Eigentuemer-Ebene: kantonales Recht (Stadtkanton)"
+    },
+    {
+      "instrument_id": "bs-12-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-mietzinskontrolle",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-stockwerkeigentum-umwandlung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Eigentuemer-Ebene: kantonales Recht (Stadtkanton)"
+    },
+    {
+      "instrument_id": "bs-12-stockwerkeigentum-umwandlung",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-stockwerkeigentum-umwandlung",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-stockwerkeigentum-umwandlung",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Gilt kantonsweit; aktiv bei Wohnungsnot"
+    },
+    {
+      "instrument_id": "bs-12-wohnschutzkommission",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Vollzugsorgan, kantonal"
+    },
+    {
+      "instrument_id": "bs-12-wohnschutzkommission",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Vollzug kantonsweit; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "bs-12-wohnschutzkommission",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Vollzug kantonsweit; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "bs-12-wohnschutzkommission",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Vollzug kantonsweit; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "bs-12-wohnraumfoerderung",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Foerderzweck, kantonal"
+    },
+    {
+      "instrument_id": "bs-12-wohnraumfoerderung",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "bs-12-wohnraumfoerderung",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend"
+    },
+    {
+      "instrument_id": "bs-12-wohnraumfoerderung",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Foerderung; nicht farbbestimmend"
+    }
+  ]
 }

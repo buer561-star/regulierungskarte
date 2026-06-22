@@ -15,30 +15,52 @@ const { window } = dom;
 await new Promise(res => { if (window.document.readyState === "complete") return res(); window.addEventListener("load", res); setTimeout(res, 2000); });
 const $ = s => window.document.querySelector(s), $$ = s => [...window.document.querySelectorAll(s)];
 let fails = 0; const A = (c, m) => { if (!c) fails++; console.log((c ? "✓" : "✗ FAIL") + " " + m); };
+const fill = sel => { const e = $(sel); return e ? (e.getAttribute("fill") || "").toUpperCase() : null; };
 
+// Geometrie
 A($$("#map path.area[data-bfs]").length === 2115, `Gemeindekarte: 2115 Gemeinde-Pfade`);
 A($$("#map path.ktborder").length === 26, `26 Kantonsgrenzen`);
 A($$("#map path.lake").length === 10, `10 Seen`);
 A($$("#map text.ktlabel").length === 26, `26 Kantons-Labels`);
-const zh = $('#map path[data-bfs="261"]');
-A(zh && zh.getAttribute("fill").toUpperCase() === "#3B7DC4", `Zürich(261)=DEMO_A blau`);
-A(/E4E7EA/i.test($('#map path[data-bfs="1"]').getAttribute("fill")), `Gemeinde ohne Instrument = neutral`);
-$("#instr-none").dispatchEvent(new window.Event("click"));
-A(/E4E7EA/i.test($('#map path[data-bfs="261"]').getAttribute("fill")), `nach 'keine': Zürich neutral`);
-$("#instr-all").dispatchEvent(new window.Event("click"));
-const cbA = $('#instr-controls input[data-id="DEMO_A"]'); cbA.checked = false; cbA.dispatchEvent(new window.Event("change"));
-A(/E4E7EA/i.test($('#map path[data-bfs="351"]').getAttribute("fill")), `Bern (nur DEMO_A) nach Abwahl = neutral`);
-A($('#map path[data-bfs="1061"]').getAttribute("fill").toUpperCase() === "#4F9D69", `Luzern (DEMO_B) bleibt grün`);
-cbA.checked = true; cbA.dispatchEvent(new window.Event("change"));
+
+// Basel-Stadt: Kat 5/6/7 farbbestimmend -> staerkste = 7 (rot #C5322B)
+A(fill('#map path[data-bfs="2701"]') === "#C5322B", `Basel (2701) = Kat 7 rot (ist ${fill('#map path[data-bfs="2701"]')})`);
+A(fill('#map path[data-bfs="2703"]') === "#C5322B", `Riehen (2703) = Kat 7 rot`);
+A(fill('#map path[data-bfs="2702"]') === "#C5322B", `Bettingen (2702) = Kat 7 rot`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) ohne Instrument = neutral`);
+
+// Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
+const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
+A(fill('#map path[data-bfs="2701"]') === "#E8883A", `nach Abwahl Kat 7: Basel = Kat 6 orange (ist ${fill('#map path[data-bfs="2701"]')})`);
+cb7.checked = true; cb7.dispatchEvent(new window.Event("change"));
+A(fill('#map path[data-bfs="2701"]') === "#C5322B", `nach Wiederwahl Kat 7: Basel wieder rot`);
+
+// alle/keine
+$("#cat-none").dispatchEvent(new window.Event("click"));
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2701"]')), `'keine': Basel neutral`);
+$("#cat-all").dispatchEvent(new window.Event("click"));
+A(fill('#map path[data-bfs="2701"]') === "#C5322B", `'alle': Basel wieder rot`);
+
+// Kantonskarte: BS (12) eingefaerbt (Aggregat) rot
 $('.mmbtn[data-mm="kanton"]').dispatchEvent(new window.Event("click"));
 A($$("#map path.area[data-kt]").length === 26, `Kantonskarte: 26 Kanton-Pfade`);
+A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat)`);
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
-A($$("#rtable tbody tr").length === 2115, `Tabelle: 2115 Zeilen`);
-$('#filters .filterchip[data-id="DEMO_C"]').dispatchEvent(new window.Event("click"));
-const rc = $$("#rtable tbody tr").length; A(rc >= 1 && rc < 2115, `Filter DEMO_C: ${rc} Zeilen (Teilmenge)`);
-$('#map path[data-bfs="261"]').dispatchEvent(new window.Event("mouseenter"));
-A(/Zürich/.test($("#detail").innerHTML), `Detailpanel zeigt Zürich bei Hover`);
-const db = $("#demobanner");
-A(db && /DEMO-Daten/.test(db.innerHTML) && db.style.display === "block", `DEMO-Warnbanner sichtbar`);
+
+// Tabelle: 5 Instrumente
+A($$("#rtable tbody tr").length === 5, `Tabelle: 5 Instrument-Zeilen (ist ${$$("#rtable tbody tr").length})`);
+$('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
+const rc = $$("#rtable tbody tr").length; A(rc === 1, `Filter Kat 6: ${rc} Zeile (Bewilligungspflicht)`);
+$('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"));
+
+// Detail: Basel hover zeigt Instrumente
+$('#map path[data-bfs="2701"]').dispatchEvent(new window.Event("mouseenter"));
+A(/Bewilligungspflicht|Mietzinskontrolle/.test($("#detail").innerHTML), `Detailpanel Basel zeigt Instrumente`);
+
+// Daten-/Pilot-Banner statt Demo-Banner
+const db = $("#databanner");
+A(db && /Pilot/.test(db.innerHTML), `Daten-Banner zeigt Pilot-Hinweis`);
+A($("#demobanner") === null, `kein DEMO-Banner mehr`);
+
 console.log(fails ? `\n${fails} Test(s) FEHLGESCHLAGEN` : "\nAlle Tests bestanden.");
 process.exit(fails ? 1 : 0);

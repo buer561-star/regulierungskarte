@@ -63,8 +63,7 @@
   .instr-row:hover{background:var(--paper);}
   .instr-row input{margin:0;}
   .sw{width:13px;height:13px;border-radius:3px;flex:0 0 auto;border:1px solid rgba(0,0,0,.15);}
-  .instr-name{font-size:13.5px;}
-  .instr-name .demo{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--ink-faint);margin-left:4px;}
+  .instr-name{font-size:13px;}
   .pbtns{display:flex;gap:8px;margin:10px 0 4px;}
   .pbtns button{font-family:"IBM Plex Mono",monospace;font-size:10.5px;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);border-radius:99px;padding:4px 10px;cursor:pointer;}
   .detail{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:14px 16px;margin-top:14px;}
@@ -73,12 +72,19 @@
   .d-k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;}
   .d-v{font-size:13.5px;color:var(--ink-soft);}
   .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
-  .chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;padding:2px 9px 2px 7px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--hairline-strong);color:var(--ink-soft);}
-  .chip .dot{width:8px;height:8px;border-radius:99px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;padding:2px 9px 2px 7px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--hairline-strong);color:var(--ink-soft);line-height:1.5;}
+  .chip .dot{width:8px;height:8px;border-radius:99px;flex:0 0 auto;}
+  .instr-item{margin:9px 0;padding-bottom:8px;border-bottom:1px dashed var(--hairline);}
+  .instr-item:last-child{border-bottom:none;}
+  .instr-ttl{font-size:13px;font-weight:600;color:var(--ink);margin-top:3px;}
+  .instr-sub{font-size:11.5px;color:var(--ink-faint);margin-top:2px;line-height:1.45;}
+  .instr-sub a{color:var(--brand);text-decoration:none;}
+  .statuspill{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:1px 7px;border-radius:99px;background:#EEF2F4;color:var(--ink-soft);}
+  .nofarb{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--ink-faint);}
   /* table */
   .filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:14px;padding:14px;border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);}
   .filters .fl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-right:6px;}
-  .filterchip{font-family:"IBM Plex Mono",monospace;font-size:11px;border:1px solid var(--hairline-strong);background:var(--surface);color:var(--ink-soft);border-radius:99px;padding:4px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+  .filterchip{font-family:"IBM Plex Mono",monospace;font-size:11px;border:1px solid var(--hairline-strong);background:var(--surface);color:var(--ink-soft);border-radius:99px;padding:4px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:2px 0;}
   .filterchip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
   .filterchip .dot{width:8px;height:8px;border-radius:99px;}
   .sel,select.sel,input.search{font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--hairline-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);}
@@ -97,8 +103,10 @@
   .infocard .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);}
   .infocard .v{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;margin-top:4px;}
   .infocard .s{font-size:12px;color:var(--ink-soft);margin-top:2px;}
-  .demobanner{background:#FFF4E5;border:1px solid #E8A33D;border-left:4px solid #E8883A;color:#7a4a12;border-radius:var(--radius);padding:10px 14px;margin:0 0 18px;font-size:13px;font-family:"IBM Plex Mono",monospace;line-height:1.5;}
-  .demobanner b{color:#5a3300;}
+  .databanner{background:var(--brand-tint);border:1px solid #9fd6df;border-left:4px solid var(--brand);color:#0c5460;border-radius:var(--radius);padding:10px 14px;margin:0 0 18px;font-size:12.5px;font-family:"IBM Plex Mono",monospace;line-height:1.5;}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend .dot{width:10px;height:10px;border-radius:3px;}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -108,24 +116,24 @@
     </div>
     <nav id="nav">
       <button class="navitem active" data-view="karte"><span class="num">01</span> Karte</button>
-      <button class="navitem" data-view="tabelle"><span class="num">02</span> Tabelle &amp; Filter</button>
+      <button class="navitem" data-view="tabelle"><span class="num">02</span> Instrumente &amp; Filter</button>
       <button class="navitem" data-view="info"><span class="num">03</span> Daten &amp; Info</button>
     </nav>
     <div class="side-foot">
-      <b id="foot-n">0</b> Gemeinden · <b id="foot-k">0</b> Kantone<br>
-      Geometrie swisstopo 2025<br>
-      Instrumente: in Definition
+      <b id="foot-i">0</b> Instrumente · <b id="foot-t">0</b> Gebiete<br>
+      <b id="foot-n">0</b> Gemeinden · Geometrie 2025<br>
+      Klassifikation: Instrumente
     </div>
   </aside>
 
   <main class="content">
-    <div class="demobanner" id="demobanner"><b>⚠ DEMO-Daten — nicht research-verifiziert.</b> Die angezeigten Instrumente (DEMO_A/B/C) und ihre Gemeinde-Zuordnungen sind Platzhalter zur Funktionsdemonstration und ersetzen keine geprüften Forschungsdaten.</div>
+    <div class="databanner" id="databanner"></div>
     <!-- 01 KARTE -->
     <section class="view active" id="v-karte">
       <div class="vhead">
         <p class="eb">Choroplethenkarte · Instrumente</p>
-        <h1>Karte nach Instrumenten</h1>
-        <p>Wähle rechts, <b>welche Instrumente</b> angezeigt werden. Gemeinden mit einem ausgewählten Instrument werden in dessen Farbe eingefärbt; alle übrigen bleiben neutral. Keine Stufen, kein Status — nur Instrumente. <b>Die Instrumente sind aktuell Platzhalter</b> und werden später definiert.</p>
+        <h1>Karte nach Instrument-Kategorien</h1>
+        <p>Eingefärbt wird nach der <b>exklusiven Kategorie</b> (1–10) der <b>farbbestimmenden</b> Instrumente je Gebiet. Wähle rechts, welche Kategorien angezeigt werden. Bei mehreren gilt die stärkste. Pendente/abgelehnte/unklare oder rein prozessuale Instrumente erscheinen im Detail/Tabelle, färben aber nicht.</p>
       </div>
       <div class="maptools">
         <span class="mmwrap">
@@ -137,14 +145,15 @@
       <div class="maprow">
         <div>
           <div class="mapwrap"><svg class="chmap" id="map" xmlns="http://www.w3.org/2000/svg"></svg></div>
+          <div class="legend" id="legend"></div>
         </div>
         <div>
           <div class="panel">
-            <h3>Instrumente anzeigen</h3>
-            <div id="instr-controls"></div>
+            <h3>Kategorien anzeigen</h3>
+            <div id="cat-controls"></div>
             <div class="pbtns">
-              <button id="instr-all">alle</button>
-              <button id="instr-none">keine</button>
+              <button id="cat-all">alle</button>
+              <button id="cat-none">keine</button>
             </div>
           </div>
           <div class="detail" id="detail">
@@ -158,9 +167,9 @@
     <!-- 02 TABELLE -->
     <section class="view" id="v-tabelle">
       <div class="vhead">
-        <p class="eb">Datentabelle</p>
-        <h1>Alle Gemeinden &amp; Filter</h1>
-        <p>Alle <b id="t-total">0</b> Gemeinden mit BFS-Nummer, Kanton und zugeordneten Instrumenten. Filter kombinierbar.</p>
+        <p class="eb">Instrument-Katalog</p>
+        <h1>Alle Instrumente &amp; Filter</h1>
+        <p>Alle <b id="t-total">0</b> erfassten Instrumente mit Territorium, exklusiver Kategorie, Status, Rechtsgrundlage und Quelle. Filter kombinierbar.</p>
       </div>
       <div class="filters" id="filters"></div>
       <p class="count" id="tcount"></p>
@@ -172,98 +181,98 @@
       <div class="vhead">
         <p class="eb">Daten &amp; Methodik</p>
         <h1>Datengrundlage</h1>
-        <p>Diese Version enthält bewusst <b>keine</b> wohnpolitischen Regelinhalte, keine Stufen-Hierarchie und keinen Status (in Kraft / pendent / abgelehnt / unklar). Die Klassifikation erfolgt ausschließlich über <b>Instrumente</b>, die später definiert werden.</p>
+        <p>Klassifikation ausschliesslich über <b>Instrumente</b> mit genau einer <b>exklusiven Kategorie</b> (1–10). Kein Stufen-Schema. Status (in Kraft / pendent / …) ist erfasst, bestimmt aber nur dann die Karte, wenn ein Instrument <b>farbbestimmend</b> (<code>map_relevant</code>) ist.</p>
       </div>
       <div class="blocklabel">Kennzahlen</div>
       <div class="infogrid" id="infogrid"></div>
-      <div class="callout"><b>Geometrie:</b> swisstopo swissBOUNDARIES (Stand 2025, Rev. 04/2025), WGS84, in den Browser-SVG-Raum projiziert (voll detailliert). Nur Schweiz: Kantone, Gemeinden und Seen. Liechtenstein, ausländische Enklaven (Büsingen, Campione) sind entfernt. CH-Sondergebiete (Staatswald Galm, zwei Kommunanzen) werden als neutrale Flächen gezeigt, sind aber keine Gemeinden.</div>
-      <div class="callout" style="border-left-color:var(--ink-faint);background:#EEF2F4"><b>Instrumente:</b> Die aktuell sichtbaren Instrumente sind <b>Platzhalter (DEMO)</b> samt einiger Beispiel-Zuordnungen, damit der Karten- und Tabellenfilter funktionsfähig demonstriert werden kann. Sie sind im Quelltext unter <code>INSTRUMENTE</code> / <code>GEM_INSTR</code> klar markiert und werden durch die echten Definitionen ersetzt.</div>
-      <div class="blocklabel">BFS-Stichtag</div>
-      <p class="d-v" style="max-width:74ch">Hochgeladene amtliche ID-Liste: <b>Politische Gemeinden 01.01.2024</b> (2131 Gemeinden). Die Geometrie ist Stand 2025; dadurch fehlen <b>19</b> per 2024 noch existierende, 2025 fusionierte Gemeinden als Polygon (z. B. Enges/Hauterive/Saint-Blaise/La Tène → «Laténa»). Diese Differenz ist dokumentiert und sollte durch Angleichen des Stichtags gelöst werden.</p>
+      <div class="callout"><b>Geometrie:</b> swisstopo swissBOUNDARIES (Stand 2025), WGS84, in den SVG-Raum projiziert. Nur Schweiz: Kantone, Gemeinden, Seen. Liechtenstein/Enklaven entfernt; CH-Sondergebiete als neutrale Flächen.</div>
+      <div class="callout" style="border-left-color:var(--ink-faint);background:#EEF2F4"><b>Instrument-Daten:</b> aus <code>src/data/instruments.json</code> + <code>territory-instruments.json</code> (build-injiziert). <b id="cov-note">Pilot</b> — Abdeckung wird kantonsweise erweitert. Rechtsgrundlage und Quelle je Instrument in Detail/Tabelle verlinkt.</div>
+      <div class="blocklabel">Exklusive Kategorien (Taxonomie)</div>
+      <div class="legend" id="cat-legend-full"></div>
     </section>
   </main>
 </div>
 
 <script id="mapdata" type="application/json">__MAPDATA__</script>
+<script id="instrdata" type="application/json">__INSTRDATA__</script>
 <script>
 /* ================= Daten ================= */
 const RAW = JSON.parse(document.getElementById("mapdata").textContent);
+const DATA = JSON.parse(document.getElementById("instrdata").textContent); // {instruments, relations, aliases}
 const NS = "http://www.w3.org/2000/svg";
 const KT_ABBR = {1:"ZH",2:"BE",3:"LU",4:"UR",5:"SZ",6:"OW",7:"NW",8:"GL",9:"ZG",10:"FR",11:"SO",12:"BS",13:"BL",14:"SH",15:"AR",16:"AI",17:"SG",18:"GR",19:"AG",20:"TG",21:"TI",22:"VD",23:"VS",24:"NE",25:"GE",26:"JU"};
 const ktNameByNr = {}; RAW.cantons.forEach(c=>ktNameByNr[c.nr]=c.name);
 
-/* ===== INSTRUMENTE =====
-   !! DEMO-PLATZHALTER — NICHT RESEARCH-VERIFIZIERT !!
-   Reine Demodaten zur Funktionsdemonstration. NICHT als Forschungsergebnis verwenden.
-   Vor Produktivnutzung durch echte Daten ersetzen (geplant: src/data/instruments.json;
-   siehe docs/DATA_MODEL.md). Jedes Demo-Objekt traegt demo:true; daran haengen das
-   UI-Warnbanner (DEMO_MODE) und der Validator (validation/validate-data.mjs). ===== */
-const INSTRUMENTE = [
-  {id:"DEMO_A", name:"Demo-Instrument A", color:"#3B7DC4", demo:true},
-  {id:"DEMO_B", name:"Demo-Instrument B", color:"#4F9D69", demo:true},
-  {id:"DEMO_C", name:"Demo-Instrument C", color:"#E8883A", demo:true},
-];
-/* ===== GEM_INSTR: bfs -> [instrumentId,...] — DEMO-Zuordnungen, NICHT verifiziert ===== */
-const GEM_INSTR = {
-  261:["DEMO_A","DEMO_B"],  // Zürich
-  351:["DEMO_A"],           // Bern
-  1061:["DEMO_B"],          // Luzern
-  2701:["DEMO_A","DEMO_C"], // Basel
-  6621:["DEMO_C"],          // Genève
-  5586:["DEMO_C"],          // Lausanne
-  3203:["DEMO_B"],          // St. Gallen
-  1711:["DEMO_A"],          // Zug
-  230:["DEMO_B"],           // Winterthur
-  942:["DEMO_C"],           // Thun
+/* 10 exklusive Kategorien (docs/INSTRUMENT_TAXONOMY.md) + Farben */
+const CATS = {
+  1:{name:"Keine Sonderregelung", color:"#E4E7EA"},
+  2:{name:"Angebotsausweitung (Bau/Planung)", color:"#8FBCE8"},
+  3:{name:"Angebotssteuerung preisgünstig", color:"#3B7DC4"},
+  4:{name:"Öff./gemeinnützige Produktion", color:"#4F9D69"},
+  5:{name:"Transaktion/Eigentum", color:"#7E8AC4"},
+  6:{name:"Bestandesschutz (o. Mietzinskontrolle)", color:"#E8883A"},
+  7:{name:"Wohnschutz m. Mietzinskontrolle", color:"#C5322B"},
+  8:{name:"Nutzungssteuerung Bestand", color:"#F2C53D"},
+  9:{name:"Nachfrageförderung", color:"#5BB8B0"},
+  10:{name:"Verfahren/Vollzug", color:"#9A86B5"}
 };
-const INSTR_BY_ID = Object.fromEntries(INSTRUMENTE.map(i=>[i.id,i]));
-const DEMO_MODE = INSTRUMENTE.some(i=>i.demo); // steuert DEMO-Warnbanner; false, sobald keine Demo-Instrumente mehr vorhanden
-const NEUTRAL = getComputedStyle(document.documentElement).getPropertyValue("--land").trim() || "#E4E7EA";
+const CAT_PRIORITY = [7,6,5,3,8,4,9,2,10,1]; // stärkster Eingriff zuerst (Anzeige bei Mehrfach)
+const STATUSLBL = {in_force:"in Kraft",pending:"pendent",planned:"geplant",rejected:"abgelehnt",unclear:"unklar",historical:"historisch"};
+const NEUTRAL = CATS[1].color;
 
+const INSTR = DATA.instruments || [];
+const RELS = DATA.relations || [];
+const aliasMap = {}; (DATA.aliases||[]).forEach(a=>{ if(a && a.valid_bfs!=null) aliasMap[a.old_bfs]=a.valid_bfs; });
+const instrById = {}; INSTR.forEach(i=>instrById[i.instrument_id]=i);
 const gemByBfs = {}; RAW.gemeinden.forEach(g=>gemByBfs[g.bfs]=g);
-const instrOf = (bfs)=> GEM_INSTR[bfs] || [];
+const gemSet = new Set(RAW.gemeinden.map(g=>g.bfs));
+const resolveBfs = (b)=> gemSet.has(b) ? b : (aliasMap[b]!=null ? aliasMap[b] : null);
+
+/* Ableitung: Gemeinde -> Instrument-IDs (alle / nur farbbestimmend) */
+const commAll = {}, commMap = {};
+RELS.forEach(r=>{
+  if(r.territory_type!=="municipality") return;
+  const b = resolveBfs(r.bfs_number); if(b==null) return;
+  (commAll[b] ||= []).push(r.instrument_id);
+  if(r.map_relevant===true) (commMap[b] ||= []).push(r.instrument_id);
+});
+const ktOwn = {}; RELS.forEach(r=>{ if(r.territory_type==="canton" && r.canton_number!=null) (ktOwn[r.canton_number] ||= []).push(r.instrument_id); });
+
+const catsOf = (ids)=>{ const s=new Set(); (ids||[]).forEach(id=>{const it=instrById[id]; if(it&&it.exclusive_category_id) s.add(it.exclusive_category_id);}); return s; };
+const commCatsMap = (bfs)=> catsOf(commMap[bfs]);
+
+/* Kanton -> farbbestimmende Kategorien (Aggregat aus Gemeinden), einmal vorberechnet */
+const ktCatSet = {};
+Object.keys(commMap).forEach(b=>{ const g=gemByBfs[+b]; if(!g) return; (ktCatSet[g.kt] ||= new Set()); commCatsMap(+b).forEach(c=>ktCatSet[g.kt].add(c)); });
+
+/* verwendete Kategorien (Legende/Filter) */
+const usedCats = new Set(); Object.keys(commMap).forEach(b=>commCatsMap(+b).forEach(c=>usedCats.add(c)));
+if(!usedCats.size) INSTR.forEach(i=>{ if(i.exclusive_category_id) usedCats.add(i.exclusive_category_id); });
+const usedCatList = [...usedCats].sort((a,b)=>a-b);
 
 /* ================= State ================= */
-let mapMode = "gem"; // "gem" | "kanton"
-const selected = new Set(INSTRUMENTE.map(i=>i.id)); // default: alle an
-const els = { land:{}, kt:{} }; // gezeichnete Pfade für schnelles Umfärben
+let mapMode = "gem";
+const selected = new Set(usedCatList);
+const els = { land:{}, kt:{} };
 
-function activeInstrOf(bfs){ const a=instrOf(bfs); return a.length?a.filter(id=>selected.has(id)):a; }
-function communeColor(bfs){
-  const a = activeInstrOf(bfs);
-  if(!a.length) return NEUTRAL;
-  for(const i of INSTRUMENTE){ if(a.includes(i.id)) return i.color; } // erste in Reihenfolge
-  return NEUTRAL;
-}
-function cantonHasActive(nr){
-  for(const g of RAW.gemeinden){ if(g.kt===nr && activeInstrOf(g.bfs).length) return true; }
-  return false;
-}
-function cantonColor(nr){
-  // Farbe = erstes ausgewähltes Instrument, das in diesem Kanton vorkommt
-  for(const i of INSTRUMENTE){ if(!selected.has(i.id)) continue;
-    for(const g of RAW.gemeinden){ if(g.kt===nr && instrOf(g.bfs).includes(i.id)) return i.color; } }
-  return NEUTRAL;
-}
+function pickCat(catSet){ for(const c of CAT_PRIORITY){ if(catSet.has(c) && selected.has(c)) return c; } return null; }
+function communeColor(bfs){ const c=pickCat(commCatsMap(bfs)); return c?CATS[c].color:NEUTRAL; }
+function cantonColor(nr){ const set=ktCatSet[nr]; if(!set) return NEUTRAL; const c=pickCat(set); return c?CATS[c].color:NEUTRAL; }
 
 /* ================= Karte ================= */
 function path(d, cls){ const p=document.createElementNS(NS,"path"); p.setAttribute("d",d); if(cls)p.setAttribute("class",cls); return p; }
 function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
-
 function buildMap(){
   const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox);
   els.land={}; els.kt={};
   if(mapMode==="gem"){
-    // Landflächen: Gemeinden + Sondergebiete
     RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",communeColor(g.bfs));
       p.addEventListener("mouseenter",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       p.addEventListener("click",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       svg.appendChild(p); els.land[g.bfs]=p; });
     RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL);
       p.addEventListener("mouseenter",()=>detailSonder(s)); svg.appendChild(p); });
-    // Seen
     RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
-    // Kantonsgrenzen + Labels obenauf
     RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
     RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
   } else {
@@ -282,19 +291,28 @@ function repaint(){
 function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
 
 /* ================= Detail ================= */
-function chipsHtml(ids){ if(!ids||!ids.length) return `<span class="d-v">—</span>`;
-  return `<div class="chips">`+ids.map(id=>{const i=INSTR_BY_ID[id]; const c=i?i.color:"#999"; const n=i?i.name:id; return `<span class="chip"><span class="dot" style="background:${c}"></span>${n}</span>`;}).join("")+`</div>`; }
+function instrItemHtml(id){
+  const it=instrById[id]; if(!it) return "";
+  const cat=CATS[it.exclusive_category_id]||{name:"?",color:"#999"};
+  const src=it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener">Quelle ↗</a>`:"";
+  return `<div class="instr-item">`+
+    `<span class="chip"><span class="dot" style="background:${cat.color}"></span>Kat. ${it.exclusive_category_id} · ${cat.name}</span>`+
+    `<div class="instr-ttl">${it.instrument_name}</div>`+
+    `<div class="instr-sub">${it.legal_article||it.legal_basis||""} · <span class="statuspill">${STATUSLBL[it.status]||it.status}</span>`+
+    `${it.map_relevant?"":` · <span class="nofarb">nicht farbbestimmend</span>`} ${src}</div></div>`;
+}
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
+  const ids=commAll[bfs]||[];
   el.innerHTML = `<div class="d-name">${g.name}</div>`+
-    `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${g.bfs}</div></div>`+
-    `<div class="d-row"><div class="d-k">Kanton</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
-    `<div class="d-row"><div class="d-k">Instrumente</div>${chipsHtml(instrOf(bfs))}</div>`;
+    `<div class="d-row"><div class="d-k">BFS / Kanton</div><div class="d-v"><span class="mono">${g.bfs}</span> · ${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
+    `<div class="d-row"><div class="d-k">Instrumente (${ids.length})</div>${ids.length?ids.map(instrItemHtml).join(""):`<div class="d-v">Keine erfassten Instrumente.</div>`}</div>`;
 }
 function detailKanton(nr){ const el=document.getElementById("detail");
-  const gems=RAW.gemeinden.filter(g=>g.kt===nr); const withI=gems.filter(g=>instrOf(g.bfs).length);
+  const own=ktOwn[nr]||[];
+  const colored=RAW.gemeinden.filter(g=>g.kt===nr && commMap[g.bfs] && commMap[g.bfs].length).length;
   el.innerHTML = `<div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
-    `<div class="d-row"><div class="d-k">Gemeinden</div><div class="d-v mono">${gems.length}</div></div>`+
-    `<div class="d-row"><div class="d-k">mit Instrument</div><div class="d-v mono">${withI.length}</div></div>`;
+    `<div class="d-row"><div class="d-k">Gemeinden mit farbbestimmendem Instrument</div><div class="d-v mono">${colored}</div></div>`+
+    `<div class="d-row"><div class="d-k">Kantonsinstrumente (${own.length})</div>${own.length?own.map(instrItemHtml).join(""):`<div class="d-v">Keine kantonalen Instrumente erfasst.</div>`}</div>`;
 }
 function detailSonder(s){ const el=document.getElementById("detail");
   el.innerHTML = `<div class="d-name">${s.name}</div>`+
@@ -302,54 +320,87 @@ function detailSonder(s){ const el=document.getElementById("detail");
     `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${s.bfs}</div></div>`;
 }
 
-/* ================= Instrument-Controls ================= */
-function renderInstrumentControls(){
-  const box=document.getElementById("instr-controls");
-  box.innerHTML = INSTRUMENTE.map(i=>`<label class="instr-row"><input type="checkbox" data-id="${i.id}" ${selected.has(i.id)?"checked":""}><span class="sw" style="background:${i.color}"></span><span class="instr-name">${i.name}${i.demo?`<span class="demo">DEMO</span>`:""}</span></label>`).join("")
-    || `<div class="d-v">Noch keine Instrumente definiert.</div>`;
-  box.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>{ const id=cb.dataset.id; if(cb.checked)selected.add(id); else selected.delete(id); repaint(); }));
+/* ================= Kategorie-Controls + Legende ================= */
+function renderCatControls(){
+  const box=document.getElementById("cat-controls");
+  box.innerHTML = usedCatList.length ? usedCatList.map(c=>`<label class="instr-row"><input type="checkbox" data-cat="${c}" ${selected.has(c)?"checked":""}><span class="sw" style="background:${CATS[c].color}"></span><span class="instr-name">${c} · ${CATS[c].name}</span></label>`).join("")
+    : `<div class="d-v">Keine farbbestimmenden Instrumente erfasst.</div>`;
+  box.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>{const c=+cb.dataset.cat; if(cb.checked)selected.add(c); else selected.delete(c); repaint();}));
 }
-function setAll(on){ selected.clear(); if(on)INSTRUMENTE.forEach(i=>selected.add(i.id)); renderInstrumentControls(); repaint(); }
+function setAll(on){ selected.clear(); if(on)usedCatList.forEach(c=>selected.add(c)); renderCatControls(); repaint(); }
+function renderLegend(){
+  document.getElementById("legend").innerHTML = usedCatList.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("") + `<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
+}
 
-/* ================= Tabelle ================= */
-const filt={instr:new Set(),kanton:"",q:""};
-let sortKey="name",sortDir=1;
+/* ================= Tabelle (Instrument-Katalog) ================= */
+const filt={cat:new Set(),status:new Set(),kanton:"",q:""};
+let sortKey="cat",sortDir=1;
+function territoryLabel(it){ return it.territory_type==="canton" ? `${ktNameByNr[it.canton_number]||it.territory_name} (Kanton)` : (gemByBfs[it.bfs_number]?gemByBfs[it.bfs_number].name:(it.territory_name||("BFS "+it.bfs_number))); }
+function ktOf(it){ return it.canton_number!=null ? it.canton_number : (it.bfs_number!=null && gemByBfs[it.bfs_number] ? gemByBfs[it.bfs_number].kt : null); }
 function buildFilters(){
   const box=document.getElementById("filters");
+  const instrCats = [...new Set(INSTR.map(i=>i.exclusive_category_id).filter(Boolean))].sort((a,b)=>a-b);
+  const cats = instrCats.length?instrCats:Object.keys(CATS).map(Number);
   box.innerHTML =
-    `<div><span class="fl">Instrumente</span>`+INSTRUMENTE.map(i=>`<button class="filterchip" data-id="${i.id}"><span class="dot" style="background:${i.color}"></span>${i.name}</button>`).join(" ")+`</div>`+
+    `<div><span class="fl">Kategorie</span>`+cats.map(c=>`<button class="filterchip" data-cat="${c}"><span class="dot" style="background:${CATS[c].color}"></span>${c}</button>`).join(" ")+`</div>`+
+    `<div><span class="fl">Status</span>`+["in_force","pending","planned","rejected","unclear","historical"].map(s=>`<button class="filterchip" data-st="${s}">${STATUSLBL[s]}</button>`).join(" ")+`</div>`+
     `<div><span class="fl">Kanton</span><select class="sel" id="f-kt"><option value="">Alle</option>${RAW.cantons.map(c=>`<option value="${c.nr}">${c.name}</option>`).join("")}</select></div>`+
-    `<div><span class="fl">Suche</span><input class="search" id="f-q" type="text" placeholder="Gemeinde oder BFS…"></div>`;
-  box.querySelectorAll(".filterchip").forEach(c=>c.addEventListener("click",()=>{const id=c.dataset.id;if(filt.instr.has(id))filt.instr.delete(id);else filt.instr.add(id);c.classList.toggle("on");renderTable();}));
+    `<div><span class="fl">Suche</span><input class="search" id="f-q" type="text" placeholder="Instrument, Gesetz, Gebiet…"></div>`;
+  box.querySelectorAll(".filterchip[data-cat]").forEach(c=>c.addEventListener("click",()=>{const v=+c.dataset.cat;if(filt.cat.has(v))filt.cat.delete(v);else filt.cat.add(v);c.classList.toggle("on");renderTable();}));
+  box.querySelectorAll(".filterchip[data-st]").forEach(c=>c.addEventListener("click",()=>{const v=c.dataset.st;if(filt.status.has(v))filt.status.delete(v);else filt.status.add(v);c.classList.toggle("on");renderTable();}));
   document.getElementById("f-kt").addEventListener("change",e=>{filt.kanton=e.target.value;renderTable();});
   document.getElementById("f-q").addEventListener("input",e=>{filt.q=e.target.value;renderTable();});
 }
-function passes(g){
-  if(filt.kanton && g.kt!==+filt.kanton) return false;
-  if(filt.instr.size){ const have=instrOf(g.bfs); for(const id of filt.instr){ if(!have.includes(id)) return false; } }
-  if(filt.q){ const s=(g.name+" "+g.bfs).toLowerCase(); if(!s.includes(filt.q.toLowerCase())) return false; }
+function passes(it){
+  if(filt.cat.size && !filt.cat.has(it.exclusive_category_id)) return false;
+  if(filt.status.size && !filt.status.has(it.status)) return false;
+  if(filt.kanton){ if(ktOf(it)!==+filt.kanton) return false; }
+  if(filt.q){ const s=(it.instrument_name+" "+(it.legal_basis||"")+" "+(it.legal_article||"")+" "+territoryLabel(it)+" "+(it.canton||"")).toLowerCase(); if(!s.includes(filt.q.toLowerCase())) return false; }
   return true;
 }
 function buildTableHead(){
-  const cols=[["name","Gemeinde"],["bfs","BFS"],["kt","Kanton"],["instr","Instrumente"]];
+  const cols=[["instrument_name","Instrument"],["territory","Territorium"],["cat","Kategorie"],["status","Status"],["map","Karte"],["legal","Rechtsgrundlage"],["src","Quelle"]];
   document.querySelector("#rtable thead").innerHTML="<tr>"+cols.map(c=>`<th data-k="${c[0]}">${c[1]}</th>`).join("")+"</tr>";
-  document.querySelectorAll("#rtable thead th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(["name","bfs","kt"].includes(k)){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=1;}renderTable();}}));
+  document.querySelectorAll("#rtable thead th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(["instrument_name","cat","status","territory"].includes(k)){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=1;}renderTable();}}));
 }
 function renderTable(){
-  let rows=RAW.gemeinden.filter(passes);
-  rows.sort((a,b)=>{let x,y; if(sortKey==="name"){x=a.name.toLowerCase();y=b.name.toLowerCase();} else if(sortKey==="kt"){x=a.kt;y=b.kt;} else {x=a.bfs;y=b.bfs;} if(x<y)return -1*sortDir; if(x>y)return 1*sortDir; return a.name.localeCompare(b.name);});
+  let rows=INSTR.filter(passes);
+  rows.sort((a,b)=>{let x,y;
+    if(sortKey==="instrument_name"){x=a.instrument_name.toLowerCase();y=b.instrument_name.toLowerCase();}
+    else if(sortKey==="status"){x=a.status;y=b.status;}
+    else if(sortKey==="territory"){x=territoryLabel(a).toLowerCase();y=territoryLabel(b).toLowerCase();}
+    else {x=a.exclusive_category_id||99;y=b.exclusive_category_id||99;}
+    if(x<y)return -1*sortDir; if(x>y)return 1*sortDir; return a.instrument_name.localeCompare(b.instrument_name);});
   const tb=document.querySelector("#rtable tbody");
-  tb.innerHTML = rows.length ? rows.map(g=>`<tr><td><div class="nm">${g.name}</div></td><td class="mono">${g.bfs}</td><td>${KT_ABBR[g.kt]||g.kt}</td><td>${chipsHtml(instrOf(g.bfs))}</td></tr>`).join("")
-    : `<tr><td colspan="4"><div class="d-v" style="padding:14px">Keine Gemeinden für diese Filter.</div></td></tr>`;
-  document.getElementById("tcount").textContent=`${rows.length} von ${RAW.gemeinden.length} Gemeinden`;
+  tb.innerHTML = rows.length ? rows.map(it=>{ const cat=CATS[it.exclusive_category_id]||{name:"?",color:"#999"};
+    return `<tr><td><div class="nm">${it.instrument_name}</div></td>`+
+      `<td>${territoryLabel(it)}</td>`+
+      `<td><span class="chip"><span class="dot" style="background:${cat.color}"></span>${it.exclusive_category_id} · ${cat.name}</span></td>`+
+      `<td><span class="statuspill">${STATUSLBL[it.status]||it.status}</span></td>`+
+      `<td>${it.map_relevant?"●":"–"}</td>`+
+      `<td class="d-v" style="font-size:12.5px">${it.legal_article||it.legal_basis||"–"}</td>`+
+      `<td>${it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener" style="color:var(--brand);text-decoration:none;font-size:12px">↗</a>`:"–"}</td></tr>`;
+  }).join("") : `<tr><td colspan="7"><div class="d-v" style="padding:14px">Keine Instrumente für diese Filter.</div></td></tr>`;
+  document.getElementById("tcount").textContent=`${rows.length} von ${INSTR.length} Instrumenten`;
 }
 
 /* ================= Info ================= */
 function renderInfo(){
   const c=RAW.meta.counts;
-  const withI=RAW.gemeinden.filter(g=>instrOf(g.bfs).length).length;
-  const cards=[["Gemeinden",c.gemeinden,"objektart Gemeindegebiet, icc CH"],["Kantone",c.cantons,"swissBOUNDARIES"],["Seen",c.lakes,"als Wasser-Layer"],["Instrumente",INSTRUMENTE.length,"Platzhalter (DEMO)"],["Gemeinden mit Instrument",withI,"DEMO-Zuordnung"]];
+  const terr = new Set(); RELS.forEach(r=>{ if(r.territory_type==="municipality"&&r.map_relevant) terr.add(resolveBfs(r.bfs_number)); });
+  const cards=[
+    ["Instrumente",INSTR.length,"erfasst (Pilot)"],
+    ["Gebiete farbbestimmend",terr.size,"Gemeinden mit map_relevant"],
+    ["Kategorien verwendet",usedCatList.length,"von 10"],
+    ["Gemeinden",c.gemeinden,"Geometrie 2025"],
+    ["Kantone",c.cantons,"swissBOUNDARIES"]
+  ];
   document.getElementById("infogrid").innerHTML=cards.map(([k,v,s])=>`<div class="infocard"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join("");
+  document.getElementById("cat-legend-full").innerHTML=Object.keys(CATS).map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("");
+  // Abdeckungs-Hinweis
+  const kts=new Set(); INSTR.forEach(i=>{ const k=ktOf(i); if(k)kts.add(KT_ABBR[k]); });
+  const cov=document.getElementById("cov-note"); if(cov) cov.textContent = `Pilot — erfasst: ${[...kts].join(", ")||"—"} (${INSTR.length} Instrumente)`;
+  const db=document.getElementById("databanner"); if(db) db.innerHTML = `Datenstand <b>Pilot</b>: ${INSTR.length} Instrumente in ${[...kts].join(", ")||"—"} erfasst (Quellen verlinkt). Übrige Gemeinden noch ohne Erfassung — Abdeckung folgt kantonsweise.`;
 }
 
 /* ================= SVG-Export ================= */
@@ -367,15 +418,16 @@ function downloadSVG(){
 /* ================= View / Init ================= */
 function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".navitem").forEach(n=>n.classList.toggle("active",n.dataset.view===v)); window.scrollTo({top:0}); }
 function init(){
-  const _db=document.getElementById("demobanner"); if(_db) _db.style.display = DEMO_MODE ? "block" : "none";
+  document.getElementById("foot-i").textContent=INSTR.length;
+  const terr=new Set(); RELS.forEach(r=>{ if(r.territory_type==="municipality"&&r.map_relevant) terr.add(resolveBfs(r.bfs_number)); });
+  document.getElementById("foot-t").textContent=terr.size;
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
-  document.getElementById("foot-k").textContent=RAW.meta.counts.cantons;
-  document.getElementById("t-total").textContent=RAW.meta.counts.gemeinden;
-  buildMap(); renderInstrumentControls(); buildFilters(); buildTableHead(); renderTable(); renderInfo();
+  document.getElementById("t-total").textContent=INSTR.length;
+  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
   document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();}));
-  document.getElementById("instr-all").addEventListener("click",()=>setAll(true));
-  document.getElementById("instr-none").addEventListener("click",()=>setAll(false));
+  document.getElementById("cat-all").addEventListener("click",()=>setAll(true));
+  document.getElementById("cat-none").addEventListener("click",()=>setAll(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
 }
 if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
