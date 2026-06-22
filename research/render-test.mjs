@@ -56,11 +56,26 @@ $('#filters .filterchip[data-cat="6"]').dispatchEvent(new window.Event("click"))
 // Detail: Basel hover zeigt Instrumente
 $('#map path[data-bfs="2701"]').dispatchEvent(new window.Event("mouseenter"));
 A(/Bewilligungspflicht|Mietzinskontrolle/.test($("#detail").innerHTML), `Detailpanel Basel zeigt Instrumente`);
+A(!!$('#detail .auditbtn[data-audit="audit-BS"]'), `Instrument-Detail enthält Audit-Link`);
+A(/Karte:/.test($("#detail").innerHTML), `Instrument-Detail zeigt map_relevant-Begründung`);
+A(/Tier 1/.test($("#detail").innerHTML), `Instrument-Detail zeigt Belegstufe`);
 
 // Daten-/Pilot-Banner statt Demo-Banner
 const db = $("#databanner");
 A(db && /Pilot/.test(db.innerHTML), `Daten-Banner zeigt Pilot-Hinweis`);
 A($("#demobanner") === null, `kein DEMO-Banner mehr`);
+
+// Audit & Quellen (Navigation 04)
+A(!!$('.navitem[data-view="audit"]'), `Audit-Navigation existiert`);
+$('.navitem[data-view="audit"]').dispatchEvent(new window.Event("click"));
+A($("#v-audit").classList.contains("active"), `Audit-Ansicht aktiv`);
+A($$("#audit-wrap .acard").length >= 1, `Audit-Liste zeigt Bericht(e)`);
+A(/Basel-Stadt/.test($("#audit-wrap").innerHTML), `Basel-Stadt Auditbericht in Liste`);
+$('#audit-wrap .acard[data-audit="audit-BS"]').dispatchEvent(new window.Event("click"));
+const ad = $("#audit-detail");
+A(ad && ad.style.display !== "none", `Audit-Detail geöffnet`);
+A(/Basel/.test(ad.innerHTML) && /Bettingen/.test(ad.innerHTML) && /Riehen/.test(ad.innerHTML), `Bericht zeigt Basel, Bettingen, Riehen`);
+A(/gesetzessammlung\.bs\.ch/.test(ad.innerHTML), `Bericht zeigt Quellen (Tier-1-Link)`);
 
 console.log(fails ? `\n${fails} Test(s) FEHLGESCHLAGEN` : "\nAlle Tests bestanden.");
 process.exit(fails ? 1 : 0);

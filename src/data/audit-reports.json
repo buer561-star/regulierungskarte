@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "_readme": "AUDIT-/EVIDENZ-Ebene (read-only Anzeige). GETRENNT von Produktionsdaten. Auditberichte bestimmen WEDER Kartenfarbe NOCH Klassifikation NOCH Relationen; sie dokumentieren Recherche, Quellen, Einstufung und Unsicherheiten. Verknuepfung zu Instrumenten ueber instruments_found (instrument_id). Schema je Bericht siehe _report_template.",
+  "_report_template": {
+    "audit_id": "",
+    "territory_name": "",
+    "territory_type": "canton | municipality",
+    "canton": "",
+    "bfs_number": null,
+    "canton_number": null,
+    "research_status": "not_started | planned | researched | audited | integrated | needs_review",
+    "summary": "",
+    "territories_checked": [],
+    "sources_checked": [
+      { "title": "", "url": "", "source_tier": "tier_1_primary | tier_2_official | tier_3_professional | tier_4_signal", "source_type": "", "what_it_proves": "", "last_checked": "" }
+    ],
+    "instruments_found": [],
+    "instruments_rejected_or_not_confirmed": [],
+    "classification_notes": "",
+    "map_relevance_notes": "",
+    "open_questions": [],
+    "confidence": "high | medium | low",
+    "last_updated": ""
+  },
+  "reports": [
+    {
+      "audit_id": "audit-BS",
+      "territory_name": "Basel-Stadt",
+      "territory_type": "canton",
+      "canton": "BS",
+      "bfs_number": null,
+      "canton_number": 12,
+      "research_status": "integrated",
+      "summary": "Pilot Basel-Stadt: Der Wohnschutz beruht auf kantonalem Recht (WRFG SG 861.500 + WRSchV SG 861.540) und gilt im Stadtkanton kantonsweit (Basel, Riehen, Bettingen). Er greift bei Wohnungsnot (kantonale Leerwohnungsquote <=1.5%); 2025: 0.9% -> aktiv. Erfasst sind 5 Instrumente in genau einer exklusiven Kategorie; 3 davon (Kat 5/6/7) sind farbbestimmend.",
+      "territories_checked": [
+        "Kanton Basel-Stadt (canton_number 12)",
+        "Basel (BFS 2701)",
+        "Bettingen (BFS 2702)",
+        "Riehen (BFS 2703)"
+      ],
+      "sources_checked": [
+        { "title": "Gesetz ueber die Wohnraumfoerderung (WRFG, SG 861.500)", "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.500", "source_tier": "tier_1_primary", "source_type": "Kantonsgesetz", "what_it_proves": "Bewilligungspflicht Abbruch/Umbau (§7, §8a), Stockwerkeigentum-Umwandlung (§8 Abs.5), Foerderzweck (§1), Wohnungsnot-Schwelle <=1.5% (§4 Abs.4)", "last_checked": "2026-06-22" },
+        { "title": "Verordnung ueber den Schutz von Wohnraum (WRSchV, SG 861.540)", "url": "https://www.gesetzessammlung.bs.ch/app/de/texts_of_law/861.540", "source_tier": "tier_1_primary", "source_type": "Verordnung", "what_it_proves": "5-jaehrige Mietzinskontrolle (§26), Verfahren (§24), Wohnschutzkommission (§§14 ff.), jaehrliche Feststellung Leerstand (§3), Revision per 1.11.2025", "last_checked": "2026-06-22" },
+        { "title": "Wohnschutz (Kanton Basel-Stadt, amtlich)", "url": "https://www.bs.ch/pd/kantons-und-stadtentwicklung/wohnraum/wohnschutz", "source_tier": "tier_2_official", "source_type": "Amtliche Erlaeuterung", "what_it_proves": "Bewilligungspflicht, 5-Jahre-Mietzinskontrolle, Geltung bei Leerstand <=1.5%, Ausnahmen (<=3 Whg, Genossenschaften, Luxus, Kurzzeitmiete)", "last_checked": "2026-06-22" },
+        { "title": "Staatliche Stelle fuer Wohnraumschutz", "url": "https://www.bs.ch/regierungsrat/staatskanzlei/staatliche-stelle-fuer-wohnraumschutz", "source_tier": "tier_2_official", "source_type": "Vollzugsstelle", "what_it_proves": "Wohnschutzkommission/Staatliche Stelle: legt Mieten fest, prueft Erhoehungen; Entscheide bindend", "last_checked": "2026-06-22" },
+        { "title": "Mehr leerstehende Wohnungen ... (Leerstand 2025: 0.9%)", "url": "https://www.bs.ch/medienmitteilungen/pd/2025-mehr-leerstehende-wohnungen-weniger-leerstehende-geschaeftsflaechen", "source_tier": "tier_2_official", "source_type": "Medienmitteilung/Statistik", "what_it_proves": "Leerwohnungsquote 2025 = 0.9% <=1.5% -> Wohnungsnot festgestellt, Regime aktiv", "last_checked": "2026-06-22" },
+        { "title": "Navigieren im Wohnraumschutzrecht von Basel-Stadt (MLL)", "url": "https://www.mll-news.com/navigieren-im-wohnraumschutzrecht-von-basel-stadt-das-revidierte-wrfg-und-die-wrschv-im-ueberblick/", "source_tier": "tier_3_professional", "source_type": "Anwaltskanzlei-Publikation", "what_it_proves": "Bestaetigung der Paragraphen-Zuordnung (§7/§8a/§8b/§8 Abs.5/§3a); nur ergaenzend, nicht alleinige Grundlage", "last_checked": "2026-06-22" }
+      ],
+      "instruments_found": [
+        "bs-12-bewilligungspflicht-bestand",
+        "bs-12-mietzinskontrolle",
+        "bs-12-stockwerkeigentum-umwandlung",
+        "bs-12-wohnschutzkommission",
+        "bs-12-wohnraumfoerderung"
+      ],
+      "instruments_rejected_or_not_confirmed": [
+        "Kurzzeitvermietung/Airbnb (Kat 8): in den BS-Wohnschutzquellen nicht gefunden -> NICHT erfasst (nichts erfunden).",
+        "Verbindliche preisguenstig-Quote (Kat 3, z.B. bei Arealentwicklungen): in WRFG/WRSchV nicht belegt -> offene Frage, nicht erfasst.",
+        "Eigene kommunale Reglemente in Riehen/Bettingen ueber kantonales Recht hinaus: keine gefunden (Annahme: keine)."
+      ],
+      "classification_notes": "Das eine Wohnschutz-Paket ist in 5 Instrumente mit je genau einer Kategorie zerlegt: Bewilligungspflicht Abbruch/Umbau/Sanierung = Kat 6 (Bestandesschutz ohne Mietzinskontrolle); 5-jaehrige Mietzinskontrolle = Kat 7 (Wohnschutz mit Mietzinskontrolle); Stockwerkeigentum-Umwandlung = Kat 5 (Transaktion/Eigentum); Wohnschutzkommission = Kat 10 (Verfahren/Vollzug); Wohnraumfoerderung = Kat 4 (Produktion/Foerderung, confidence low). Keine Hochstufung: Abbruchschutz bleibt 6, erst die Mietzinskontrolle ist 7.",
+      "map_relevance_notes": "Farbbestimmend (map_relevant=true) sind nur die materiellen, bindenden Instrumente Kat 5/6/7 (Status in Kraft, bindend/bewilligungspflichtig, Tier-1/2-Beleg). Kat 10 (Vollzug) und Kat 4 (Foerderung) sind NICHT farbbestimmend. Bei mehreren Kategorien je Gebiet bestimmt die staerkste (Prioritaet 7>6>5>...) die Farbe -> Basel/Riehen/Bettingen erscheinen rot (Kat 7). Die Kantonsfarbe ist ein Aggregat aus den Gemeinden, keine pauschale Kantonsrechts-Behauptung.",
+      "open_questions": [
+        "Konkrete WRFG-Foerderinstrumente (aktive Bodenpolitik, Darlehen, Fonds) einzeln belegen -> Kat 4 verfeinern.",
+        "Verbindliche preisguenstig-Quote pruefen (evtl. Bau-/Planungsrecht statt WRFG) -> ggf. Kat 3.",
+        "Per-Jahr-Geltung (Wohnungsnot) automatisiert nachfuehren (Leerstandsziffer)."
+      ],
+      "confidence": "high",
+      "last_updated": "2026-06-22"
+    }
+  ]
+}

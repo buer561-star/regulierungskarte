@@ -17,6 +17,12 @@ node validation/validate-data.mjs
 
 > Stand: Der Validator läuft jetzt gegen die **Produktionsdateien** (Relationen gegen Geometrie/Instrumente) und warnt parallel über noch vorhandene Demo-Daten. Prüf-IDs im Code: `C-FIELDS, C-CAT, C-MAP, C-REL-ID, C-REL-BFS, C-REL-KT, C-REL-AGG` (Mapping zu C1–C10 unten).
 
+> **Audit-Checks** (gegen `src/data/audit-reports.json`, read-only Ebene):
+> `C-AUD-1` jedes echte Instrument ist einem Auditbericht zugeordnet (`instruments_found`) — ERROR;
+> `C-AUD-2` jedes `map_relevant=true` braucht Tier-1/2-Beleg (`primary_legal`/`official_explanatory`) — ERROR;
+> `C-AUD-3` jedes Territorium mit Instrumenten hat einen Bericht mit `research_status` integrated/audited — ERROR;
+> `C-AUD-4/5` Auditberichte sind read-only, getrennt von Produktion und bestimmen keine Kartenfarbe — INFO.
+
 ## Prüfungen
 
 | ID | Prüfung | Schwere | Gilt für |

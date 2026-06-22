@@ -14,6 +14,7 @@ Drei Ansichten:
 - **Karte:** Gemeinde- oder Kantonskarte, eingefärbt nach **exklusiver Kategorie (1–10)** der farbbestimmenden Instrumente; rechts wählbar, welche Kategorien angezeigt werden; Hover/Klick zeigt Instrumente mit Quelle; **SVG-Export**.
 - **Instrumente & Filter:** Katalog aller Instrumente mit Territorium, Kategorie, Status, Rechtsgrundlage, Quelle; nach Kategorie/Status/Kanton/Suche filterbar.
 - **Daten & Info:** Kennzahlen, Kategorien-Legende und Datenherkunft.
+- **Audit & Quellen:** Auditberichte je Gebiet (Recherche, geprüfte Quellen nach Tier, gefundene/verworfene Instrumente, Klassifikations- und Kartenrelevanz-Logik, offene Fragen); Read-only-Ebene, verändert Karte/Klassifikation nicht.
 
 Live ansehen (öffentliches Repo, ohne Setup):
 `https://raw.githack.com/buer561-star/regulierungskarte/<branch>/index.html`
@@ -44,7 +45,7 @@ Bearbeitet wird die App in **`build/index.template.html`**; `index.html` wird da
 |---|---|
 | `index.html` | **Generiertes** Single-File-Tool (Deliverable) |
 | `build/` | Build-Pipeline: `build-map-data.mjs`, `build-html.mjs`, `index.template.html` |
-| `src/data/` | Produktivdaten: `instruments.json`, `territory-instruments.json`, `bfs-aliases.json` (+ `source/` Rohdaten) |
+| `src/data/` | Produktivdaten: `instruments.json`, `territory-instruments.json`, `bfs-aliases.json`, `audit-reports.json` (+ `source/` Rohdaten) |
 | `validation/` | `validate-data.mjs` (read-only) + `VALIDATION_PLAN.md` |
 | `research/` | Werkzeuge (`render-test.mjs`, Legacy `validate.mjs`) + `pilots/` (BS-Plan, Findings, Bericht) + `AGENT_PLAN.md` |
 | `docs/` | Architektur: Datenmodell, Taxonomie, Quellen-/Vintage-Policy, WP-Matrix, Coverage + Legacy-Audits |

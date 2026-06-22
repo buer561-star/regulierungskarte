@@ -107,6 +107,23 @@
   .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);}
   .legend span{display:inline-flex;align-items:center;gap:6px;}
   .legend .dot{width:10px;height:10px;border-radius:3px;}
+  /* audit */
+  .acards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;}
+  .acard{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:14px;cursor:pointer;text-align:left;font:inherit;color:inherit;}
+  .acard:hover{border-color:var(--ink-soft);}
+  .acard .at{font-weight:600;font-size:15px;}
+  .acard .am{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);margin-top:6px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;}
+  .badge{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 8px;border-radius:99px;display:inline-block;}
+  .b-integrated{background:#E4F4EC;color:#216B45;} .b-audited{background:#E4F0F7;color:#1C5F86;}
+  .b-researched{background:#FBF1DC;color:#7a4a12;} .b-planned{background:#EEF2F4;color:#5A6B75;} .b-not_started{background:#EEF2F4;color:#5A6B75;}
+  .b-needs_review{background:#FBE3E1;color:#992019;}
+  .conf-high{color:#216B45;} .conf-medium{color:#7a4a12;} .conf-low{color:#992019;}
+  .srcgroup{margin:8px 0;} .srcgroup h4{margin:8px 0 4px;font-size:12px;color:var(--ink);}
+  .srcitem{font-size:12.5px;color:var(--ink-soft);margin:6px 0;padding-left:10px;border-left:2px solid var(--hairline-strong);}
+  .srcitem a{color:var(--brand);text-decoration:none;}
+  .auditbtn{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);border-radius:99px;padding:2px 8px;cursor:pointer;margin-left:4px;}
+  .auditbtn:hover{background:var(--brand);color:#04222E;border-color:var(--brand);}
+  .back{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--brand);cursor:pointer;background:none;border:none;padding:0;margin-bottom:12px;}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -118,6 +135,7 @@
       <button class="navitem active" data-view="karte"><span class="num">01</span> Karte</button>
       <button class="navitem" data-view="tabelle"><span class="num">02</span> Instrumente &amp; Filter</button>
       <button class="navitem" data-view="info"><span class="num">03</span> Daten &amp; Info</button>
+      <button class="navitem" data-view="audit"><span class="num">04</span> Audit &amp; Quellen</button>
     </nav>
     <div class="side-foot">
       <b id="foot-i">0</b> Instrumente · <b id="foot-t">0</b> Gebiete<br>
@@ -190,11 +208,24 @@
       <div class="blocklabel">Exklusive Kategorien (Taxonomie)</div>
       <div class="legend" id="cat-legend-full"></div>
     </section>
+
+    <!-- 04 AUDIT -->
+    <section class="view" id="v-audit">
+      <div class="vhead">
+        <p class="eb">Audit &amp; Evidenz</p>
+        <h1>Auditberichte &amp; Quellen</h1>
+        <p>Nachvollziehbarkeit je Gebiet: <b>was recherchiert wurde</b>, welche <b>Quellen</b> geprüft wurden, welche <b>Instrumente</b> gefunden, wie <b>eingestuft</b>, und welche <b>Unsicherheiten</b> bleiben. Read-only — diese Ebene verändert weder Karte noch Klassifikation noch Relationen.</p>
+      </div>
+      <div class="filters" id="audit-filters"></div>
+      <div id="audit-list"><div id="audit-wrap"></div></div>
+      <div id="audit-detail" style="display:none"></div>
+    </section>
   </main>
 </div>
 
 <script id="mapdata" type="application/json">__MAPDATA__</script>
 <script id="instrdata" type="application/json">__INSTRDATA__</script>
+<script id="auditdata" type="application/json">__AUDITDATA__</script>
 <script>
 /* ================= Daten ================= */
 const RAW = JSON.parse(document.getElementById("mapdata").textContent);
@@ -237,6 +268,19 @@ RELS.forEach(r=>{
   if(r.map_relevant===true) (commMap[b] ||= []).push(r.instrument_id);
 });
 const ktOwn = {}; RELS.forEach(r=>{ if(r.territory_type==="canton" && r.canton_number!=null) (ktOwn[r.canton_number] ||= []).push(r.instrument_id); });
+
+/* ===== Audit-/Evidenz-Ebene (read-only) ===== */
+const AUDIT = (()=>{ const el=document.getElementById("auditdata"); try{ return (JSON.parse(el.textContent).reports)||[]; }catch(e){ return []; } })();
+const STATUS_AUDIT = {not_started:"nicht begonnen",planned:"geplant",researched:"recherchiert",audited:"auditiert",integrated:"integriert",needs_review:"prüfen"};
+const TIERLBL = {tier_1_primary:"Tier 1 · primär-rechtlich",tier_2_official:"Tier 2 · amtlich",tier_3_professional:"Tier 3 · fachlich",tier_4_signal:"Tier 4 · Signal"};
+function auditForInstrument(id){ return AUDIT.find(a=>(a.instruments_found||[]).includes(id))||null; }
+function tierShort(sq){ return sq==="primary_legal"?"Tier 1":sq==="official_explanatory"?"Tier 2":sq==="professional_secondary"?"Tier 3":sq||"–"; }
+function mapRelevanceReason(it){
+  if(it.map_relevant) return `farbbestimmend — Status „${STATUSLBL[it.status]||it.status}", ${it.binding_effect}, Beleg ${tierShort(it.source_quality)}`;
+  if(it.enforcement_process) return "nicht farbbestimmend — prozessual/Vollzug";
+  if(it.exclusive_category_id===4) return "nicht farbbestimmend — Förderung ohne bindende Flächenwirkung";
+  return "nicht farbbestimmend";
+}
 
 const catsOf = (ids)=>{ const s=new Set(); (ids||[]).forEach(id=>{const it=instrById[id]; if(it&&it.exclusive_category_id) s.add(it.exclusive_category_id);}); return s; };
 const commCatsMap = (bfs)=> catsOf(commMap[bfs]);
@@ -295,11 +339,16 @@ function instrItemHtml(id){
   const it=instrById[id]; if(!it) return "";
   const cat=CATS[it.exclusive_category_id]||{name:"?",color:"#999"};
   const src=it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener">Quelle ↗</a>`:"";
+  const au=auditForInstrument(id);
+  const auBtn=au?`<button class="auditbtn" data-audit="${au.audit_id}">Audit anzeigen</button>`:"";
   return `<div class="instr-item">`+
     `<span class="chip"><span class="dot" style="background:${cat.color}"></span>Kat. ${it.exclusive_category_id} · ${cat.name}</span>`+
     `<div class="instr-ttl">${it.instrument_name}</div>`+
     `<div class="instr-sub">${it.legal_article||it.legal_basis||""} · <span class="statuspill">${STATUSLBL[it.status]||it.status}</span>`+
-    `${it.map_relevant?"":` · <span class="nofarb">nicht farbbestimmend</span>`} ${src}</div></div>`;
+    ` · Beleg ${tierShort(it.source_quality)} · Conf. <span class="conf-${it.confidence}">${it.confidence||"–"}</span>`+
+    `${au?` · Audit: ${STATUS_AUDIT[au.research_status]||au.research_status}`:""}</div>`+
+    `<div class="instr-sub">Karte: ${mapRelevanceReason(it)}</div>`+
+    `<div class="instr-sub">${src} ${auBtn}</div></div>`;
 }
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
   const ids=commAll[bfs]||[];
@@ -415,6 +464,57 @@ function downloadSVG(){
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`ch-${mapMode}-instrumente.svg`; document.body.appendChild(a); a.click(); a.remove();
 }
 
+/* ================= Audit-Ansicht ================= */
+const auditFilt={kanton:"",status:"",conf:""};
+function buildAuditFilters(){
+  const cantons=[...new Set(AUDIT.map(a=>a.canton))].sort();
+  const box=document.getElementById("audit-filters");
+  box.innerHTML =
+    `<div><span class="fl">Kanton</span><select class="sel" id="af-kt"><option value="">Alle</option>${cantons.map(k=>`<option value="${k}">${k}</option>`).join("")}</select></div>`+
+    `<div><span class="fl">Status</span>`+["planned","researched","audited","integrated","needs_review"].map(s=>`<button class="filterchip" data-st="${s}">${STATUS_AUDIT[s]}</button>`).join(" ")+`</div>`+
+    `<div><span class="fl">Confidence</span>`+["high","medium","low"].map(c=>`<button class="filterchip" data-cf="${c}">${c}</button>`).join(" ")+`</div>`;
+  document.getElementById("af-kt").addEventListener("change",e=>{auditFilt.kanton=e.target.value;renderAuditList();});
+  box.querySelectorAll(".filterchip[data-st]").forEach(c=>c.addEventListener("click",()=>{const v=c.dataset.st;const on=auditFilt.status===v;box.querySelectorAll(".filterchip[data-st]").forEach(x=>x.classList.remove("on"));auditFilt.status=on?"":v;if(!on)c.classList.add("on");renderAuditList();}));
+  box.querySelectorAll(".filterchip[data-cf]").forEach(c=>c.addEventListener("click",()=>{const v=c.dataset.cf;const on=auditFilt.conf===v;box.querySelectorAll(".filterchip[data-cf]").forEach(x=>x.classList.remove("on"));auditFilt.conf=on?"":v;if(!on)c.classList.add("on");renderAuditList();}));
+}
+function renderAuditList(){
+  const wrap=document.getElementById("audit-wrap");
+  document.getElementById("audit-detail").style.display="none"; document.getElementById("audit-list").style.display="block";
+  const rows=AUDIT.filter(a=>(!auditFilt.kanton||a.canton===auditFilt.kanton)&&(!auditFilt.status||a.research_status===auditFilt.status)&&(!auditFilt.conf||a.confidence===auditFilt.conf));
+  wrap.innerHTML = `<div class="acards">`+(rows.map(a=>{
+    const nSrc=(a.sources_checked||[]).length,nIns=(a.instruments_found||[]).length,nOpen=(a.open_questions||[]).length;
+    return `<button class="acard" data-audit="${a.audit_id}"><div class="at">${a.territory_name}</div>`+
+      `<div class="am"><span class="badge b-${a.research_status}">${STATUS_AUDIT[a.research_status]||a.research_status}</span><span class="conf-${a.confidence}">Conf. ${a.confidence}</span></div>`+
+      `<div class="am"><span>${nIns} Instrumente</span><span>${nSrc} Quellen</span><span>${nOpen} offen</span></div></button>`;
+  }).join("")||`<div class="d-v">Keine Auditberichte für diese Filter.</div>`)+`</div>`;
+  wrap.querySelectorAll(".acard").forEach(c=>c.addEventListener("click",()=>openAudit(c.dataset.audit)));
+}
+function openAudit(id){ showView("audit"); renderAuditDetail(id); }
+function renderAuditDetail(id){
+  const a=AUDIT.find(x=>x.audit_id===id); const box=document.getElementById("audit-detail"); const list=document.getElementById("audit-list");
+  if(!a){ list.style.display="block"; box.style.display="none"; return; }
+  list.style.display="none"; box.style.display="block";
+  const tiers=["tier_1_primary","tier_2_official","tier_3_professional","tier_4_signal"];
+  const srcHtml=tiers.map(t=>{const ss=(a.sources_checked||[]).filter(s=>s.source_tier===t); if(!ss.length)return "";
+    return `<div class="srcgroup"><h4>${TIERLBL[t]} (${ss.length})</h4>`+ss.map(s=>`<div class="srcitem"><a href="${s.url}" target="_blank" rel="noopener">${s.title} ↗</a><br><span class="mono">${s.source_type} · ${s.last_checked}</span><br>${s.what_it_proves}</div>`).join("")+`</div>`;}).join("");
+  const insHtml=(a.instruments_found||[]).map(iid=>{const it=instrById[iid];const nm=it?it.instrument_name:iid;const cat=it?`Kat. ${it.exclusive_category_id}`:"";const farb=it&&it.map_relevant?" · farbbestimmend":"";return `<div class="instr-sub"><span class="instrlink" data-iid="${iid}" style="color:var(--brand);cursor:pointer">${nm}</span> ${cat}${farb}</div>`;}).join("")||`<div class="d-v">—</div>`;
+  const li=arr=>(arr&&arr.length)?arr.map(x=>"• "+x).join("<br>"):"—";
+  box.innerHTML = `<button class="back" id="audit-back">← Übersicht</button>`+
+    `<div class="d-name">${a.territory_name} · Auditbericht</div>`+
+    `<div class="d-row"><span class="badge b-${a.research_status}">${STATUS_AUDIT[a.research_status]||a.research_status}</span> <span class="conf-${a.confidence}">Confidence ${a.confidence}</span> <span class="mono">aktualisiert ${a.last_updated||""}</span></div>`+
+    `<div class="d-row"><div class="d-k">Zusammenfassung</div><div class="d-v">${a.summary||""}</div></div>`+
+    `<div class="d-row"><div class="d-k">Geprüfte Territorien (${(a.territories_checked||[]).length})</div><div class="d-v">${(a.territories_checked||[]).join(" · ")||"—"}</div></div>`+
+    `<div class="d-row"><div class="d-k">Gefundene Instrumente (${(a.instruments_found||[]).length})</div>${insHtml}</div>`+
+    `<div class="d-row"><div class="d-k">Quellen nach Stufe</div>${srcHtml||"<div class=\"d-v\">—</div>"}</div>`+
+    `<div class="d-row"><div class="d-k">Klassifikationslogik</div><div class="d-v">${a.classification_notes||"—"}</div></div>`+
+    `<div class="d-row"><div class="d-k">Kartenrelevanz</div><div class="d-v">${a.map_relevance_notes||"—"}</div></div>`+
+    `<div class="d-row"><div class="d-k">Nicht bestätigt / verworfen</div><div class="d-v">${li(a.instruments_rejected_or_not_confirmed)}</div></div>`+
+    `<div class="d-row"><div class="d-k">Offene Fragen</div><div class="d-v">${li(a.open_questions)}</div></div>`;
+  document.getElementById("audit-back").addEventListener("click",renderAuditList);
+  box.querySelectorAll(".instrlink").forEach(el=>el.addEventListener("click",()=>gotoInstrument(el.dataset.iid)));
+}
+function gotoInstrument(iid){ const it=instrById[iid]; if(!it) return; showView("tabelle"); const q=document.getElementById("f-q"); if(q){ q.value=it.instrument_name; filt.q=it.instrument_name; renderTable(); } }
+
 /* ================= View / Init ================= */
 function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".navitem").forEach(n=>n.classList.toggle("active",n.dataset.view===v)); window.scrollTo({top:0}); }
 function init(){
@@ -423,12 +523,13 @@ function init(){
   document.getElementById("foot-t").textContent=terr.size;
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
   document.getElementById("t-total").textContent=INSTR.length;
-  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo();
+  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
   document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();}));
   document.getElementById("cat-all").addEventListener("click",()=>setAll(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAll(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
+  document.body.addEventListener("click",e=>{ const b=e.target.closest&&e.target.closest("button.auditbtn"); if(b&&b.dataset.audit) openAudit(b.dataset.audit); });
 }
 if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
 </script>

@@ -133,6 +133,31 @@ for (const r of rel) {
 if (rel.length && !relErr) log("OK", "REL", "alle Relationen referenzieren gültige BFS/Kantone und existierende Instrumente.");
 if (!rel.length) log("INFO", "REL", "keine Relationen vorhanden.");
 
+/* ---------- C-AUD: Audit-/Evidenz-Zuordnung ---------- */
+head("Audit · Zuordnung & Belegpflicht");
+const auditDoc = exists(P("src", "data", "audit-reports.json")) ? readJSON(P("src", "data", "audit-reports.json")) : { reports: [] };
+const reports = auditDoc.reports || [];
+const coveredInstr = new Set(); reports.forEach((a) => (a.instruments_found || []).forEach((id) => coveredInstr.add(id)));
+const okStatus = new Set(["integrated", "audited"]);
+const TIER12 = new Set(["primary_legal", "official_explanatory"]);
+const territoryCovered = (it) => reports.some((a) => okStatus.has(a.research_status) && (
+  (it.canton_number != null && a.canton_number === it.canton_number) ||
+  (it.bfs_number != null && a.bfs_number === it.bfs_number) ||
+  (a.instruments_found || []).includes(it.instrument_id)
+));
+let audErr = 0;
+if (realInstr.length) {
+  for (const it of realInstr) {
+    if (!coveredInstr.has(it.instrument_id)) { log("ERROR", "C-AUD-1", `${it.instrument_id}: keinem Auditbericht zugeordnet (instruments_found)`); audErr++; }
+    if (it.map_relevant === true && !TIER12.has(it.source_quality)) { log("ERROR", "C-AUD-2", `${it.instrument_id}: map_relevant, aber Beleg nicht Tier 1/2 (${it.source_quality})`); audErr++; }
+    if (!territoryCovered(it)) { log("ERROR", "C-AUD-3", `${it.instrument_id}: Territorium ohne Auditbericht mit Status integrated/audited`); audErr++; }
+  }
+  if (!audErr) log("OK", "C-AUD", "alle echten Instrumente: auditiert, Tier-1/2-belegt, territorial abgedeckt.");
+} else {
+  log("INFO", "C-AUD", "keine echten Instrumente — Audit-Checks übersprungen.");
+}
+log("INFO", "C-AUD-4/5", `Auditberichte read-only & getrennt von Produktion (${reports.length} Berichte); bestimmen keine Kartenfarbe.`);
+
 /* ---------- Summary ---------- */
 console.log("\n" + "=".repeat(74));
 console.log(`ERGEBNIS: ${errors} ERROR, ${warns} WARN`);
