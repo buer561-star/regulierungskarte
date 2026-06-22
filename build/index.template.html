@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemeinde-Kataster Schweiz · Instrumente</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07314C;--ink-soft:#3C5A6E;--ink-faint:#7C95A4;
+    --paper:#F5F8FA;--surface:#FFFFFF;
+    --hairline:#D8E0E6;--hairline-strong:#BDCAD3;
+    --brand:#0FA9BD;--brand-tint:#E4F4F6;
+    --land:#E4E7EA;--land-line:#FBFCFA;--kt-line:#8DA2B0;
+    --water:#C5DCEE;--water-line:#9CC2DD;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .app{display:flex;min-height:100vh;align-items:stretch;}
+  /* sidebar */
+  .sidebar{width:248px;flex:0 0 248px;background:#07314C;color:#C5D3DC;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:26px 0;}
+  .brand{padding:0 24px 22px;border-bottom:1px solid #1B4A63;}
+  .brand .eb{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#7FC4D2;margin:0 0 8px;}
+  .brand .ttl{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;line-height:1.15;color:#fff;letter-spacing:-.01em;}
+  nav{padding:16px 14px;display:flex;flex-direction:column;gap:3px;flex:1;}
+  .navitem{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:none;color:#A9BCC7;font:inherit;font-size:14px;padding:10px 12px;border-radius:var(--radius);cursor:pointer;transition:background .12s,color .12s;}
+  .navitem:hover{background:#0E4055;color:#fff;}
+  .navitem.active{background:#0FA9BD;color:#04222E;}
+  .navitem .num{font-family:"IBM Plex Mono",monospace;font-size:11px;opacity:.6;width:16px;}
+  .side-foot{padding:18px 24px 2px;border-top:1px solid #1B4A63;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#6E8A99;line-height:1.7;}
+  .side-foot b{color:#AFC2CD;font-weight:500;}
+  /* content */
+  .content{flex:1;min-width:0;padding:40px 44px 80px;max-width:1180px;}
+  section.view{display:none;}
+  section.view.active{display:block;animation:fade .18s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+  .vhead{margin:0 0 22px;}
+  .vhead .eb{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 10px;}
+  .vhead h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,32px);line-height:1.1;letter-spacing:-.015em;margin:0 0 12px;}
+  .vhead p{font-size:15px;color:var(--ink-soft);max-width:74ch;margin:0;}
+  .vhead p b{color:var(--ink);font-weight:600;}
+  .blocklabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:24px 0 12px;}
+  /* map tools */
+  .maptools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:13px;}
+  .mmwrap{display:inline-flex;border:1px solid var(--hairline-strong);border-radius:99px;overflow:hidden;}
+  .mmbtn{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:var(--surface);border:none;color:var(--ink-soft);padding:6px 14px;cursor:pointer;}
+  .mmbtn.won{background:var(--ink);color:#fff;}
+  .dlbtn{font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--ink);color:#fff;border:none;border-radius:99px;padding:6px 13px;cursor:pointer;}
+  .dlbtn:hover{background:var(--brand);color:#04222E;}
+  .maprow{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;}
+  @media(max-width:980px){.maprow{grid-template-columns:1fr;}}
+  .mapwrap{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:12px;}
+  svg.chmap{width:100%;height:auto;display:block;}
+  svg.chmap .land{fill:var(--land);stroke:var(--land-line);stroke-width:0.5;vector-effect:non-scaling-stroke;cursor:pointer;}
+  svg.chmap .land:hover{opacity:.78;}
+  svg.chmap .land.sel{stroke:var(--ink);stroke-width:1.6;vector-effect:non-scaling-stroke;}
+  svg.chmap .ktborder{fill:none;stroke:var(--kt-line);stroke-width:1.1;vector-effect:non-scaling-stroke;pointer-events:none;}
+  svg.chmap .lake{fill:var(--water);stroke:var(--water-line);stroke-width:0.6;vector-effect:non-scaling-stroke;pointer-events:none;fill-rule:evenodd;}
+  svg.chmap path.area{fill-rule:evenodd;}
+  svg.chmap text.ktlabel{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:500;fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:#fff;stroke-width:2.4px;}
+  /* panel */
+  .panel{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:14px 16px;position:sticky;top:18px;}
+  .panel h3{margin:0 0 10px;font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+  .instr-row{display:flex;align-items:center;gap:9px;padding:6px 4px;border-radius:var(--radius);cursor:pointer;}
+  .instr-row:hover{background:var(--paper);}
+  .instr-row input{margin:0;}
+  .sw{width:13px;height:13px;border-radius:3px;flex:0 0 auto;border:1px solid rgba(0,0,0,.15);}
+  .instr-name{font-size:13.5px;}
+  .instr-name .demo{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--ink-faint);margin-left:4px;}
+  .pbtns{display:flex;gap:8px;margin:10px 0 4px;}
+  .pbtns button{font-family:"IBM Plex Mono",monospace;font-size:10.5px;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);border-radius:99px;padding:4px 10px;cursor:pointer;}
+  .detail{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:14px 16px;margin-top:14px;}
+  .d-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;margin-bottom:8px;}
+  .d-row{margin:8px 0;}
+  .d-k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;}
+  .d-v{font-size:13.5px;color:var(--ink-soft);}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;padding:2px 9px 2px 7px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--hairline-strong);color:var(--ink-soft);}
+  .chip .dot{width:8px;height:8px;border-radius:99px;}
+  /* table */
+  .filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:14px;padding:14px;border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);}
+  .filters .fl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-right:6px;}
+  .filterchip{font-family:"IBM Plex Mono",monospace;font-size:11px;border:1px solid var(--hairline-strong);background:var(--surface);color:var(--ink-soft);border-radius:99px;padding:4px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+  .filterchip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .filterchip .dot{width:8px;height:8px;border-radius:99px;}
+  .sel,select.sel,input.search{font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--hairline-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);}
+  input.search{min-width:220px;}
+  .count{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);margin:4px 0 10px;}
+  table.rtable{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.rtable th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--hairline-strong);padding:8px 10px;cursor:pointer;}
+  table.rtable td{border-bottom:1px solid var(--hairline);padding:8px 10px;vertical-align:top;}
+  table.rtable tr:hover td{background:var(--surface);}
+  .nm{font-weight:600;}
+  .mono{font-family:"IBM Plex Mono",monospace;color:var(--ink-faint);font-size:12px;}
+  .callout{background:var(--brand-tint);border-left:3px solid var(--brand);border-radius:0 var(--radius) var(--radius) 0;padding:13px 16px;margin:14px 0;font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
+  .callout b{color:var(--ink);}
+  .infogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+  .infocard{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:13px 15px;}
+  .infocard .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);}
+  .infocard .v{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;margin-top:4px;}
+  .infocard .s{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+</style></head><body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <p class="eb">smzh · Research</p>
+      <div class="ttl">Gemeinde-Kataster<br>Schweiz</div>
+    </div>
+    <nav id="nav">
+      <button class="navitem active" data-view="karte"><span class="num">01</span> Karte</button>
+      <button class="navitem" data-view="tabelle"><span class="num">02</span> Tabelle &amp; Filter</button>
+      <button class="navitem" data-view="info"><span class="num">03</span> Daten &amp; Info</button>
+    </nav>
+    <div class="side-foot">
+      <b id="foot-n">0</b> Gemeinden · <b id="foot-k">0</b> Kantone<br>
+      Geometrie swisstopo 2025<br>
+      Instrumente: in Definition
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- 01 KARTE -->
+    <section class="view active" id="v-karte">
+      <div class="vhead">
+        <p class="eb">Choroplethenkarte · Instrumente</p>
+        <h1>Karte nach Instrumenten</h1>
+        <p>Wähle rechts, <b>welche Instrumente</b> angezeigt werden. Gemeinden mit einem ausgewählten Instrument werden in dessen Farbe eingefärbt; alle übrigen bleiben neutral. Keine Stufen, kein Status — nur Instrumente. <b>Die Instrumente sind aktuell Platzhalter</b> und werden später definiert.</p>
+      </div>
+      <div class="maptools">
+        <span class="mmwrap">
+          <button data-mm="gem" class="mmbtn won">Gemeindekarte</button>
+          <button data-mm="kanton" class="mmbtn">Kantonskarte</button>
+        </span>
+        <button class="dlbtn" id="dlsvg" title="Aktuelle Karte als SVG exportieren">SVG ↓</button>
+      </div>
+      <div class="maprow">
+        <div>
+          <div class="mapwrap"><svg class="chmap" id="map" xmlns="http://www.w3.org/2000/svg"></svg></div>
+        </div>
+        <div>
+          <div class="panel">
+            <h3>Instrumente anzeigen</h3>
+            <div id="instr-controls"></div>
+            <div class="pbtns">
+              <button id="instr-all">alle</button>
+              <button id="instr-none">keine</button>
+            </div>
+          </div>
+          <div class="detail" id="detail">
+            <div class="d-name">Gebiet wählen</div>
+            <div class="d-v">Fahre über die Karte oder klicke ein Gebiet für Details.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 TABELLE -->
+    <section class="view" id="v-tabelle">
+      <div class="vhead">
+        <p class="eb">Datentabelle</p>
+        <h1>Alle Gemeinden &amp; Filter</h1>
+        <p>Alle <b id="t-total">0</b> Gemeinden mit BFS-Nummer, Kanton und zugeordneten Instrumenten. Filter kombinierbar.</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <p class="count" id="tcount"></p>
+      <table class="rtable" id="rtable"><thead></thead><tbody></tbody></table>
+    </section>
+
+    <!-- 03 INFO -->
+    <section class="view" id="v-info">
+      <div class="vhead">
+        <p class="eb">Daten &amp; Methodik</p>
+        <h1>Datengrundlage</h1>
+        <p>Diese Version enthält bewusst <b>keine</b> wohnpolitischen Regelinhalte, keine Stufen-Hierarchie und keinen Status (in Kraft / pendent / abgelehnt / unklar). Die Klassifikation erfolgt ausschließlich über <b>Instrumente</b>, die später definiert werden.</p>
+      </div>
+      <div class="blocklabel">Kennzahlen</div>
+      <div class="infogrid" id="infogrid"></div>
+      <div class="callout"><b>Geometrie:</b> swisstopo swissBOUNDARIES (Stand 2025, Rev. 04/2025), WGS84, in den Browser-SVG-Raum projiziert (voll detailliert). Nur Schweiz: Kantone, Gemeinden und Seen. Liechtenstein, ausländische Enklaven (Büsingen, Campione) sind entfernt. CH-Sondergebiete (Staatswald Galm, zwei Kommunanzen) werden als neutrale Flächen gezeigt, sind aber keine Gemeinden.</div>
+      <div class="callout" style="border-left-color:var(--ink-faint);background:#EEF2F4"><b>Instrumente:</b> Die aktuell sichtbaren Instrumente sind <b>Platzhalter (DEMO)</b> samt einiger Beispiel-Zuordnungen, damit der Karten- und Tabellenfilter funktionsfähig demonstriert werden kann. Sie sind im Quelltext unter <code>INSTRUMENTE</code> / <code>GEM_INSTR</code> klar markiert und werden durch die echten Definitionen ersetzt.</div>
+      <div class="blocklabel">BFS-Stichtag</div>
+      <p class="d-v" style="max-width:74ch">Hochgeladene amtliche ID-Liste: <b>Politische Gemeinden 01.01.2024</b> (2131 Gemeinden). Die Geometrie ist Stand 2025; dadurch fehlen <b>19</b> per 2024 noch existierende, 2025 fusionierte Gemeinden als Polygon (z. B. Enges/Hauterive/Saint-Blaise/La Tène → «Laténa»). Diese Differenz ist dokumentiert und sollte durch Angleichen des Stichtags gelöst werden.</p>
+    </section>
+  </main>
+</div>
+
+<script id="mapdata" type="application/json">__MAPDATA__</script>
+<script>
+/* ================= Daten ================= */
+const RAW = JSON.parse(document.getElementById("mapdata").textContent);
+const NS = "http://www.w3.org/2000/svg";
+const KT_ABBR = {1:"ZH",2:"BE",3:"LU",4:"UR",5:"SZ",6:"OW",7:"NW",8:"GL",9:"ZG",10:"FR",11:"SO",12:"BS",13:"BL",14:"SH",15:"AR",16:"AI",17:"SG",18:"GR",19:"AG",20:"TG",21:"TI",22:"VD",23:"VS",24:"NE",25:"GE",26:"JU"};
+const ktNameByNr = {}; RAW.cantons.forEach(c=>ktNameByNr[c.nr]=c.name);
+
+/* ===== INSTRUMENTE (PLATZHALTER – später ersetzen) ===== */
+const INSTRUMENTE = [
+  {id:"DEMO_A", name:"Demo-Instrument A", color:"#3B7DC4", demo:true},
+  {id:"DEMO_B", name:"Demo-Instrument B", color:"#4F9D69", demo:true},
+  {id:"DEMO_C", name:"Demo-Instrument C", color:"#E8883A", demo:true},
+];
+/* ===== GEM_INSTR: bfs -> [instrumentId,...] (DEMO-Zuordnungen – später ersetzen) ===== */
+const GEM_INSTR = {
+  261:["DEMO_A","DEMO_B"],  // Zürich
+  351:["DEMO_A"],           // Bern
+  1061:["DEMO_B"],          // Luzern
+  2701:["DEMO_A","DEMO_C"], // Basel
+  6621:["DEMO_C"],          // Genève
+  5586:["DEMO_C"],          // Lausanne
+  3203:["DEMO_B"],          // St. Gallen
+  1711:["DEMO_A"],          // Zug
+  230:["DEMO_B"],           // Winterthur
+  942:["DEMO_C"],           // Thun
+};
+const INSTR_BY_ID = Object.fromEntries(INSTRUMENTE.map(i=>[i.id,i]));
+const NEUTRAL = getComputedStyle(document.documentElement).getPropertyValue("--land").trim() || "#E4E7EA";
+
+const gemByBfs = {}; RAW.gemeinden.forEach(g=>gemByBfs[g.bfs]=g);
+const instrOf = (bfs)=> GEM_INSTR[bfs] || [];
+
+/* ================= State ================= */
+let mapMode = "gem"; // "gem" | "kanton"
+const selected = new Set(INSTRUMENTE.map(i=>i.id)); // default: alle an
+const els = { land:{}, kt:{} }; // gezeichnete Pfade für schnelles Umfärben
+
+function activeInstrOf(bfs){ const a=instrOf(bfs); return a.length?a.filter(id=>selected.has(id)):a; }
+function communeColor(bfs){
+  const a = activeInstrOf(bfs);
+  if(!a.length) return NEUTRAL;
+  for(const i of INSTRUMENTE){ if(a.includes(i.id)) return i.color; } // erste in Reihenfolge
+  return NEUTRAL;
+}
+function cantonHasActive(nr){
+  for(const g of RAW.gemeinden){ if(g.kt===nr && activeInstrOf(g.bfs).length) return true; }
+  return false;
+}
+function cantonColor(nr){
+  // Farbe = erstes ausgewähltes Instrument, das in diesem Kanton vorkommt
+  for(const i of INSTRUMENTE){ if(!selected.has(i.id)) continue;
+    for(const g of RAW.gemeinden){ if(g.kt===nr && instrOf(g.bfs).includes(i.id)) return i.color; } }
+  return NEUTRAL;
+}
+
+/* ================= Karte ================= */
+function path(d, cls){ const p=document.createElementNS(NS,"path"); p.setAttribute("d",d); if(cls)p.setAttribute("class",cls); return p; }
+function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+
+function buildMap(){
+  const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox);
+  els.land={}; els.kt={};
+  if(mapMode==="gem"){
+    // Landflächen: Gemeinden + Sondergebiete
+    RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",communeColor(g.bfs));
+      p.addEventListener("mouseenter",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
+      p.addEventListener("click",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
+      svg.appendChild(p); els.land[g.bfs]=p; });
+    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.setAttribute("fill",NEUTRAL);
+      p.addEventListener("mouseenter",()=>detailSonder(s)); svg.appendChild(p); });
+    // Seen
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
+    // Kantonsgrenzen + Labels obenauf
+    RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
+    RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
+  } else {
+    RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.kt=c.nr; p.setAttribute("fill",cantonColor(c.nr));
+      p.addEventListener("mouseenter",()=>{markSel("kt",c.nr);detailKanton(c.nr);});
+      p.addEventListener("click",()=>{markSel("kt",c.nr);detailKanton(c.nr);});
+      svg.appendChild(p); els.kt[c.nr]=p; });
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
+    RAW.cantons.forEach(c=>{ const t=document.createElementNS(NS,"text"); t.setAttribute("x",c.cx); t.setAttribute("y",c.cy+4); t.setAttribute("text-anchor","middle"); t.setAttribute("class","ktlabel"); t.textContent=KT_ABBR[c.nr]||c.nr; svg.appendChild(t); });
+  }
+}
+function repaint(){
+  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].setAttribute("fill",communeColor(+bfs)); } }
+  else { for(const nr in els.kt){ els.kt[nr].setAttribute("fill",cantonColor(+nr)); } }
+}
+function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
+
+/* ================= Detail ================= */
+function chipsHtml(ids){ if(!ids||!ids.length) return `<span class="d-v">—</span>`;
+  return `<div class="chips">`+ids.map(id=>{const i=INSTR_BY_ID[id]; const c=i?i.color:"#999"; const n=i?i.name:id; return `<span class="chip"><span class="dot" style="background:${c}"></span>${n}</span>`;}).join("")+`</div>`; }
+function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
+  el.innerHTML = `<div class="d-name">${g.name}</div>`+
+    `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${g.bfs}</div></div>`+
+    `<div class="d-row"><div class="d-k">Kanton</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
+    `<div class="d-row"><div class="d-k">Instrumente</div>${chipsHtml(instrOf(bfs))}</div>`;
+}
+function detailKanton(nr){ const el=document.getElementById("detail");
+  const gems=RAW.gemeinden.filter(g=>g.kt===nr); const withI=gems.filter(g=>instrOf(g.bfs).length);
+  el.innerHTML = `<div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
+    `<div class="d-row"><div class="d-k">Gemeinden</div><div class="d-v mono">${gems.length}</div></div>`+
+    `<div class="d-row"><div class="d-k">mit Instrument</div><div class="d-v mono">${withI.length}</div></div>`;
+}
+function detailSonder(s){ const el=document.getElementById("detail");
+  el.innerHTML = `<div class="d-name">${s.name}</div>`+
+    `<div class="d-row"><div class="d-k">Art</div><div class="d-v">CH-Sondergebiet (keine politische Gemeinde)</div></div>`+
+    `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${s.bfs}</div></div>`;
+}
+
+/* ================= Instrument-Controls ================= */
+function renderInstrumentControls(){
+  const box=document.getElementById("instr-controls");
+  box.innerHTML = INSTRUMENTE.map(i=>`<label class="instr-row"><input type="checkbox" data-id="${i.id}" ${selected.has(i.id)?"checked":""}><span class="sw" style="background:${i.color}"></span><span class="instr-name">${i.name}${i.demo?`<span class="demo">DEMO</span>`:""}</span></label>`).join("")
+    || `<div class="d-v">Noch keine Instrumente definiert.</div>`;
+  box.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>{ const id=cb.dataset.id; if(cb.checked)selected.add(id); else selected.delete(id); repaint(); }));
+}
+function setAll(on){ selected.clear(); if(on)INSTRUMENTE.forEach(i=>selected.add(i.id)); renderInstrumentControls(); repaint(); }
+
+/* ================= Tabelle ================= */
+const filt={instr:new Set(),kanton:"",q:""};
+let sortKey="name",sortDir=1;
+function buildFilters(){
+  const box=document.getElementById("filters");
+  box.innerHTML =
+    `<div><span class="fl">Instrumente</span>`+INSTRUMENTE.map(i=>`<button class="filterchip" data-id="${i.id}"><span class="dot" style="background:${i.color}"></span>${i.name}</button>`).join(" ")+`</div>`+
+    `<div><span class="fl">Kanton</span><select class="sel" id="f-kt"><option value="">Alle</option>${RAW.cantons.map(c=>`<option value="${c.nr}">${c.name}</option>`).join("")}</select></div>`+
+    `<div><span class="fl">Suche</span><input class="search" id="f-q" type="text" placeholder="Gemeinde oder BFS…"></div>`;
+  box.querySelectorAll(".filterchip").forEach(c=>c.addEventListener("click",()=>{const id=c.dataset.id;if(filt.instr.has(id))filt.instr.delete(id);else filt.instr.add(id);c.classList.toggle("on");renderTable();}));
+  document.getElementById("f-kt").addEventListener("change",e=>{filt.kanton=e.target.value;renderTable();});
+  document.getElementById("f-q").addEventListener("input",e=>{filt.q=e.target.value;renderTable();});
+}
+function passes(g){
+  if(filt.kanton && g.kt!==+filt.kanton) return false;
+  if(filt.instr.size){ const have=instrOf(g.bfs); for(const id of filt.instr){ if(!have.includes(id)) return false; } }
+  if(filt.q){ const s=(g.name+" "+g.bfs).toLowerCase(); if(!s.includes(filt.q.toLowerCase())) return false; }
+  return true;
+}
+function buildTableHead(){
+  const cols=[["name","Gemeinde"],["bfs","BFS"],["kt","Kanton"],["instr","Instrumente"]];
+  document.querySelector("#rtable thead").innerHTML="<tr>"+cols.map(c=>`<th data-k="${c[0]}">${c[1]}</th>`).join("")+"</tr>";
+  document.querySelectorAll("#rtable thead th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(["name","bfs","kt"].includes(k)){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=1;}renderTable();}}));
+}
+function renderTable(){
+  let rows=RAW.gemeinden.filter(passes);
+  rows.sort((a,b)=>{let x,y; if(sortKey==="name"){x=a.name.toLowerCase();y=b.name.toLowerCase();} else if(sortKey==="kt"){x=a.kt;y=b.kt;} else {x=a.bfs;y=b.bfs;} if(x<y)return -1*sortDir; if(x>y)return 1*sortDir; return a.name.localeCompare(b.name);});
+  const tb=document.querySelector("#rtable tbody");
+  tb.innerHTML = rows.length ? rows.map(g=>`<tr><td><div class="nm">${g.name}</div></td><td class="mono">${g.bfs}</td><td>${KT_ABBR[g.kt]||g.kt}</td><td>${chipsHtml(instrOf(g.bfs))}</td></tr>`).join("")
+    : `<tr><td colspan="4"><div class="d-v" style="padding:14px">Keine Gemeinden für diese Filter.</div></td></tr>`;
+  document.getElementById("tcount").textContent=`${rows.length} von ${RAW.gemeinden.length} Gemeinden`;
+}
+
+/* ================= Info ================= */
+function renderInfo(){
+  const c=RAW.meta.counts;
+  const withI=RAW.gemeinden.filter(g=>instrOf(g.bfs).length).length;
+  const cards=[["Gemeinden",c.gemeinden,"objektart Gemeindegebiet, icc CH"],["Kantone",c.cantons,"swissBOUNDARIES"],["Seen",c.lakes,"als Wasser-Layer"],["Instrumente",INSTRUMENTE.length,"Platzhalter (DEMO)"],["Gemeinden mit Instrument",withI,"DEMO-Zuordnung"]];
+  document.getElementById("infogrid").innerHTML=cards.map(([k,v,s])=>`<div class="infocard"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join("");
+}
+
+/* ================= SVG-Export ================= */
+function downloadSVG(){
+  const svg=document.getElementById("map"); const c=svg.cloneNode(true);
+  const vb=(svg.getAttribute("viewBox")||"0 0 2000 1282").split(/\s+/);
+  c.setAttribute("xmlns",NS); c.setAttribute("width",vb[2]); c.setAttribute("height",vb[3]);
+  const st=document.createElementNS(NS,"style");
+  st.textContent=`.land{stroke:#FBFCFA;stroke-width:0.5}.ktborder{fill:none;stroke:#8DA2B0;stroke-width:1.1}.lake{fill:#C5DCEE;stroke:#9CC2DD;stroke-width:0.6;fill-rule:evenodd}.area{fill-rule:evenodd}text.ktlabel{font-family:monospace;font-size:13px;font-weight:500;fill:#07314C;paint-order:stroke;stroke:#fff;stroke-width:2.4px}`;
+  c.insertBefore(st,c.firstChild);
+  const blob=new Blob([`<?xml version="1.0" encoding="UTF-8"?>\n`+new XMLSerializer().serializeToString(c)],{type:"image/svg+xml"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`ch-${mapMode}-instrumente.svg`; document.body.appendChild(a); a.click(); a.remove();
+}
+
+/* ================= View / Init ================= */
+function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".navitem").forEach(n=>n.classList.toggle("active",n.dataset.view===v)); window.scrollTo({top:0}); }
+function init(){
+  document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
+  document.getElementById("foot-k").textContent=RAW.meta.counts.cantons;
+  document.getElementById("t-total").textContent=RAW.meta.counts.gemeinden;
+  buildMap(); renderInstrumentControls(); buildFilters(); buildTableHead(); renderTable(); renderInfo();
+  document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
+  document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();}));
+  document.getElementById("instr-all").addEventListener("click",()=>setAll(true));
+  document.getElementById("instr-none").addEventListener("click",()=>setAll(false));
+  document.getElementById("dlsvg").addEventListener("click",downloadSVG);
+}
+if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
+</script>
+</body></html>
