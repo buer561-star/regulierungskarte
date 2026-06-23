@@ -129,6 +129,9 @@
   .srcitem a{color:var(--brand);text-decoration:none;}
   .auditbtn{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);border-radius:99px;padding:2px 8px;cursor:pointer;margin-left:4px;}
   .auditbtn:hover{background:var(--brand);color:#04222E;border-color:var(--brand);}
+  .sug-item{padding:8px 12px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--hairline);}
+  .sug-item:last-child{border-bottom:none;}
+  .sug-item:hover,.sug-item:focus{background:var(--surface);}
   .back{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--brand);cursor:pointer;background:none;border:none;padding:0;margin-bottom:12px;}
   /* glossary */
   .gcat{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:11px 14px;margin-bottom:7px;}
@@ -164,10 +167,11 @@
     </div>
     <nav id="nav">
       <button class="navitem active" data-view="karte"><span class="num">01</span> Karte</button>
-      <button class="navitem" data-view="tabelle"><span class="num">02</span> Instrumente &amp; Filter</button>
-      <button class="navitem" data-view="info"><span class="num">03</span> Daten &amp; Info</button>
-      <button class="navitem" data-view="audit"><span class="num">04</span> Audit &amp; Quellen</button>
-      <button class="navitem" data-view="erklaert"><span class="num">05</span> Instrumente erklärt</button>
+      <button class="navitem" data-view="kantone"><span class="num">02</span> Kantone</button>
+      <button class="navitem" data-view="gemeinden"><span class="num">03</span> Gemeinden</button>
+      <button class="navitem" data-view="rapport"><span class="num">04</span> Rapport</button>
+      <button class="navitem" data-view="audit"><span class="num">05</span> Audit &amp; Quellen</button>
+      <button class="navitem" data-view="erklaert"><span class="num">06</span> Erklärt</button>
     </nav>
     <div class="side-foot">
       <b id="foot-i">0</b> Instrumente · <b id="foot-t">0</b> Gebiete<br>
@@ -219,16 +223,49 @@
       </div>
     </section>
 
-    <!-- 02 TABELLE -->
-    <section class="view" id="v-tabelle">
+    <!-- 02 KANTONE -->
+    <section class="view" id="v-kantone">
       <div class="vhead">
-        <p class="eb">Instrument-Katalog</p>
-        <h1>Alle Instrumente &amp; Filter</h1>
-        <p>Alle <b id="t-total">0</b> erfassten Instrumente mit Territorium, exklusiver Kategorie, Status, Rechtsgrundlage und Quelle. Filter kombinierbar.</p>
+        <p class="eb">Übersicht · Kantone</p>
+        <h1>Kantons-Tabelle</h1>
+        <p>Welche Kantone haben welche Instrumente? Klick auf eine Zeile öffnet den vollständigen Rapport. Sortiert nach stärkster farbbestimmender Kategorie.</p>
       </div>
-      <div class="filters" id="filters"></div>
-      <p class="count" id="tcount"></p>
-      <table class="rtable" id="rtable"><thead></thead><tbody></tbody></table>
+      <table class="rtable" id="kt-table">
+        <thead><tr><th>Kanton</th><th>Recherche</th><th>Höchste Kat.</th><th>Kategorien (farbbestimmend)</th><th>Kt.-Instr.</th><th>Gem. m. Instr.</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- 03 GEMEINDEN -->
+    <section class="view" id="v-gemeinden">
+      <div class="vhead">
+        <p class="eb">Übersicht · Gemeinden</p>
+        <h1>Gemeinden</h1>
+        <p>Alle Gemeinden mit erfassten Instrumenten oder individuell geprüfte Gemeinden. Kanton-Filter oben links. Klick auf eine Zeile öffnet den Rapport.</p>
+      </div>
+      <div class="filters" style="margin-bottom:12px;gap:12px 20px">
+        <div><span class="fl">Kanton</span><select class="sel" id="gem-filt-kt"><option value="">Alle Kantone</option></select></div>
+        <div><label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer"><input type="checkbox" id="gem-filt-instr" checked> nur Gemeinden mit Instrumenten</label></div>
+      </div>
+      <p class="count" id="gem-count"></p>
+      <table class="rtable" id="gem-table">
+        <thead><tr><th>Gemeinde</th><th>Kt.</th><th>BFS</th><th>Kategorie</th><th>Instr.</th><th>Geprüft</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- 04 RAPPORT -->
+    <section class="view" id="v-rapport">
+      <div class="vhead">
+        <p class="eb">Rapport-Generator</p>
+        <h1>Rapport</h1>
+        <p>Wähle einen Kanton oder eine Gemeinde — du siehst alle Instrumente, Quellen, Klassifikationslogik und Einschätzungen aus der Recherche.</p>
+      </div>
+      <div id="rapport-search" style="position:relative;max-width:480px;margin-bottom:20px">
+        <input class="search" id="rapp-input" type="text" placeholder="Kanton oder Gemeinde suchen…" style="width:100%;box-sizing:border-box">
+        <div id="rapp-suggestions" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:99;background:var(--paper);border:1px solid var(--hairline-strong);border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.1);max-height:280px;overflow-y:auto"></div>
+      </div>
+      <div id="rapport-content"><div class="d-v" style="color:var(--ink-faint)">Kanton oder Gemeinde oben suchen und auswählen.</div></div>
     </section>
 
     <!-- 03 INFO -->
@@ -253,6 +290,7 @@
         <h1>Auditberichte &amp; Quellen</h1>
         <p>Nachvollziehbarkeit je Gebiet: <b>was recherchiert wurde</b>, welche <b>Quellen</b> geprüft wurden, welche <b>Instrumente</b> gefunden, wie <b>eingestuft</b>, und welche <b>Unsicherheiten</b> bleiben. Read-only — diese Ebene verändert weder Karte noch Klassifikation noch Relationen.</p>
       </div>
+      <div id="audit-stats"></div>
       <div class="blocklabel">Recherche-Abdeckung</div>
       <p class="d-v" style="margin:-4px 0 12px;max-width:74ch">Links: welche <b>Kantone</b> recherchiert wurden (Farbe = Recherche-Status). Rechts: welche <b>Gemeinden</b> individuell geprüft wurden (Workliste je Audit).</p>
       <div class="auditmaps">
@@ -641,7 +679,143 @@ function renderAuditDetail(id){
   document.getElementById("audit-back").addEventListener("click",renderAuditList);
   box.querySelectorAll(".instrlink").forEach(el=>el.addEventListener("click",()=>gotoInstrument(el.dataset.iid)));
 }
-function gotoInstrument(iid){ const it=instrById[iid]; if(!it) return; showView("tabelle"); const q=document.getElementById("f-q"); if(q){ q.value=it.instrument_name; filt.q=it.instrument_name; renderTable(); } }
+function gotoInstrument(iid){ const it=instrById[iid]; if(!it) return; if(it.territory_type==="canton"&&it.canton_number) openRapport("canton",it.canton_number); else if(it.bfs_number) openRapport("gem",it.bfs_number); else if(it.canton_number) openRapport("canton",it.canton_number); }
+
+/* ================= Kantone-Tabelle ================= */
+function renderKantoneTable(){
+  const rows=RAW.cantons.map(c=>{
+    const nr=c.nr,au=auditByKton[nr],own=ktOwn[nr]||[];
+    const mapCats=ktCatMap[nr]||new Set();
+    const gemMit=RAW.gemeinden.filter(g=>g.kt===nr&&commAll[g.bfs]&&commAll[g.bfs].length).length;
+    const highCat=CAT_PRIORITY.find(cat=>mapCats.has(cat))||null;
+    return {nr,c,au,own,mapCats,gemMit,highCat};
+  });
+  rows.sort((a,b)=>{
+    const ai=a.highCat!=null?CAT_PRIORITY.indexOf(a.highCat):99;
+    const bi=b.highCat!=null?CAT_PRIORITY.indexOf(b.highCat):99;
+    return ai!==bi?ai-bi:a.c.name.localeCompare(b.c.name);
+  });
+  document.querySelector("#kt-table tbody").innerHTML=rows.map(({nr,c,au,own,mapCats,gemMit,highCat})=>{
+    const hcat=highCat!=null?`<span class="chip"><span class="dot" style="background:${CATS[highCat].color}"></span>Kat. ${highCat}</span>`:`<span class="mono" style="color:var(--ink-faint)">–</span>`;
+    const cats=[...mapCats].sort().map(cat=>`<span class="dot" style="background:${CATS[cat].color};width:10px;height:10px;border-radius:2px;display:inline-block"></span>`).join(" ")||"–";
+    const st=au?`<span class="badge b-${au.research_status}">${STATUS_AUDIT[au.research_status]||au.research_status}</span>`:`<span class="mono" style="color:var(--ink-faint)">–</span>`;
+    return `<tr class="ktrow" data-nr="${nr}" style="cursor:pointer"><td><b>${c.name}</b> <span class="mono">${KT_ABBR[nr]||""}</span></td><td>${st}</td><td>${hcat}</td><td>${cats}</td><td class="mono">${own.length||"–"}</td><td class="mono">${gemMit||"–"}</td></tr>`;
+  }).join("");
+  document.querySelectorAll(".ktrow").forEach(tr=>tr.addEventListener("click",()=>openRapport("canton",+tr.dataset.nr)));
+}
+
+/* ================= Gemeinden-Tabelle ================= */
+let gemFiltKt="",gemFiltOnlyInstr=true;
+function renderGemeindenTable(){
+  const rows=RAW.gemeinden.filter(g=>{
+    if(gemFiltKt&&g.kt!==+gemFiltKt) return false;
+    if(gemFiltOnlyInstr&&!(commAll[g.bfs]&&commAll[g.bfs].length)) return false;
+    return true;
+  });
+  document.querySelector("#gem-table tbody").innerHTML=rows.map(g=>{
+    const ids=commAll[g.bfs]||[],mapIds=commMap[g.bfs]||[];
+    const highCat=mapIds.length?CAT_PRIORITY.find(c=>catsOf(mapIds).has(c)):null;
+    const col=highCat!=null?CATS[highCat].color:NEUTRAL;
+    const chk=checkedBfsSet.has(g.bfs)?`<span class="badge" style="background:#D8EFF8;color:#1A6B8A">geprüft</span>`:"";
+    return `<tr class="gemrow" data-bfs="${g.bfs}" style="cursor:pointer"><td><b>${g.name}</b></td><td class="mono">${KT_ABBR[g.kt]||g.kt}</td><td class="mono">${g.bfs}</td><td><span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:${col};flex:0 0 auto"></span>${highCat!=null?`Kat. ${highCat}`:"–"}</span></td><td class="mono">${ids.length||"–"}</td><td>${chk}</td></tr>`;
+  }).join("")||`<tr><td colspan="6"><div class="d-v" style="padding:14px">Keine Gemeinden für diese Filter.</div></td></tr>`;
+  document.getElementById("gem-count").textContent=`${rows.length} Gemeinden`;
+  document.querySelectorAll(".gemrow").forEach(tr=>tr.addEventListener("click",()=>openRapport("gem",+tr.dataset.bfs)));
+}
+function buildGemFilter(){
+  const sel=document.getElementById("gem-filt-kt");
+  RAW.cantons.forEach(c=>{const o=document.createElement("option");o.value=c.nr;o.textContent=`${c.name} (${KT_ABBR[c.nr]||""})`;sel.appendChild(o);});
+  sel.addEventListener("change",e=>{gemFiltKt=e.target.value;renderGemeindenTable();});
+  const cb=document.getElementById("gem-filt-instr");
+  cb.addEventListener("change",e=>{gemFiltOnlyInstr=e.target.checked;renderGemeindenTable();});
+}
+
+/* ================= Rapport ================= */
+function openRapport(type,id){
+  showView("rapport");
+  if(type==="canton"){document.getElementById("rapp-input").value=ktNameByNr[+id]||"";}
+  else{const g=gemByBfs[+id];document.getElementById("rapp-input").value=g?g.name:"";}
+  renderRapport(type,+id);
+}
+function buildRapportSearch(){
+  const inp=document.getElementById("rapp-input"),sug=document.getElementById("rapp-suggestions");
+  const options=[
+    ...RAW.cantons.map(c=>({label:c.name,sub:`Kanton · ${KT_ABBR[c.nr]||""}`,type:"canton",id:c.nr})),
+    ...RAW.gemeinden.map(g=>({label:g.name,sub:`${KT_ABBR[g.kt]||g.kt} · BFS ${g.bfs}`,type:"gem",id:g.bfs}))
+  ];
+  function showSug(q){
+    if(!q.trim()){sug.innerHTML="";sug.style.display="none";return;}
+    const hits=options.filter(o=>o.label.toLowerCase().includes(q.toLowerCase())||o.sub.toLowerCase().includes(q.toLowerCase())).slice(0,15);
+    if(!hits.length){sug.style.display="none";return;}
+    sug.innerHTML=hits.map(o=>`<div class="sug-item" data-type="${o.type}" data-id="${o.id}"><b>${o.label}</b> <span style="color:var(--ink-faint);font-size:12px">${o.sub}</span></div>`).join("");
+    sug.style.display="block";
+    sug.querySelectorAll(".sug-item").forEach(el=>el.addEventListener("mousedown",e=>{e.preventDefault();inp.value=el.querySelector("b").textContent;sug.style.display="none";renderRapport(el.dataset.type,+el.dataset.id);}));
+  }
+  inp.addEventListener("input",()=>showSug(inp.value));
+  inp.addEventListener("focus",()=>showSug(inp.value));
+  document.addEventListener("click",e=>{if(!e.target.closest("#rapport-search"))sug.style.display="none";});
+}
+function srcHtmlFor(a){
+  const tiers=["tier_1_primary","tier_2_official","tier_3_professional","tier_4_signal"];
+  return tiers.map(t=>{const ss=(a.sources_checked||[]).filter(s=>s.source_tier===t);if(!ss.length)return "";
+    return `<div class="srcgroup"><h4>${TIERLBL[t]} (${ss.length})</h4>`+ss.map(s=>`<div class="srcitem"><a href="${s.url}" target="_blank" rel="noopener">${s.title} ↗</a><br><span class="mono">${s.source_type} · ${s.last_checked}</span><br>${s.what_it_proves}</div>`).join("")+`</div>`;}).join("");
+}
+function renderRapport(type,id){
+  const box=document.getElementById("rapport-content");
+  const li=arr=>(arr&&arr.length)?arr.map(x=>"• "+x).join("<br>"):"—";
+  if(type==="canton"){
+    const nr=+id,au=auditByKton[nr],own=ktOwn[nr]||[];
+    const gemMit=RAW.gemeinden.filter(g=>g.kt===nr&&commAll[g.bfs]&&commAll[g.bfs].length);
+    const gemHtml=gemMit.length?gemMit.map(g=>{const ids=commAll[g.bfs]||[];return `<div class="instr-item"><div class="instr-ttl">${g.name} <span class="mono" style="font-size:11px;color:var(--ink-faint)">BFS ${g.bfs}</span></div>${ids.map(instrItemHtml).join("")}</div>`;}).join(""):`<div class="d-v">Keine Gemeindeinstrumente erfasst.</div>`;
+    box.innerHTML=
+      `<div class="d-name">${ktNameByNr[nr]||""} (${KT_ABBR[nr]||nr})</div>`+
+      (au?`<div class="d-row"><span class="badge b-${au.research_status}">${STATUS_AUDIT[au.research_status]||au.research_status}</span> <span class="conf-${au.confidence}">Confidence ${au.confidence}</span> <span class="mono">aktualisiert ${au.last_updated||""}</span></div>`:`<div class="d-row"><div class="d-v" style="color:var(--ink-faint)">Noch kein Auditbericht vorhanden.</div></div>`)+
+      `<div class="d-section-hd">KANTONALE INSTRUMENTE (${own.length})</div>`+
+      (own.length?own.map(instrItemHtml).join(""):`<div class="d-v">Keine kantonalen Instrumente erfasst.</div>`)+
+      `<div class="d-section-hd">GEMEINDEN MIT INSTRUMENTEN (${gemMit.length})</div>`+
+      gemHtml+
+      (au?
+        `<div class="d-section-hd">RECHERCHE</div>`+
+        `<div class="d-row"><div class="d-k">Geprüfte Territorien (${(au.territories_checked||[]).length})</div><div class="d-v">${(au.territories_checked||[]).join(" · ")||"—"}</div></div>`+
+        `<div class="d-row"><div class="d-k">Quellen</div>${srcHtmlFor(au)||"<div class='d-v'>—</div>"}</div>`+
+        `<div class="d-section-hd">EINSCHÄTZUNG</div>`+
+        `<div class="d-row"><div class="d-k">Zusammenfassung</div><div class="d-v">${au.summary||"—"}</div></div>`+
+        `<div class="d-row"><div class="d-k">Klassifikationslogik</div><div class="d-v">${au.classification_notes||"—"}</div></div>`+
+        `<div class="d-row"><div class="d-k">Kartenrelevanz</div><div class="d-v">${au.map_relevance_notes||"—"}</div></div>`+
+        `<div class="d-row"><div class="d-k">Nicht bestätigt / verworfen</div><div class="d-v">${li(au.instruments_rejected_or_not_confirmed)}</div></div>`+
+        `<div class="d-row"><div class="d-k">Offene Fragen</div><div class="d-v">${li(au.open_questions)}</div></div>`
+      :"");
+  } else {
+    const bfs=+id,g=gemByBfs[bfs];
+    if(!g){box.innerHTML=`<div class="d-v">Gemeinde nicht gefunden.</div>`;return;}
+    const ownIds=commAll[bfs]||[],ktNr=g.kt,ktInstrIds=ktOwn[ktNr]||[],au=auditByKton[ktNr];
+    box.innerHTML=
+      `<div class="d-name">${g.name}</div>`+
+      `<div class="d-row"><div class="d-k">BFS / Kanton</div><div class="d-v"><span class="mono">${g.bfs}</span> · ${ktNameByNr[ktNr]||""} (${KT_ABBR[ktNr]||ktNr})</div></div>`+
+      `<div class="d-row"><div class="d-k">Einzeln geprüft</div><div class="d-v">${checkedBfsSet.has(bfs)?`<span class="badge" style="background:#D8EFF8;color:#1A6B8A">ja — in Workliste</span>`:`<span class="mono">nein — nur auf Kantonsniveau erfasst</span>`}</div></div>`+
+      `<div class="d-section-hd">GEMEINDEINSTRUMENTE (${ownIds.length})</div>`+
+      (ownIds.length?ownIds.map(instrItemHtml).join(""):`<div class="d-v">Keine Instrumente auf Gemeindeebene erfasst.</div>`)+
+      `<div class="d-section-hd">KANTONALE INSTRUMENTE — ${ktNameByNr[ktNr]||""} (${ktInstrIds.length})</div>`+
+      (ktInstrIds.length?ktInstrIds.map(instrItemHtml).join(""):`<div class="d-v">Keine kantonalen Instrumente erfasst.</div>`)+
+      (au?
+        `<div class="d-section-hd">AUDIT — ${ktNameByNr[ktNr]||""}</div>`+
+        `<div class="d-row"><span class="badge b-${au.research_status}">${STATUS_AUDIT[au.research_status]||au.research_status}</span> <span class="mono">${au.last_updated||""}</span></div>`+
+        `<div class="d-row"><div class="d-k">Zusammenfassung</div><div class="d-v">${au.summary||"—"}</div></div>`
+      :"");
+  }
+}
+
+/* ================= Audit-Stats ================= */
+function renderAuditStats(){
+  const el=document.getElementById("audit-stats"); if(!el) return;
+  const totalGem=RAW.meta.counts.gemeinden,checkedGem=checkedBfsSet.size;
+  const researchedKt=AUDIT.filter(a=>["integrated","audited","researched"].includes(a.research_status)).length;
+  el.innerHTML=`<div class="infogrid" style="margin-bottom:18px">`+
+    `<div class="infocard"><div class="k">Kantone recherchiert</div><div class="v">${researchedKt} <span style="font-size:14px;font-weight:400;color:var(--ink-soft)">/ 26</span></div></div>`+
+    `<div class="infocard"><div class="k">Gemeinden einzeln geprüft</div><div class="v">${checkedGem} <span style="font-size:14px;font-weight:400;color:var(--ink-soft)">/ ${totalGem}</span></div></div>`+
+    `<div class="infocard"><div class="k">Instrumente erfasst</div><div class="v">${INSTR.length}</div></div>`+
+    `</div>`;
+}
 
 /* ================= View / Init ================= */
 function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".navitem").forEach(n=>n.classList.toggle("active",n.dataset.view===v)); window.scrollTo({top:0}); }
@@ -650,8 +824,11 @@ function init(){
   const terr=new Set(); RELS.forEach(r=>{ if(r.territory_type==="municipality"&&r.map_relevant) terr.add(resolveBfs(r.bfs_number)); });
   document.getElementById("foot-t").textContent=terr.size;
   document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
-  document.getElementById("t-total").textContent=INSTR.length;
-  buildMap(); renderCatControls(); renderLegend(); buildFilters(); buildTableHead(); renderTable(); renderInfo(); buildAuditFilters(); renderAuditList(); renderAuditMaps(); renderErklaert();
+  buildMap(); renderCatControls(); renderLegend();
+  renderKantoneTable();
+  buildGemFilter(); renderGemeindenTable();
+  buildRapportSearch();
+  renderInfo(); buildAuditFilters(); renderAuditList(); renderAuditMaps(); renderAuditStats(); renderErklaert();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
   document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderCatControls();renderLegend();}));
   document.getElementById("basis-map").addEventListener("click",()=>setBasis("map"));
