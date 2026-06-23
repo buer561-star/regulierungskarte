@@ -76,7 +76,12 @@
   .chip .dot{width:8px;height:8px;border-radius:99px;flex:0 0 auto;}
   .instr-item{margin:9px 0;padding-bottom:8px;border-bottom:1px dashed var(--hairline);}
   .instr-item:last-child{border-bottom:none;}
+  .instr-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
   .instr-ttl{font-size:13px;font-weight:600;color:var(--ink);margin-top:3px;}
+  .instr-layer{display:flex;gap:8px;font-size:12px;color:var(--ink-mid,var(--ink-soft));margin:2px 0;line-height:1.45;}
+  .instr-layer a{color:var(--brand);text-decoration:none;}
+  .layer-lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);min-width:44px;flex-shrink:0;padding-top:1px;}
+  .instr-actions{margin-top:4px;}
   .instr-sub{font-size:11.5px;color:var(--ink-faint);margin-top:2px;line-height:1.45;}
   .instr-sub a{color:var(--brand);text-decoration:none;}
   .statuspill{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:1px 7px;border-radius:99px;background:#EEF2F4;color:var(--ink-soft);}
@@ -118,6 +123,7 @@
   .b-researched{background:#FBF1DC;color:#7a4a12;} .b-planned{background:#EEF2F4;color:#5A6B75;} .b-not_started{background:#EEF2F4;color:#5A6B75;}
   .b-needs_review{background:#FBE3E1;color:#992019;}
   .conf-high{color:#216B45;} .conf-medium{color:#7a4a12;} .conf-low{color:#992019;}
+  .d-section-hd{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);border-top:1px solid var(--hairline);margin-top:14px;padding-top:10px;margin-bottom:2px;}
   .srcgroup{margin:8px 0;} .srcgroup h4{margin:8px 0 4px;font-size:12px;color:var(--ink);}
   .srcitem{font-size:12.5px;color:var(--ink-soft);margin:6px 0;padding-left:10px;border-left:2px solid var(--hairline-strong);}
   .srcitem a{color:var(--brand);text-decoration:none;}
@@ -413,17 +419,17 @@ function markSel(attr,val){ const svg=document.getElementById("map"); svg.queryS
 function instrItemHtml(id){
   const it=instrById[id]; if(!it) return "";
   const cat=CATS[it.exclusive_category_id]||{name:"?",color:"#999"};
-  const src=it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener">Quelle ↗</a>`:"";
   const au=auditForInstrument(id);
-  const auBtn=au?`<button class="auditbtn" data-audit="${au.audit_id}">Audit anzeigen</button>`:"";
+  const auBtn=au?`<button class="auditbtn" data-audit="${au.audit_id}">Audit ↗</button>`:"";
+  const srcLink=it.primary_source_url?`<a href="${it.primary_source_url}" target="_blank" rel="noopener">Quelle ↗</a>`:"";
   return `<div class="instr-item">`+
-    `<span class="chip"><span class="dot" style="background:${cat.color}"></span>Kat. ${it.exclusive_category_id} · ${cat.name}</span>`+
+    `<div class="instr-head"><span class="chip"><span class="dot" style="background:${cat.color}"></span>Kat. ${it.exclusive_category_id} · ${cat.name}</span><span class="statuspill">${STATUSLBL[it.status]||it.status}</span></div>`+
     `<div class="instr-ttl">${it.instrument_name}</div>`+
-    `<div class="instr-sub">${it.legal_article||it.legal_basis||""} · <span class="statuspill">${STATUSLBL[it.status]||it.status}</span>`+
-    ` · Beleg ${tierShort(it.source_quality)} · Conf. <span class="conf-${it.confidence}">${it.confidence||"–"}</span>`+
-    `${au?` · Audit: ${STATUS_AUDIT[au.research_status]||au.research_status}`:""}</div>`+
-    `<div class="instr-sub">Karte: ${mapRelevanceReason(it)}</div>`+
-    `<div class="instr-sub">${src} ${auBtn}</div></div>`;
+    `<div class="instr-layer"><span class="layer-lbl">Recht</span><span>${it.legal_article?it.legal_article+' — ':''} ${it.legal_basis||''}</span></div>`+
+    `<div class="instr-layer"><span class="layer-lbl">Quelle</span><span>${tierShort(it.source_quality)} · ${srcLink||'—'} · Conf. <span class="conf-${it.confidence}">${it.confidence||'–'}</span></span></div>`+
+    `<div class="instr-layer"><span class="layer-lbl">Karte</span><span>${mapRelevanceReason(it)}</span></div>`+
+    `<div class="instr-actions">${auBtn}</div>`+
+    `</div>`;
 }
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
   const ids=commAll[bfs]||[];
@@ -621,13 +627,16 @@ function renderAuditDetail(id){
   box.innerHTML = `<button class="back" id="audit-back">← Übersicht</button>`+
     `<div class="d-name">${a.territory_name} · Auditbericht</div>`+
     `<div class="d-row"><span class="badge b-${a.research_status}">${STATUS_AUDIT[a.research_status]||a.research_status}</span> <span class="conf-${a.confidence}">Confidence ${a.confidence}</span> <span class="mono">aktualisiert ${a.last_updated||""}</span></div>`+
-    `<div class="d-row"><div class="d-k">Zusammenfassung</div><div class="d-v">${a.summary||""}</div></div>`+
+    `<div class="d-section-hd">RECHERCHE</div>`+
     `<div class="d-row"><div class="d-k">Geprüfte Territorien (${(a.territories_checked||[]).length})</div><div class="d-v">${(a.territories_checked||[]).join(" · ")||"—"}</div></div>`+
-    `<div class="d-row"><div class="d-k">Gefundene Instrumente (${(a.instruments_found||[]).length})</div>${insHtml}</div>`+
     `<div class="d-row"><div class="d-k">Quellen nach Stufe</div>${srcHtml||"<div class=\"d-v\">—</div>"}</div>`+
+    `<div class="d-section-hd">ERGEBNIS — POLITISCHE WERKZEUGE</div>`+
+    `<div class="d-row"><div class="d-k">Zusammenfassung</div><div class="d-v">${a.summary||""}</div></div>`+
+    `<div class="d-row"><div class="d-k">Instrumente (${(a.instruments_found||[]).length})</div>${insHtml}</div>`+
+    `<div class="d-row"><div class="d-k">Nicht bestätigt / verworfen</div><div class="d-v">${li(a.instruments_rejected_or_not_confirmed)}</div></div>`+
+    `<div class="d-section-hd">EINSCHÄTZUNG</div>`+
     `<div class="d-row"><div class="d-k">Klassifikationslogik</div><div class="d-v">${a.classification_notes||"—"}</div></div>`+
     `<div class="d-row"><div class="d-k">Kartenrelevanz</div><div class="d-v">${a.map_relevance_notes||"—"}</div></div>`+
-    `<div class="d-row"><div class="d-k">Nicht bestätigt / verworfen</div><div class="d-v">${li(a.instruments_rejected_or_not_confirmed)}</div></div>`+
     `<div class="d-row"><div class="d-k">Offene Fragen</div><div class="d-v">${li(a.open_questions)}</div></div>`;
   document.getElementById("audit-back").addEventListener("click",renderAuditList);
   box.querySelectorAll(".instrlink").forEach(el=>el.addEventListener("click",()=>gotoInstrument(el.dataset.iid)));

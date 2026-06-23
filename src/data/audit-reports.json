@@ -502,7 +502,7 @@
       "map_relevance_notes": "Farbbestimmend nur das Davoser Zweitwohnungs-/Erstwohnungsanteil-Instrument (Kat 8, in Kraft, bindend, Tier-1/2) -> Davos erscheint gelb. Das kantonale GFW (Kat 4, Förderung) ist nicht farbbestimmend -> Kanton GR und übrige Gemeinden bleiben neutral. Chur/Landquart neutral. Bewusste Entscheidung: das bundesrechtliche Lex Weber wird NICHT pauschal eingefärbt; nur eigenständige kommunale Regelungen über den Bundesstandard hinaus.",
       "open_questions": [
         "GFW: exaktes Inkrafttreten (Referendumsfrist) und kodifizierte Fundstelle (Bündner Rechtsbuch) verlinken.",
-        "Weitere kZWG-Gemeinden (DVS-Tabelle enthält 18): Zuoz, Laax, Davos-Laret, Lenzerheide noch nicht aufgenommen.",
+        "Weitere kZWG-Gemeinden aus DVS-Tabelle noch nicht erfasst: Zuoz, Laax (Falera), Davos-Laret, Lenzerheide (Vaz/Obervaz bereits erfasst als BFS 3506)",
         "Pontresina: Zweitwohnungssteuer Dez. 2024 abgebrochen, kZWG-Haupttext direkt verlinken sobald abrufbar.",
         "Vaz/Obervaz: Zonenplan-Revision 2020/2021 — prüfen ob Art. 32c–h kZWG unverändert in Kraft."
       ],
@@ -949,7 +949,8 @@
         "Kandersteg",
         "Saanen/Gstaad",
         "Zweisimmen",
-        "Lenk im Simmental"
+        "Lenk im Simmental",
+        "Pontresina (BFS 3784) — kZWG-Initiative Dezember 2024 abgebrochen/abgelehnt; kein gültiges Instrument -> neutral"
       ],
       "sources_checked": [
         {
@@ -1867,13 +1868,12 @@
           "last_checked": "2026-06-22"
         }
       ],
-      "instruments_found": [
-        "so-11-wag-beherbergung"
-      ],
+      "instruments_found": [],
       "instruments_rejected_or_not_confirmed": [
         "WAG-Beherbergungsbewilligung: allgemeines Gastgewerberecht (kein Naechte-Deckel/keine Erstwohnungspflicht) -> nicht farbbestimmend.",
         "Olten/Solothurn/Grenchen: Ortsplanungsrevisionen ohne Wohnungsmarkt-Instrument.",
-        "BWO: SO keine Wohnbaufoerderung."
+        "BWO: SO keine Wohnbaufoerderung.",
+        "so-11-wag-beherbergung: WAG §9 ist allgemeines Gastgewerberecht, kein Wohnungsmarkt-Instrument → aus Dataset entfernt"
       ],
       "classification_notes": "WAG-Beherbergung = Kat 8 (allgemeines Bewilligungsrecht, needs_taxonomy_review), nicht farbbestimmend.",
       "map_relevance_notes": "Keine farbbestimmenden Instrumente -> SO neutral.",

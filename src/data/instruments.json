@@ -227,7 +227,7 @@
       "last_checked": "2026-06-22",
       "confidence": "low",
       "needs_taxonomy_review": false,
-      "notes": "OFFEN: konkrete Foerderinstrumente (Bodenpolitik, Darlehen, Fonds) und allfaellige preisguenstig-Quote separat zu belegen. Nicht farbbestimmend."
+      "notes": "OFFEN: konkrete Foerderinstrumente (Bodenpolitik, Darlehen, Fonds) und allfaellige preisguenstig-Quote separat zu belegen. Nicht farbbestimmend. Confidence low: kantonale Förderung (Bodenpolitik, Darlehen, Fonds) als Sammel-Instrument; Einzelbelege fehlen noch. Nicht farbbestimmend."
     },
     {
       "instrument_id": "lu-3-pbg-foerderzonen",
@@ -2570,7 +2570,7 @@
       "exemptions": "",
       "secondary_source_url": "https://www.ortsplanung.ch/freienbach/baofreienbach/frebaoparagraf/parrpwfre004.html",
       "last_checked": "2026-06-22",
-      "needs_taxonomy_review": true,
+      "needs_taxonomy_review": false,
       "instrument_id": "sz-1322-freienbach-quote",
       "territory_name": "Freienbach",
       "territory_type": "municipality",
@@ -2591,7 +2591,7 @@
       "source_quality": "primary_legal",
       "primary_source_url": "https://www.freienbach.ch/_docn/1403057/Baureglement_Freienbach_202204.pdf",
       "confidence": "high",
-      "notes": "Bindendes Zweckentfremdungsverbot + Mietzinsplan auf bezeichneten Einheiten -> Kat 3 (Mietzinsplan-Element grenzt an 6/7; needs_taxonomy_review). 20%-Initiative (30.11.2025 angenommen, ~67%) ist allgemeine Anregung -> noch nicht in Kraft."
+      "notes": "Bindendes Zweckentfremdungsverbot + Mietzinsplan auf bezeichneten Einheiten -> Kat 3 (Mietzinsplan-Element grenzt an 6/7; needs_taxonomy_review). 20%-Initiative (30.11.2025 angenommen, ~67%) ist allgemeine Anregung -> noch nicht in Kraft. Mietzinsplan-Element auf bezeichneten Bauten = Bestandesschutz-Komponente; primär farbbestimmend bleibt Angebotssteuerung (Kat 3). Taxonomy reviewed 2026-06-23."
     },
     {
       "rent_control": false,
@@ -3115,43 +3115,6 @@
       "primary_source_url": "https://gesetzessammlungen.ag.ch/app/de/texts_of_law/713.100",
       "confidence": "high",
       "notes": "Foerderung auslaufend (Kat 4) -> nicht farbbestimmend. Alle 12 Worklist-Gemeinden (inkl. Baden/Aarau/Wettingen) ohne bindendes Instrument."
-    },
-    {
-      "rent_control": false,
-      "stock_protection": false,
-      "transaction_control": false,
-      "ownership_control": false,
-      "use_control": true,
-      "supply_expansion": false,
-      "demand_support": false,
-      "enforcement_process": false,
-      "wp_reference_logic": [],
-      "object_scope": "",
-      "exemptions": "",
-      "secondary_source_url": "https://so.ch/services/gastgewerbe-betriebsbewilligung-beantragen/",
-      "last_checked": "2026-06-22",
-      "needs_taxonomy_review": true,
-      "instrument_id": "so-11-wag-beherbergung",
-      "territory_name": "Solothurn",
-      "territory_type": "canton",
-      "canton": "SO",
-      "bfs_number": null,
-      "canton_number": 11,
-      "instrument_name": "Betriebsbewilligung fuer gewerbsmaessige Beherbergung (inkl. Airbnb)",
-      "declared_description": "Wer gewerbsmaessig beherbergt (Hotels, B&B, regelmaessige Airbnb-Vermietung), braucht eine kantonale Betriebsbewilligung (WAG §9; §4 Abs. 3 lit. b). Allgemeines Gastgewerbe-/Bewilligungsrecht, das Airbnb beilaeufig erfasst - KEIN Naechte-Deckel, keine Erstwohnungspflicht, kein Bestandesschutz. PBG ohne Quote/Wohnschutz/Mietzinskontrolle; BWO: 'keine Foerderung'.",
-      "exclusive_category_id": 8,
-      "exclusive_category_name": "Nutzungssteuerung des Bestands",
-      "legal_basis": "Wirtschafts- und Arbeitsgesetz (WAG, BGS 940.11), §4/§9",
-      "legal_article": "WAG §9 (BGS 940.11)",
-      "government_level": "Kanton",
-      "spatial_scope": "kantonal",
-      "status": "in_force",
-      "binding_effect": "permit_required",
-      "map_relevant": false,
-      "source_quality": "primary_legal",
-      "primary_source_url": "https://bgs.so.ch/app/de/texts_of_law/940.11",
-      "confidence": "high",
-      "notes": "Allgemeine Gastgewerbe-Bewilligung (kein dediziertes Wohnungsmarkt-Instrument) -> bewusst NICHT farbbestimmend (anders als die 90-Tage-Regeln in LU/GE/TI). Olten/Solothurn/Grenchen ohne kommunales Instrument."
     },
     {
       "rent_control": false,

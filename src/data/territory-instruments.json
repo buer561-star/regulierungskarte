@@ -2407,15 +2407,6 @@
       "note": "Kantonale Foerderung (auslaufend); nicht farbbestimmend."
     },
     {
-      "instrument_id": "so-11-wag-beherbergung",
-      "territory_type": "canton",
-      "bfs_number": null,
-      "canton_number": 11,
-      "relation_type": "own",
-      "map_relevant": false,
-      "note": "Allgemeine Gastgewerbe-Bewilligung; nicht farbbestimmend."
-    },
-    {
       "instrument_id": "sh-14-wohnbaufoerderung",
       "territory_type": "canton",
       "bfs_number": null,
