@@ -16,22 +16,25 @@ await new Promise(res => { if (window.document.readyState === "complete") return
 const $ = s => window.document.querySelector(s), $$ = s => [...window.document.querySelectorAll(s)];
 let fails = 0; const A = (c, m) => { if (!c) fails++; console.log((c ? "✓" : "✗ FAIL") + " " + m); };
 const fill = sel => { const e = $(sel); return e ? (e.getAttribute("fill") || "").toUpperCase() : null; };
+const hatched = sel => fill(sel) === "URL(#MEASHATCH)";   // schraffiert = erfasst, aber nicht farbbestimmend
 
 // Geometrie
 A($$("#map path.area[data-bfs]").length === 2115, `Gemeindekarte: 2115 Gemeinde-Pfade`);
 A($$("#map path.ktborder").length === 26, `26 Kantonsgrenzen`);
 A($$("#map path.lake").length === 10, `10 Seen`);
 A($$("#map text.ktlabel").length === 26, `26 Kantons-Labels`);
+A(!!$('#map defs #meashatch'), `Schraffur-Pattern (defs #meashatch) im SVG vorhanden`);
+A(/nicht farbbestimmend/.test($("#legend").innerHTML), `Legende erklärt Schraffur (Maßnahmen erfasst, nicht farbbestimmend)`);
 
 // Basel-Stadt: Kat 5/6/7 farbbestimmend -> staerkste = 7 (rot #C5322B)
 A(fill('#map path[data-bfs="2701"]') === "#C5322B", `Basel (2701) = Kat 7 rot (ist ${fill('#map path[data-bfs="2701"]')})`);
 A(fill('#map path[data-bfs="2703"]') === "#C5322B", `Riehen (2703) = Kat 7 rot`);
 A(fill('#map path[data-bfs="2702"]') === "#C5322B", `Bettingen (2702) = Kat 7 rot`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) ohne Instrument = neutral`);
+A(hatched('#map path[data-bfs="261"]'), `Zürich (261) schraffiert (Fonds=Förderung + Quote pending, nicht farbbestimmend)`);
 A(fill('#map path[data-bfs="1061"]') === "#F2C53D", `Luzern (1061) = Kat 8 gelb (Kurzzeitvermietung) (ist ${fill('#map path[data-bfs="1061"]')})`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="2762"]')), `Allschwil (BL 2762) neutral (BL nur Förderung, nicht farbbestimmend)`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="1058"]')), `Horw (LU 1058) neutral (Förderung, nicht farbbestimmend)`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="1059"]')), `Kriens (LU 1059) neutral (Wohnbaureglement planned, nicht farbbestimmend)`);
+A(/E4E7EA/i.test(fill('#map path[data-bfs="2762"]')), `Allschwil (BL 2762) neutral (keine eigene Erfassung)`);
+A(hatched('#map path[data-bfs="1058"]'), `Horw (LU 1058) schraffiert (Förderung, nicht farbbestimmend)`);
+A(hatched('#map path[data-bfs="1059"]'), `Kriens (LU 1059) schraffiert (Förderung/Kurzzeit, nicht farbbestimmend)`);
 A(fill('#map path[data-bfs="6458"]') === "#7E8AC4", `Neuchâtel (6458) = Kat 5 violett (LVAL) (ist ${fill('#map path[data-bfs="6458"]')})`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="6421"]')), `La Chaux-de-Fonds (6421) neutral (nicht LVAL)`);
 A(fill('#map path[data-bfs="3851"]') === "#F2C53D", `Davos (3851) = Kat 8 gelb (Erstwohnungsanteil) (ist ${fill('#map path[data-bfs="3851"]')})`);
@@ -51,13 +54,18 @@ A(/E4E7EA/i.test(fill('#map path[data-bfs="6266"]')), `Sion (6266) neutral`);
 A(fill('#map path[data-bfs="351"]') === "#E8883A", `Bern (351) = Kat 6 orange (Wohnraumschutz) (ist ${fill('#map path[data-bfs="351"]')})`);
 A(fill('#map path[data-bfs="355"]') === "#3B7DC4", `Köniz (355) = Kat 3 blau (Quote)`);
 A(fill('#map path[data-bfs="404"]') === "#3B7DC4", `Burgdorf (404) = Kat 3 blau (Quote)`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="942"]')), `Thun (942) neutral (Quote sistiert)`);
+A(hatched('#map path[data-bfs="942"]'), `Thun (942) schraffiert (Quote sistiert/pendent, nicht farbbestimmend)`);
 // ZG: Zug/Baar/Steinhausen Kat 3 blau; Cham neutral (Beschwerde)
 A(fill('#map path[data-bfs="1711"]') === "#3B7DC4", `Zug (1711) = Kat 3 blau (50%-Zone)`);
 A(fill('#map path[data-bfs="1701"]') === "#3B7DC4", `Baar (1701) = Kat 3 blau`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="1702"]')), `Cham (1702) neutral (Quote unter Beschwerde)`);
-// ZH: Stadt Zürich neutral (75%-Quote noch nicht in Kraft)
-A(/E4E7EA/i.test(fill('#map path[data-bfs="261"]')), `Zürich (261) neutral (Quote pending, Fonds=Förderung)`);
+A(hatched('#map path[data-bfs="1702"]'), `Cham (1702) schraffiert (Quote unter Beschwerde, nicht farbbestimmend)`);
+// ZH: Stadt Zürich schraffiert (75%-Quote noch nicht in Kraft, Fonds=Förderung)
+A(hatched('#map path[data-bfs="261"]'), `Zürich (261) schraffiert (Quote pending, Fonds=Förderung)`);
+// ... aber im Modus 'alle Instrumente' farbig (Kat 3 blau) -> Datenbank<->Karte verknüpft
+$("#basis-all").dispatchEvent(new window.Event("click"));
+A(fill('#map path[data-bfs="261"]') === "#3B7DC4", `Zürich (261) = Kat 3 blau unter 'alle Instrumente' (ist ${fill('#map path[data-bfs="261"]')})`);
+$("#basis-map").dispatchEvent(new window.Event("click"));
+A(hatched('#map path[data-bfs="261"]'), `zurück auf 'farbbestimmend': Zürich (261) wieder schraffiert`);
 // VD: LPPPL -> Pénurie-Gemeinden rot (Kat 7); Aigle neutral (kein Pénurie-Bezirk)
 A(fill('#map path[data-bfs="5586"]') === "#C5322B", `Lausanne (5586) = Kat 7 rot (LPPPL) (ist ${fill('#map path[data-bfs="5586"]')})`);
 A(fill('#map path[data-bfs="5890"]') === "#C5322B", `Vevey (5890) = Kat 7 rot (LPPPL)`);
@@ -66,12 +74,12 @@ A(/E4E7EA/i.test(fill('#map path[data-bfs="5401"]')), `Aigle (5401) neutral (Bez
 A(fill('#map path[data-bfs="1322"]') === "#3B7DC4", `Freienbach (1322, SZ) = Kat 3 blau (Quote) (ist ${fill('#map path[data-bfs="1322"]')})`);
 A(fill('#map path[data-bfs="1509"]') === "#3B7DC4", `Stans (1509, NW) = Kat 3 blau (soziales Wohnen)`);
 A(fill('#map path[data-bfs="6711"]') === "#3B7DC4", `Delémont (6711, JU) = Kat 3 blau (10%-Quote)`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="3203"]')), `St. Gallen (3203) neutral (nur Förderung)`);
+A(hatched('#map path[data-bfs="3203"]'), `St. Gallen (3203) schraffiert (nur Förderung, nicht farbbestimmend)`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="1201"]')), `Altdorf (1201, UR) neutral`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="4021"]')), `Baden (4021, AG) neutral`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="2581"]')), `Olten (2581, SO) neutral`);
 A(/E4E7EA/i.test(fill('#map path[data-bfs="2939"]')), `Schaffhausen (2939) neutral`);
-A(/E4E7EA/i.test(fill('#map path[data-bfs="4566"]')), `Frauenfeld (4566, TG) neutral`);
+A(hatched('#map path[data-bfs="4566"]'), `Frauenfeld (4566, TG) schraffiert (Förderung, nicht farbbestimmend)`);
 
 // Kategorie 7 abwaehlen -> Basel faellt auf Kat 6 (orange #E8883A)
 const cb7 = $('#cat-controls input[data-cat="7"]'); cb7.checked = false; cb7.dispatchEvent(new window.Event("change"));
@@ -99,12 +107,12 @@ $("#cat-all").dispatchEvent(new window.Event("click"));
 $('.mmbtn[data-mm="kanton"]').dispatchEvent(new window.Event("click"));
 A($$("#map path.area[data-kt]").length === 26, `Kantonskarte: 26 Kanton-Pfade`);
 A(fill('#map path[data-kt="12"]') === "#C5322B", `Kanton BS (12) = rot (Aggregat)`);
-// Basis "alle Instrumente": Förder-Kanton BL zeigt Kat 4 (grün), unter 'farbbestimmend' neutral
-A(/E4E7EA/i.test(fill('#map path[data-kt="13"]')), `BL (13) neutral unter 'farbbestimmend'`);
+// Basis "alle Instrumente": Förder-Kanton BL zeigt Kat 4 (grün); unter 'farbbestimmend' schraffiert (Förderung erfasst, nicht farbbestimmend)
+A(hatched('#map path[data-kt="13"]'), `BL (13) schraffiert unter 'farbbestimmend' (nur Förderung)`);
 $("#basis-all").dispatchEvent(new window.Event("click"));
 A(fill('#map path[data-kt="13"]') === "#4F9D69", `BL (13) = Kat 4 grün unter 'alle Instrumente' (ist ${fill('#map path[data-kt="13"]')})`);
 $("#basis-map").dispatchEvent(new window.Event("click"));
-A(/E4E7EA/i.test(fill('#map path[data-kt="13"]')), `zurück auf 'farbbestimmend': BL (13) wieder neutral`);
+A(hatched('#map path[data-kt="13"]'), `zurück auf 'farbbestimmend': BL (13) wieder schraffiert`);
 $('.mmbtn[data-mm="gem"]').dispatchEvent(new window.Event("click"));
 
 // Tabelle: 5 Instrumente

@@ -107,6 +107,7 @@
   .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);}
   .legend span{display:inline-flex;align-items:center;gap:6px;}
   .legend .dot{width:10px;height:10px;border-radius:3px;}
+  .legend .dot-hatch{background:repeating-linear-gradient(45deg,#5F7A8C 0,#5F7A8C 1.3px,#E4E7EA 1.3px,#E4E7EA 4px);border:1px solid #C9D3DA;}
   /* audit */
   .acards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;}
   .acard{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:14px;cursor:pointer;text-align:left;font:inherit;color:inherit;}
@@ -177,7 +178,7 @@
       <div class="vhead">
         <p class="eb">Choroplethenkarte · Instrumente</p>
         <h1>Karte nach Instrument-Kategorien</h1>
-        <p>Eingefärbt wird nach der <b>exklusiven Kategorie</b> (1–10) je Gebiet. Rechts wählst du <b>einen oder mehrere</b> der 10 Instrument-Typen — die Karte zeigt sie sofort interaktiv. Mit <b>farbbestimmend</b> erscheinen nur in Kraft getretene, bindende Instrumente (Tier-1/2); mit <b>alle Instrumente</b> auch Förderung/Vollzug/Pendentes. Hat ein Gebiet mehrere gewählte Typen, gilt der stärkste (Priorität 7&gt;6&gt;5&gt;3&gt;8&gt;…).</p>
+        <p>Eingefärbt wird nach der <b>exklusiven Kategorie</b> (1–10) je Gebiet. Rechts wählst du <b>einen oder mehrere</b> der 10 Instrument-Typen — die Karte zeigt sie sofort interaktiv. Mit <b>farbbestimmend</b> erscheinen nur in Kraft getretene, bindende Instrumente (Tier-1/2); mit <b>alle Instrumente</b> auch Förderung/Vollzug/Pendentes. Hat ein Gebiet mehrere gewählte Typen, gilt der stärkste (Priorität 7&gt;6&gt;5&gt;3&gt;8&gt;…). <b>Schraffierte</b> Gebiete haben erfasste, aber (im aktuellen Modus) nicht farbbestimmende Maßnahmen — z. B. Förderung oder noch nicht in Kraft getretene Quoten (Klick zeigt Details).</p>
       </div>
       <div class="maptools">
         <span class="mmwrap">
@@ -370,15 +371,25 @@ const els = { land:{}, kt:{} };
 function commCats(bfs){ return catsOf(colorBasis==="all" ? commAll[bfs] : commMap[bfs]); }
 function cantonCats(nr){ return (colorBasis==="all"?ktCatAll:ktCatMap)[nr] || new Set(); }
 function pickCat(catSet){ for(const c of CAT_PRIORITY){ if(catSet.has(c) && selected.has(c)) return c; } return null; }
-function communeColor(bfs){ const c=pickCat(commCats(bfs)); return c?CATS[c].color:NEUTRAL; }
-function cantonColor(nr){ const c=pickCat(cantonCats(nr)); return c?CATS[c].color:NEUTRAL; }
+const HATCH="url(#meashatch)";
+const selHas=(cats)=>{ for(const c of cats){ if(selected.has(c)) return true; } return false; };  // erfasste Maßnahme in aktuell gewählter Kategorie?
+const communeHasSel=(bfs)=>selHas(catsOf(commAll[bfs]));     // alle erfassten Instrumente (auch nicht-farbbestimmende)
+const cantonHasSel=(nr)=>{ const s=ktCatAll[nr]; return s?selHas(s):false; };
+function communeColor(bfs){ const c=pickCat(commCats(bfs)); return c?CATS[c].color:(communeHasSel(bfs)?HATCH:NEUTRAL); }
+function cantonColor(nr){ const c=pickCat(cantonCats(nr)); return c?CATS[c].color:(cantonHasSel(nr)?HATCH:NEUTRAL); }
+function anyHatch(){ if(mapMode==="gem"){ for(const g of RAW.gemeinden){ if(!pickCat(commCats(g.bfs))&&communeHasSel(g.bfs)) return true; } } else { for(const k of RAW.cantons){ if(!pickCat(cantonCats(k.nr))&&cantonHasSel(k.nr)) return true; } } return false; }
 
 /* ================= Karte ================= */
 function path(d, cls){ const p=document.createElementNS(NS,"path"); p.setAttribute("d",d); if(cls)p.setAttribute("class",cls); return p; }
 function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+function mapDefs(){ const defs=document.createElementNS(NS,"defs");
+  const pat=document.createElementNS(NS,"pattern"); pat.setAttribute("id","meashatch"); pat.setAttribute("patternUnits","userSpaceOnUse"); pat.setAttribute("width","5"); pat.setAttribute("height","5"); pat.setAttribute("patternTransform","rotate(45)");
+  const bg=document.createElementNS(NS,"rect"); bg.setAttribute("width","5"); bg.setAttribute("height","5"); bg.setAttribute("fill",NEUTRAL); pat.appendChild(bg);
+  const ln=document.createElementNS(NS,"line"); ln.setAttribute("x1","0"); ln.setAttribute("y1","0"); ln.setAttribute("x2","0"); ln.setAttribute("y2","5"); ln.setAttribute("stroke","#5F7A8C"); ln.setAttribute("stroke-width","1.5"); pat.appendChild(ln);
+  defs.appendChild(pat); return defs; }
 function setMapAspect(svg){ const v=(RAW.meta.viewBox||"").split(/\s+/).map(Number); if(v.length===4 && v[2]>0 && v[3]>0){ svg.style.aspectRatio = v[2]+" / "+v[3]; } }
 function buildMap(){
-  const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
+  const svg=document.getElementById("map"); clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg); svg.appendChild(mapDefs());
   els.land={}; els.kt={};
   if(mapMode==="gem"){
     RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs; p.setAttribute("fill",communeColor(g.bfs));
@@ -456,7 +467,10 @@ function setAll(on){ selected.clear(); if(on)CATLIST.forEach(c=>selected.add(c))
 function setBasis(b){ colorBasis=b; const m=document.getElementById("basis-map"),a=document.getElementById("basis-all"); if(m)m.classList.toggle("won",b==="map"); if(a)a.classList.toggle("won",b==="all"); renderCatControls(); renderLegend(); repaint(); }
 function renderLegend(){
   const cats=CATLIST.filter(c=>catCountNow(c)>0);
-  document.getElementById("legend").innerHTML = cats.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("") + `<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
+  let html=cats.map(c=>`<span><span class="dot" style="background:${CATS[c].color}"></span>${c} · ${CATS[c].name}</span>`).join("");
+  if(anyHatch()) html+=`<span><span class="dot dot-hatch"></span>Maßnahmen erfasst (nicht farbbestimmend)</span>`;
+  html+=`<span><span class="dot" style="background:${NEUTRAL}"></span>keine Erfassung</span>`;
+  document.getElementById("legend").innerHTML = html;
 }
 /* Audit: zwei statische Übersichtskarten (fixe farbbestimmende Klassifikation) */
 function colCommuneFixed(bfs){ const s=catsOf(commMap[bfs]); for(const c of CAT_PRIORITY){ if(s.has(c)) return CATS[c].color; } return NEUTRAL; }
