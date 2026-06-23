@@ -727,7 +727,7 @@ function gotoInstrument(iid){ const it=instrById[iid]; if(!it) return; if(it.ter
 
 /* ================= Auswertung (Wohnungsstatistik) ================= */
 const etSel=new Set();
-function fmtW(w){ return w>=1e6?(w/1e6).toFixed(2)+"M":(w>=1000?(w/1000).toFixed(0)+"'000"):w; }
+function fmtW(w){ return w>=1e6?(w/1e6).toFixed(2)+"M":(w>=1000?(w/1000).toFixed(0)+"'000":w); }
 function pctW(w){ return wTotal?((w/wTotal)*100).toFixed(1)+"&thinsp;%":"0%"; }
 function barHtml(w,col){
   const p=wTotal?Math.min(w/wTotal*100,100):0;
