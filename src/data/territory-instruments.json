@@ -15214,13 +15214,13 @@
       "note": "Dübendorf: BZO-Revision 40%-Quote pendent kantonal"
     },
     {
-      "instrument_id": "zh-295-wadenswil-quote",
+      "instrument_id": "zh-293-wadenswil-quote",
       "territory_type": "municipality",
-      "bfs_number": 295,
+      "bfs_number": 293,
       "canton_number": 1,
       "relation_type": "own",
       "map_relevant": false,
-      "note": "Wädenswil: BZO 20%-Quote 3 Parzellen pendent"
+      "note": "Wädenswil (BFS 293): BZO 20%-Quote 3 Parzellen pendent"
     },
     {
       "instrument_id": "be-855-wohlen-quote",
@@ -15232,13 +15232,13 @@
       "note": "Wohlen bei Bern: 1/3-Quote bei Einzonungen (BR Art. 1a, in Kraft Dez. 2019)"
     },
     {
-      "instrument_id": "be-360-ostermundigen-quote",
+      "instrument_id": "be-363-ostermundigen-quote",
       "territory_type": "municipality",
-      "bfs_number": 360,
+      "bfs_number": 363,
       "canton_number": 2,
       "relation_type": "own",
       "map_relevant": true,
-      "note": "Ostermundigen: Preisgünstig-Quote im BR (~1/3); Artikel unbestätigt"
+      "note": "Ostermundigen (BFS 363): Preisgünstig-Quote im BR (~1/3); Artikel unbestätigt"
     },
     {
       "instrument_id": "be-351-ausnuetzungsbonus",
@@ -15302,6 +15302,123 @@
       "relation_type": "own",
       "map_relevant": false,
       "note": "JU: RSJU 843.11 Bestandesschutz Wohnungen zu günstigen Preisen"
+    },
+    {
+      "instrument_id": "bs-12-transformation-quote",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 12,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonaler Gegenvorschlag (Stadtkanton); angenommen 18.5.2025"
+    },
+    {
+      "instrument_id": "bs-12-transformation-quote",
+      "territory_type": "municipality",
+      "bfs_number": 2701,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": true,
+      "note": "Stadt Basel: Transformationsareale ≥15'000 m² → mind. 1/3 gemeinnützig"
+    },
+    {
+      "instrument_id": "bs-12-transformation-quote",
+      "territory_type": "municipality",
+      "bfs_number": 2702,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Riehen: kantonales Recht, aber kaum Transformationsareale ≥15'000 m²"
+    },
+    {
+      "instrument_id": "bs-12-transformation-quote",
+      "territory_type": "municipality",
+      "bfs_number": 2703,
+      "canton_number": 12,
+      "relation_type": "inherited",
+      "map_relevant": false,
+      "note": "Bettingen: kantonales Recht, aber keine Transformationsareale ≥15'000 m²"
+    },
+    {
+      "instrument_id": "be-371-biel-quote-initiative",
+      "territory_type": "municipality",
+      "bfs_number": 371,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Biel/Bienne: 1/3-Quote-Initiative in Unterschriftensammlung (pendent)"
+    },
+    {
+      "instrument_id": "be-942-thun-wfr",
+      "territory_type": "municipality",
+      "bfs_number": 942,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Thun: WFR + Bostudenzelg (Ziel 1'000 gemeinnützige Whg bis 2045)"
+    },
+    {
+      "instrument_id": "be-939-steffisburg-kompetenz",
+      "territory_type": "municipality",
+      "bfs_number": 939,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Steffisburg: Ermächtigungskompetenz im Baureglement (keine Fixquote belegt)"
+    },
+    {
+      "instrument_id": "tg-4566-foerderung-preisguenstig",
+      "territory_type": "municipality",
+      "bfs_number": 4566,
+      "canton_number": 20,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Frauenfeld: Reglement Förderung preisgünstiger Wohnraum (2016, bindend)"
+    },
+    {
+      "instrument_id": "be-942-thun-quote-art6",
+      "territory_type": "municipality",
+      "bfs_number": 942,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Thun: 25%-Aufzonungsquote BR Art. 6 SUSPENDIERT (Beschwerde BVD 110/2025/91)"
+    },
+    {
+      "instrument_id": "lu-1103-sursee-bonus",
+      "territory_type": "municipality",
+      "bfs_number": 1103,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Sursee: Nutzungsbonus preisgünstig BZR Art. 41 Abs. 1 (seit 2019)"
+    },
+    {
+      "instrument_id": "lu-1059-kriens-reglement",
+      "territory_type": "municipality",
+      "bfs_number": 1059,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kriens: Wohnbaureglement-Gegenvorschlag pendent (25% Sondernutzungsplan)"
+    },
+    {
+      "instrument_id": "bl-2771-birsfelden-quote",
+      "territory_type": "municipality",
+      "bfs_number": 2771,
+      "canton_number": 13,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Birsfelden: 20%/50% preisgünstig in Quartierplänen (2019)"
+    },
+    {
+      "instrument_id": "ti-5101-ascona-bonus",
+      "territory_type": "municipality",
+      "bfs_number": 5101,
+      "canton_number": 21,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Ascona: +0.25 IS Nutzungsbonus preisgünstig (NAPR Art. 28)"
     }
   ]
 }
