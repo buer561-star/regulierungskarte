@@ -15176,6 +15176,132 @@
       "relation_type": "own",
       "map_relevant": true,
       "note": "Zermatt: Nutzungssteuerung des Bestands"
+    },
+    {
+      "instrument_id": "zh-1-wbfg-darlehen",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Kantonales Wohnbauförderungsgesetz ZH; gilt für alle Gemeinden als Förderangebot"
+    },
+    {
+      "instrument_id": "zh-230-winterthur-foerderung",
+      "territory_type": "municipality",
+      "bfs_number": 230,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Winterthur: SRS 6.5-1 Darlehen + Baurecht für gemeinnützige Träger"
+    },
+    {
+      "instrument_id": "zh-230-winterthur-quote",
+      "territory_type": "municipality",
+      "bfs_number": 230,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Winterthur: UMV §49b pendent; Richtplan 20-50%-Ziel in Kraft"
+    },
+    {
+      "instrument_id": "zh-191-duebendorf-quote",
+      "territory_type": "municipality",
+      "bfs_number": 191,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Dübendorf: BZO-Revision 40%-Quote pendent kantonal"
+    },
+    {
+      "instrument_id": "zh-295-wadenswil-quote",
+      "territory_type": "municipality",
+      "bfs_number": 295,
+      "canton_number": 1,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "Wädenswil: BZO 20%-Quote 3 Parzellen pendent"
+    },
+    {
+      "instrument_id": "be-855-wohlen-quote",
+      "territory_type": "municipality",
+      "bfs_number": 855,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Wohlen bei Bern: 1/3-Quote bei Einzonungen (BR Art. 1a, in Kraft Dez. 2019)"
+    },
+    {
+      "instrument_id": "be-360-ostermundigen-quote",
+      "territory_type": "municipality",
+      "bfs_number": 360,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Ostermundigen: Preisgünstig-Quote im BR (~1/3); Artikel unbestätigt"
+    },
+    {
+      "instrument_id": "be-351-ausnuetzungsbonus",
+      "territory_type": "municipality",
+      "bfs_number": 351,
+      "canton_number": 2,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Bern: +20% Ausnützungsbonus für 100% preisgünstige Gebäude (Art. 16b Abs. 3 BO)"
+    },
+    {
+      "instrument_id": "lu-1024-emmen-quote",
+      "territory_type": "municipality",
+      "bfs_number": 1024,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Emmen: 25% preisgünstig in Gestaltungsplanbereichen (BZR Art. 52 Abs. 10)"
+    },
+    {
+      "instrument_id": "lu-1058-ausnuetzungsbonus",
+      "territory_type": "municipality",
+      "bfs_number": 1058,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Horw: +5% Überbauungsziffer + +1.5m Höhe (BZR Art. 4a)"
+    },
+    {
+      "instrument_id": "lu-1061-ausnuetzungsbonus",
+      "territory_type": "municipality",
+      "bfs_number": 1061,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Luzern: +5% Ausnützungsbonus in Gestaltungsplänen (ab 2027: +10%)"
+    },
+    {
+      "instrument_id": "sz-1323-kuessnacht-bonus",
+      "territory_type": "municipality",
+      "bfs_number": 1323,
+      "canton_number": 3,
+      "relation_type": "own",
+      "map_relevant": true,
+      "note": "Küssnacht SZ: +10% Ausnützungsziffer bei ≥20% preisgünstig (BR Art. 3.B1, seit 1996)"
+    },
+    {
+      "instrument_id": "ne-24-pdcn-dichtebonus",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 24,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "NE: PDCn Fiche U_14 Dichtebonus für LUP; Fiche S_12 LUP-Quoten in PAL"
+    },
+    {
+      "instrument_id": "ju-26-maintien-logements",
+      "territory_type": "canton",
+      "bfs_number": null,
+      "canton_number": 26,
+      "relation_type": "own",
+      "map_relevant": false,
+      "note": "JU: RSJU 843.11 Bestandesschutz Wohnungen zu günstigen Preisen"
     }
   ]
 }
