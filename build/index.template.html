@@ -132,6 +132,26 @@
   .sug-item{padding:8px 12px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--hairline);}
   .sug-item:last-child{border-bottom:none;}
   .sug-item:hover,.sug-item:focus{background:var(--surface);}
+  /* auswertung */
+  .stat-row{margin:10px 0;}
+  .stat-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;}
+  .stat-name{font-size:13px;display:flex;align-items:center;gap:7px;}
+  .stat-nums{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);display:flex;gap:10px;}
+  .stat-pct{font-weight:600;color:var(--ink);}
+  .stat-bar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden;margin-top:2px;}
+  .stat-fill{height:100%;border-radius:4px;transition:width .3s;}
+  .et-list{display:flex;flex-direction:column;gap:6px;max-width:680px;}
+  .et-label{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--hairline);border-radius:var(--radius);cursor:pointer;user-select:none;}
+  .et-label:hover{background:var(--surface);}
+  .et-label input{width:15px;height:15px;cursor:pointer;flex:0 0 auto;}
+  .et-icon{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;color:#fff;width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .et-name{flex:1;font-size:13px;}
+  .et-stat{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);text-align:right;min-width:110px;}
+  .stat-result{background:var(--brand-tint);border:1px solid var(--brand);border-radius:var(--radius);padding:14px 18px;max-width:680px;margin-top:10px;}
+  .stat-r-lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
+  .stat-r-val{font-family:"Space Grotesk",sans-serif;font-size:36px;font-weight:700;color:var(--ink);line-height:1;}
+  .stat-r-sub{font-size:13px;color:var(--ink-soft);margin-top:4px;margin-bottom:10px;}
+  .regime-table td:first-child{font-size:12.5px;} .regime-table .bar-cell{width:160px;padding-right:0;}
   .back{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--brand);cursor:pointer;background:none;border:none;padding:0;margin-bottom:12px;}
   /* glossary */
   .gcat{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:11px 14px;margin-bottom:7px;}
@@ -170,8 +190,9 @@
       <button class="navitem" data-view="kantone"><span class="num">02</span> Kantone</button>
       <button class="navitem" data-view="gemeinden"><span class="num">03</span> Gemeinden</button>
       <button class="navitem" data-view="rapport"><span class="num">04</span> Rapport</button>
-      <button class="navitem" data-view="audit"><span class="num">05</span> Audit &amp; Quellen</button>
-      <button class="navitem" data-view="erklaert"><span class="num">06</span> Erklärt</button>
+      <button class="navitem" data-view="auswertung"><span class="num">05</span> Auswertung</button>
+      <button class="navitem" data-view="audit"><span class="num">06</span> Audit &amp; Quellen</button>
+      <button class="navitem" data-view="erklaert"><span class="num">07</span> Erklärt</button>
     </nav>
     <div class="side-foot">
       <b id="foot-i">0</b> Instrumente · <b id="foot-t">0</b> Gebiete<br>
@@ -283,7 +304,24 @@
       <div class="legend" id="cat-legend-full"></div>
     </section>
 
-    <!-- 04 AUDIT -->
+    <!-- 05 AUSWERTUNG -->
+    <section class="view" id="v-auswertung">
+      <div class="vhead">
+        <p class="eb">Wohnungsstatistik · GWS 2024</p>
+        <h1>Auswertung: Regulierungsabdeckung</h1>
+        <p>Anteil der Wohnungen unter verschiedenen Wohnungsmarkt-Instrumenten. Basis: Gebäude- und Wohnungsstatistik 2024 (<b id="stat-total">0</b> Wohnungen, <b id="stat-n">0</b> Gemeinden). Mehrere Eingriffstypen kombinierbar — keine Doppelzählung.</p>
+      </div>
+      <div class="blocklabel">Regulierungsgrad nach Stufe</div>
+      <div id="stat-stufe"></div>
+      <div class="blocklabel" style="margin-top:22px">Kombinator — Eingriffstypen</div>
+      <p class="d-v" style="margin:-4px 0 12px;max-width:68ch">Mehrere Typen auswählen → Summe der betroffenen Wohnungen ohne Doppelzählung (Gemeinde mit mehreren Typen zählt nur einmal).</p>
+      <div class="et-list" id="et-controls"></div>
+      <div id="et-result"></div>
+      <div class="blocklabel" style="margin-top:22px">Aufschlüsselung nach Regime</div>
+      <div id="stat-regime"></div>
+    </section>
+
+    <!-- 06 AUDIT -->
     <section class="view" id="v-audit">
       <div class="vhead">
         <p class="eb">Audit &amp; Evidenz</p>
@@ -322,6 +360,7 @@
 <script id="mapdata" type="application/json">__MAPDATA__</script>
 <script id="instrdata" type="application/json">__INSTRDATA__</script>
 <script id="auditdata" type="application/json">__AUDITDATA__</script>
+<script id="wohndata" type="application/json">__WOHNDATA__</script>
 <script>
 /* ================= Daten ================= */
 const RAW = JSON.parse(document.getElementById("mapdata").textContent);
@@ -380,6 +419,11 @@ const ktOwn = {}; RELS.forEach(r=>{ if(r.territory_type==="canton" && r.canton_n
 
 /* ===== Audit-/Evidenz-Ebene (read-only) ===== */
 const AUDIT = (()=>{ const el=document.getElementById("auditdata"); try{ return (JSON.parse(el.textContent).reports)||[]; }catch(e){ return []; } })();
+const WOHN = (()=>{ const el=document.getElementById("wohndata"); try{ return JSON.parse(el.textContent)||{}; }catch(e){ return {}; } })();
+const wTotal=WOHN.total||0; const wRows=WOHN.rows||[]; const wByBfs={}; wRows.forEach(r=>wByBfs[r.bfs]=r);
+const ET_LABELS=WOHN.et_labels||{}; const STUFE_LABELS=WOHN.stufe_labels||{};
+const ET_COL={A:"#E8883A",B:"#C5322B",C:"#3B7DC4",D:"#7E8AC4",E:"#4F9D69",F:"#F2C53D"};
+const STUFE_COL={"-1":"#E4E7EA","0":"#F2C53D","1":"#8FBCE8","2":"#3B7DC4","3":"#C5322B"};
 const STATUS_AUDIT = {not_started:"nicht begonnen",planned:"geplant",researched:"recherchiert",audited:"auditiert",integrated:"integriert",needs_review:"prüfen"};
 const TIERLBL = {tier_1_primary:"Tier 1 · primär-rechtlich",tier_2_official:"Tier 2 · amtlich",tier_3_professional:"Tier 3 · fachlich",tier_4_signal:"Tier 4 · Signal"};
 const AUDIT_COL = {integrated:"#1C7C8C", audited:"#D97B2E"};
@@ -681,6 +725,58 @@ function renderAuditDetail(id){
 }
 function gotoInstrument(iid){ const it=instrById[iid]; if(!it) return; if(it.territory_type==="canton"&&it.canton_number) openRapport("canton",it.canton_number); else if(it.bfs_number) openRapport("gem",it.bfs_number); else if(it.canton_number) openRapport("canton",it.canton_number); }
 
+/* ================= Auswertung (Wohnungsstatistik) ================= */
+const etSel=new Set();
+function fmtW(w){ return w>=1e6?(w/1e6).toFixed(2)+"M":(w>=1000?(w/1000).toFixed(0)+"'000"):w; }
+function pctW(w){ return wTotal?((w/wTotal)*100).toFixed(1)+"&thinsp;%":"0%"; }
+function barHtml(w,col){
+  const p=wTotal?Math.min(w/wTotal*100,100):0;
+  return `<div class="stat-bar"><div class="stat-fill" style="width:${p.toFixed(2)}%;background:${col||"var(--brand)"}"></div></div>`;
+}
+function renderStatStufe(){
+  const el=document.getElementById("stat-stufe"); if(!el) return;
+  const sm={};
+  wRows.forEach(r=>{ const k=String(r.s); if(!sm[k]) sm[k]={n:0,w:0}; sm[k].n++; sm[k].w+=r.w; });
+  const order=["-1","0","1","2","3"];
+  el.innerHTML=order.map(k=>{
+    const d=sm[k]; if(!d||!d.n) return "";
+    const lbl=STUFE_LABELS[k]||("Stufe "+k); const col=STUFE_COL[k]||"#999";
+    return `<div class="stat-row"><div class="stat-hd"><span class="stat-name"><span class="dot" style="background:${col};border-radius:2px;flex:0 0 auto"></span>${lbl}</span><span class="stat-nums"><span>${d.n} Gem.</span><span>${fmtW(d.w)} Wohn.</span><span class="stat-pct">${pctW(d.w)}</span></span></div>${barHtml(d.w,col)}</div>`;
+  }).join("");
+}
+function renderEtControls(){
+  const el=document.getElementById("et-controls"); if(!el) return;
+  el.innerHTML=Object.entries(ET_LABELS).map(([et,lbl])=>{
+    const bfsSet=new Set(wRows.filter(r=>r.et.includes(et)).map(r=>r.bfs));
+    const w=wRows.filter(r=>bfsSet.has(r.bfs)).reduce((s,r)=>s+r.w,0);
+    const col=ET_COL[et]||"#999";
+    return `<label class="et-label"><input type="checkbox" class="et-cb" data-et="${et}"><span class="et-icon" style="background:${col}">${et}</span><span class="et-name">${lbl}</span><span class="et-stat">${fmtW(w)} · ${pctW(w)}</span></label>`;
+  }).join("");
+  el.querySelectorAll(".et-cb").forEach(cb=>cb.addEventListener("change",()=>{ if(cb.checked) etSel.add(cb.dataset.et); else etSel.delete(cb.dataset.et); updateEtResult(); }));
+  updateEtResult();
+}
+function updateEtResult(){
+  const el=document.getElementById("et-result"); if(!el) return;
+  if(!etSel.size){ el.innerHTML=`<div class="d-v" style="margin-top:8px;color:var(--ink-faint)">Kein Eingriffstyp ausgewählt.</div>`; return; }
+  const bfsHit=new Set(); wRows.forEach(r=>{ if(r.et.some(e=>etSel.has(e))) bfsHit.add(r.bfs); });
+  const w=wRows.filter(r=>bfsHit.has(r.bfs)).reduce((s,r)=>s+r.w,0);
+  const etStr=[...etSel].sort().join(" + ");
+  el.innerHTML=`<div class="stat-result"><div class="stat-r-lbl">Selektiert: ${etStr}</div><div class="stat-r-val">${pctW(w)}</div><div class="stat-r-sub">${fmtW(w)} Wohnungen in ${bfsHit.size} Gemeinden</div>${barHtml(w,"var(--brand)")}</div>`;
+}
+function renderStatRegime(){
+  const el=document.getElementById("stat-regime"); if(!el) return;
+  const rm={}; wRows.forEach(r=>{ if(r.regime==="Nur Bundesrecht") return; if(!rm[r.regime]) rm[r.regime]={n:0,w:0}; rm[r.regime].n++; rm[r.regime].w+=r.w; });
+  const entries=Object.entries(rm).sort((a,b)=>b[1].w-a[1].w);
+  el.innerHTML=`<table class="rtable regime-table"><thead><tr><th>Regime</th><th>Gem.</th><th>Wohnungen</th><th>%</th><th class="bar-cell"></th></tr></thead><tbody>`+
+    entries.map(([reg,d])=>`<tr><td>${reg}</td><td class="mono">${d.n}</td><td class="mono">${fmtW(d.w)}</td><td class="mono">${pctW(d.w)}</td><td class="bar-cell">${barHtml(d.w,"var(--brand)")}</td></tr>`).join("")+
+    `</tbody></table>`;
+}
+function renderAuswertung(){
+  const ti=document.getElementById("stat-total"); if(ti) ti.textContent=wTotal.toLocaleString("de-CH");
+  const ni=document.getElementById("stat-n"); if(ni) ni.textContent=wRows.length.toLocaleString("de-CH");
+  renderStatStufe(); renderEtControls(); renderStatRegime();
+}
+
 /* ================= Kantone-Tabelle ================= */
 function renderKantoneTable(){
   const rows=RAW.cantons.map(c=>{
@@ -828,6 +924,7 @@ function init(){
   renderKantoneTable();
   buildGemFilter(); renderGemeindenTable();
   buildRapportSearch();
+  renderAuswertung();
   renderInfo(); buildAuditFilters(); renderAuditList(); renderAuditMaps(); renderAuditStats(); renderErklaert();
   document.querySelectorAll(".navitem").forEach(n=>n.addEventListener("click",()=>showView(n.dataset.view)));
   document.querySelectorAll(".mmbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".mmbtn").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderCatControls();renderLegend();}));

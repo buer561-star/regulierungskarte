@@ -31,13 +31,18 @@ const instrJson = JSON.stringify({ instruments, relations, aliases });
 const reports = fs.existsSync(path.join(dPath, "audit-reports.json")) ? (readJSON(path.join(dPath, "audit-reports.json")).reports || []) : [];
 const auditJson = JSON.stringify({ reports });
 
-if (!tpl.includes("__MAPDATA__") || !tpl.includes("__INSTRDATA__") || !tpl.includes("__AUDITDATA__")) throw new Error("Platzhalter __MAPDATA__/__INSTRDATA__/__AUDITDATA__ fehlt im Template");
+// 4) Wohnungsdaten (GWS 2024) fuer Auswertung
+const wohnJson = fs.existsSync(path.join(dPath, "wohnungen.json")) ? fs.readFileSync(path.join(dPath, "wohnungen.json"), "utf8") : JSON.stringify({total:0,rows:[],stufe_labels:{},et_labels:{},regime_labels:[]});
+
+if (!tpl.includes("__MAPDATA__") || !tpl.includes("__INSTRDATA__") || !tpl.includes("__AUDITDATA__") || !tpl.includes("__WOHNDATA__")) throw new Error("Platzhalter __MAPDATA__/__INSTRDATA__/__AUDITDATA__/__WOHNDATA__ fehlt im Template");
 const html = tpl
   .replace("__MAPDATA__", () => safe(mapJson))
   .replace("__INSTRDATA__", () => safe(instrJson))
-  .replace("__AUDITDATA__", () => safe(auditJson));
+  .replace("__AUDITDATA__", () => safe(auditJson))
+  .replace("__WOHNDATA__", () => safe(wohnJson));
 
 const outFile = path.join(root, "index.html");
 fs.writeFileSync(outFile, html);
 const mb = (fs.statSync(outFile).size / (1024 * 1024)).toFixed(2);
-console.log(`index.html geschrieben (${mb} MB) · Instrumente: ${instruments.length}, Relationen: ${relations.length}, Aliase: ${aliases.length}, Auditberichte: ${reports.length}`);
+const wohnRows = JSON.parse(wohnJson).rows?.length ?? 0;
+console.log(`index.html geschrieben (${mb} MB) · Instrumente: ${instruments.length}, Relationen: ${relations.length}, Aliase: ${aliases.length}, Auditberichte: ${reports.length}, Wohnungsdaten: ${wohnRows} Gemeinden`);
