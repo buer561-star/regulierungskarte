@@ -5616,6 +5616,30 @@ function renderAudit(){
   document.getElementById("au-followup")?.addEventListener("change",e=>{aud.followup=e.target.checked;renderAuditList();});
   renderAuditList();
 }
+function gemSourcesHtml(g){
+  const seen=new Set(); const out=[];
+  (g.instruments||[]).forEach(i=>{ const key=(i.source_url||i.source_title||""); if(!key||seen.has(key))return; seen.add(key);
+    out.push(`<div class="asrc">${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}`+
+      `${i.source_form?` <span class="mono">· ${esc(i.source_form)}</span>`:""}${i.legal_status?` <span class="mono">· ${esc(i.legal_status)}</span>`:""}`+
+      `${i.evidence_quote_short?`<br><span style="font-size:12px;color:var(--ink-soft)">${esc(i.evidence_quote_short)}</span>`:""}</div>`); });
+  return out.length?out.join(""):`<div class="aq">—</div>`;
+}
+function gemCard(g, abbr){
+  const instr=g.instruments||[]; const conf=g.confidence||"—";
+  const cats=[...new Set(instr.filter(munInForce).map(i=>i.taxonomy_category))].sort((a,b)=>a-b);
+  const catTag = g.status==="pending" ? `<span class="pill">…läuft</span>` : (cats.length?`<span class="pill ok">Kat ${cats.join(", ")}</span>`:`<span class="pill">${g.found?"nur pendent/ausgeschl.":"nichts gefunden"}</span>`);
+  const head=`<div class="acard-head"><span class="acard-ka">${esc(abbr)} ${g.bfs}</span><span class="acard-nm">${esc(g.name)}</span>`+
+    `<span class="acard-meta"><span class="pill">${fmtN(g.units)} Whg</span><span class="pill">${instr.length} Instr.</span>${catTag}<span class="pill conf-${conf}">Conf. ${esc(conf)}</span></span></div>`;
+  const instrHtml = instr.length ? instr.map(i=>{
+    const st=(i.legal_status&&i.legal_status!=="in_force")?`<span class="nofarb">[${esc(i.legal_status)} — färbt nicht]</span> · `:"";
+    return `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
+      `<div class="ainstr-s">${st}${i.bindingness?("<b>Bindung:</b> "+esc(i.bindingness)+" · "):""}${i.excluded&&i.excluded_reason?("<b>Ausschluss:</b> "+esc(i.excluded_reason)):""}</div></div>`;
+  }).join("") : `<div class="aq">Keine kommunalen Tier-1-Instrumente gefunden.</div>`;
+  const body=`<div class="acard-body"><h4>Kommunale Instrumente (klassifiziert)</h4>${instrHtml}`+
+    `<h4>Tier-1-Quellen</h4>${gemSourcesHtml(g)}`+
+    (g.note?`<h4>Recherche-Notiz</h4><div class="aq">${esc(g.note)}</div>`:"")+`</div>`;
+  return `<div class="acard">${head}${body}</div>`;
+}
 function renderRun2Overview(){
   const box=document.getElementById("run2-overview"); if(!box) return;
   const cantons=(RUN2.cantons||[]); const m=RUN2.run_meta||{};
@@ -5630,14 +5654,12 @@ function renderRun2Overview(){
         `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
         `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
       `</div>`;
-    const checkedList=`<div class="r2list"><h4>Einzeln geprüft (${checked.length})</h4>`+checked.map(g=>{
-        const cats=[...new Set((g.instruments||[]).filter(munInForce).map(i=>i.taxonomy_category))].sort((a,b)=>a-b);
-        const ist = g.status==="pending" ? `<span class="ist mono">…</span>` : (cats.length?`<span class="ist ok">Kat ${cats.join(", ")}</span>`:`<span class="ist none">${g.found?"nur pendent/ausgeschl.":"nichts"}</span>`);
-        return `<div class="r2li"><span class="nm">${esc(g.name)}</span> ${ist}<span class="u">${fmtN(g.units)} Whg</span></div>`;
-      }).join("")+`</div>`;
-    const skipList=`<div class="r2list"><h4>Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div></div>`;
-    return `<div class="r2box">${head}<div class="r2cols">${checkedList}${skipList}</div></div>`;
+    const cards=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 8px">Auditberichte je Gemeinde (einzeln geprüft, ${checked.length}) — anklicken zum Aufklappen</h4>`+
+      checked.map(g=>gemCard(g, c.canton_abbr)).join("");
+    const skipList=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 8px">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
+    return `<div class="r2box">${head}${cards}${skipList}</div>`;
   }).join("");
+  box.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
 }
 
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
