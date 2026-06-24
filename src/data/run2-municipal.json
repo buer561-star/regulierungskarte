@@ -1,0 +1,1063 @@
+{
+  "run_meta": {
+    "title": "Run 2 — Gemeindeebene (Triage)",
+    "scope": "municipal",
+    "date": "2026-06-24",
+    "status": "in_progress",
+    "note": "Kommunale Tier-1-Recherche mit Triage. Einzeln geprüft werden Gemeinden über der Schwelle (kommunale Wohn-Reglemente/Quoten realistisch); kleinere per Triage übersprungen.",
+    "agents": [
+      "quellen-agent",
+      "wohnpolitik-taxonom"
+    ]
+  },
+  "cantons": [
+    {
+      "canton_abbr": "ZH",
+      "canton_nr": 1,
+      "total_gemeinden": 160,
+      "triage_threshold": 6000,
+      "checked": [
+        {
+          "bfs": 261,
+          "name": "Zürich",
+          "units": 237386,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 230,
+          "name": "Winterthur",
+          "units": 58873,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 198,
+          "name": "Uster",
+          "units": 17417,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 191,
+          "name": "Dübendorf",
+          "units": 16226,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 243,
+          "name": "Dietikon",
+          "units": 13113,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 121,
+          "name": "Wetzikon (ZH)",
+          "units": 12828,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 293,
+          "name": "Wädenswil",
+          "units": 12434,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 295,
+          "name": "Horgen",
+          "units": 11694,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 53,
+          "name": "Bülach",
+          "units": 11284,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 62,
+          "name": "Kloten",
+          "units": 11029,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 66,
+          "name": "Opfikon",
+          "units": 10213,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 247,
+          "name": "Schlieren",
+          "units": 9885,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 131,
+          "name": "Adliswil",
+          "units": 9751,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 96,
+          "name": "Regensdorf",
+          "units": 9436,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 141,
+          "name": "Thalwil",
+          "units": 9402,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 199,
+          "name": "Volketswil",
+          "units": 8627,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 69,
+          "name": "Wallisellen",
+          "units": 8560,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 296,
+          "name": "Illnau-Effretikon",
+          "units": 8534,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 154,
+          "name": "Küsnacht (ZH)",
+          "units": 7540,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 158,
+          "name": "Stäfa",
+          "units": 7435,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 156,
+          "name": "Meilen",
+          "units": 7195,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 161,
+          "name": "Zollikon",
+          "units": 6984,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 138,
+          "name": "Richterswil",
+          "units": 6619,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 118,
+          "name": "Rüti (ZH)",
+          "units": 6198,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 177,
+          "name": "Pfäffikon",
+          "units": 6107,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 2,
+          "name": "Affoltern am Albis",
+          "units": 6019,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        }
+      ],
+      "triaged": [
+        {
+          "bfs": 117,
+          "name": "Hinwil",
+          "units": 5585,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 155,
+          "name": "Männedorf",
+          "units": 5558,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 52,
+          "name": "Bassersdorf",
+          "units": 5512,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 195,
+          "name": "Maur",
+          "units": 5069,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 120,
+          "name": "Wald (ZH)",
+          "units": 5060,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 115,
+          "name": "Gossau (ZH)",
+          "units": 4902,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 250,
+          "name": "Urdorf",
+          "units": 4886,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 135,
+          "name": "Kilchberg (ZH)",
+          "units": 4714,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 56,
+          "name": "Embrach",
+          "units": 4623,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 193,
+          "name": "Fällanden",
+          "units": 4405,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 153,
+          "name": "Hombrechtikon",
+          "units": 4296,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 90,
+          "name": "Niederhasli",
+          "units": 4176,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 192,
+          "name": "Egg",
+          "units": 4123,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 97,
+          "name": "Rümlang",
+          "units": 3787,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 227,
+          "name": "Seuzach",
+          "units": 3758,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 136,
+          "name": "Langnau am Albis",
+          "units": 3748,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 54,
+          "name": "Dietlikon",
+          "units": 3725,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 113,
+          "name": "Dürnten",
+          "units": 3654,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 200,
+          "name": "Wangen-Brüttisellen",
+          "units": 3622,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 245,
+          "name": "Oberengstringen",
+          "units": 3508,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 242,
+          "name": "Birmensdorf (ZH)",
+          "units": 3457,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 112,
+          "name": "Bubikon",
+          "units": 3454,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 92,
+          "name": "Oberglatt",
+          "units": 3412,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 152,
+          "name": "Herrliberg",
+          "units": 3234,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 86,
+          "name": "Dielsdorf",
+          "units": 3164,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 231,
+          "name": "Zell (ZH)",
+          "units": 3102,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 83,
+          "name": "Buchs (ZH)",
+          "units": 3078,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 172,
+          "name": "Fehraltorf",
+          "units": 3059,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 159,
+          "name": "Uetikon am See",
+          "units": 3033,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 139,
+          "name": "Rüschlikon",
+          "units": 2979,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 298,
+          "name": "Wiesendangen",
+          "units": 2951,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 64,
+          "name": "Nürensdorf",
+          "units": 2768,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 151,
+          "name": "Erlenbach (ZH)",
+          "units": 2714,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 10,
+          "name": "Obfelden",
+          "units": 2704,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 160,
+          "name": "Zumikon",
+          "units": 2704,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 248,
+          "name": "Uitikon",
+          "units": 2622,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 137,
+          "name": "Oberrieden",
+          "units": 2603,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 223,
+          "name": "Neftenbach",
+          "units": 2573,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 176,
+          "name": "Lindau",
+          "units": 2555,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 55,
+          "name": "Eglisau",
+          "units": 2550,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 3,
+          "name": "Bonstetten",
+          "units": 2533,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 58,
+          "name": "Glattfelden",
+          "units": 2491,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 297,
+          "name": "Bauma",
+          "units": 2470,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 197,
+          "name": "Schwerzenbach",
+          "units": 2467,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 89,
+          "name": "Niederglatt",
+          "units": 2465,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 9,
+          "name": "Mettmenstetten",
+          "units": 2453,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 294,
+          "name": "Elgg",
+          "units": 2431,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 228,
+          "name": "Turbenthal",
+          "units": 2421,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 111,
+          "name": "Bäretswil",
+          "units": 2417,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 194,
+          "name": "Greifensee",
+          "units": 2401,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 244,
+          "name": "Geroldswil",
+          "units": 2387,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 72,
+          "name": "Winkel",
+          "units": 2379,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 157,
+          "name": "Oetwil am See",
+          "units": 2354,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 14,
+          "name": "Wettswil am Albis",
+          "units": 2321,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 251,
+          "name": "Weiningen (ZH)",
+          "units": 2264,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 67,
+          "name": "Rafz",
+          "units": 2219,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 178,
+          "name": "Russikon",
+          "units": 2042,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 249,
+          "name": "Unterengstringen",
+          "units": 2020,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 84,
+          "name": "Dällikon",
+          "units": 1970,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 196,
+          "name": "Mönchaltorf",
+          "units": 1959,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 27,
+          "name": "Feuerthalen",
+          "units": 1910,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 51,
+          "name": "Bachenbülach",
+          "units": 1908,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 224,
+          "name": "Pfungen",
+          "units": 1846,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 4,
+          "name": "Hausen am Albis",
+          "units": 1840,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 116,
+          "name": "Grüningen",
+          "units": 1806,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 173,
+          "name": "Hittnau",
+          "units": 1779,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 13,
+          "name": "Stallikon",
+          "units": 1754,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 5,
+          "name": "Hedingen",
+          "units": 1752,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 219,
+          "name": "Elsau",
+          "units": 1732,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 101,
+          "name": "Steinmaur",
+          "units": 1699,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 291,
+          "name": "Andelfingen",
+          "units": 1682,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 88,
+          "name": "Neerach",
+          "units": 1631,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 180,
+          "name": "Weisslingen",
+          "units": 1598,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 60,
+          "name": "Höri",
+          "units": 1472,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 91,
+          "name": "Niederweningen",
+          "units": 1460,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 11,
+          "name": "Ottenbach",
+          "units": 1386,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 292,
+          "name": "Stammheim",
+          "units": 1377,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 221,
+          "name": "Hettlingen",
+          "units": 1354,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 94,
+          "name": "Otelfingen",
+          "units": 1316,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 246,
+          "name": "Oetwil an der Limmat",
+          "units": 1301,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 68,
+          "name": "Rorbas",
+          "units": 1299,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 114,
+          "name": "Fischenthal",
+          "units": 1260,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 225,
+          "name": "Rickenbach (ZH)",
+          "units": 1236,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 63,
+          "name": "Lufingen",
+          "units": 1211,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 100,
+          "name": "Stadel",
+          "units": 1178,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 7,
+          "name": "Knonau",
+          "units": 1080,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 57,
+          "name": "Freienstein-Teufen",
+          "units": 1070,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 33,
+          "name": "Kleinandelfingen",
+          "units": 1043,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 213,
+          "name": "Brütten",
+          "units": 1037,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 31,
+          "name": "Henggart",
+          "units": 1032,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 181,
+          "name": "Wila",
+          "units": 1021,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 102,
+          "name": "Weiach",
+          "units": 1016,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 35,
+          "name": "Marthalen",
+          "units": 950,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 1,
+          "name": "Aeugst am Albis",
+          "units": 942,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 34,
+          "name": "Laufen-Uhwiesen",
+          "units": 927,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 59,
+          "name": "Hochfelden",
+          "units": 895,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 25,
+          "name": "Dachsen",
+          "units": 877,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 93,
+          "name": "Oberweningen",
+          "units": 850,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 37,
+          "name": "Ossingen",
+          "units": 847,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 85,
+          "name": "Dänikon",
+          "units": 830,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 216,
+          "name": "Dinhard",
+          "units": 778,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 241,
+          "name": "Aesch (ZH)",
+          "units": 763,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 28,
+          "name": "Flaach",
+          "units": 704,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 29,
+          "name": "Flurlingen",
+          "units": 704,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 71,
+          "name": "Wil (ZH)",
+          "units": 697,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 119,
+          "name": "Seegräben",
+          "units": 694,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 38,
+          "name": "Rheinau",
+          "units": 690,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 99,
+          "name": "Schöfflisdorf",
+          "units": 679,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 82,
+          "name": "Boppelsen",
+          "units": 639,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 6,
+          "name": "Kappel am Albis",
+          "units": 606,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 40,
+          "name": "Trüllikon",
+          "units": 546,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 12,
+          "name": "Rifferswil",
+          "units": 544,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 65,
+          "name": "Oberembrach",
+          "units": 539,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 220,
+          "name": "Hagenbuch",
+          "units": 524,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 214,
+          "name": "Dägerlen",
+          "units": 506,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 61,
+          "name": "Hüntwangen",
+          "units": 500,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 182,
+          "name": "Wildberg",
+          "units": 483,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 218,
+          "name": "Ellikon an der Thur",
+          "units": 470,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 24,
+          "name": "Buch am Irchel",
+          "units": 464,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 39,
+          "name": "Thalheim an der Thur",
+          "units": 440,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 22,
+          "name": "Benken (ZH)",
+          "units": 431,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 98,
+          "name": "Schleinikon",
+          "units": 418,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 87,
+          "name": "Hüttikon",
+          "units": 395,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 215,
+          "name": "Dättlikon",
+          "units": 366,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 211,
+          "name": "Altikon",
+          "units": 348,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 26,
+          "name": "Dorf",
+          "units": 339,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 81,
+          "name": "Bachs",
+          "units": 331,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 226,
+          "name": "Schlatt (ZH)",
+          "units": 329,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 8,
+          "name": "Maschwanden",
+          "units": 319,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 23,
+          "name": "Berg am Irchel",
+          "units": 298,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 70,
+          "name": "Wasterkingen",
+          "units": 296,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 95,
+          "name": "Regensberg",
+          "units": 271,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 41,
+          "name": "Truttikon",
+          "units": 204,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 43,
+          "name": "Volken",
+          "units": 175,
+          "reason": "<6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        }
+      ]
+    }
+  ]
+}

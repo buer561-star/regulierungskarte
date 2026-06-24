@@ -156,6 +156,24 @@
   .asrc a{color:var(--brand);text-decoration:none;}
   .aq{font-size:12.5px;color:var(--ink-soft);margin:3px 0;}
   .empty{border:1px dashed var(--hairline-strong);border-radius:var(--radius);padding:26px;text-align:center;color:var(--ink-faint);font-size:13.5px;}
+  /* Run 2 Übersicht */
+  .r2box{border:1px solid var(--hairline-strong);border-radius:var(--radius);background:var(--surface);padding:14px 16px;margin:0 0 18px;}
+  .r2head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .r2head .r2t{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;}
+  .r2head .r2s{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);}
+  .r2stat{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px;}
+  .r2chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;border:1px solid var(--hairline-strong);border-radius:99px;padding:5px 12px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px;}
+  .r2chip b{font-family:"Space Grotesk",sans-serif;font-size:14px;color:var(--ink);}
+  .r2chip.found b{color:#216B45;} .r2chip.checked b{color:var(--brand);}
+  .r2cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  @media(max-width:760px){.r2cols{grid-template-columns:1fr;}}
+  .r2list h4{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 8px;}
+  .r2li{font-size:13px;padding:5px 0;border-bottom:1px solid var(--hairline);display:flex;align-items:baseline;gap:8px;}
+  .r2li:last-child{border-bottom:none;}
+  .r2li .nm{font-weight:600;} .r2li .u{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);margin-left:auto;}
+  .r2li .ist{font-size:11.5px;}
+  .r2skip{max-height:260px;overflow:auto;} .r2skip .r2li{color:var(--ink-faint);}
+  .r2li .ok{color:#216B45;font-weight:600;} .r2li .none{color:var(--ink-faint);}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -252,8 +270,9 @@
       <div class="vhead">
         <p class="eb">Evidenz · Kantonaler Rechtsrahmen</p>
         <h1>Audit — Run 1: Kantonale Tier-1-Quellen</h1>
-        <p id="audit-intro">Erster Run: ausschliesslich <b>kantonale Tier-1-Quellen</b> (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Noch <b>keine</b> Gemeinderecherche — wo kantonales Recht Gemeinden ermächtigt, ist <code>municipal_followup_required</code> gesetzt.</p>
+        <p id="audit-intro">Erster Run: ausschliesslich <b>kantonale Tier-1-Quellen</b> (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Wo kantonales Recht Gemeinden ermächtigt, ist <code>municipal_followup_required</code> gesetzt — dieser Teil wird in <b>Run 2 (Gemeindeebene)</b> geprüft.</p>
       </div>
+      <div id="run2-overview"></div>
       <div class="databanner" id="audit-banner"></div>
       <div class="filters" id="audit-filters" style="display:none">
         <div><span class="fl">Suche</span><input class="search" id="au-q" type="text" placeholder="Kanton, Instrument, Gesetz…"></div>
@@ -3374,6 +3393,1069 @@
   ]
 }</script>
 <script id="dwellingdata" type="application/json">{"source":"GWS 2024 (Gebäude- und Wohnungsstatistik, BFS)","total":4840096,"count":2131,"gemeinden":[{"bfs":1,"name":"Aeugst am Albis","kt":"ZH","units":942},{"bfs":2,"name":"Affoltern am Albis","kt":"ZH","units":6019},{"bfs":3,"name":"Bonstetten","kt":"ZH","units":2533},{"bfs":4,"name":"Hausen am Albis","kt":"ZH","units":1840},{"bfs":5,"name":"Hedingen","kt":"ZH","units":1752},{"bfs":6,"name":"Kappel am Albis","kt":"ZH","units":606},{"bfs":7,"name":"Knonau","kt":"ZH","units":1080},{"bfs":8,"name":"Maschwanden","kt":"ZH","units":319},{"bfs":9,"name":"Mettmenstetten","kt":"ZH","units":2453},{"bfs":10,"name":"Obfelden","kt":"ZH","units":2704},{"bfs":11,"name":"Ottenbach","kt":"ZH","units":1386},{"bfs":12,"name":"Rifferswil","kt":"ZH","units":544},{"bfs":13,"name":"Stallikon","kt":"ZH","units":1754},{"bfs":14,"name":"Wettswil am Albis","kt":"ZH","units":2321},{"bfs":22,"name":"Benken (ZH)","kt":"ZH","units":431},{"bfs":23,"name":"Berg am Irchel","kt":"ZH","units":298},{"bfs":24,"name":"Buch am Irchel","kt":"ZH","units":464},{"bfs":25,"name":"Dachsen","kt":"ZH","units":877},{"bfs":26,"name":"Dorf","kt":"ZH","units":339},{"bfs":27,"name":"Feuerthalen","kt":"ZH","units":1910},{"bfs":28,"name":"Flaach","kt":"ZH","units":704},{"bfs":29,"name":"Flurlingen","kt":"ZH","units":704},{"bfs":31,"name":"Henggart","kt":"ZH","units":1032},{"bfs":33,"name":"Kleinandelfingen","kt":"ZH","units":1043},{"bfs":34,"name":"Laufen-Uhwiesen","kt":"ZH","units":927},{"bfs":35,"name":"Marthalen","kt":"ZH","units":950},{"bfs":37,"name":"Ossingen","kt":"ZH","units":847},{"bfs":38,"name":"Rheinau","kt":"ZH","units":690},{"bfs":39,"name":"Thalheim an der Thur","kt":"ZH","units":440},{"bfs":40,"name":"Trüllikon","kt":"ZH","units":546},{"bfs":41,"name":"Truttikon","kt":"ZH","units":204},{"bfs":43,"name":"Volken","kt":"ZH","units":175},{"bfs":51,"name":"Bachenbülach","kt":"ZH","units":1908},{"bfs":52,"name":"Bassersdorf","kt":"ZH","units":5512},{"bfs":53,"name":"Bülach","kt":"ZH","units":11284},{"bfs":54,"name":"Dietlikon","kt":"ZH","units":3725},{"bfs":55,"name":"Eglisau","kt":"ZH","units":2550},{"bfs":56,"name":"Embrach","kt":"ZH","units":4623},{"bfs":57,"name":"Freienstein-Teufen","kt":"ZH","units":1070},{"bfs":58,"name":"Glattfelden","kt":"ZH","units":2491},{"bfs":59,"name":"Hochfelden","kt":"ZH","units":895},{"bfs":60,"name":"Höri","kt":"ZH","units":1472},{"bfs":61,"name":"Hüntwangen","kt":"ZH","units":500},{"bfs":62,"name":"Kloten","kt":"ZH","units":11029},{"bfs":63,"name":"Lufingen","kt":"ZH","units":1211},{"bfs":64,"name":"Nürensdorf","kt":"ZH","units":2768},{"bfs":65,"name":"Oberembrach","kt":"ZH","units":539},{"bfs":66,"name":"Opfikon","kt":"ZH","units":10213},{"bfs":67,"name":"Rafz","kt":"ZH","units":2219},{"bfs":68,"name":"Rorbas","kt":"ZH","units":1299},{"bfs":69,"name":"Wallisellen","kt":"ZH","units":8560},{"bfs":70,"name":"Wasterkingen","kt":"ZH","units":296},{"bfs":71,"name":"Wil (ZH)","kt":"ZH","units":697},{"bfs":72,"name":"Winkel","kt":"ZH","units":2379},{"bfs":81,"name":"Bachs","kt":"ZH","units":331},{"bfs":82,"name":"Boppelsen","kt":"ZH","units":639},{"bfs":83,"name":"Buchs (ZH)","kt":"ZH","units":3078},{"bfs":84,"name":"Dällikon","kt":"ZH","units":1970},{"bfs":85,"name":"Dänikon","kt":"ZH","units":830},{"bfs":86,"name":"Dielsdorf","kt":"ZH","units":3164},{"bfs":87,"name":"Hüttikon","kt":"ZH","units":395},{"bfs":88,"name":"Neerach","kt":"ZH","units":1631},{"bfs":89,"name":"Niederglatt","kt":"ZH","units":2465},{"bfs":90,"name":"Niederhasli","kt":"ZH","units":4176},{"bfs":91,"name":"Niederweningen","kt":"ZH","units":1460},{"bfs":92,"name":"Oberglatt","kt":"ZH","units":3412},{"bfs":93,"name":"Oberweningen","kt":"ZH","units":850},{"bfs":94,"name":"Otelfingen","kt":"ZH","units":1316},{"bfs":95,"name":"Regensberg","kt":"ZH","units":271},{"bfs":96,"name":"Regensdorf","kt":"ZH","units":9436},{"bfs":97,"name":"Rümlang","kt":"ZH","units":3787},{"bfs":98,"name":"Schleinikon","kt":"ZH","units":418},{"bfs":99,"name":"Schöfflisdorf","kt":"ZH","units":679},{"bfs":100,"name":"Stadel","kt":"ZH","units":1178},{"bfs":101,"name":"Steinmaur","kt":"ZH","units":1699},{"bfs":102,"name":"Weiach","kt":"ZH","units":1016},{"bfs":111,"name":"Bäretswil","kt":"ZH","units":2417},{"bfs":112,"name":"Bubikon","kt":"ZH","units":3454},{"bfs":113,"name":"Dürnten","kt":"ZH","units":3654},{"bfs":114,"name":"Fischenthal","kt":"ZH","units":1260},{"bfs":115,"name":"Gossau (ZH)","kt":"ZH","units":4902},{"bfs":116,"name":"Grüningen","kt":"ZH","units":1806},{"bfs":117,"name":"Hinwil","kt":"ZH","units":5585},{"bfs":118,"name":"Rüti (ZH)","kt":"ZH","units":6198},{"bfs":119,"name":"Seegräben","kt":"ZH","units":694},{"bfs":120,"name":"Wald (ZH)","kt":"ZH","units":5060},{"bfs":121,"name":"Wetzikon (ZH)","kt":"ZH","units":12828},{"bfs":131,"name":"Adliswil","kt":"ZH","units":9751},{"bfs":135,"name":"Kilchberg (ZH)","kt":"ZH","units":4714},{"bfs":136,"name":"Langnau am Albis","kt":"ZH","units":3748},{"bfs":137,"name":"Oberrieden","kt":"ZH","units":2603},{"bfs":138,"name":"Richterswil","kt":"ZH","units":6619},{"bfs":139,"name":"Rüschlikon","kt":"ZH","units":2979},{"bfs":141,"name":"Thalwil","kt":"ZH","units":9402},{"bfs":151,"name":"Erlenbach (ZH)","kt":"ZH","units":2714},{"bfs":152,"name":"Herrliberg","kt":"ZH","units":3234},{"bfs":153,"name":"Hombrechtikon","kt":"ZH","units":4296},{"bfs":154,"name":"Küsnacht (ZH)","kt":"ZH","units":7540},{"bfs":155,"name":"Männedorf","kt":"ZH","units":5558},{"bfs":156,"name":"Meilen","kt":"ZH","units":7195},{"bfs":157,"name":"Oetwil am See","kt":"ZH","units":2354},{"bfs":158,"name":"Stäfa","kt":"ZH","units":7435},{"bfs":159,"name":"Uetikon am See","kt":"ZH","units":3033},{"bfs":160,"name":"Zumikon","kt":"ZH","units":2704},{"bfs":161,"name":"Zollikon","kt":"ZH","units":6984},{"bfs":172,"name":"Fehraltorf","kt":"ZH","units":3059},{"bfs":173,"name":"Hittnau","kt":"ZH","units":1779},{"bfs":176,"name":"Lindau","kt":"ZH","units":2555},{"bfs":177,"name":"Pfäffikon","kt":"ZH","units":6107},{"bfs":178,"name":"Russikon","kt":"ZH","units":2042},{"bfs":180,"name":"Weisslingen","kt":"ZH","units":1598},{"bfs":181,"name":"Wila","kt":"ZH","units":1021},{"bfs":182,"name":"Wildberg","kt":"ZH","units":483},{"bfs":191,"name":"Dübendorf","kt":"ZH","units":16226},{"bfs":192,"name":"Egg","kt":"ZH","units":4123},{"bfs":193,"name":"Fällanden","kt":"ZH","units":4405},{"bfs":194,"name":"Greifensee","kt":"ZH","units":2401},{"bfs":195,"name":"Maur","kt":"ZH","units":5069},{"bfs":196,"name":"Mönchaltorf","kt":"ZH","units":1959},{"bfs":197,"name":"Schwerzenbach","kt":"ZH","units":2467},{"bfs":198,"name":"Uster","kt":"ZH","units":17417},{"bfs":199,"name":"Volketswil","kt":"ZH","units":8627},{"bfs":200,"name":"Wangen-Brüttisellen","kt":"ZH","units":3622},{"bfs":211,"name":"Altikon","kt":"ZH","units":348},{"bfs":213,"name":"Brütten","kt":"ZH","units":1037},{"bfs":214,"name":"Dägerlen","kt":"ZH","units":506},{"bfs":215,"name":"Dättlikon","kt":"ZH","units":366},{"bfs":216,"name":"Dinhard","kt":"ZH","units":778},{"bfs":218,"name":"Ellikon an der Thur","kt":"ZH","units":470},{"bfs":219,"name":"Elsau","kt":"ZH","units":1732},{"bfs":220,"name":"Hagenbuch","kt":"ZH","units":524},{"bfs":221,"name":"Hettlingen","kt":"ZH","units":1354},{"bfs":223,"name":"Neftenbach","kt":"ZH","units":2573},{"bfs":224,"name":"Pfungen","kt":"ZH","units":1846},{"bfs":225,"name":"Rickenbach (ZH)","kt":"ZH","units":1236},{"bfs":226,"name":"Schlatt (ZH)","kt":"ZH","units":329},{"bfs":227,"name":"Seuzach","kt":"ZH","units":3758},{"bfs":228,"name":"Turbenthal","kt":"ZH","units":2421},{"bfs":230,"name":"Winterthur","kt":"ZH","units":58873},{"bfs":231,"name":"Zell (ZH)","kt":"ZH","units":3102},{"bfs":241,"name":"Aesch (ZH)","kt":"ZH","units":763},{"bfs":242,"name":"Birmensdorf (ZH)","kt":"ZH","units":3457},{"bfs":243,"name":"Dietikon","kt":"ZH","units":13113},{"bfs":244,"name":"Geroldswil","kt":"ZH","units":2387},{"bfs":245,"name":"Oberengstringen","kt":"ZH","units":3508},{"bfs":246,"name":"Oetwil an der Limmat","kt":"ZH","units":1301},{"bfs":247,"name":"Schlieren","kt":"ZH","units":9885},{"bfs":248,"name":"Uitikon","kt":"ZH","units":2622},{"bfs":249,"name":"Unterengstringen","kt":"ZH","units":2020},{"bfs":250,"name":"Urdorf","kt":"ZH","units":4886},{"bfs":251,"name":"Weiningen (ZH)","kt":"ZH","units":2264},{"bfs":261,"name":"Zürich","kt":"ZH","units":237386},{"bfs":291,"name":"Andelfingen","kt":"ZH","units":1682},{"bfs":292,"name":"Stammheim","kt":"ZH","units":1377},{"bfs":293,"name":"Wädenswil","kt":"ZH","units":12434},{"bfs":294,"name":"Elgg","kt":"ZH","units":2431},{"bfs":295,"name":"Horgen","kt":"ZH","units":11694},{"bfs":296,"name":"Illnau-Effretikon","kt":"ZH","units":8534},{"bfs":297,"name":"Bauma","kt":"ZH","units":2470},{"bfs":298,"name":"Wiesendangen","kt":"ZH","units":2951},{"bfs":301,"name":"Aarberg","kt":"BE","units":2365},{"bfs":302,"name":"Bargen (BE)","kt":"BE","units":500},{"bfs":303,"name":"Grossaffoltern","kt":"BE","units":1510},{"bfs":304,"name":"Kallnach","kt":"BE","units":1128},{"bfs":305,"name":"Kappelen","kt":"BE","units":682},{"bfs":306,"name":"Lyss","kt":"BE","units":8298},{"bfs":307,"name":"Meikirch","kt":"BE","units":1237},{"bfs":309,"name":"Radelfingen","kt":"BE","units":654},{"bfs":310,"name":"Rapperswil (BE)","kt":"BE","units":1296},{"bfs":311,"name":"Schüpfen","kt":"BE","units":1891},{"bfs":312,"name":"Seedorf (BE)","kt":"BE","units":1657},{"bfs":321,"name":"Aarwangen","kt":"BE","units":2306},{"bfs":322,"name":"Auswil","kt":"BE","units":234},{"bfs":323,"name":"Bannwil","kt":"BE","units":353},{"bfs":324,"name":"Bleienbach","kt":"BE","units":400},{"bfs":325,"name":"Busswil bei Melchnau","kt":"BE","units":102},{"bfs":326,"name":"Gondiswil","kt":"BE","units":382},{"bfs":329,"name":"Langenthal","kt":"BE","units":8519},{"bfs":331,"name":"Lotzwil","kt":"BE","units":1379},{"bfs":332,"name":"Madiswil","kt":"BE","units":1744},{"bfs":333,"name":"Melchnau","kt":"BE","units":818},{"bfs":335,"name":"Oeschenbach","kt":"BE","units":122},{"bfs":336,"name":"Reisiswil","kt":"BE","units":99},{"bfs":337,"name":"Roggwil (BE)","kt":"BE","units":2202},{"bfs":338,"name":"Rohrbach","kt":"BE","units":827},{"bfs":339,"name":"Rohrbachgraben","kt":"BE","units":181},{"bfs":340,"name":"Rütschelen","kt":"BE","units":273},{"bfs":341,"name":"Schwarzhäusern","kt":"BE","units":251},{"bfs":342,"name":"Thunstetten","kt":"BE","units":1767},{"bfs":344,"name":"Ursenbach","kt":"BE","units":471},{"bfs":345,"name":"Wynau","kt":"BE","units":866},{"bfs":351,"name":"Bern","kt":"BE","units":82242},{"bfs":352,"name":"Bolligen","kt":"BE","units":3140},{"bfs":353,"name":"Bremgarten bei Bern","kt":"BE","units":2085},{"bfs":354,"name":"Kirchlindach","kt":"BE","units":1660},{"bfs":355,"name":"Köniz","kt":"BE","units":22761},{"bfs":356,"name":"Muri bei Bern","kt":"BE","units":6958},{"bfs":357,"name":"Oberbalm","kt":"BE","units":462},{"bfs":358,"name":"Stettlen","kt":"BE","units":1696},{"bfs":359,"name":"Vechigen","kt":"BE","units":2998},{"bfs":360,"name":"Wohlen bei Bern","kt":"BE","units":4638},{"bfs":361,"name":"Zollikofen","kt":"BE","units":5796},{"bfs":362,"name":"Ittigen","kt":"BE","units":6028},{"bfs":363,"name":"Ostermundigen","kt":"BE","units":9626},{"bfs":371,"name":"Biel (BE)","kt":"BE","units":32298},{"bfs":372,"name":"Leubringen","kt":"BE","units":1322},{"bfs":381,"name":"Arch","kt":"BE","units":873},{"bfs":382,"name":"Büetigen","kt":"BE","units":406},{"bfs":383,"name":"Büren an der Aare","kt":"BE","units":1922},{"bfs":385,"name":"Diessbach bei Büren","kt":"BE","units":486},{"bfs":386,"name":"Dotzigen","kt":"BE","units":734},{"bfs":387,"name":"Lengnau (BE)","kt":"BE","units":2895},{"bfs":388,"name":"Leuzigen","kt":"BE","units":674},{"bfs":389,"name":"Meienried","kt":"BE","units":24},{"bfs":390,"name":"Meinisberg","kt":"BE","units":674},{"bfs":391,"name":"Oberwil bei Büren","kt":"BE","units":454},{"bfs":392,"name":"Pieterlen","kt":"BE","units":2496},{"bfs":393,"name":"Rüti bei Büren","kt":"BE","units":456},{"bfs":394,"name":"Wengi","kt":"BE","units":318},{"bfs":401,"name":"Aefligen","kt":"BE","units":572},{"bfs":402,"name":"Alchenstorf","kt":"BE","units":303},{"bfs":403,"name":"Bäriswil","kt":"BE","units":512},{"bfs":404,"name":"Burgdorf","kt":"BE","units":9251},{"bfs":405,"name":"Ersigen","kt":"BE","units":995},{"bfs":406,"name":"Hasle bei Burgdorf","kt":"BE","units":1663},{"bfs":407,"name":"Heimiswil","kt":"BE","units":788},{"bfs":408,"name":"Hellsau","kt":"BE","units":88},{"bfs":409,"name":"Hindelbank","kt":"BE","units":1369},{"bfs":410,"name":"Höchstetten","kt":"BE","units":127},{"bfs":411,"name":"Kernenried","kt":"BE","units":240},{"bfs":412,"name":"Kirchberg (BE)","kt":"BE","units":2914},{"bfs":413,"name":"Koppigen","kt":"BE","units":1115},{"bfs":414,"name":"Krauchthal","kt":"BE","units":1174},{"bfs":415,"name":"Lyssach","kt":"BE","units":730},{"bfs":418,"name":"Oberburg","kt":"BE","units":1500},{"bfs":420,"name":"Rüdtligen-Alchenflüh","kt":"BE","units":1249},{"bfs":421,"name":"Rumendingen","kt":"BE","units":48},{"bfs":422,"name":"Rüti bei Lyssach","kt":"BE","units":81},{"bfs":423,"name":"Willadingen","kt":"BE","units":103},{"bfs":424,"name":"Wynigen","kt":"BE","units":1044},{"bfs":431,"name":"Corgémont","kt":"BE","units":913},{"bfs":432,"name":"Cormoret","kt":"BE","units":278},{"bfs":433,"name":"Cortébert","kt":"BE","units":381},{"bfs":434,"name":"Courtelary","kt":"BE","units":748},{"bfs":435,"name":"La Ferrière","kt":"BE","units":300},{"bfs":437,"name":"Mont-Tramelan","kt":"BE","units":57},{"bfs":438,"name":"Orvin","kt":"BE","units":903},{"bfs":441,"name":"Renan (BE)","kt":"BE","units":509},{"bfs":442,"name":"Romont (BE)","kt":"BE","units":125},{"bfs":443,"name":"St. Immer","kt":"BE","units":3137},{"bfs":444,"name":"Sonceboz-Sombeval","kt":"BE","units":970},{"bfs":445,"name":"Sonvilier","kt":"BE","units":720},{"bfs":446,"name":"Tramelan","kt":"BE","units":2636},{"bfs":448,"name":"Villeret","kt":"BE","units":524},{"bfs":449,"name":"Sauge","kt":"BE","units":584},{"bfs":450,"name":"Péry-La Heutte","kt":"BE","units":1081},{"bfs":491,"name":"Brüttelen","kt":"BE","units":338},{"bfs":492,"name":"Erlach","kt":"BE","units":808},{"bfs":493,"name":"Finsterhennen","kt":"BE","units":266},{"bfs":494,"name":"Gals","kt":"BE","units":435},{"bfs":495,"name":"Gampelen","kt":"BE","units":530},{"bfs":496,"name":"Ins","kt":"BE","units":1854},{"bfs":497,"name":"Lüscherz","kt":"BE","units":425},{"bfs":498,"name":"Müntschemier","kt":"BE","units":779},{"bfs":499,"name":"Siselen","kt":"BE","units":323},{"bfs":500,"name":"Treiten","kt":"BE","units":238},{"bfs":501,"name":"Tschugg","kt":"BE","units":263},{"bfs":502,"name":"Vinelz","kt":"BE","units":556},{"bfs":533,"name":"Bätterkinden","kt":"BE","units":1664},{"bfs":535,"name":"Deisswil bei Münchenbuchsee","kt":"BE","units":48},{"bfs":538,"name":"Fraubrunnen","kt":"BE","units":2599},{"bfs":540,"name":"Jegenstorf","kt":"BE","units":2839},{"bfs":541,"name":"Iffwil","kt":"BE","units":207},{"bfs":543,"name":"Mattstetten","kt":"BE","units":281},{"bfs":544,"name":"Moosseedorf","kt":"BE","units":1991},{"bfs":546,"name":"Münchenbuchsee","kt":"BE","units":5297},{"bfs":551,"name":"Urtenen-Schönbühl","kt":"BE","units":3178},{"bfs":552,"name":"Utzenstorf","kt":"BE","units":2210},{"bfs":553,"name":"Wiggiswil","kt":"BE","units":57},{"bfs":554,"name":"Wiler bei Utzenstorf","kt":"BE","units":488},{"bfs":556,"name":"Zielebach","kt":"BE","units":158},{"bfs":557,"name":"Zuzwil (BE)","kt":"BE","units":245},{"bfs":561,"name":"Adelboden","kt":"BE","units":4411},{"bfs":562,"name":"Aeschi bei Spiez","kt":"BE","units":1474},{"bfs":563,"name":"Frutigen","kt":"BE","units":4033},{"bfs":564,"name":"Kandergrund","kt":"BE","units":637},{"bfs":565,"name":"Kandersteg","kt":"BE","units":1592},{"bfs":566,"name":"Krattigen","kt":"BE","units":736},{"bfs":567,"name":"Reichenbach im Kandertal","kt":"BE","units":2625},{"bfs":571,"name":"Beatenberg","kt":"BE","units":1605},{"bfs":572,"name":"Bönigen","kt":"BE","units":1533},{"bfs":573,"name":"Brienz (BE)","kt":"BE","units":2755},{"bfs":574,"name":"Brienzwiler","kt":"BE","units":460},{"bfs":575,"name":"Därligen","kt":"BE","units":317},{"bfs":576,"name":"Grindelwald","kt":"BE","units":5374},{"bfs":577,"name":"Gsteigwiler","kt":"BE","units":288},{"bfs":578,"name":"Gündlischwand","kt":"BE","units":236},{"bfs":579,"name":"Habkern","kt":"BE","units":548},{"bfs":580,"name":"Hofstetten bei Brienz","kt":"BE","units":407},{"bfs":581,"name":"Interlaken","kt":"BE","units":3793},{"bfs":582,"name":"Iseltwald","kt":"BE","units":471},{"bfs":584,"name":"Lauterbrunnen","kt":"BE","units":3628},{"bfs":585,"name":"Leissigen","kt":"BE","units":768},{"bfs":586,"name":"Lütschental","kt":"BE","units":198},{"bfs":587,"name":"Matten bei Interlaken","kt":"BE","units":2275},{"bfs":588,"name":"Niederried bei Interlaken","kt":"BE","units":348},{"bfs":589,"name":"Oberried am Brienzersee","kt":"BE","units":457},{"bfs":590,"name":"Ringgenberg (BE)","kt":"BE","units":1755},{"bfs":591,"name":"Saxeten","kt":"BE","units":119},{"bfs":592,"name":"Schwanden bei Brienz","kt":"BE","units":485},{"bfs":593,"name":"Unterseen","kt":"BE","units":3402},{"bfs":594,"name":"Wilderswil","kt":"BE","units":1623},{"bfs":602,"name":"Arni (BE)","kt":"BE","units":472},{"bfs":603,"name":"Biglen","kt":"BE","units":948},{"bfs":605,"name":"Bowil","kt":"BE","units":676},{"bfs":606,"name":"Brenzikofen","kt":"BE","units":262},{"bfs":607,"name":"Freimettigen","kt":"BE","units":207},{"bfs":608,"name":"Grosshöchstetten","kt":"BE","units":2071},{"bfs":609,"name":"Häutligen","kt":"BE","units":125},{"bfs":610,"name":"Herbligen","kt":"BE","units":288},{"bfs":611,"name":"Kiesen","kt":"BE","units":470},{"bfs":612,"name":"Konolfingen","kt":"BE","units":2829},{"bfs":613,"name":"Landiswil","kt":"BE","units":313},{"bfs":614,"name":"Linden","kt":"BE","units":591},{"bfs":615,"name":"Mirchel","kt":"BE","units":280},{"bfs":616,"name":"Münsingen","kt":"BE","units":6505},{"bfs":617,"name":"Niederhünigen","kt":"BE","units":341},{"bfs":619,"name":"Oberdiessbach","kt":"BE","units":1818},{"bfs":620,"name":"Oberthal","kt":"BE","units":379},{"bfs":622,"name":"Oppligen","kt":"BE","units":330},{"bfs":623,"name":"Rubigen","kt":"BE","units":1439},{"bfs":626,"name":"Walkringen","kt":"BE","units":922},{"bfs":627,"name":"Worb","kt":"BE","units":5848},{"bfs":628,"name":"Zäziwil","kt":"BE","units":854},{"bfs":629,"name":"Oberhünigen","kt":"BE","units":146},{"bfs":630,"name":"Allmendingen","kt":"BE","units":270},{"bfs":632,"name":"Wichtrach","kt":"BE","units":2141},{"bfs":662,"name":"Ferenbalm","kt":"BE","units":619},{"bfs":663,"name":"Frauenkappelen","kt":"BE","units":730},{"bfs":665,"name":"Gurbrü","kt":"BE","units":129},{"bfs":666,"name":"Kriechenwil","kt":"BE","units":221},{"bfs":667,"name":"Laupen","kt":"BE","units":1791},{"bfs":668,"name":"Mühleberg","kt":"BE","units":1577},{"bfs":669,"name":"Münchenwiler","kt":"BE","units":269},{"bfs":670,"name":"Neuenegg","kt":"BE","units":2764},{"bfs":671,"name":"Wileroltigen","kt":"BE","units":180},{"bfs":681,"name":"Belprahon","kt":"BE","units":155},{"bfs":683,"name":"Champoz","kt":"BE","units":95},{"bfs":687,"name":"Corcelles (BE)","kt":"BE","units":120},{"bfs":690,"name":"Court","kt":"BE","units":712},{"bfs":691,"name":"Crémines","kt":"BE","units":331},{"bfs":692,"name":"Eschert","kt":"BE","units":208},{"bfs":694,"name":"Grandval","kt":"BE","units":225},{"bfs":696,"name":"Loveresse","kt":"BE","units":184},{"bfs":700,"name":"Münster (BE)","kt":"BE","units":4292},{"bfs":701,"name":"Perrefitte","kt":"BE","units":261},{"bfs":703,"name":"Reconvilier","kt":"BE","units":1332},{"bfs":704,"name":"Roches (BE)","kt":"BE","units":130},{"bfs":706,"name":"Saicourt","kt":"BE","units":331},{"bfs":707,"name":"Saules (BE)","kt":"BE","units":93},{"bfs":708,"name":"Schelten","kt":"BE","units":19},{"bfs":709,"name":"Seehof","kt":"BE","units":31},{"bfs":711,"name":"Sorvilier","kt":"BE","units":169},{"bfs":713,"name":"Tavannes","kt":"BE","units":1935},{"bfs":715,"name":"Rebévelier","kt":"BE","units":17},{"bfs":716,"name":"Petit-Val","kt":"BE","units":224},{"bfs":717,"name":"Valbirse","kt":"BE","units":2208},{"bfs":723,"name":"Neuenstadt","kt":"BE","units":2099},{"bfs":724,"name":"Nods","kt":"BE","units":427},{"bfs":726,"name":"Plateau de Diesse","kt":"BE","units":1137},{"bfs":731,"name":"Aegerten","kt":"BE","units":1205},{"bfs":732,"name":"Bellmund","kt":"BE","units":788},{"bfs":733,"name":"Brügg","kt":"BE","units":2377},{"bfs":734,"name":"Bühl","kt":"BE","units":246},{"bfs":735,"name":"Epsach","kt":"BE","units":169},{"bfs":736,"name":"Hagneck","kt":"BE","units":189},{"bfs":737,"name":"Hermrigen","kt":"BE","units":164},{"bfs":738,"name":"Jens","kt":"BE","units":308},{"bfs":739,"name":"Ipsach","kt":"BE","units":1942},{"bfs":740,"name":"Ligerz","kt":"BE","units":349},{"bfs":741,"name":"Merzligen","kt":"BE","units":196},{"bfs":742,"name":"Mörigen","kt":"BE","units":440},{"bfs":743,"name":"Nidau","kt":"BE","units":3915},{"bfs":744,"name":"Orpund","kt":"BE","units":1602},{"bfs":745,"name":"Port","kt":"BE","units":1923},{"bfs":746,"name":"Safnern","kt":"BE","units":965},{"bfs":747,"name":"Scheuren","kt":"BE","units":233},{"bfs":748,"name":"Schwadernau","kt":"BE","units":330},{"bfs":749,"name":"Studen (BE)","kt":"BE","units":1627},{"bfs":750,"name":"Sutz-Lattrigen","kt":"BE","units":709},{"bfs":751,"name":"Täuffelen","kt":"BE","units":1607},{"bfs":754,"name":"Walperswil","kt":"BE","units":492},{"bfs":755,"name":"Worben","kt":"BE","units":1258},{"bfs":756,"name":"Twann-Tüscherz","kt":"BE","units":798},{"bfs":761,"name":"Därstetten","kt":"BE","units":478},{"bfs":762,"name":"Diemtigen","kt":"BE","units":1925},{"bfs":763,"name":"Erlenbach im Simmental","kt":"BE","units":1083},{"bfs":766,"name":"Oberwil im Simmental","kt":"BE","units":502},{"bfs":767,"name":"Reutigen","kt":"BE","units":686},{"bfs":768,"name":"Spiez","kt":"BE","units":7674},{"bfs":769,"name":"Wimmis","kt":"BE","units":1373},{"bfs":770,"name":"Stocken-Höfen","kt":"BE","units":502},{"bfs":782,"name":"Guttannen","kt":"BE","units":183},{"bfs":783,"name":"Hasliberg","kt":"BE","units":1579},{"bfs":784,"name":"Innertkirchen","kt":"BE","units":935},{"bfs":785,"name":"Meiringen","kt":"BE","units":3044},{"bfs":786,"name":"Schattenhalb","kt":"BE","units":402},{"bfs":791,"name":"Boltigen","kt":"BE","units":867},{"bfs":792,"name":"Lenk","kt":"BE","units":3949},{"bfs":793,"name":"St. Stephan","kt":"BE","units":1176},{"bfs":794,"name":"Zweisimmen","kt":"BE","units":2526},{"bfs":841,"name":"Gsteig","kt":"BE","units":834},{"bfs":842,"name":"Lauenen","kt":"BE","units":735},{"bfs":843,"name":"Saanen","kt":"BE","units":7673},{"bfs":852,"name":"Guggisberg","kt":"BE","units":933},{"bfs":853,"name":"Rüschegg","kt":"BE","units":1061},{"bfs":855,"name":"Schwarzenburg","kt":"BE","units":3561},{"bfs":861,"name":"Belp","kt":"BE","units":5705},{"bfs":863,"name":"Burgistein","kt":"BE","units":537},{"bfs":866,"name":"Gerzensee","kt":"BE","units":662},{"bfs":867,"name":"Gurzelen","kt":"BE","units":403},{"bfs":868,"name":"Jaberg","kt":"BE","units":130},{"bfs":869,"name":"Kaufdorf","kt":"BE","units":492},{"bfs":870,"name":"Kehrsatz","kt":"BE","units":2140},{"bfs":872,"name":"Kirchdorf (BE)","kt":"BE","units":921},{"bfs":877,"name":"Niedermuhlern","kt":"BE","units":264},{"bfs":879,"name":"Riggisberg","kt":"BE","units":1655},{"bfs":880,"name":"Rüeggisberg","kt":"BE","units":1014},{"bfs":883,"name":"Seftigen","kt":"BE","units":1107},{"bfs":884,"name":"Toffen","kt":"BE","units":1332},{"bfs":885,"name":"Uttigen","kt":"BE","units":1006},{"bfs":886,"name":"Wattenwil","kt":"BE","units":1612},{"bfs":888,"name":"Wald (BE)","kt":"BE","units":590},{"bfs":889,"name":"Thurnen","kt":"BE","units":1009},{"bfs":901,"name":"Eggiwil","kt":"BE","units":1221},{"bfs":902,"name":"Langnau im Emmental","kt":"BE","units":5066},{"bfs":903,"name":"Lauperswil","kt":"BE","units":1413},{"bfs":904,"name":"Röthenbach im Emmental","kt":"BE","units":616},{"bfs":905,"name":"Rüderswil","kt":"BE","units":1241},{"bfs":906,"name":"Schangnau","kt":"BE","units":510},{"bfs":907,"name":"Signau","kt":"BE","units":1424},{"bfs":908,"name":"Trub","kt":"BE","units":683},{"bfs":909,"name":"Trubschachen","kt":"BE","units":782},{"bfs":921,"name":"Amsoldingen","kt":"BE","units":416},{"bfs":922,"name":"Blumenstein","kt":"BE","units":658},{"bfs":923,"name":"Buchholterberg","kt":"BE","units":767},{"bfs":924,"name":"Eriz","kt":"BE","units":328},{"bfs":925,"name":"Fahrni","kt":"BE","units":394},{"bfs":927,"name":"Heiligenschwendi","kt":"BE","units":444},{"bfs":928,"name":"Heimberg","kt":"BE","units":3391},{"bfs":929,"name":"Hilterfingen","kt":"BE","units":2347},{"bfs":931,"name":"Homberg","kt":"BE","units":235},{"bfs":932,"name":"Horrenbach-Buchen","kt":"BE","units":144},{"bfs":934,"name":"Oberhofen am Thunersee","kt":"BE","units":1658},{"bfs":935,"name":"Oberlangenegg","kt":"BE","units":234},{"bfs":936,"name":"Pohlern","kt":"BE","units":123},{"bfs":938,"name":"Sigriswil","kt":"BE","units":3910},{"bfs":939,"name":"Steffisburg","kt":"BE","units":8529},{"bfs":940,"name":"Teuffenthal (BE)","kt":"BE","units":95},{"bfs":941,"name":"Thierachern","kt":"BE","units":1155},{"bfs":942,"name":"Thun","kt":"BE","units":23792},{"bfs":943,"name":"Uebeschi","kt":"BE","units":337},{"bfs":944,"name":"Uetendorf","kt":"BE","units":2959},{"bfs":945,"name":"Unterlangenegg","kt":"BE","units":523},{"bfs":946,"name":"Wachseldorn","kt":"BE","units":120},{"bfs":948,"name":"Forst-Längenbühl","kt":"BE","units":403},{"bfs":951,"name":"Affoltern im Emmental","kt":"BE","units":642},{"bfs":952,"name":"Dürrenroth","kt":"BE","units":545},{"bfs":953,"name":"Eriswil","kt":"BE","units":727},{"bfs":954,"name":"Huttwil","kt":"BE","units":2750},{"bfs":955,"name":"Lützelflüh","kt":"BE","units":2208},{"bfs":956,"name":"Rüegsau","kt":"BE","units":1693},{"bfs":957,"name":"Sumiswald","kt":"BE","units":2746},{"bfs":958,"name":"Trachselwald","kt":"BE","units":484},{"bfs":959,"name":"Walterswil (BE)","kt":"BE","units":254},{"bfs":960,"name":"Wyssachen","kt":"BE","units":594},{"bfs":971,"name":"Attiswil","kt":"BE","units":816},{"bfs":972,"name":"Berken","kt":"BE","units":23},{"bfs":973,"name":"Bettenhausen","kt":"BE","units":355},{"bfs":975,"name":"Farnern","kt":"BE","units":140},{"bfs":976,"name":"Graben","kt":"BE","units":167},{"bfs":977,"name":"Heimenhausen","kt":"BE","units":584},{"bfs":979,"name":"Herzogenbuchsee","kt":"BE","units":3875},{"bfs":980,"name":"Inkwil","kt":"BE","units":350},{"bfs":981,"name":"Niederbipp","kt":"BE","units":2788},{"bfs":982,"name":"Niederönz","kt":"BE","units":906},{"bfs":983,"name":"Oberbipp","kt":"BE","units":952},{"bfs":985,"name":"Ochlenberg","kt":"BE","units":290},{"bfs":987,"name":"Rumisberg","kt":"BE","units":275},{"bfs":988,"name":"Seeberg","kt":"BE","units":822},{"bfs":989,"name":"Thörigen","kt":"BE","units":602},{"bfs":990,"name":"Walliswil bei Niederbipp","kt":"BE","units":121},{"bfs":991,"name":"Walliswil bei Wangen","kt":"BE","units":327},{"bfs":992,"name":"Wangen an der Aare","kt":"BE","units":1522},{"bfs":995,"name":"Wiedlisbach","kt":"BE","units":1441},{"bfs":1001,"name":"Doppleschwand","kt":"LU","units":370},{"bfs":1002,"name":"Entlebuch","kt":"LU","units":1777},{"bfs":1004,"name":"Flühli","kt":"LU","units":2273},{"bfs":1005,"name":"Hasle (LU)","kt":"LU","units":867},{"bfs":1007,"name":"Romoos","kt":"LU","units":342},{"bfs":1008,"name":"Schüpfheim","kt":"LU","units":2059},{"bfs":1009,"name":"Werthenstein","kt":"LU","units":984},{"bfs":1010,"name":"Escholzmatt-Marbach","kt":"LU","units":2425},{"bfs":1021,"name":"Aesch (LU)","kt":"LU","units":748},{"bfs":1023,"name":"Ballwil","kt":"LU","units":1268},{"bfs":1024,"name":"Emmen","kt":"LU","units":15648},{"bfs":1025,"name":"Ermensee","kt":"LU","units":468},{"bfs":1026,"name":"Eschenbach (LU)","kt":"LU","units":1678},{"bfs":1030,"name":"Hitzkirch","kt":"LU","units":2730},{"bfs":1031,"name":"Hochdorf","kt":"LU","units":4461},{"bfs":1032,"name":"Hohenrain","kt":"LU","units":1074},{"bfs":1033,"name":"Inwil","kt":"LU","units":1292},{"bfs":1037,"name":"Rain","kt":"LU","units":1367},{"bfs":1039,"name":"Römerswil","kt":"LU","units":797},{"bfs":1040,"name":"Rothenburg","kt":"LU","units":3485},{"bfs":1041,"name":"Schongau","kt":"LU","units":507},{"bfs":1051,"name":"Adligenswil","kt":"LU","units":2487},{"bfs":1052,"name":"Buchrain","kt":"LU","units":2922},{"bfs":1053,"name":"Dierikon","kt":"LU","units":715},{"bfs":1054,"name":"Ebikon","kt":"LU","units":6797},{"bfs":1055,"name":"Gisikon","kt":"LU","units":668},{"bfs":1056,"name":"Greppen","kt":"LU","units":592},{"bfs":1057,"name":"Honau","kt":"LU","units":291},{"bfs":1058,"name":"Horw","kt":"LU","units":8023},{"bfs":1059,"name":"Kriens","kt":"LU","units":15131},{"bfs":1061,"name":"Luzern","kt":"LU","units":48120},{"bfs":1062,"name":"Malters","kt":"LU","units":3585},{"bfs":1063,"name":"Meggen","kt":"LU","units":3844},{"bfs":1064,"name":"Meierskappel","kt":"LU","units":729},{"bfs":1065,"name":"Root","kt":"LU","units":2752},{"bfs":1066,"name":"Schwarzenberg","kt":"LU","units":890},{"bfs":1067,"name":"Udligenswil","kt":"LU","units":1100},{"bfs":1068,"name":"Vitznau","kt":"LU","units":985},{"bfs":1069,"name":"Weggis","kt":"LU","units":3046},{"bfs":1081,"name":"Beromünster","kt":"LU","units":3018},{"bfs":1082,"name":"Büron","kt":"LU","units":1219},{"bfs":1083,"name":"Buttisholz","kt":"LU","units":1489},{"bfs":1084,"name":"Eich","kt":"LU","units":863},{"bfs":1085,"name":"Geuensee","kt":"LU","units":1249},{"bfs":1086,"name":"Grosswangen","kt":"LU","units":1525},{"bfs":1088,"name":"Hildisrieden","kt":"LU","units":1122},{"bfs":1089,"name":"Knutwil","kt":"LU","units":1127},{"bfs":1091,"name":"Mauensee","kt":"LU","units":684},{"bfs":1093,"name":"Neuenkirch","kt":"LU","units":3120},{"bfs":1094,"name":"Nottwil","kt":"LU","units":1830},{"bfs":1095,"name":"Oberkirch","kt":"LU","units":2170},{"bfs":1097,"name":"Rickenbach (LU)","kt":"LU","units":1722},{"bfs":1098,"name":"Ruswil","kt":"LU","units":3418},{"bfs":1099,"name":"Schenkon","kt":"LU","units":1406},{"bfs":1100,"name":"Schlierbach","kt":"LU","units":423},{"bfs":1102,"name":"Sempach","kt":"LU","units":1974},{"bfs":1103,"name":"Sursee","kt":"LU","units":5451},{"bfs":1104,"name":"Triengen","kt":"LU","units":2224},{"bfs":1107,"name":"Wolhusen","kt":"LU","units":2121},{"bfs":1121,"name":"Alberswil","kt":"LU","units":343},{"bfs":1122,"name":"Altbüron","kt":"LU","units":478},{"bfs":1123,"name":"Altishofen","kt":"LU","units":849},{"bfs":1125,"name":"Dagmersellen","kt":"LU","units":2715},{"bfs":1127,"name":"Egolzwil","kt":"LU","units":774},{"bfs":1128,"name":"Ettiswil","kt":"LU","units":1272},{"bfs":1129,"name":"Fischbach","kt":"LU","units":329},{"bfs":1131,"name":"Grossdietwil","kt":"LU","units":441},{"bfs":1132,"name":"Hergiswil bei Willisau","kt":"LU","units":850},{"bfs":1135,"name":"Luthern","kt":"LU","units":591},{"bfs":1136,"name":"Menznau","kt":"LU","units":1419},{"bfs":1137,"name":"Nebikon","kt":"LU","units":1287},{"bfs":1139,"name":"Pfaffnau","kt":"LU","units":1378},{"bfs":1140,"name":"Reiden","kt":"LU","units":3498},{"bfs":1142,"name":"Roggliswil","kt":"LU","units":368},{"bfs":1143,"name":"Schötz","kt":"LU","units":2148},{"bfs":1145,"name":"Ufhusen","kt":"LU","units":426},{"bfs":1146,"name":"Wauwil","kt":"LU","units":1190},{"bfs":1147,"name":"Wikon","kt":"LU","units":704},{"bfs":1150,"name":"Zell (LU)","kt":"LU","units":1000},{"bfs":1151,"name":"Willisau","kt":"LU","units":4333},{"bfs":1201,"name":"Altdorf (UR)","kt":"UR","units":5343},{"bfs":1202,"name":"Andermatt","kt":"UR","units":2117},{"bfs":1203,"name":"Attinghausen","kt":"UR","units":870},{"bfs":1205,"name":"Bürglen (UR)","kt":"UR","units":1981},{"bfs":1206,"name":"Erstfeld","kt":"UR","units":2002},{"bfs":1207,"name":"Flüelen","kt":"UR","units":1076},{"bfs":1208,"name":"Göschenen","kt":"UR","units":394},{"bfs":1209,"name":"Gurtnellen","kt":"UR","units":502},{"bfs":1210,"name":"Hospental","kt":"UR","units":196},{"bfs":1211,"name":"Isenthal","kt":"UR","units":312},{"bfs":1212,"name":"Realp","kt":"UR","units":192},{"bfs":1213,"name":"Schattdorf","kt":"UR","units":2635},{"bfs":1214,"name":"Seedorf (UR)","kt":"UR","units":932},{"bfs":1215,"name":"Seelisberg","kt":"UR","units":558},{"bfs":1216,"name":"Silenen","kt":"UR","units":1170},{"bfs":1217,"name":"Sisikon","kt":"UR","units":247},{"bfs":1218,"name":"Spiringen","kt":"UR","units":683},{"bfs":1219,"name":"Unterschächen","kt":"UR","units":558},{"bfs":1220,"name":"Wassen","kt":"UR","units":382},{"bfs":1301,"name":"Einsiedeln","kt":"SZ","units":8354},{"bfs":1311,"name":"Gersau","kt":"SZ","units":1627},{"bfs":1321,"name":"Feusisberg","kt":"SZ","units":2709},{"bfs":1322,"name":"Freienbach","kt":"SZ","units":8169},{"bfs":1323,"name":"Wollerau","kt":"SZ","units":3666},{"bfs":1331,"name":"Küssnacht (SZ)","kt":"SZ","units":6876},{"bfs":1341,"name":"Altendorf","kt":"SZ","units":3497},{"bfs":1342,"name":"Galgenen","kt":"SZ","units":2597},{"bfs":1343,"name":"Innerthal","kt":"SZ","units":202},{"bfs":1344,"name":"Lachen","kt":"SZ","units":4631},{"bfs":1345,"name":"Reichenburg","kt":"SZ","units":1793},{"bfs":1346,"name":"Schübelbach","kt":"SZ","units":4569},{"bfs":1347,"name":"Tuggen","kt":"SZ","units":1661},{"bfs":1348,"name":"Vorderthal","kt":"SZ","units":581},{"bfs":1349,"name":"Wangen (SZ)","kt":"SZ","units":2650},{"bfs":1361,"name":"Alpthal","kt":"SZ","units":423},{"bfs":1362,"name":"Arth","kt":"SZ","units":6129},{"bfs":1363,"name":"Illgau","kt":"SZ","units":389},{"bfs":1364,"name":"Ingenbohl","kt":"SZ","units":4825},{"bfs":1365,"name":"Lauerz","kt":"SZ","units":540},{"bfs":1366,"name":"Morschach","kt":"SZ","units":1256},{"bfs":1367,"name":"Muotathal","kt":"SZ","units":1861},{"bfs":1368,"name":"Oberiberg","kt":"SZ","units":1175},{"bfs":1369,"name":"Riemenstalden","kt":"SZ","units":50},{"bfs":1370,"name":"Rothenthurm","kt":"SZ","units":1214},{"bfs":1371,"name":"Sattel","kt":"SZ","units":1126},{"bfs":1372,"name":"Schwyz","kt":"SZ","units":8125},{"bfs":1373,"name":"Steinen","kt":"SZ","units":1706},{"bfs":1374,"name":"Steinerberg","kt":"SZ","units":443},{"bfs":1375,"name":"Unteriberg","kt":"SZ","units":1448},{"bfs":1401,"name":"Alpnach","kt":"OW","units":3092},{"bfs":1402,"name":"Engelberg","kt":"OW","units":4617},{"bfs":1403,"name":"Giswil","kt":"OW","units":2109},{"bfs":1404,"name":"Kerns","kt":"OW","units":3484},{"bfs":1405,"name":"Lungern","kt":"OW","units":1480},{"bfs":1406,"name":"Sachseln","kt":"OW","units":2587},{"bfs":1407,"name":"Sarnen","kt":"OW","units":5590},{"bfs":1501,"name":"Beckenried","kt":"NW","units":2025},{"bfs":1502,"name":"Buochs","kt":"NW","units":2677},{"bfs":1503,"name":"Dallenwil","kt":"NW","units":1017},{"bfs":1504,"name":"Emmetten","kt":"NW","units":1308},{"bfs":1505,"name":"Ennetbürgen","kt":"NW","units":2615},{"bfs":1506,"name":"Ennetmoos","kt":"NW","units":1082},{"bfs":1507,"name":"Hergiswil (NW)","kt":"NW","units":3234},{"bfs":1508,"name":"Oberdorf (NW)","kt":"NW","units":1442},{"bfs":1509,"name":"Stans","kt":"NW","units":4062},{"bfs":1510,"name":"Stansstad","kt":"NW","units":2709},{"bfs":1511,"name":"Wolfenschiessen","kt":"NW","units":1108},{"bfs":1630,"name":"Glarus Nord","kt":"GL","units":10032},{"bfs":1631,"name":"Glarus Süd","kt":"GL","units":7084},{"bfs":1632,"name":"Glarus","kt":"GL","units":6797},{"bfs":1701,"name":"Baar","kt":"ZG","units":11856},{"bfs":1702,"name":"Cham","kt":"ZG","units":8341},{"bfs":1703,"name":"Hünenberg","kt":"ZG","units":3808},{"bfs":1704,"name":"Menzingen","kt":"ZG","units":2122},{"bfs":1705,"name":"Neuheim","kt":"ZG","units":1070},{"bfs":1706,"name":"Oberägeri","kt":"ZG","units":3066},{"bfs":1707,"name":"Risch","kt":"ZG","units":5221},{"bfs":1708,"name":"Steinhausen","kt":"ZG","units":4684},{"bfs":1709,"name":"Unterägeri","kt":"ZG","units":4523},{"bfs":1710,"name":"Walchwil","kt":"ZG","units":1895},{"bfs":1711,"name":"Zug","kt":"ZG","units":15868},{"bfs":2008,"name":"Châtillon (FR)","kt":"FR","units":244},{"bfs":2011,"name":"Cugy (FR)","kt":"FR","units":920},{"bfs":2016,"name":"Fétigny","kt":"FR","units":581},{"bfs":2022,"name":"Gletterens","kt":"FR","units":545},{"bfs":2025,"name":"Lully (FR)","kt":"FR","units":531},{"bfs":2027,"name":"Ménières","kt":"FR","units":189},{"bfs":2029,"name":"Montagny (FR)","kt":"FR","units":1401},{"bfs":2035,"name":"Nuvilly","kt":"FR","units":205},{"bfs":2038,"name":"Prévondavaux","kt":"FR","units":53},{"bfs":2041,"name":"Saint-Aubin (FR)","kt":"FR","units":929},{"bfs":2043,"name":"Sévaz","kt":"FR","units":143},{"bfs":2044,"name":"Surpierre","kt":"FR","units":592},{"bfs":2045,"name":"Vallon","kt":"FR","units":259},{"bfs":2050,"name":"Les Montets","kt":"FR","units":752},{"bfs":2051,"name":"Delley-Portalban","kt":"FR","units":838},{"bfs":2053,"name":"Belmont-Broye","kt":"FR","units":2769},{"bfs":2054,"name":"Estavayer","kt":"FR","units":5481},{"bfs":2055,"name":"Cheyres-Châbles","kt":"FR","units":1304},{"bfs":2061,"name":"Auboranges","kt":"FR","units":118},{"bfs":2063,"name":"Billens-Hennens","kt":"FR","units":433},{"bfs":2066,"name":"Chapelle (Glâne)","kt":"FR","units":147},{"bfs":2067,"name":"Le Châtelard","kt":"FR","units":164},{"bfs":2068,"name":"Châtonnaye","kt":"FR","units":381},{"bfs":2072,"name":"Ecublens (FR)","kt":"FR","units":176},{"bfs":2079,"name":"Grangettes","kt":"FR","units":100},{"bfs":2086,"name":"Massonnens","kt":"FR","units":252},{"bfs":2087,"name":"Mézières (FR)","kt":"FR","units":539},{"bfs":2089,"name":"Montet (Glâne)","kt":"FR","units":224},{"bfs":2096,"name":"Romont (FR)","kt":"FR","units":3106},{"bfs":2097,"name":"Rue","kt":"FR","units":766},{"bfs":2099,"name":"Siviriez","kt":"FR","units":1201},{"bfs":2102,"name":"Ursy","kt":"FR","units":1515},{"bfs":2113,"name":"Vuisternens-devant-Romont","kt":"FR","units":1058},{"bfs":2114,"name":"Villorsonnens","kt":"FR","units":709},{"bfs":2115,"name":"Torny","kt":"FR","units":500},{"bfs":2117,"name":"Villaz","kt":"FR","units":1080},{"bfs":2121,"name":"Haut-Intyamon","kt":"FR","units":936},{"bfs":2122,"name":"Pont-en-Ogoz","kt":"FR","units":988},{"bfs":2123,"name":"Botterens","kt":"FR","units":342},{"bfs":2124,"name":"Broc","kt":"FR","units":1473},{"bfs":2125,"name":"Bulle","kt":"FR","units":12920},{"bfs":2128,"name":"Châtel-sur-Montsalvens","kt":"FR","units":207},{"bfs":2129,"name":"Corbières","kt":"FR","units":490},{"bfs":2130,"name":"Crésuz","kt":"FR","units":333},{"bfs":2131,"name":"Echarlens","kt":"FR","units":389},{"bfs":2134,"name":"Grandvillard","kt":"FR","units":434},{"bfs":2135,"name":"Greyerz","kt":"FR","units":1266},{"bfs":2137,"name":"Hauteville","kt":"FR","units":349},{"bfs":2138,"name":"Jaun","kt":"FR","units":437},{"bfs":2140,"name":"Marsens","kt":"FR","units":886},{"bfs":2143,"name":"Morlon","kt":"FR","units":345},{"bfs":2145,"name":"Le Pâquier (FR)","kt":"FR","units":611},{"bfs":2147,"name":"Pont-la-Ville","kt":"FR","units":278},{"bfs":2148,"name":"Riaz","kt":"FR","units":1306},{"bfs":2149,"name":"La Roche","kt":"FR","units":941},{"bfs":2152,"name":"Sâles","kt":"FR","units":642},{"bfs":2153,"name":"Sorens","kt":"FR","units":520},{"bfs":2155,"name":"Vaulruz","kt":"FR","units":514},{"bfs":2160,"name":"Vuadens","kt":"FR","units":1192},{"bfs":2162,"name":"Bas-Intyamon","kt":"FR","units":835},{"bfs":2163,"name":"Val-de-Charmey","kt":"FR","units":1839},{"bfs":2173,"name":"Autigny","kt":"FR","units":386},{"bfs":2174,"name":"Avry","kt":"FR","units":859},{"bfs":2175,"name":"Belfaux","kt":"FR","units":1473},{"bfs":2177,"name":"Chénens","kt":"FR","units":361},{"bfs":2183,"name":"Corminboeuf","kt":"FR","units":1282},{"bfs":2186,"name":"Cottens (FR)","kt":"FR","units":673},{"bfs":2194,"name":"Ferpicloz","kt":"FR","units":109},{"bfs":2196,"name":"Freiburg","kt":"FR","units":22691},{"bfs":2197,"name":"Givisiez","kt":"FR","units":1602},{"bfs":2198,"name":"Granges-Paccot","kt":"FR","units":1848},{"bfs":2200,"name":"Grolley","kt":"FR","units":938},{"bfs":2206,"name":"Marly","kt":"FR","units":4481},{"bfs":2208,"name":"Matran","kt":"FR","units":905},{"bfs":2211,"name":"Neyruz (FR)","kt":"FR","units":1234},{"bfs":2216,"name":"Pierrafortscha","kt":"FR","units":65},{"bfs":2217,"name":"Ponthaux","kt":"FR","units":320},{"bfs":2220,"name":"Le Mouret","kt":"FR","units":1533},{"bfs":2226,"name":"Treyvaux","kt":"FR","units":753},{"bfs":2228,"name":"Villars-sur-Glâne","kt":"FR","units":5735},{"bfs":2230,"name":"Villarsel-sur-Marly","kt":"FR","units":35},{"bfs":2233,"name":"Hauterive (FR)","kt":"FR","units":1158},{"bfs":2234,"name":"La Brillaz","kt":"FR","units":969},{"bfs":2235,"name":"La Sonnaz","kt":"FR","units":621},{"bfs":2236,"name":"Gibloux","kt":"FR","units":3790},{"bfs":2237,"name":"Prez","kt":"FR","units":1051},{"bfs":2238,"name":"Bois-d'Amont","kt":"FR","units":1024},{"bfs":2250,"name":"Gurwolf","kt":"FR","units":642},{"bfs":2254,"name":"Courtepin","kt":"FR","units":2648},{"bfs":2257,"name":"Cressier (FR)","kt":"FR","units":484},{"bfs":2258,"name":"Fräschels","kt":"FR","units":222},{"bfs":2261,"name":"Greng","kt":"FR","units":92},{"bfs":2262,"name":"Gurmels","kt":"FR","units":2051},{"bfs":2265,"name":"Kerzers","kt":"FR","units":2533},{"bfs":2266,"name":"Kleinbösingen","kt":"FR","units":300},{"bfs":2271,"name":"Merlach","kt":"FR","units":283},{"bfs":2272,"name":"Misery-Courtion","kt":"FR","units":1061},{"bfs":2274,"name":"Muntelier","kt":"FR","units":526},{"bfs":2275,"name":"Murten","kt":"FR","units":4840},{"bfs":2276,"name":"Ried bei Kerzers","kt":"FR","units":604},{"bfs":2278,"name":"Ulmiz","kt":"FR","units":216},{"bfs":2284,"name":"Mont-Vully","kt":"FR","units":2391},{"bfs":2292,"name":"Brünisried","kt":"FR","units":363},{"bfs":2293,"name":"Düdingen","kt":"FR","units":4340},{"bfs":2294,"name":"Giffers","kt":"FR","units":833},{"bfs":2295,"name":"Bösingen","kt":"FR","units":1541},{"bfs":2296,"name":"Heitenried","kt":"FR","units":656},{"bfs":2299,"name":"Plaffeien","kt":"FR","units":2228},{"bfs":2300,"name":"Plasselb","kt":"FR","units":595},{"bfs":2301,"name":"Rechthalten","kt":"FR","units":592},{"bfs":2303,"name":"St. Silvester","kt":"FR","units":511},{"bfs":2304,"name":"St. Ursen","kt":"FR","units":650},{"bfs":2305,"name":"Schmitten (FR)","kt":"FR","units":1935},{"bfs":2306,"name":"Tafers","kt":"FR","units":3745},{"bfs":2307,"name":"Tentlingen","kt":"FR","units":663},{"bfs":2308,"name":"Ueberstorf","kt":"FR","units":1166},{"bfs":2309,"name":"Wünnewil-Flamatt","kt":"FR","units":2685},{"bfs":2321,"name":"Attalens","kt":"FR","units":1603},{"bfs":2323,"name":"Bossonnens","kt":"FR","units":708},{"bfs":2325,"name":"Châtel-Saint-Denis","kt":"FR","units":4618},{"bfs":2328,"name":"Granges (Veveyse)","kt":"FR","units":438},{"bfs":2333,"name":"Remaufens","kt":"FR","units":610},{"bfs":2335,"name":"Saint-Martin (FR)","kt":"FR","units":486},{"bfs":2336,"name":"Semsales","kt":"FR","units":805},{"bfs":2337,"name":"Le Flon","kt":"FR","units":540},{"bfs":2338,"name":"La Verrerie","kt":"FR","units":595},{"bfs":2401,"name":"Egerkingen","kt":"SO","units":2008},{"bfs":2402,"name":"Härkingen","kt":"SO","units":828},{"bfs":2403,"name":"Kestenholz","kt":"SO","units":885},{"bfs":2404,"name":"Neuendorf","kt":"SO","units":1138},{"bfs":2405,"name":"Niederbuchsiten","kt":"SO","units":643},{"bfs":2406,"name":"Oberbuchsiten","kt":"SO","units":1158},{"bfs":2407,"name":"Oensingen","kt":"SO","units":3250},{"bfs":2408,"name":"Wolfwil","kt":"SO","units":1199},{"bfs":2421,"name":"Aedermannsdorf","kt":"SO","units":295},{"bfs":2422,"name":"Balsthal","kt":"SO","units":3226},{"bfs":2424,"name":"Herbetswil","kt":"SO","units":305},{"bfs":2425,"name":"Holderbank (SO)","kt":"SO","units":422},{"bfs":2426,"name":"Laupersdorf","kt":"SO","units":848},{"bfs":2427,"name":"Matzendorf","kt":"SO","units":680},{"bfs":2428,"name":"Mümliswil-Ramiswil","kt":"SO","units":1220},{"bfs":2430,"name":"Welschenrohr-Gänsbrunnen","kt":"SO","units":675},{"bfs":2445,"name":"Biezwil","kt":"SO","units":166},{"bfs":2455,"name":"Lüterkofen-Ichertswil","kt":"SO","units":432},{"bfs":2457,"name":"Messen","kt":"SO","units":699},{"bfs":2461,"name":"Schnottwil","kt":"SO","units":551},{"bfs":2463,"name":"Unterramsern","kt":"SO","units":105},{"bfs":2464,"name":"Lüsslingen-Nennigkofen","kt":"SO","units":544},{"bfs":2465,"name":"Buchegg","kt":"SO","units":1504},{"bfs":2471,"name":"Bättwil","kt":"SO","units":544},{"bfs":2472,"name":"Büren (SO)","kt":"SO","units":508},{"bfs":2473,"name":"Dornach","kt":"SO","units":3551},{"bfs":2474,"name":"Gempen","kt":"SO","units":444},{"bfs":2475,"name":"Hochwald","kt":"SO","units":624},{"bfs":2476,"name":"Hofstetten-Flüh","kt":"SO","units":1569},{"bfs":2477,"name":"Metzerlen-Mariastein","kt":"SO","units":483},{"bfs":2478,"name":"Nuglar-St. Pantaleon","kt":"SO","units":735},{"bfs":2479,"name":"Rodersdorf","kt":"SO","units":733},{"bfs":2480,"name":"Seewen","kt":"SO","units":590},{"bfs":2481,"name":"Witterswil","kt":"SO","units":667},{"bfs":2491,"name":"Hauenstein-Ifenthal","kt":"SO","units":162},{"bfs":2492,"name":"Kienberg","kt":"SO","units":255},{"bfs":2493,"name":"Lostorf","kt":"SO","units":1982},{"bfs":2495,"name":"Niedergösgen","kt":"SO","units":2038},{"bfs":2497,"name":"Obergösgen","kt":"SO","units":1220},{"bfs":2499,"name":"Stüsslingen","kt":"SO","units":597},{"bfs":2500,"name":"Trimbach","kt":"SO","units":3420},{"bfs":2501,"name":"Winznau","kt":"SO","units":1032},{"bfs":2502,"name":"Wisen (SO)","kt":"SO","units":232},{"bfs":2503,"name":"Erlinsbach (SO)","kt":"SO","units":1808},{"bfs":2511,"name":"Aeschi (SO)","kt":"SO","units":655},{"bfs":2513,"name":"Biberist","kt":"SO","units":4747},{"bfs":2514,"name":"Bolken","kt":"SO","units":259},{"bfs":2516,"name":"Deitingen","kt":"SO","units":1135},{"bfs":2517,"name":"Derendingen","kt":"SO","units":3568},{"bfs":2518,"name":"Etziken","kt":"SO","units":507},{"bfs":2519,"name":"Gerlafingen","kt":"SO","units":2737},{"bfs":2520,"name":"Halten","kt":"SO","units":388},{"bfs":2523,"name":"Horriwil","kt":"SO","units":409},{"bfs":2524,"name":"Hüniken","kt":"SO","units":67},{"bfs":2525,"name":"Kriegstetten","kt":"SO","units":687},{"bfs":2526,"name":"Lohn-Ammannsegg","kt":"SO","units":1391},{"bfs":2527,"name":"Luterbach","kt":"SO","units":1865},{"bfs":2528,"name":"Obergerlafingen","kt":"SO","units":585},{"bfs":2529,"name":"Oekingen","kt":"SO","units":387},{"bfs":2530,"name":"Recherswil","kt":"SO","units":1022},{"bfs":2532,"name":"Subingen","kt":"SO","units":1593},{"bfs":2534,"name":"Zuchwil","kt":"SO","units":5148},{"bfs":2535,"name":"Drei Höfe","kt":"SO","units":349},{"bfs":2541,"name":"Balm bei Günsberg","kt":"SO","units":92},{"bfs":2542,"name":"Bellach","kt":"SO","units":2787},{"bfs":2543,"name":"Bettlach","kt":"SO","units":2568},{"bfs":2544,"name":"Feldbrunnen-St. Niklaus","kt":"SO","units":541},{"bfs":2545,"name":"Flumenthal","kt":"SO","units":533},{"bfs":2546,"name":"Grenchen","kt":"SO","units":10507},{"bfs":2547,"name":"Günsberg","kt":"SO","units":620},{"bfs":2548,"name":"Hubersdorf","kt":"SO","units":318},{"bfs":2549,"name":"Kammersrohr","kt":"SO","units":16},{"bfs":2550,"name":"Langendorf","kt":"SO","units":1962},{"bfs":2551,"name":"Lommiswil","kt":"SO","units":753},{"bfs":2553,"name":"Oberdorf (SO)","kt":"SO","units":893},{"bfs":2554,"name":"Riedholz","kt":"SO","units":1085},{"bfs":2555,"name":"Rüttenen","kt":"SO","units":789},{"bfs":2556,"name":"Selzach","kt":"SO","units":1821},{"bfs":2571,"name":"Boningen","kt":"SO","units":384},{"bfs":2572,"name":"Däniken","kt":"SO","units":1475},{"bfs":2573,"name":"Dulliken","kt":"SO","units":2606},{"bfs":2574,"name":"Eppenberg-Wöschnau","kt":"SO","units":191},{"bfs":2575,"name":"Fulenbach","kt":"SO","units":858},{"bfs":2576,"name":"Gretzenbach","kt":"SO","units":1288},{"bfs":2578,"name":"Gunzgen","kt":"SO","units":826},{"bfs":2579,"name":"Hägendorf","kt":"SO","units":2453},{"bfs":2580,"name":"Kappel (SO)","kt":"SO","units":1661},{"bfs":2581,"name":"Olten","kt":"SO","units":11003},{"bfs":2582,"name":"Rickenbach (SO)","kt":"SO","units":598},{"bfs":2583,"name":"Schönenwerd","kt":"SO","units":2613},{"bfs":2584,"name":"Starrkirch-Wil","kt":"SO","units":904},{"bfs":2585,"name":"Walterswil (SO)","kt":"SO","units":388},{"bfs":2586,"name":"Wangen bei Olten","kt":"SO","units":2713},{"bfs":2601,"name":"Solothurn","kt":"SO","units":10110},{"bfs":2611,"name":"Bärschwil","kt":"SO","units":432},{"bfs":2612,"name":"Beinwil (SO)","kt":"SO","units":132},{"bfs":2613,"name":"Breitenbach","kt":"SO","units":2159},{"bfs":2614,"name":"Büsserach","kt":"SO","units":1201},{"bfs":2615,"name":"Erschwil","kt":"SO","units":457},{"bfs":2616,"name":"Fehren","kt":"SO","units":295},{"bfs":2617,"name":"Grindel","kt":"SO","units":252},{"bfs":2618,"name":"Himmelried","kt":"SO","units":504},{"bfs":2619,"name":"Kleinlützel","kt":"SO","units":664},{"bfs":2620,"name":"Meltingen","kt":"SO","units":315},{"bfs":2621,"name":"Nunningen","kt":"SO","units":1008},{"bfs":2622,"name":"Zullwil","kt":"SO","units":332},{"bfs":2701,"name":"Basel","kt":"BS","units":105190},{"bfs":2702,"name":"Bettingen","kt":"BS","units":564},{"bfs":2703,"name":"Riehen","kt":"BS","units":10897},{"bfs":2761,"name":"Aesch (BL)","kt":"BL","units":5610},{"bfs":2762,"name":"Allschwil","kt":"BL","units":11515},{"bfs":2763,"name":"Arlesheim","kt":"BL","units":4852},{"bfs":2764,"name":"Biel-Benken","kt":"BL","units":1574},{"bfs":2765,"name":"Binningen","kt":"BL","units":8605},{"bfs":2766,"name":"Birsfelden","kt":"BL","units":5853},{"bfs":2767,"name":"Bottmingen","kt":"BL","units":3484},{"bfs":2768,"name":"Ettingen","kt":"BL","units":2759},{"bfs":2769,"name":"Münchenstein","kt":"BL","units":6235},{"bfs":2770,"name":"Muttenz","kt":"BL","units":9037},{"bfs":2771,"name":"Oberwil (BL)","kt":"BL","units":5574},{"bfs":2772,"name":"Pfeffingen","kt":"BL","units":1094},{"bfs":2773,"name":"Reinach (BL)","kt":"BL","units":10335},{"bfs":2774,"name":"Schönenbuch","kt":"BL","units":689},{"bfs":2775,"name":"Therwil","kt":"BL","units":4869},{"bfs":2781,"name":"Blauen","kt":"BL","units":366},{"bfs":2782,"name":"Brislach","kt":"BL","units":789},{"bfs":2783,"name":"Burg im Leimental","kt":"BL","units":144},{"bfs":2784,"name":"Dittingen","kt":"BL","units":379},{"bfs":2785,"name":"Duggingen","kt":"BL","units":737},{"bfs":2786,"name":"Grellingen","kt":"BL","units":1013},{"bfs":2787,"name":"Laufen","kt":"BL","units":3126},{"bfs":2788,"name":"Liesberg","kt":"BL","units":629},{"bfs":2789,"name":"Nenzlingen","kt":"BL","units":214},{"bfs":2790,"name":"Roggenburg","kt":"BL","units":166},{"bfs":2791,"name":"Röschenz","kt":"BL","units":945},{"bfs":2792,"name":"Wahlen","kt":"BL","units":765},{"bfs":2793,"name":"Zwingen","kt":"BL","units":1360},{"bfs":2821,"name":"Arisdorf","kt":"BL","units":766},{"bfs":2822,"name":"Augst","kt":"BL","units":595},{"bfs":2823,"name":"Bubendorf","kt":"BL","units":2155},{"bfs":2824,"name":"Frenkendorf","kt":"BL","units":3268},{"bfs":2825,"name":"Füllinsdorf","kt":"BL","units":2303},{"bfs":2826,"name":"Giebenach","kt":"BL","units":521},{"bfs":2827,"name":"Hersberg","kt":"BL","units":187},{"bfs":2828,"name":"Lausen","kt":"BL","units":2811},{"bfs":2829,"name":"Liestal","kt":"BL","units":8183},{"bfs":2830,"name":"Lupsingen","kt":"BL","units":692},{"bfs":2831,"name":"Pratteln","kt":"BL","units":8287},{"bfs":2832,"name":"Ramlinsburg","kt":"BL","units":337},{"bfs":2833,"name":"Seltisberg","kt":"BL","units":619},{"bfs":2834,"name":"Ziefen","kt":"BL","units":753},{"bfs":2841,"name":"Anwil","kt":"BL","units":262},{"bfs":2842,"name":"Böckten","kt":"BL","units":410},{"bfs":2843,"name":"Buckten","kt":"BL","units":347},{"bfs":2844,"name":"Buus","kt":"BL","units":524},{"bfs":2845,"name":"Diepflingen","kt":"BL","units":356},{"bfs":2846,"name":"Gelterkinden","kt":"BL","units":3211},{"bfs":2847,"name":"Häfelfingen","kt":"BL","units":123},{"bfs":2848,"name":"Hemmiken","kt":"BL","units":143},{"bfs":2849,"name":"Itingen","kt":"BL","units":1123},{"bfs":2850,"name":"Känerkinden","kt":"BL","units":266},{"bfs":2851,"name":"Kilchberg (BL)","kt":"BL","units":78},{"bfs":2852,"name":"Läufelfingen","kt":"BL","units":726},{"bfs":2853,"name":"Maisprach","kt":"BL","units":489},{"bfs":2854,"name":"Nusshof","kt":"BL","units":131},{"bfs":2855,"name":"Oltingen","kt":"BL","units":261},{"bfs":2856,"name":"Ormalingen","kt":"BL","units":1108},{"bfs":2857,"name":"Rickenbach (BL)","kt":"BL","units":287},{"bfs":2858,"name":"Rothenfluh","kt":"BL","units":403},{"bfs":2859,"name":"Rümlingen","kt":"BL","units":192},{"bfs":2860,"name":"Rünenberg","kt":"BL","units":406},{"bfs":2861,"name":"Sissach","kt":"BL","units":3473},{"bfs":2862,"name":"Tecknau","kt":"BL","units":387},{"bfs":2863,"name":"Tenniken","kt":"BL","units":428},{"bfs":2864,"name":"Thürnen","kt":"BL","units":712},{"bfs":2865,"name":"Wenslingen","kt":"BL","units":350},{"bfs":2866,"name":"Wintersingen","kt":"BL","units":312},{"bfs":2867,"name":"Wittinsburg","kt":"BL","units":212},{"bfs":2868,"name":"Zeglingen","kt":"BL","units":248},{"bfs":2869,"name":"Zunzgen","kt":"BL","units":1344},{"bfs":2881,"name":"Arboldswil","kt":"BL","units":284},{"bfs":2882,"name":"Bennwil","kt":"BL","units":313},{"bfs":2883,"name":"Bretzwil","kt":"BL","units":349},{"bfs":2884,"name":"Diegten","kt":"BL","units":769},{"bfs":2885,"name":"Eptingen","kt":"BL","units":280},{"bfs":2886,"name":"Hölstein","kt":"BL","units":1188},{"bfs":2887,"name":"Lampenberg","kt":"BL","units":269},{"bfs":2888,"name":"Langenbruck","kt":"BL","units":541},{"bfs":2889,"name":"Lauwil","kt":"BL","units":184},{"bfs":2890,"name":"Liedertswil","kt":"BL","units":80},{"bfs":2891,"name":"Niederdorf","kt":"BL","units":879},{"bfs":2892,"name":"Oberdorf (BL)","kt":"BL","units":1237},{"bfs":2893,"name":"Reigoldswil","kt":"BL","units":807},{"bfs":2894,"name":"Titterten","kt":"BL","units":227},{"bfs":2895,"name":"Waldenburg","kt":"BL","units":672},{"bfs":2901,"name":"Gächlingen","kt":"SH","units":493},{"bfs":2903,"name":"Löhningen","kt":"SH","units":758},{"bfs":2904,"name":"Neunkirch","kt":"SH","units":1333},{"bfs":2914,"name":"Büttenhardt","kt":"SH","units":204},{"bfs":2915,"name":"Dörflingen","kt":"SH","units":495},{"bfs":2917,"name":"Lohn (SH)","kt":"SH","units":352},{"bfs":2919,"name":"Stetten (SH)","kt":"SH","units":601},{"bfs":2920,"name":"Thayngen","kt":"SH","units":2887},{"bfs":2931,"name":"Bargen (SH)","kt":"SH","units":178},{"bfs":2932,"name":"Beringen","kt":"SH","units":2490},{"bfs":2933,"name":"Buchberg","kt":"SH","units":408},{"bfs":2936,"name":"Merishausen","kt":"SH","units":467},{"bfs":2937,"name":"Neuhausen am Rheinfall","kt":"SH","units":6274},{"bfs":2938,"name":"Rüdlingen","kt":"SH","units":397},{"bfs":2939,"name":"Schaffhausen","kt":"SH","units":20874},{"bfs":2951,"name":"Beggingen","kt":"SH","units":266},{"bfs":2952,"name":"Schleitheim","kt":"SH","units":966},{"bfs":2953,"name":"Siblingen","kt":"SH","units":450},{"bfs":2961,"name":"Buch (SH)","kt":"SH","units":169},{"bfs":2962,"name":"Hemishofen","kt":"SH","units":252},{"bfs":2963,"name":"Ramsen","kt":"SH","units":807},{"bfs":2964,"name":"Stein am Rhein","kt":"SH","units":2298},{"bfs":2971,"name":"Hallau","kt":"SH","units":1275},{"bfs":2972,"name":"Oberhallau","kt":"SH","units":228},{"bfs":2973,"name":"Trasadingen","kt":"SH","units":342},{"bfs":2974,"name":"Wilchingen","kt":"SH","units":846},{"bfs":3001,"name":"Herisau","kt":"AR","units":8789},{"bfs":3002,"name":"Hundwil","kt":"AR","units":503},{"bfs":3003,"name":"Schönengrund","kt":"AR","units":299},{"bfs":3004,"name":"Schwellbrunn","kt":"AR","units":761},{"bfs":3005,"name":"Stein (AR)","kt":"AR","units":732},{"bfs":3006,"name":"Urnäsch","kt":"AR","units":1441},{"bfs":3007,"name":"Waldstatt","kt":"AR","units":918},{"bfs":3021,"name":"Bühler","kt":"AR","units":971},{"bfs":3022,"name":"Gais","kt":"AR","units":1662},{"bfs":3023,"name":"Speicher","kt":"AR","units":2184},{"bfs":3024,"name":"Teufen (AR)","kt":"AR","units":3418},{"bfs":3025,"name":"Trogen","kt":"AR","units":999},{"bfs":3031,"name":"Grub (AR)","kt":"AR","units":480},{"bfs":3032,"name":"Heiden","kt":"AR","units":2317},{"bfs":3033,"name":"Lutzenberg","kt":"AR","units":752},{"bfs":3034,"name":"Rehetobel","kt":"AR","units":927},{"bfs":3035,"name":"Reute (AR)","kt":"AR","units":418},{"bfs":3036,"name":"Wald (AR)","kt":"AR","units":494},{"bfs":3037,"name":"Walzenhausen","kt":"AR","units":1256},{"bfs":3038,"name":"Wolfhalden","kt":"AR","units":1049},{"bfs":3101,"name":"Appenzell","kt":"AI","units":3214},{"bfs":3102,"name":"Gonten","kt":"AI","units":725},{"bfs":3104,"name":"Schlatt-Haslen","kt":"AI","units":550},{"bfs":3111,"name":"Oberegg","kt":"AI","units":1044},{"bfs":3112,"name":"Schwende-Rüte","kt":"AI","units":3114},{"bfs":3201,"name":"Häggenschwil","kt":"SG","units":573},{"bfs":3202,"name":"Muolen","kt":"SG","units":553},{"bfs":3203,"name":"St. Gallen","kt":"SG","units":45593},{"bfs":3204,"name":"Wittenbach","kt":"SG","units":4775},{"bfs":3211,"name":"Berg (SG)","kt":"SG","units":456},{"bfs":3212,"name":"Eggersriet","kt":"SG","units":1101},{"bfs":3213,"name":"Goldach","kt":"SG","units":4887},{"bfs":3214,"name":"Mörschwil","kt":"SG","units":1621},{"bfs":3215,"name":"Rorschach","kt":"SG","units":5809},{"bfs":3216,"name":"Rorschacherberg","kt":"SG","units":3890},{"bfs":3217,"name":"Steinach","kt":"SG","units":1802},{"bfs":3218,"name":"Tübach","kt":"SG","units":710},{"bfs":3219,"name":"Untereggen","kt":"SG","units":453},{"bfs":3231,"name":"Au (SG)","kt":"SG","units":4200},{"bfs":3232,"name":"Balgach","kt":"SG","units":2563},{"bfs":3233,"name":"Berneck","kt":"SG","units":1945},{"bfs":3234,"name":"Diepoldsau","kt":"SG","units":3054},{"bfs":3235,"name":"Rheineck","kt":"SG","units":1896},{"bfs":3236,"name":"St. Margrethen","kt":"SG","units":3178},{"bfs":3237,"name":"Thal","kt":"SG","units":3578},{"bfs":3238,"name":"Widnau","kt":"SG","units":4758},{"bfs":3251,"name":"Altstätten","kt":"SG","units":6531},{"bfs":3252,"name":"Eichberg","kt":"SG","units":717},{"bfs":3253,"name":"Marbach (SG)","kt":"SG","units":1017},{"bfs":3254,"name":"Oberriet (SG)","kt":"SG","units":4201},{"bfs":3255,"name":"Rebstein","kt":"SG","units":2496},{"bfs":3256,"name":"Rüthi (SG)","kt":"SG","units":1255},{"bfs":3271,"name":"Buchs (SG)","kt":"SG","units":6838},{"bfs":3272,"name":"Gams","kt":"SG","units":1731},{"bfs":3273,"name":"Grabs","kt":"SG","units":3861},{"bfs":3274,"name":"Sennwald","kt":"SG","units":3149},{"bfs":3275,"name":"Sevelen","kt":"SG","units":2727},{"bfs":3276,"name":"Wartau","kt":"SG","units":2782},{"bfs":3291,"name":"Bad Ragaz","kt":"SG","units":3830},{"bfs":3292,"name":"Flums","kt":"SG","units":4217},{"bfs":3293,"name":"Mels","kt":"SG","units":4738},{"bfs":3294,"name":"Pfäfers","kt":"SG","units":1151},{"bfs":3295,"name":"Quarten","kt":"SG","units":2331},{"bfs":3296,"name":"Sargans","kt":"SG","units":3224},{"bfs":3297,"name":"Vilters-Wangs","kt":"SG","units":2486},{"bfs":3298,"name":"Walenstadt","kt":"SG","units":3298},{"bfs":3311,"name":"Amden","kt":"SG","units":1708},{"bfs":3312,"name":"Benken (SG)","kt":"SG","units":1369},{"bfs":3313,"name":"Kaltbrunn","kt":"SG","units":2346},{"bfs":3315,"name":"Schänis","kt":"SG","units":1869},{"bfs":3316,"name":"Weesen","kt":"SG","units":1012},{"bfs":3338,"name":"Schmerikon","kt":"SG","units":2016},{"bfs":3339,"name":"Uznach","kt":"SG","units":3095},{"bfs":3340,"name":"Rapperswil-Jona","kt":"SG","units":14432},{"bfs":3341,"name":"Gommiswald","kt":"SG","units":2885},{"bfs":3342,"name":"Eschenbach (SG)","kt":"SG","units":4950},{"bfs":3352,"name":"Ebnat-Kappel","kt":"SG","units":2877},{"bfs":3359,"name":"Wildhaus-Alt St. Johann","kt":"SG","units":3260},{"bfs":3360,"name":"Nesslau","kt":"SG","units":2437},{"bfs":3374,"name":"Lichtensteig","kt":"SG","units":1207},{"bfs":3379,"name":"Wattwil","kt":"SG","units":4653},{"bfs":3392,"name":"Kirchberg (SG)","kt":"SG","units":4362},{"bfs":3393,"name":"Lütisburg","kt":"SG","units":751},{"bfs":3394,"name":"Mosnang","kt":"SG","units":1325},{"bfs":3395,"name":"Bütschwil-Ganterschwil","kt":"SG","units":2508},{"bfs":3396,"name":"Neckertal","kt":"SG","units":3442},{"bfs":3401,"name":"Degersheim","kt":"SG","units":2043},{"bfs":3402,"name":"Flawil","kt":"SG","units":5122},{"bfs":3405,"name":"Jonschwil","kt":"SG","units":1783},{"bfs":3407,"name":"Oberuzwil","kt":"SG","units":3065},{"bfs":3408,"name":"Uzwil","kt":"SG","units":6685},{"bfs":3422,"name":"Niederbüren","kt":"SG","units":623},{"bfs":3423,"name":"Niederhelfenschwil","kt":"SG","units":1374},{"bfs":3424,"name":"Oberbüren","kt":"SG","units":2076},{"bfs":3426,"name":"Zuzwil (SG)","kt":"SG","units":2249},{"bfs":3427,"name":"Wil (SG)","kt":"SG","units":12353},{"bfs":3441,"name":"Andwil (SG)","kt":"SG","units":888},{"bfs":3442,"name":"Gaiserwald","kt":"SG","units":4075},{"bfs":3443,"name":"Gossau (SG)","kt":"SG","units":9019},{"bfs":3444,"name":"Waldkirch","kt":"SG","units":1490},{"bfs":3506,"name":"Vaz/Obervaz","kt":"GR","units":5829},{"bfs":3513,"name":"Lantsch/Lenz","kt":"GR","units":1037},{"bfs":3514,"name":"Schmitten (GR)","kt":"GR","units":308},{"bfs":3542,"name":"Albula/Alvra","kt":"GR","units":1522},{"bfs":3543,"name":"Surses","kt":"GR","units":4832},{"bfs":3544,"name":"Bergün Filisur","kt":"GR","units":1417},{"bfs":3551,"name":"Brusio","kt":"GR","units":909},{"bfs":3561,"name":"Poschiavo","kt":"GR","units":2813},{"bfs":3572,"name":"Falera","kt":"GR","units":1369},{"bfs":3575,"name":"Laax","kt":"GR","units":4169},{"bfs":3581,"name":"Sagogn","kt":"GR","units":788},{"bfs":3582,"name":"Schluein","kt":"GR","units":584},{"bfs":3603,"name":"Vals","kt":"GR","units":1076},{"bfs":3618,"name":"Lumnezia","kt":"GR","units":2600},{"bfs":3619,"name":"Ilanz/Glion","kt":"GR","units":3584},{"bfs":3633,"name":"Fürstenau","kt":"GR","units":208},{"bfs":3637,"name":"Rothenbrunnen","kt":"GR","units":166},{"bfs":3638,"name":"Scharans","kt":"GR","units":515},{"bfs":3640,"name":"Sils im Domleschg","kt":"GR","units":522},{"bfs":3661,"name":"Cazis","kt":"GR","units":1637},{"bfs":3662,"name":"Flerden","kt":"GR","units":164},{"bfs":3663,"name":"Masein","kt":"GR","units":254},{"bfs":3668,"name":"Thusis","kt":"GR","units":2025},{"bfs":3669,"name":"Tschappina","kt":"GR","units":257},{"bfs":3670,"name":"Urmein","kt":"GR","units":255},{"bfs":3672,"name":"Safiental","kt":"GR","units":808},{"bfs":3673,"name":"Domleschg","kt":"GR","units":1365},{"bfs":3681,"name":"Avers","kt":"GR","units":245},{"bfs":3695,"name":"Sufers","kt":"GR","units":147},{"bfs":3701,"name":"Andeer","kt":"GR","units":841},{"bfs":3711,"name":"Rongellen","kt":"GR","units":25},{"bfs":3712,"name":"Zillis-Reischen","kt":"GR","units":291},{"bfs":3713,"name":"Ferrera","kt":"GR","units":163},{"bfs":3714,"name":"Rheinwald","kt":"GR","units":812},{"bfs":3715,"name":"Muntogna da Schons","kt":"GR","units":422},{"bfs":3721,"name":"Bonaduz","kt":"GR","units":1767},{"bfs":3722,"name":"Domat/Ems","kt":"GR","units":3960},{"bfs":3723,"name":"Rhäzüns","kt":"GR","units":784},{"bfs":3731,"name":"Felsberg","kt":"GR","units":1302},{"bfs":3732,"name":"Flims","kt":"GR","units":5289},{"bfs":3733,"name":"Tamins","kt":"GR","units":749},{"bfs":3734,"name":"Trin","kt":"GR","units":1268},{"bfs":3746,"name":"Zernez","kt":"GR","units":1327},{"bfs":3752,"name":"Samnaun","kt":"GR","units":1115},{"bfs":3762,"name":"Scuol","kt":"GR","units":5521},{"bfs":3764,"name":"Valsot","kt":"GR","units":737},{"bfs":3781,"name":"Bever","kt":"GR","units":657},{"bfs":3782,"name":"Celerina/Schlarigna","kt":"GR","units":2444},{"bfs":3783,"name":"Madulain","kt":"GR","units":435},{"bfs":3784,"name":"Pontresina","kt":"GR","units":2335},{"bfs":3785,"name":"La Punt Chamues-ch","kt":"GR","units":1248},{"bfs":3786,"name":"Samedan","kt":"GR","units":2816},{"bfs":3787,"name":"St. Moritz","kt":"GR","units":5963},{"bfs":3788,"name":"S-chanf","kt":"GR","units":626},{"bfs":3789,"name":"Sils im Engadin/Segl","kt":"GR","units":1200},{"bfs":3790,"name":"Silvaplana","kt":"GR","units":2515},{"bfs":3791,"name":"Zuoz","kt":"GR","units":1604},{"bfs":3792,"name":"Bregaglia","kt":"GR","units":2094},{"bfs":3804,"name":"Buseno","kt":"GR","units":196},{"bfs":3805,"name":"Castaneda","kt":"GR","units":241},{"bfs":3808,"name":"Rossa","kt":"GR","units":341},{"bfs":3810,"name":"Santa Maria in Calanca","kt":"GR","units":239},{"bfs":3821,"name":"Lostallo","kt":"GR","units":520},{"bfs":3822,"name":"Mesocco","kt":"GR","units":2351},{"bfs":3823,"name":"Soazza","kt":"GR","units":309},{"bfs":3831,"name":"Cama","kt":"GR","units":432},{"bfs":3832,"name":"Grono","kt":"GR","units":960},{"bfs":3834,"name":"Roveredo (GR)","kt":"GR","units":1794},{"bfs":3835,"name":"San Vittore","kt":"GR","units":601},{"bfs":3837,"name":"Calanca","kt":"GR","units":529},{"bfs":3847,"name":"Val Müstair","kt":"GR","units":1351},{"bfs":3851,"name":"Davos","kt":"GR","units":12899},{"bfs":3861,"name":"Fideris","kt":"GR","units":595},{"bfs":3862,"name":"Furna","kt":"GR","units":261},{"bfs":3863,"name":"Jenaz","kt":"GR","units":768},{"bfs":3871,"name":"Klosters","kt":"GR","units":6477},{"bfs":3881,"name":"Conters im Prättigau","kt":"GR","units":223},{"bfs":3882,"name":"Küblis","kt":"GR","units":649},{"bfs":3891,"name":"Luzein","kt":"GR","units":1656},{"bfs":3901,"name":"Chur","kt":"GR","units":21635},{"bfs":3911,"name":"Churwalden","kt":"GR","units":2665},{"bfs":3921,"name":"Arosa","kt":"GR","units":6054},{"bfs":3932,"name":"Tschiertschen-Praden","kt":"GR","units":562},{"bfs":3945,"name":"Trimmis","kt":"GR","units":1670},{"bfs":3946,"name":"Untervaz","kt":"GR","units":1432},{"bfs":3947,"name":"Zizers","kt":"GR","units":1882},{"bfs":3951,"name":"Fläsch","kt":"GR","units":467},{"bfs":3952,"name":"Jenins","kt":"GR","units":511},{"bfs":3953,"name":"Maienfeld","kt":"GR","units":1778},{"bfs":3954,"name":"Malans","kt":"GR","units":1255},{"bfs":3955,"name":"Landquart","kt":"GR","units":4404},{"bfs":3961,"name":"Grüsch","kt":"GR","units":1502},{"bfs":3962,"name":"Schiers","kt":"GR","units":1841},{"bfs":3972,"name":"Seewis im Prättigau","kt":"GR","units":1020},{"bfs":3981,"name":"Breil/Brigels","kt":"GR","units":2480},{"bfs":3982,"name":"Disentis/Mustér","kt":"GR","units":2426},{"bfs":3983,"name":"Medel (Lucmagn)","kt":"GR","units":457},{"bfs":3985,"name":"Sumvitg","kt":"GR","units":1062},{"bfs":3986,"name":"Tujetsch","kt":"GR","units":1965},{"bfs":3987,"name":"Trun","kt":"GR","units":982},{"bfs":3988,"name":"Obersaxen Mundaun","kt":"GR","units":2832},{"bfs":4001,"name":"Aarau","kt":"AG","units":12500},{"bfs":4002,"name":"Biberstein","kt":"AG","units":810},{"bfs":4003,"name":"Buchs (AG)","kt":"AG","units":3907},{"bfs":4004,"name":"Densbüren","kt":"AG","units":393},{"bfs":4005,"name":"Erlinsbach (AG)","kt":"AG","units":2122},{"bfs":4006,"name":"Gränichen","kt":"AG","units":3928},{"bfs":4007,"name":"Hirschthal","kt":"AG","units":837},{"bfs":4008,"name":"Küttigen","kt":"AG","units":3370},{"bfs":4009,"name":"Muhen","kt":"AG","units":1876},{"bfs":4010,"name":"Oberentfelden","kt":"AG","units":4126},{"bfs":4012,"name":"Suhr","kt":"AG","units":5362},{"bfs":4013,"name":"Unterentfelden","kt":"AG","units":2112},{"bfs":4021,"name":"Baden","kt":"AG","units":12767},{"bfs":4022,"name":"Bellikon","kt":"AG","units":783},{"bfs":4023,"name":"Bergdietikon","kt":"AG","units":1370},{"bfs":4024,"name":"Birmenstorf (AG)","kt":"AG","units":1375},{"bfs":4026,"name":"Ennetbaden","kt":"AG","units":1889},{"bfs":4027,"name":"Fislisbach","kt":"AG","units":2877},{"bfs":4028,"name":"Freienwil","kt":"AG","units":476},{"bfs":4029,"name":"Gebenstorf","kt":"AG","units":2767},{"bfs":4030,"name":"Killwangen","kt":"AG","units":965},{"bfs":4031,"name":"Künten","kt":"AG","units":897},{"bfs":4032,"name":"Mägenwil","kt":"AG","units":949},{"bfs":4033,"name":"Mellingen","kt":"AG","units":2884},{"bfs":4034,"name":"Neuenhof","kt":"AG","units":4255},{"bfs":4035,"name":"Niederrohrdorf","kt":"AG","units":2188},{"bfs":4037,"name":"Oberrohrdorf","kt":"AG","units":1999},{"bfs":4038,"name":"Obersiggenthal","kt":"AG","units":4223},{"bfs":4039,"name":"Remetschwil","kt":"AG","units":932},{"bfs":4040,"name":"Spreitenbach","kt":"AG","units":5398},{"bfs":4041,"name":"Stetten (AG)","kt":"AG","units":1099},{"bfs":4044,"name":"Untersiggenthal","kt":"AG","units":3566},{"bfs":4045,"name":"Wettingen","kt":"AG","units":10794},{"bfs":4046,"name":"Wohlenschwil","kt":"AG","units":809},{"bfs":4047,"name":"Würenlingen","kt":"AG","units":2317},{"bfs":4048,"name":"Würenlos","kt":"AG","units":3039},{"bfs":4049,"name":"Ehrendingen","kt":"AG","units":2224},{"bfs":4061,"name":"Arni (AG)","kt":"AG","units":858},{"bfs":4062,"name":"Berikon","kt":"AG","units":2310},{"bfs":4063,"name":"Bremgarten (AG)","kt":"AG","units":4428},{"bfs":4064,"name":"Büttikon","kt":"AG","units":487},{"bfs":4065,"name":"Dottikon","kt":"AG","units":1906},{"bfs":4066,"name":"Eggenwil","kt":"AG","units":457},{"bfs":4067,"name":"Fischbach-Göslikon","kt":"AG","units":768},{"bfs":4068,"name":"Hägglingen","kt":"AG","units":1202},{"bfs":4071,"name":"Jonen","kt":"AG","units":1018},{"bfs":4072,"name":"Niederwil (AG)","kt":"AG","units":1373},{"bfs":4073,"name":"Oberlunkhofen","kt":"AG","units":1033},{"bfs":4074,"name":"Oberwil-Lieli","kt":"AG","units":1264},{"bfs":4075,"name":"Rudolfstetten-Friedlisberg","kt":"AG","units":2110},{"bfs":4076,"name":"Sarmenstorf","kt":"AG","units":1451},{"bfs":4077,"name":"Tägerig","kt":"AG","units":652},{"bfs":4078,"name":"Uezwil","kt":"AG","units":252},{"bfs":4079,"name":"Unterlunkhofen","kt":"AG","units":782},{"bfs":4080,"name":"Villmergen","kt":"AG","units":3634},{"bfs":4081,"name":"Widen","kt":"AG","units":1826},{"bfs":4082,"name":"Wohlen (AG)","kt":"AG","units":8158},{"bfs":4083,"name":"Zufikon","kt":"AG","units":2231},{"bfs":4084,"name":"Islisberg","kt":"AG","units":308},{"bfs":4091,"name":"Auenstein","kt":"AG","units":828},{"bfs":4092,"name":"Birr","kt":"AG","units":2022},{"bfs":4093,"name":"Birrhard","kt":"AG","units":457},{"bfs":4095,"name":"Brugg","kt":"AG","units":6682},{"bfs":4099,"name":"Habsburg","kt":"AG","units":205},{"bfs":4100,"name":"Hausen (AG)","kt":"AG","units":1760},{"bfs":4104,"name":"Lupfig","kt":"AG","units":1610},{"bfs":4105,"name":"Mandach","kt":"AG","units":164},{"bfs":4106,"name":"Mönthal","kt":"AG","units":211},{"bfs":4107,"name":"Mülligen","kt":"AG","units":512},{"bfs":4110,"name":"Remigen","kt":"AG","units":676},{"bfs":4111,"name":"Riniken","kt":"AG","units":704},{"bfs":4112,"name":"Rüfenach","kt":"AG","units":385},{"bfs":4117,"name":"Thalheim (AG)","kt":"AG","units":456},{"bfs":4120,"name":"Veltheim (AG)","kt":"AG","units":716},{"bfs":4121,"name":"Villigen","kt":"AG","units":1098},{"bfs":4122,"name":"Villnachern","kt":"AG","units":771},{"bfs":4123,"name":"Windisch","kt":"AG","units":3867},{"bfs":4124,"name":"Bözberg","kt":"AG","units":818},{"bfs":4125,"name":"Schinznach","kt":"AG","units":1205},{"bfs":4131,"name":"Beinwil am See","kt":"AG","units":1899},{"bfs":4132,"name":"Birrwil","kt":"AG","units":794},{"bfs":4134,"name":"Dürrenäsch","kt":"AG","units":603},{"bfs":4135,"name":"Gontenschwil","kt":"AG","units":1164},{"bfs":4136,"name":"Holziken","kt":"AG","units":827},{"bfs":4137,"name":"Leimbach (AG)","kt":"AG","units":237},{"bfs":4138,"name":"Leutwil","kt":"AG","units":358},{"bfs":4139,"name":"Menziken","kt":"AG","units":4150},{"bfs":4140,"name":"Oberkulm","kt":"AG","units":1412},{"bfs":4141,"name":"Reinach (AG)","kt":"AG","units":4635},{"bfs":4142,"name":"Schlossrued","kt":"AG","units":425},{"bfs":4143,"name":"Schmiedrued","kt":"AG","units":600},{"bfs":4144,"name":"Schöftland","kt":"AG","units":2305},{"bfs":4145,"name":"Teufenthal (AG)","kt":"AG","units":853},{"bfs":4146,"name":"Unterkulm","kt":"AG","units":1747},{"bfs":4147,"name":"Zetzwil","kt":"AG","units":655},{"bfs":4161,"name":"Eiken","kt":"AG","units":1215},{"bfs":4163,"name":"Frick","kt":"AG","units":2768},{"bfs":4164,"name":"Gansingen","kt":"AG","units":506},{"bfs":4165,"name":"Gipf-Oberfrick","kt":"AG","units":1826},{"bfs":4169,"name":"Kaisten","kt":"AG","units":1428},{"bfs":4170,"name":"Laufenburg","kt":"AG","units":1935},{"bfs":4172,"name":"Münchwilen (AG)","kt":"AG","units":513},{"bfs":4173,"name":"Oberhof","kt":"AG","units":266},{"bfs":4175,"name":"Oeschgen","kt":"AG","units":544},{"bfs":4176,"name":"Schwaderloch","kt":"AG","units":362},{"bfs":4177,"name":"Sisseln","kt":"AG","units":782},{"bfs":4181,"name":"Wittnau","kt":"AG","units":670},{"bfs":4182,"name":"Wölflinswil","kt":"AG","units":530},{"bfs":4183,"name":"Zeihen","kt":"AG","units":590},{"bfs":4184,"name":"Mettauertal","kt":"AG","units":1069},{"bfs":4185,"name":"Böztal","kt":"AG","units":1393},{"bfs":4186,"name":"Herznach-Ueken","kt":"AG","units":1203},{"bfs":4191,"name":"Ammerswil","kt":"AG","units":341},{"bfs":4192,"name":"Boniswil","kt":"AG","units":882},{"bfs":4193,"name":"Brunegg","kt":"AG","units":422},{"bfs":4194,"name":"Dintikon","kt":"AG","units":1019},{"bfs":4195,"name":"Egliswil","kt":"AG","units":774},{"bfs":4196,"name":"Fahrwangen","kt":"AG","units":1205},{"bfs":4197,"name":"Hallwil","kt":"AG","units":524},{"bfs":4198,"name":"Hendschiken","kt":"AG","units":627},{"bfs":4199,"name":"Holderbank (AG)","kt":"AG","units":796},{"bfs":4200,"name":"Hunzenschwil","kt":"AG","units":1933},{"bfs":4201,"name":"Lenzburg","kt":"AG","units":5822},{"bfs":4202,"name":"Meisterschwanden","kt":"AG","units":1700},{"bfs":4203,"name":"Möriken-Wildegg","kt":"AG","units":2251},{"bfs":4204,"name":"Niederlenz","kt":"AG","units":2157},{"bfs":4205,"name":"Othmarsingen","kt":"AG","units":1446},{"bfs":4206,"name":"Rupperswil","kt":"AG","units":2798},{"bfs":4207,"name":"Schafisheim","kt":"AG","units":1418},{"bfs":4208,"name":"Seengen","kt":"AG","units":2121},{"bfs":4209,"name":"Seon","kt":"AG","units":2646},{"bfs":4210,"name":"Staufen","kt":"AG","units":2033},{"bfs":4221,"name":"Abtwil","kt":"AG","units":497},{"bfs":4222,"name":"Aristau","kt":"AG","units":726},{"bfs":4223,"name":"Auw","kt":"AG","units":943},{"bfs":4224,"name":"Beinwil (Freiamt)","kt":"AG","units":590},{"bfs":4226,"name":"Besenbüren","kt":"AG","units":276},{"bfs":4227,"name":"Bettwil","kt":"AG","units":344},{"bfs":4228,"name":"Boswil","kt":"AG","units":1439},{"bfs":4229,"name":"Bünzen","kt":"AG","units":560},{"bfs":4230,"name":"Buttwil","kt":"AG","units":564},{"bfs":4231,"name":"Dietwil","kt":"AG","units":645},{"bfs":4232,"name":"Geltwil","kt":"AG","units":96},{"bfs":4233,"name":"Kallern","kt":"AG","units":162},{"bfs":4234,"name":"Merenschwand","kt":"AG","units":1657},{"bfs":4235,"name":"Mühlau","kt":"AG","units":645},{"bfs":4236,"name":"Muri (AG)","kt":"AG","units":4229},{"bfs":4237,"name":"Oberrüti","kt":"AG","units":651},{"bfs":4238,"name":"Rottenschwil","kt":"AG","units":477},{"bfs":4239,"name":"Sins","kt":"AG","units":1988},{"bfs":4240,"name":"Waltenschwil","kt":"AG","units":1459},{"bfs":4251,"name":"Hellikon","kt":"AG","units":412},{"bfs":4252,"name":"Kaiseraugst","kt":"AG","units":2798},{"bfs":4253,"name":"Magden","kt":"AG","units":1758},{"bfs":4254,"name":"Möhlin","kt":"AG","units":5149},{"bfs":4255,"name":"Mumpf","kt":"AG","units":734},{"bfs":4256,"name":"Obermumpf","kt":"AG","units":550},{"bfs":4257,"name":"Olsberg","kt":"AG","units":187},{"bfs":4258,"name":"Rheinfelden","kt":"AG","units":7231},{"bfs":4259,"name":"Schupfart","kt":"AG","units":457},{"bfs":4260,"name":"Stein (AG)","kt":"AG","units":1712},{"bfs":4261,"name":"Wallbach","kt":"AG","units":1006},{"bfs":4262,"name":"Wegenstetten","kt":"AG","units":496},{"bfs":4263,"name":"Zeiningen","kt":"AG","units":1189},{"bfs":4264,"name":"Zuzgen","kt":"AG","units":422},{"bfs":4271,"name":"Aarburg","kt":"AG","units":4310},{"bfs":4273,"name":"Bottenwil","kt":"AG","units":415},{"bfs":4274,"name":"Brittnau","kt":"AG","units":2042},{"bfs":4275,"name":"Kirchleerau","kt":"AG","units":453},{"bfs":4276,"name":"Kölliken","kt":"AG","units":2313},{"bfs":4277,"name":"Moosleerau","kt":"AG","units":455},{"bfs":4279,"name":"Murgenthal","kt":"AG","units":1508},{"bfs":4280,"name":"Oftringen","kt":"AG","units":7002},{"bfs":4281,"name":"Reitnau","kt":"AG","units":752},{"bfs":4282,"name":"Rothrist","kt":"AG","units":4473},{"bfs":4283,"name":"Safenwil","kt":"AG","units":2158},{"bfs":4284,"name":"Staffelbach","kt":"AG","units":662},{"bfs":4285,"name":"Strengelbach","kt":"AG","units":2447},{"bfs":4286,"name":"Uerkheim","kt":"AG","units":759},{"bfs":4287,"name":"Vordemwald","kt":"AG","units":923},{"bfs":4288,"name":"Wiliberg","kt":"AG","units":79},{"bfs":4289,"name":"Zofingen","kt":"AG","units":6770},{"bfs":4303,"name":"Böttstein","kt":"AG","units":1988},{"bfs":4304,"name":"Döttingen","kt":"AG","units":2072},{"bfs":4305,"name":"Endingen","kt":"AG","units":1250},{"bfs":4306,"name":"Fisibach","kt":"AG","units":260},{"bfs":4307,"name":"Full-Reuenthal","kt":"AG","units":459},{"bfs":4309,"name":"Klingnau","kt":"AG","units":1765},{"bfs":4310,"name":"Koblenz","kt":"AG","units":866},{"bfs":4311,"name":"Leibstadt","kt":"AG","units":790},{"bfs":4312,"name":"Lengnau (AG)","kt":"AG","units":1304},{"bfs":4313,"name":"Leuggern","kt":"AG","units":1154},{"bfs":4314,"name":"Mellikon","kt":"AG","units":110},{"bfs":4318,"name":"Schneisingen","kt":"AG","units":748},{"bfs":4319,"name":"Siglistorf","kt":"AG","units":381},{"bfs":4320,"name":"Tegerfelden","kt":"AG","units":640},{"bfs":4324,"name":"Zurzach","kt":"AG","units":4280},{"bfs":4401,"name":"Arbon","kt":"TG","units":8870},{"bfs":4406,"name":"Dozwil","kt":"TG","units":314},{"bfs":4411,"name":"Egnach","kt":"TG","units":2422},{"bfs":4416,"name":"Hefenhofen","kt":"TG","units":630},{"bfs":4421,"name":"Horn","kt":"TG","units":1732},{"bfs":4426,"name":"Kesswil","kt":"TG","units":521},{"bfs":4431,"name":"Roggwil (TG)","kt":"TG","units":1502},{"bfs":4436,"name":"Romanshorn","kt":"TG","units":6378},{"bfs":4441,"name":"Salmsach","kt":"TG","units":768},{"bfs":4446,"name":"Sommeri","kt":"TG","units":332},{"bfs":4451,"name":"Uttwil","kt":"TG","units":1003},{"bfs":4461,"name":"Amriswil","kt":"TG","units":7317},{"bfs":4471,"name":"Bischofszell","kt":"TG","units":3287},{"bfs":4476,"name":"Erlen","kt":"TG","units":1777},{"bfs":4486,"name":"Hauptwil-Gottshaus","kt":"TG","units":977},{"bfs":4495,"name":"Hohentannen","kt":"TG","units":308},{"bfs":4501,"name":"Kradolf-Schönenberg","kt":"TG","units":1841},{"bfs":4506,"name":"Sulgen","kt":"TG","units":1961},{"bfs":4511,"name":"Zihlschlacht-Sitterdorf","kt":"TG","units":1209},{"bfs":4536,"name":"Basadingen-Schlattingen","kt":"TG","units":889},{"bfs":4545,"name":"Diessenhofen","kt":"TG","units":2182},{"bfs":4546,"name":"Schlatt (TG)","kt":"TG","units":911},{"bfs":4551,"name":"Aadorf","kt":"TG","units":4626},{"bfs":4561,"name":"Felben-Wellhausen","kt":"TG","units":1490},{"bfs":4566,"name":"Frauenfeld","kt":"TG","units":13591},{"bfs":4571,"name":"Gachnang","kt":"TG","units":2104},{"bfs":4590,"name":"Hüttlingen","kt":"TG","units":437},{"bfs":4591,"name":"Matzingen","kt":"TG","units":1447},{"bfs":4601,"name":"Neunforn","kt":"TG","units":553},{"bfs":4606,"name":"Stettfurt","kt":"TG","units":552},{"bfs":4611,"name":"Thundorf","kt":"TG","units":812},{"bfs":4616,"name":"Uesslingen-Buch","kt":"TG","units":548},{"bfs":4621,"name":"Warth-Weiningen","kt":"TG","units":671},{"bfs":4641,"name":"Altnau","kt":"TG","units":1136},{"bfs":4643,"name":"Bottighofen","kt":"TG","units":1360},{"bfs":4646,"name":"Ermatingen","kt":"TG","units":2026},{"bfs":4651,"name":"Gottlieben","kt":"TG","units":202},{"bfs":4656,"name":"Güttingen","kt":"TG","units":931},{"bfs":4666,"name":"Kemmental","kt":"TG","units":1259},{"bfs":4671,"name":"Kreuzlingen","kt":"TG","units":12409},{"bfs":4681,"name":"Langrickenbach","kt":"TG","units":694},{"bfs":4683,"name":"Lengwil","kt":"TG","units":770},{"bfs":4691,"name":"Münsterlingen","kt":"TG","units":1920},{"bfs":4696,"name":"Tägerwilen","kt":"TG","units":2598},{"bfs":4701,"name":"Wäldi","kt":"TG","units":544},{"bfs":4711,"name":"Affeltrangen","kt":"TG","units":1288},{"bfs":4716,"name":"Bettwiesen","kt":"TG","units":629},{"bfs":4721,"name":"Bichelsee-Balterswil","kt":"TG","units":1411},{"bfs":4723,"name":"Braunau","kt":"TG","units":405},{"bfs":4724,"name":"Eschlikon","kt":"TG","units":2294},{"bfs":4726,"name":"Fischingen","kt":"TG","units":1432},{"bfs":4741,"name":"Lommis","kt":"TG","units":575},{"bfs":4746,"name":"Münchwilen (TG)","kt":"TG","units":2729},{"bfs":4751,"name":"Rickenbach (TG)","kt":"TG","units":1445},{"bfs":4756,"name":"Schönholzerswilen","kt":"TG","units":374},{"bfs":4761,"name":"Sirnach","kt":"TG","units":3993},{"bfs":4776,"name":"Tobel-Tägerschen","kt":"TG","units":800},{"bfs":4781,"name":"Wängi","kt":"TG","units":2231},{"bfs":4786,"name":"Wilen (TG)","kt":"TG","units":1049},{"bfs":4791,"name":"Wuppenau","kt":"TG","units":513},{"bfs":4801,"name":"Berlingen","kt":"TG","units":627},{"bfs":4806,"name":"Eschenz","kt":"TG","units":961},{"bfs":4811,"name":"Herdern","kt":"TG","units":545},{"bfs":4816,"name":"Homburg","kt":"TG","units":719},{"bfs":4821,"name":"Hüttwilen","kt":"TG","units":840},{"bfs":4826,"name":"Mammern","kt":"TG","units":436},{"bfs":4831,"name":"Müllheim","kt":"TG","units":1560},{"bfs":4841,"name":"Pfyn","kt":"TG","units":1052},{"bfs":4846,"name":"Raperswilen","kt":"TG","units":214},{"bfs":4851,"name":"Salenstein","kt":"TG","units":851},{"bfs":4864,"name":"Steckborn","kt":"TG","units":2396},{"bfs":4871,"name":"Wagenhausen","kt":"TG","units":931},{"bfs":4881,"name":"Amlikon-Bissegg","kt":"TG","units":665},{"bfs":4891,"name":"Berg (TG)","kt":"TG","units":1630},{"bfs":4901,"name":"Birwinken","kt":"TG","units":642},{"bfs":4911,"name":"Bürglen (TG)","kt":"TG","units":2069},{"bfs":4921,"name":"Bussnang","kt":"TG","units":1168},{"bfs":4941,"name":"Märstetten","kt":"TG","units":1401},{"bfs":4946,"name":"Weinfelden","kt":"TG","units":6222},{"bfs":4951,"name":"Wigoltingen","kt":"TG","units":1211},{"bfs":5001,"name":"Arbedo-Castione","kt":"TI","units":2753},{"bfs":5002,"name":"Bellinzona","kt":"TI","units":27218},{"bfs":5003,"name":"Cadenazzo","kt":"TI","units":1667},{"bfs":5009,"name":"Isone","kt":"TI","units":301},{"bfs":5010,"name":"Lumino","kt":"TI","units":1000},{"bfs":5017,"name":"Sant'Antonino","kt":"TI","units":1431},{"bfs":5048,"name":"Acquarossa","kt":"TI","units":2302},{"bfs":5049,"name":"Blenio","kt":"TI","units":2517},{"bfs":5050,"name":"Serravalle","kt":"TI","units":2453},{"bfs":5061,"name":"Airolo","kt":"TI","units":1567},{"bfs":5063,"name":"Bedretto","kt":"TI","units":203},{"bfs":5064,"name":"Bodio","kt":"TI","units":745},{"bfs":5071,"name":"Dalpe","kt":"TI","units":347},{"bfs":5072,"name":"Faido","kt":"TI","units":3957},{"bfs":5073,"name":"Giornico","kt":"TI","units":610},{"bfs":5076,"name":"Personico","kt":"TI","units":261},{"bfs":5077,"name":"Pollegio","kt":"TI","units":573},{"bfs":5078,"name":"Prato (Leventina)","kt":"TI","units":400},{"bfs":5079,"name":"Quinto","kt":"TI","units":1193},{"bfs":5091,"name":"Ascona","kt":"TI","units":6285},{"bfs":5096,"name":"Brione sopra Minusio","kt":"TI","units":787},{"bfs":5097,"name":"Brissago","kt":"TI","units":3181},{"bfs":5108,"name":"Gordola","kt":"TI","units":3152},{"bfs":5112,"name":"Lavertezzo","kt":"TI","units":702},{"bfs":5113,"name":"Locarno","kt":"TI","units":12298},{"bfs":5115,"name":"Losone","kt":"TI","units":4237},{"bfs":5117,"name":"Mergoscia","kt":"TI","units":545},{"bfs":5118,"name":"Minusio","kt":"TI","units":6263},{"bfs":5120,"name":"Muralto","kt":"TI","units":2712},{"bfs":5121,"name":"Orselina","kt":"TI","units":1231},{"bfs":5125,"name":"Ronco sopra Ascona","kt":"TI","units":1294},{"bfs":5131,"name":"Tenero-Contra","kt":"TI","units":2163},{"bfs":5136,"name":"Onsernone","kt":"TI","units":1532},{"bfs":5138,"name":"Cugnasco-Gerra","kt":"TI","units":1951},{"bfs":5141,"name":"Agno","kt":"TI","units":2815},{"bfs":5143,"name":"Aranno","kt":"TI","units":259},{"bfs":5144,"name":"Arogno","kt":"TI","units":711},{"bfs":5146,"name":"Astano","kt":"TI","units":366},{"bfs":5148,"name":"Bedano","kt":"TI","units":715},{"bfs":5149,"name":"Bedigliora","kt":"TI","units":436},{"bfs":5151,"name":"Bioggio","kt":"TI","units":1658},{"bfs":5154,"name":"Bissone","kt":"TI","units":866},{"bfs":5160,"name":"Brusino Arsizio","kt":"TI","units":530},{"bfs":5161,"name":"Cademario","kt":"TI","units":610},{"bfs":5162,"name":"Cadempino","kt":"TI","units":829},{"bfs":5167,"name":"Canobbio","kt":"TI","units":1329},{"bfs":5171,"name":"Caslano","kt":"TI","units":3021},{"bfs":5176,"name":"Comano","kt":"TI","units":1117},{"bfs":5180,"name":"Cureglia","kt":"TI","units":771},{"bfs":5181,"name":"Curio","kt":"TI","units":414},{"bfs":5186,"name":"Grancia","kt":"TI","units":244},{"bfs":5187,"name":"Gravesano","kt":"TI","units":711},{"bfs":5189,"name":"Lamone","kt":"TI","units":974},{"bfs":5192,"name":"Lugano","kt":"TI","units":42408},{"bfs":5193,"name":"Magliaso","kt":"TI","units":994},{"bfs":5194,"name":"Manno","kt":"TI","units":671},{"bfs":5196,"name":"Massagno","kt":"TI","units":4251},{"bfs":5198,"name":"Melide","kt":"TI","units":1318},{"bfs":5199,"name":"Mezzovico-Vira","kt":"TI","units":736},{"bfs":5200,"name":"Miglieglia","kt":"TI","units":245},{"bfs":5203,"name":"Morcote","kt":"TI","units":943},{"bfs":5205,"name":"Muzzano","kt":"TI","units":490},{"bfs":5206,"name":"Neggio","kt":"TI","units":211},{"bfs":5207,"name":"Novaggio","kt":"TI","units":605},{"bfs":5208,"name":"Origlio","kt":"TI","units":740},{"bfs":5210,"name":"Paradiso","kt":"TI","units":3617},{"bfs":5212,"name":"Ponte Capriasca","kt":"TI","units":1020},{"bfs":5214,"name":"Porza","kt":"TI","units":986},{"bfs":5216,"name":"Pura","kt":"TI","units":937},{"bfs":5221,"name":"Savosa","kt":"TI","units":1232},{"bfs":5225,"name":"Sorengo","kt":"TI","units":1116},{"bfs":5226,"name":"Capriasca","kt":"TI","units":4566},{"bfs":5227,"name":"Torricella-Taverne","kt":"TI","units":1544},{"bfs":5230,"name":"Vernate","kt":"TI","units":452},{"bfs":5231,"name":"Vezia","kt":"TI","units":997},{"bfs":5233,"name":"Vico Morcote","kt":"TI","units":493},{"bfs":5236,"name":"Collina d'Oro","kt":"TI","units":3035},{"bfs":5237,"name":"Alto Malcantone","kt":"TI","units":1132},{"bfs":5238,"name":"Monteceneri","kt":"TI","units":2847},{"bfs":5239,"name":"Tresa","kt":"TI","units":2698},{"bfs":5240,"name":"Val Mara","kt":"TI","units":2042},{"bfs":5242,"name":"Balerna","kt":"TI","units":2140},{"bfs":5249,"name":"Castel San Pietro","kt":"TI","units":1288},{"bfs":5250,"name":"Chiasso","kt":"TI","units":5583},{"bfs":5251,"name":"Coldrerio","kt":"TI","units":1657},{"bfs":5254,"name":"Mendrisio","kt":"TI","units":9406},{"bfs":5257,"name":"Morbio Inferiore","kt":"TI","units":2391},{"bfs":5260,"name":"Novazzano","kt":"TI","units":1340},{"bfs":5263,"name":"Riva San Vitale","kt":"TI","units":1640},{"bfs":5266,"name":"Stabio","kt":"TI","units":2480},{"bfs":5268,"name":"Vacallo","kt":"TI","units":2017},{"bfs":5269,"name":"Breggia","kt":"TI","units":1491},{"bfs":5281,"name":"Biasca","kt":"TI","units":3723},{"bfs":5287,"name":"Riviera","kt":"TI","units":2548},{"bfs":5304,"name":"Bosco/Gurin","kt":"TI","units":208},{"bfs":5307,"name":"Campo (Vallemaggia)","kt":"TI","units":316},{"bfs":5309,"name":"Cerentino","kt":"TI","units":158},{"bfs":5310,"name":"Cevio","kt":"TI","units":1417},{"bfs":5315,"name":"Linescio","kt":"TI","units":132},{"bfs":5317,"name":"Maggia","kt":"TI","units":2738},{"bfs":5323,"name":"Lavizzara","kt":"TI","units":1031},{"bfs":5324,"name":"Avegno Gordevio","kt":"TI","units":1068},{"bfs":5396,"name":"Terre di Pedemonte","kt":"TI","units":1856},{"bfs":5397,"name":"Centovalli","kt":"TI","units":1746},{"bfs":5398,"name":"Gambarogno","kt":"TI","units":6752},{"bfs":5399,"name":"Verzasca","kt":"TI","units":1970},{"bfs":5401,"name":"Aigle","kt":"VD","units":6067},{"bfs":5402,"name":"Bex","kt":"VD","units":4665},{"bfs":5403,"name":"Chessel","kt":"VD","units":262},{"bfs":5404,"name":"Corbeyrier","kt":"VD","units":322},{"bfs":5405,"name":"Gryon","kt":"VD","units":2329},{"bfs":5406,"name":"Lavey-Morcles","kt":"VD","units":573},{"bfs":5407,"name":"Leysin","kt":"VD","units":2664},{"bfs":5408,"name":"Noville","kt":"VD","units":558},{"bfs":5409,"name":"Ollon","kt":"VD","units":7144},{"bfs":5410,"name":"Ormont-Dessous","kt":"VD","units":1675},{"bfs":5411,"name":"Ormont-Dessus","kt":"VD","units":2386},{"bfs":5412,"name":"Rennaz","kt":"VD","units":469},{"bfs":5413,"name":"Roche (VD)","kt":"VD","units":903},{"bfs":5414,"name":"Villeneuve (VD)","kt":"VD","units":3026},{"bfs":5415,"name":"Yvorne","kt":"VD","units":559},{"bfs":5422,"name":"Aubonne","kt":"VD","units":1893},{"bfs":5423,"name":"Ballens","kt":"VD","units":258},{"bfs":5424,"name":"Berolle","kt":"VD","units":132},{"bfs":5425,"name":"Bière","kt":"VD","units":833},{"bfs":5426,"name":"Bougy-Villars","kt":"VD","units":246},{"bfs":5427,"name":"Féchy","kt":"VD","units":406},{"bfs":5428,"name":"Gimel","kt":"VD","units":1096},{"bfs":5429,"name":"Longirod","kt":"VD","units":265},{"bfs":5430,"name":"Marchissy","kt":"VD","units":236},{"bfs":5431,"name":"Mollens (VD)","kt":"VD","units":161},{"bfs":5434,"name":"Saint-George","kt":"VD","units":539},{"bfs":5435,"name":"Saint-Livres","kt":"VD","units":337},{"bfs":5436,"name":"Saint-Oyens","kt":"VD","units":184},{"bfs":5437,"name":"Saubraz","kt":"VD","units":183},{"bfs":5451,"name":"Avenches","kt":"VD","units":2444},{"bfs":5456,"name":"Cudrefin","kt":"VD","units":1083},{"bfs":5458,"name":"Faoug","kt":"VD","units":545},{"bfs":5464,"name":"Vully-les-Lacs","kt":"VD","units":2222},{"bfs":5471,"name":"Bettens","kt":"VD","units":291},{"bfs":5472,"name":"Bournens","kt":"VD","units":258},{"bfs":5473,"name":"Boussens","kt":"VD","units":406},{"bfs":5474,"name":"La Chaux (Cossonay)","kt":"VD","units":188},{"bfs":5475,"name":"Chavannes-le-Veyron","kt":"VD","units":67},{"bfs":5476,"name":"Chevilly","kt":"VD","units":162},{"bfs":5477,"name":"Cossonay","kt":"VD","units":2359},{"bfs":5479,"name":"Cuarnens","kt":"VD","units":248},{"bfs":5480,"name":"Daillens","kt":"VD","units":481},{"bfs":5481,"name":"Dizy","kt":"VD","units":106},{"bfs":5482,"name":"Eclépens","kt":"VD","units":542},{"bfs":5483,"name":"Ferreyres","kt":"VD","units":145},{"bfs":5484,"name":"Gollion","kt":"VD","units":503},{"bfs":5485,"name":"Grancy","kt":"VD","units":226},{"bfs":5486,"name":"L'Isle","kt":"VD","units":542},{"bfs":5487,"name":"Lussery-Villars","kt":"VD","units":231},{"bfs":5488,"name":"Mauraz","kt":"VD","units":33},{"bfs":5489,"name":"Mex (VD)","kt":"VD","units":387},{"bfs":5490,"name":"Moiry","kt":"VD","units":138},{"bfs":5491,"name":"Mont-la-Ville","kt":"VD","units":240},{"bfs":5492,"name":"Montricher","kt":"VD","units":483},{"bfs":5493,"name":"Orny","kt":"VD","units":210},{"bfs":5495,"name":"Penthalaz","kt":"VD","units":1525},{"bfs":5496,"name":"Penthaz","kt":"VD","units":822},{"bfs":5497,"name":"Pompaples","kt":"VD","units":389},{"bfs":5498,"name":"La Sarraz","kt":"VD","units":1203},{"bfs":5499,"name":"Senarclens","kt":"VD","units":205},{"bfs":5501,"name":"Sullens","kt":"VD","units":514},{"bfs":5503,"name":"Vufflens-la-Ville","kt":"VD","units":597},{"bfs":5511,"name":"Assens","kt":"VD","units":774},{"bfs":5512,"name":"Bercher","kt":"VD","units":575},{"bfs":5514,"name":"Bottens","kt":"VD","units":599},{"bfs":5515,"name":"Bretigny-sur-Morrens","kt":"VD","units":394},{"bfs":5516,"name":"Cugy (VD)","kt":"VD","units":1197},{"bfs":5518,"name":"Echallens","kt":"VD","units":2975},{"bfs":5520,"name":"Essertines-sur-Yverdon","kt":"VD","units":496},{"bfs":5521,"name":"Etagnières","kt":"VD","units":526},{"bfs":5522,"name":"Fey","kt":"VD","units":333},{"bfs":5523,"name":"Froideville","kt":"VD","units":1183},{"bfs":5527,"name":"Morrens (VD)","kt":"VD","units":510},{"bfs":5529,"name":"Oulens-sous-Echallens","kt":"VD","units":283},{"bfs":5530,"name":"Pailly","kt":"VD","units":257},{"bfs":5531,"name":"Penthéréaz","kt":"VD","units":196},{"bfs":5533,"name":"Poliez-Pittet","kt":"VD","units":373},{"bfs":5534,"name":"Rueyres","kt":"VD","units":131},{"bfs":5535,"name":"Saint-Barthélemy (VD)","kt":"VD","units":325},{"bfs":5537,"name":"Villars-le-Terroir","kt":"VD","units":566},{"bfs":5539,"name":"Vuarrens","kt":"VD","units":447},{"bfs":5540,"name":"Montilliez","kt":"VD","units":842},{"bfs":5541,"name":"Goumoëns","kt":"VD","units":506},{"bfs":5551,"name":"Bonvillars","kt":"VD","units":250},{"bfs":5552,"name":"Bullet","kt":"VD","units":515},{"bfs":5553,"name":"Champagne","kt":"VD","units":477},{"bfs":5554,"name":"Concise","kt":"VD","units":572},{"bfs":5555,"name":"Corcelles-près-Concise","kt":"VD","units":239},{"bfs":5556,"name":"Fiez","kt":"VD","units":201},{"bfs":5557,"name":"Fontaines-sur-Grandson","kt":"VD","units":102},{"bfs":5559,"name":"Giez","kt":"VD","units":217},{"bfs":5560,"name":"Grandevent","kt":"VD","units":115},{"bfs":5561,"name":"Grandson","kt":"VD","units":1766},{"bfs":5562,"name":"Mauborget","kt":"VD","units":119},{"bfs":5563,"name":"Mutrux","kt":"VD","units":71},{"bfs":5564,"name":"Novalles","kt":"VD","units":47},{"bfs":5565,"name":"Onnens (VD)","kt":"VD","units":244},{"bfs":5566,"name":"Provence","kt":"VD","units":285},{"bfs":5568,"name":"Sainte-Croix","kt":"VD","units":3455},{"bfs":5571,"name":"Tévenon","kt":"VD","units":433},{"bfs":5581,"name":"Belmont-sur-Lausanne","kt":"VD","units":1742},{"bfs":5582,"name":"Cheseaux-sur-Lausanne","kt":"VD","units":2255},{"bfs":5583,"name":"Crissier","kt":"VD","units":5021},{"bfs":5584,"name":"Epalinges","kt":"VD","units":4679},{"bfs":5585,"name":"Jouxtens-Mézery","kt":"VD","units":602},{"bfs":5586,"name":"Lausanne","kt":"VD","units":82321},{"bfs":5587,"name":"Le Mont-sur-Lausanne","kt":"VD","units":4038},{"bfs":5588,"name":"Paudex","kt":"VD","units":827},{"bfs":5589,"name":"Prilly","kt":"VD","units":7102},{"bfs":5590,"name":"Pully","kt":"VD","units":10090},{"bfs":5591,"name":"Renens (VD)","kt":"VD","units":11164},{"bfs":5592,"name":"Romanel-sur-Lausanne","kt":"VD","units":1996},{"bfs":5601,"name":"Chexbres","kt":"VD","units":1210},{"bfs":5604,"name":"Forel (Lavaux)","kt":"VD","units":1004},{"bfs":5606,"name":"Lutry","kt":"VD","units":5399},{"bfs":5607,"name":"Puidoux","kt":"VD","units":1542},{"bfs":5609,"name":"Rivaz","kt":"VD","units":200},{"bfs":5610,"name":"Saint-Saphorin (Lavaux)","kt":"VD","units":224},{"bfs":5611,"name":"Savigny","kt":"VD","units":1623},{"bfs":5613,"name":"Bourg-en-Lavaux","kt":"VD","units":2922},{"bfs":5621,"name":"Aclens","kt":"VD","units":268},{"bfs":5622,"name":"Bremblens","kt":"VD","units":252},{"bfs":5623,"name":"Buchillon","kt":"VD","units":330},{"bfs":5624,"name":"Bussigny","kt":"VD","units":5708},{"bfs":5627,"name":"Chavannes-près-Renens","kt":"VD","units":4875},{"bfs":5628,"name":"Chigny","kt":"VD","units":164},{"bfs":5629,"name":"Clarmont","kt":"VD","units":114},{"bfs":5631,"name":"Denens","kt":"VD","units":345},{"bfs":5632,"name":"Denges","kt":"VD","units":896},{"bfs":5633,"name":"Echandens","kt":"VD","units":1450},{"bfs":5634,"name":"Echichens","kt":"VD","units":1369},{"bfs":5635,"name":"Ecublens (VD)","kt":"VD","units":6041},{"bfs":5636,"name":"Etoy","kt":"VD","units":1319},{"bfs":5637,"name":"Lavigny","kt":"VD","units":435},{"bfs":5638,"name":"Lonay","kt":"VD","units":1316},{"bfs":5639,"name":"Lully (VD)","kt":"VD","units":342},{"bfs":5640,"name":"Lussy-sur-Morges","kt":"VD","units":301},{"bfs":5642,"name":"Morges","kt":"VD","units":9513},{"bfs":5643,"name":"Préverenges","kt":"VD","units":2555},{"bfs":5645,"name":"Romanel-sur-Morges","kt":"VD","units":214},{"bfs":5646,"name":"Saint-Prex","kt":"VD","units":2933},{"bfs":5648,"name":"Saint-Sulpice (VD)","kt":"VD","units":2654},{"bfs":5649,"name":"Tolochenaz","kt":"VD","units":879},{"bfs":5650,"name":"Vaux-sur-Morges","kt":"VD","units":74},{"bfs":5651,"name":"Villars-Sainte-Croix","kt":"VD","units":426},{"bfs":5652,"name":"Villars-sous-Yens","kt":"VD","units":271},{"bfs":5653,"name":"Vufflens-le-Château","kt":"VD","units":349},{"bfs":5654,"name":"Vullierens","kt":"VD","units":270},{"bfs":5655,"name":"Yens","kt":"VD","units":658},{"bfs":5656,"name":"Hautemorges","kt":"VD","units":1926},{"bfs":5661,"name":"Boulens","kt":"VD","units":170},{"bfs":5663,"name":"Bussy-sur-Moudon","kt":"VD","units":123},{"bfs":5665,"name":"Chavannes-sur-Moudon","kt":"VD","units":113},{"bfs":5669,"name":"Curtilles","kt":"VD","units":157},{"bfs":5671,"name":"Dompierre (VD)","kt":"VD","units":121},{"bfs":5673,"name":"Hermenches","kt":"VD","units":166},{"bfs":5674,"name":"Lovatens","kt":"VD","units":77},{"bfs":5675,"name":"Lucens","kt":"VD","units":2242},{"bfs":5678,"name":"Moudon","kt":"VD","units":2979},{"bfs":5680,"name":"Ogens","kt":"VD","units":141},{"bfs":5683,"name":"Prévonloup","kt":"VD","units":103},{"bfs":5684,"name":"Rossenges","kt":"VD","units":45},{"bfs":5688,"name":"Syens","kt":"VD","units":77},{"bfs":5690,"name":"Villars-le-Comte","kt":"VD","units":75},{"bfs":5692,"name":"Vucherens","kt":"VD","units":290},{"bfs":5693,"name":"Montanaire","kt":"VD","units":1330},{"bfs":5701,"name":"Arnex-sur-Nyon","kt":"VD","units":118},{"bfs":5702,"name":"Arzier-Le Muids","kt":"VD","units":1297},{"bfs":5703,"name":"Bassins","kt":"VD","units":668},{"bfs":5704,"name":"Begnins","kt":"VD","units":988},{"bfs":5705,"name":"Bogis-Bossey","kt":"VD","units":376},{"bfs":5706,"name":"Borex","kt":"VD","units":499},{"bfs":5707,"name":"Chavannes-de-Bogis","kt":"VD","units":588},{"bfs":5708,"name":"Chavannes-des-Bois","kt":"VD","units":369},{"bfs":5709,"name":"Chéserex","kt":"VD","units":582},{"bfs":5710,"name":"Coinsins","kt":"VD","units":237},{"bfs":5711,"name":"Commugny","kt":"VD","units":1156},{"bfs":5712,"name":"Coppet","kt":"VD","units":1484},{"bfs":5713,"name":"Crans (VD)","kt":"VD","units":1064},{"bfs":5714,"name":"Crassier","kt":"VD","units":505},{"bfs":5715,"name":"Duillier","kt":"VD","units":468},{"bfs":5716,"name":"Eysins","kt":"VD","units":789},{"bfs":5717,"name":"Founex","kt":"VD","units":1548},{"bfs":5718,"name":"Genolier","kt":"VD","units":884},{"bfs":5719,"name":"Gingins","kt":"VD","units":585},{"bfs":5720,"name":"Givrins","kt":"VD","units":498},{"bfs":5721,"name":"Gland","kt":"VD","units":6354},{"bfs":5722,"name":"Grens","kt":"VD","units":163},{"bfs":5723,"name":"Mies","kt":"VD","units":886},{"bfs":5724,"name":"Nyon","kt":"VD","units":12312},{"bfs":5725,"name":"Prangins","kt":"VD","units":1939},{"bfs":5726,"name":"La Rippe","kt":"VD","units":534},{"bfs":5727,"name":"Saint-Cergue","kt":"VD","units":1843},{"bfs":5728,"name":"Signy-Avenex","kt":"VD","units":262},{"bfs":5729,"name":"Tannay","kt":"VD","units":701},{"bfs":5730,"name":"Trélex","kt":"VD","units":607},{"bfs":5731,"name":"Le Vaud","kt":"VD","units":599},{"bfs":5732,"name":"Vich","kt":"VD","units":557},{"bfs":5741,"name":"L'Abergement","kt":"VD","units":118},{"bfs":5742,"name":"Agiez","kt":"VD","units":168},{"bfs":5743,"name":"Arnex-sur-Orbe","kt":"VD","units":322},{"bfs":5744,"name":"Ballaigues","kt":"VD","units":587},{"bfs":5745,"name":"Baulmes","kt":"VD","units":601},{"bfs":5746,"name":"Bavois","kt":"VD","units":509},{"bfs":5747,"name":"Bofflens","kt":"VD","units":100},{"bfs":5748,"name":"Bretonnières","kt":"VD","units":123},{"bfs":5749,"name":"Chavornay","kt":"VD","units":2409},{"bfs":5750,"name":"Les Clées","kt":"VD","units":90},{"bfs":5752,"name":"Croy","kt":"VD","units":204},{"bfs":5754,"name":"Juriens","kt":"VD","units":175},{"bfs":5755,"name":"Lignerolle","kt":"VD","units":214},{"bfs":5756,"name":"Montcherand","kt":"VD","units":212},{"bfs":5757,"name":"Orbe","kt":"VD","units":3919},{"bfs":5758,"name":"La Praz","kt":"VD","units":92},{"bfs":5759,"name":"Premier","kt":"VD","units":119},{"bfs":5760,"name":"Rances","kt":"VD","units":243},{"bfs":5761,"name":"Romainmôtier-Envy","kt":"VD","units":308},{"bfs":5762,"name":"Sergey","kt":"VD","units":62},{"bfs":5763,"name":"Valeyres-sous-Rances","kt":"VD","units":266},{"bfs":5764,"name":"Vallorbe","kt":"VD","units":2273},{"bfs":5765,"name":"Vaulion","kt":"VD","units":299},{"bfs":5766,"name":"Vuiteboeuf","kt":"VD","units":283},{"bfs":5785,"name":"Corcelles-le-Jorat","kt":"VD","units":257},{"bfs":5790,"name":"Maracon","kt":"VD","units":260},{"bfs":5792,"name":"Montpreveyres","kt":"VD","units":306},{"bfs":5798,"name":"Ropraz","kt":"VD","units":252},{"bfs":5799,"name":"Servion","kt":"VD","units":926},{"bfs":5803,"name":"Vulliens","kt":"VD","units":287},{"bfs":5804,"name":"Jorat-Menthue","kt":"VD","units":709},{"bfs":5805,"name":"Oron","kt":"VD","units":2949},{"bfs":5806,"name":"Jorat-Mézières","kt":"VD","units":1470},{"bfs":5812,"name":"Champtauroz","kt":"VD","units":81},{"bfs":5813,"name":"Chevroux","kt":"VD","units":333},{"bfs":5816,"name":"Corcelles-près-Payerne","kt":"VD","units":1400},{"bfs":5817,"name":"Grandcour","kt":"VD","units":467},{"bfs":5819,"name":"Henniez","kt":"VD","units":207},{"bfs":5821,"name":"Missy","kt":"VD","units":179},{"bfs":5822,"name":"Payerne","kt":"VD","units":5306},{"bfs":5827,"name":"Trey","kt":"VD","units":147},{"bfs":5828,"name":"Treytorrens (Payerne)","kt":"VD","units":59},{"bfs":5830,"name":"Villarzel","kt":"VD","units":247},{"bfs":5831,"name":"Valbroye","kt":"VD","units":1615},{"bfs":5841,"name":"Château-d'Oex","kt":"VD","units":3011},{"bfs":5842,"name":"Rossinière","kt":"VD","units":351},{"bfs":5843,"name":"Rougemont","kt":"VD","units":1355},{"bfs":5851,"name":"Allaman","kt":"VD","units":219},{"bfs":5852,"name":"Bursinel","kt":"VD","units":240},{"bfs":5853,"name":"Bursins","kt":"VD","units":385},{"bfs":5854,"name":"Burtigny","kt":"VD","units":186},{"bfs":5855,"name":"Dully","kt":"VD","units":291},{"bfs":5856,"name":"Essertines-sur-Rolle","kt":"VD","units":342},{"bfs":5857,"name":"Gilly","kt":"VD","units":702},{"bfs":5858,"name":"Luins","kt":"VD","units":313},{"bfs":5859,"name":"Mont-sur-Rolle","kt":"VD","units":1217},{"bfs":5860,"name":"Perroy","kt":"VD","units":783},{"bfs":5861,"name":"Rolle","kt":"VD","units":3103},{"bfs":5862,"name":"Tartegnin","kt":"VD","units":116},{"bfs":5863,"name":"Vinzel","kt":"VD","units":178},{"bfs":5871,"name":"L'Abbaye","kt":"VD","units":1013},{"bfs":5872,"name":"Le Chenit","kt":"VD","units":2911},{"bfs":5873,"name":"Le Lieu","kt":"VD","units":581},{"bfs":5882,"name":"Chardonne","kt":"VD","units":1841},{"bfs":5883,"name":"Corseaux","kt":"VD","units":1223},{"bfs":5884,"name":"Corsier-sur-Vevey","kt":"VD","units":1813},{"bfs":5885,"name":"Jongny","kt":"VD","units":920},{"bfs":5886,"name":"Montreux","kt":"VD","units":15816},{"bfs":5889,"name":"La Tour-de-Peilz","kt":"VD","units":6727},{"bfs":5890,"name":"Vevey","kt":"VD","units":11109},{"bfs":5891,"name":"Veytaux","kt":"VD","units":706},{"bfs":5892,"name":"Blonay - Saint-Légier","kt":"VD","units":5685},{"bfs":5902,"name":"Belmont-sur-Yverdon","kt":"VD","units":195},{"bfs":5903,"name":"Bioley-Magnoux","kt":"VD","units":117},{"bfs":5904,"name":"Chamblon","kt":"VD","units":259},{"bfs":5905,"name":"Champvent","kt":"VD","units":309},{"bfs":5907,"name":"Chavannes-le-Chêne","kt":"VD","units":170},{"bfs":5908,"name":"Chêne-Pâquier","kt":"VD","units":76},{"bfs":5909,"name":"Cheseaux-Noréaz","kt":"VD","units":337},{"bfs":5910,"name":"Cronay","kt":"VD","units":201},{"bfs":5911,"name":"Cuarny","kt":"VD","units":120},{"bfs":5912,"name":"Démoret","kt":"VD","units":83},{"bfs":5913,"name":"Donneloye","kt":"VD","units":392},{"bfs":5914,"name":"Ependes (VD)","kt":"VD","units":189},{"bfs":5919,"name":"Mathod","kt":"VD","units":332},{"bfs":5921,"name":"Molondin","kt":"VD","units":131},{"bfs":5922,"name":"Montagny-près-Yverdon","kt":"VD","units":356},{"bfs":5923,"name":"Oppens","kt":"VD","units":90},{"bfs":5924,"name":"Orges","kt":"VD","units":185},{"bfs":5925,"name":"Orzens","kt":"VD","units":107},{"bfs":5926,"name":"Pomy","kt":"VD","units":355},{"bfs":5928,"name":"Rovray","kt":"VD","units":91},{"bfs":5929,"name":"Suchy","kt":"VD","units":285},{"bfs":5930,"name":"Suscévaz","kt":"VD","units":96},{"bfs":5931,"name":"Treycovagnes","kt":"VD","units":222},{"bfs":5932,"name":"Ursins","kt":"VD","units":104},{"bfs":5933,"name":"Valeyres-sous-Montagny","kt":"VD","units":337},{"bfs":5934,"name":"Valeyres-sous-Ursins","kt":"VD","units":104},{"bfs":5935,"name":"Villars-Epeney","kt":"VD","units":45},{"bfs":5937,"name":"Vugelles-La Mothe","kt":"VD","units":68},{"bfs":5938,"name":"Yverdon-les-Bains","kt":"VD","units":15616},{"bfs":5939,"name":"Yvonand","kt":"VD","units":1682},{"bfs":6002,"name":"Brig-Glis","kt":"VS","units":7543},{"bfs":6004,"name":"Eggerberg","kt":"VS","units":311},{"bfs":6007,"name":"Naters","kt":"VS","units":7576},{"bfs":6008,"name":"Ried-Brig","kt":"VS","units":1375},{"bfs":6009,"name":"Simplon","kt":"VS","units":477},{"bfs":6010,"name":"Termen","kt":"VS","units":952},{"bfs":6011,"name":"Zwischbergen","kt":"VS","units":123},{"bfs":6021,"name":"Ardon","kt":"VS","units":1911},{"bfs":6022,"name":"Chamoson","kt":"VS","units":2790},{"bfs":6023,"name":"Conthey","kt":"VS","units":5598},{"bfs":6024,"name":"Nendaz","kt":"VS","units":9381},{"bfs":6025,"name":"Vétroz","kt":"VS","units":2974},{"bfs":6032,"name":"Bourg-Saint-Pierre","kt":"VS","units":219},{"bfs":6033,"name":"Liddes","kt":"VS","units":637},{"bfs":6034,"name":"Orsières","kt":"VS","units":3032},{"bfs":6035,"name":"Sembrancher","kt":"VS","units":641},{"bfs":6037,"name":"Val de Bagnes","kt":"VS","units":11884},{"bfs":6052,"name":"Bellwald","kt":"VS","units":1229},{"bfs":6054,"name":"Binn","kt":"VS","units":275},{"bfs":6056,"name":"Ernen","kt":"VS","units":1028},{"bfs":6057,"name":"Fiesch","kt":"VS","units":1202},{"bfs":6058,"name":"Fieschertal","kt":"VS","units":364},{"bfs":6061,"name":"Lax","kt":"VS","units":469},{"bfs":6076,"name":"Obergoms","kt":"VS","units":1543},{"bfs":6077,"name":"Goms","kt":"VS","units":2364},{"bfs":6082,"name":"Ayent","kt":"VS","units":4317},{"bfs":6083,"name":"Evolène","kt":"VS","units":2704},{"bfs":6084,"name":"Hérémence","kt":"VS","units":1964},{"bfs":6087,"name":"Saint-Martin (VS)","kt":"VS","units":1208},{"bfs":6089,"name":"Vex","kt":"VS","units":2773},{"bfs":6090,"name":"Mont-Noble","kt":"VS","units":1628},{"bfs":6101,"name":"Agarn","kt":"VS","units":402},{"bfs":6102,"name":"Albinen","kt":"VS","units":496},{"bfs":6104,"name":"Ergisch","kt":"VS","units":397},{"bfs":6109,"name":"Inden","kt":"VS","units":187},{"bfs":6110,"name":"Leuk","kt":"VS","units":2626},{"bfs":6111,"name":"Leukerbad","kt":"VS","units":3634},{"bfs":6112,"name":"Oberems","kt":"VS","units":201},{"bfs":6113,"name":"Salgesch","kt":"VS","units":902},{"bfs":6116,"name":"Varen","kt":"VS","units":455},{"bfs":6117,"name":"Guttet-Feschel","kt":"VS","units":549},{"bfs":6118,"name":"Gampel-Bratsch","kt":"VS","units":1680},{"bfs":6119,"name":"Turtmann-Unterems","kt":"VS","units":828},{"bfs":6131,"name":"Bovernier","kt":"VS","units":579},{"bfs":6133,"name":"Fully","kt":"VS","units":4727},{"bfs":6134,"name":"Isérables","kt":"VS","units":738},{"bfs":6135,"name":"Leytron","kt":"VS","units":3315},{"bfs":6136,"name":"Martigny","kt":"VS","units":11769},{"bfs":6137,"name":"Martigny-Combe","kt":"VS","units":1660},{"bfs":6139,"name":"Riddes","kt":"VS","units":3271},{"bfs":6140,"name":"Saillon","kt":"VS","units":1923},{"bfs":6141,"name":"Saxon","kt":"VS","units":4012},{"bfs":6142,"name":"Trient","kt":"VS","units":166},{"bfs":6151,"name":"Champéry","kt":"VS","units":2172},{"bfs":6152,"name":"Collombey-Muraz","kt":"VS","units":4467},{"bfs":6153,"name":"Monthey","kt":"VS","units":9692},{"bfs":6154,"name":"Port-Valais","kt":"VS","units":2214},{"bfs":6155,"name":"Saint-Gingolph","kt":"VS","units":868},{"bfs":6156,"name":"Troistorrents","kt":"VS","units":4240},{"bfs":6157,"name":"Val-d'Illiez","kt":"VS","units":2245},{"bfs":6158,"name":"Vionnaz","kt":"VS","units":2175},{"bfs":6159,"name":"Vouvry","kt":"VS","units":2333},{"bfs":6172,"name":"Bister","kt":"VS","units":51},{"bfs":6173,"name":"Bitsch","kt":"VS","units":651},{"bfs":6177,"name":"Grengiols","kt":"VS","units":495},{"bfs":6181,"name":"Riederalp","kt":"VS","units":1667},{"bfs":6191,"name":"Ausserberg","kt":"VS","units":454},{"bfs":6192,"name":"Blatten","kt":"VS","units":369},{"bfs":6193,"name":"Bürchen","kt":"VS","units":1153},{"bfs":6194,"name":"Eischoll","kt":"VS","units":606},{"bfs":6195,"name":"Ferden","kt":"VS","units":301},{"bfs":6197,"name":"Kippel","kt":"VS","units":366},{"bfs":6198,"name":"Niedergesteln","kt":"VS","units":419},{"bfs":6199,"name":"Raron","kt":"VS","units":1041},{"bfs":6201,"name":"Unterbäch","kt":"VS","units":658},{"bfs":6202,"name":"Wiler (Lötschen)","kt":"VS","units":786},{"bfs":6203,"name":"Mörel-Filet","kt":"VS","units":702},{"bfs":6204,"name":"Steg-Hohtenn","kt":"VS","units":1023},{"bfs":6205,"name":"Bettmeralp","kt":"VS","units":1750},{"bfs":6211,"name":"Collonges","kt":"VS","units":491},{"bfs":6212,"name":"Dorénaz","kt":"VS","units":598},{"bfs":6213,"name":"Evionnaz","kt":"VS","units":746},{"bfs":6214,"name":"Finhaut","kt":"VS","units":460},{"bfs":6215,"name":"Massongex","kt":"VS","units":977},{"bfs":6217,"name":"Saint-Maurice","kt":"VS","units":2293},{"bfs":6218,"name":"Salvan","kt":"VS","units":1416},{"bfs":6219,"name":"Vernayaz","kt":"VS","units":1011},{"bfs":6220,"name":"Vérossaz","kt":"VS","units":445},{"bfs":6232,"name":"Chalais","kt":"VS","units":3175},{"bfs":6235,"name":"Chippis","kt":"VS","units":795},{"bfs":6238,"name":"Grône","kt":"VS","units":1581},{"bfs":6239,"name":"Icogne","kt":"VS","units":694},{"bfs":6240,"name":"Lens","kt":"VS","units":5392},{"bfs":6246,"name":"Saint-Léonard","kt":"VS","units":1243},{"bfs":6248,"name":"Siders","kt":"VS","units":9904},{"bfs":6252,"name":"Anniviers","kt":"VS","units":6133},{"bfs":6253,"name":"Crans-Montana","kt":"VS","units":12489},{"bfs":6254,"name":"Noble-Contrée","kt":"VS","units":2318},{"bfs":6261,"name":"Arbaz","kt":"VS","units":1113},{"bfs":6263,"name":"Grimisuat","kt":"VS","units":1827},{"bfs":6265,"name":"Savièse","kt":"VS","units":4922},{"bfs":6266,"name":"Sitten","kt":"VS","units":21116},{"bfs":6267,"name":"Veysonnaz","kt":"VS","units":982},{"bfs":6281,"name":"Baltschieder","kt":"VS","units":606},{"bfs":6282,"name":"Eisten","kt":"VS","units":193},{"bfs":6283,"name":"Embd","kt":"VS","units":236},{"bfs":6285,"name":"Grächen","kt":"VS","units":2141},{"bfs":6286,"name":"Lalden","kt":"VS","units":361},{"bfs":6287,"name":"Randa","kt":"VS","units":412},{"bfs":6288,"name":"Saas-Almagell","kt":"VS","units":478},{"bfs":6289,"name":"Saas-Balen","kt":"VS","units":474},{"bfs":6290,"name":"Saas-Fee","kt":"VS","units":2877},{"bfs":6291,"name":"Saas-Grund","kt":"VS","units":1245},{"bfs":6292,"name":"St. Niklaus","kt":"VS","units":1632},{"bfs":6293,"name":"Stalden (VS)","kt":"VS","units":724},{"bfs":6294,"name":"Staldenried","kt":"VS","units":506},{"bfs":6295,"name":"Täsch","kt":"VS","units":1123},{"bfs":6296,"name":"Törbel","kt":"VS","units":509},{"bfs":6297,"name":"Visp","kt":"VS","units":4866},{"bfs":6298,"name":"Visperterminen","kt":"VS","units":1181},{"bfs":6299,"name":"Zeneggen","kt":"VS","units":344},{"bfs":6300,"name":"Zermatt","kt":"VS","units":7753},{"bfs":6404,"name":"Boudry","kt":"NE","units":3181},{"bfs":6408,"name":"Cortaillod","kt":"NE","units":2475},{"bfs":6413,"name":"Rochefort","kt":"NE","units":771},{"bfs":6416,"name":"Milvignes","kt":"NE","units":4828},{"bfs":6417,"name":"La Grande Béroche","kt":"NE","units":5015},{"bfs":6421,"name":"La Chaux-de-Fonds","kt":"NE","units":22080},{"bfs":6422,"name":"Les Planchettes","kt":"NE","units":139},{"bfs":6423,"name":"La Sagne","kt":"NE","units":576},{"bfs":6432,"name":"La Brévine","kt":"NE","units":404},{"bfs":6433,"name":"Brot-Plamboz","kt":"NE","units":165},{"bfs":6434,"name":"Le Cerneux-Péquignot","kt":"NE","units":165},{"bfs":6435,"name":"La Chaux-du-Milieu","kt":"NE","units":246},{"bfs":6436,"name":"Le Locle","kt":"NE","units":6746},{"bfs":6437,"name":"Les Ponts-de-Martel","kt":"NE","units":694},{"bfs":6451,"name":"Cornaux","kt":"NE","units":834},{"bfs":6452,"name":"Cressier (NE)","kt":"NE","units":996},{"bfs":6453,"name":"Enges","kt":"NE","units":139},{"bfs":6454,"name":"Hauterive (NE)","kt":"NE","units":1440},{"bfs":6455,"name":"Le Landeron","kt":"NE","units":2426},{"bfs":6456,"name":"Lignières","kt":"NE","units":543},{"bfs":6458,"name":"Neuenburg","kt":"NE","units":26191},{"bfs":6459,"name":"Saint-Blaise","kt":"NE","units":1696},{"bfs":6461,"name":"La Tène","kt":"NE","units":2636},{"bfs":6487,"name":"Val-de-Ruz","kt":"NE","units":8695},{"bfs":6504,"name":"La Côte-aux-Fées","kt":"NE","units":324},{"bfs":6511,"name":"Les Verrières","kt":"NE","units":471},{"bfs":6512,"name":"Val-de-Travers","kt":"NE","units":6443},{"bfs":6601,"name":"Aire-la-Ville","kt":"GE","units":453},{"bfs":6602,"name":"Anières","kt":"GE","units":997},{"bfs":6603,"name":"Avully","kt":"GE","units":754},{"bfs":6604,"name":"Avusy","kt":"GE","units":569},{"bfs":6605,"name":"Bardonnex","kt":"GE","units":1119},{"bfs":6606,"name":"Bellevue","kt":"GE","units":1655},{"bfs":6607,"name":"Bernex","kt":"GE","units":4765},{"bfs":6608,"name":"Carouge (GE)","kt":"GE","units":11289},{"bfs":6609,"name":"Cartigny","kt":"GE","units":446},{"bfs":6610,"name":"Céligny","kt":"GE","units":370},{"bfs":6611,"name":"Chancy","kt":"GE","units":627},{"bfs":6612,"name":"Chêne-Bougeries","kt":"GE","units":6247},{"bfs":6613,"name":"Chêne-Bourg","kt":"GE","units":4448},{"bfs":6614,"name":"Choulex","kt":"GE","units":556},{"bfs":6615,"name":"Collex-Bossy","kt":"GE","units":679},{"bfs":6616,"name":"Collonge-Bellerive","kt":"GE","units":3492},{"bfs":6617,"name":"Cologny","kt":"GE","units":2766},{"bfs":6618,"name":"Confignon","kt":"GE","units":1833},{"bfs":6619,"name":"Corsier (GE)","kt":"GE","units":975},{"bfs":6620,"name":"Dardagny","kt":"GE","units":734},{"bfs":6621,"name":"Genf","kt":"GE","units":113666},{"bfs":6622,"name":"Genthod","kt":"GE","units":1063},{"bfs":6623,"name":"Le Grand-Saconnex","kt":"GE","units":5323},{"bfs":6624,"name":"Gy","kt":"GE","units":235},{"bfs":6625,"name":"Hermance","kt":"GE","units":512},{"bfs":6626,"name":"Jussy","kt":"GE","units":553},{"bfs":6627,"name":"Laconnex","kt":"GE","units":278},{"bfs":6628,"name":"Lancy","kt":"GE","units":16393},{"bfs":6629,"name":"Meinier","kt":"GE","units":932},{"bfs":6630,"name":"Meyrin","kt":"GE","units":11222},{"bfs":6631,"name":"Onex","kt":"GE","units":8523},{"bfs":6632,"name":"Perly-Certoux","kt":"GE","units":1484},{"bfs":6633,"name":"Plan-les-Ouates","kt":"GE","units":4754},{"bfs":6634,"name":"Pregny-Chambésy","kt":"GE","units":1646},{"bfs":6635,"name":"Presinge","kt":"GE","units":273},{"bfs":6636,"name":"Puplinge","kt":"GE","units":1192},{"bfs":6637,"name":"Russin","kt":"GE","units":227},{"bfs":6638,"name":"Satigny","kt":"GE","units":1837},{"bfs":6639,"name":"Soral","kt":"GE","units":379},{"bfs":6640,"name":"Thônex","kt":"GE","units":7597},{"bfs":6641,"name":"Troinex","kt":"GE","units":1410},{"bfs":6642,"name":"Vandoeuvres","kt":"GE","units":1243},{"bfs":6643,"name":"Vernier","kt":"GE","units":16359},{"bfs":6644,"name":"Versoix","kt":"GE","units":5539},{"bfs":6645,"name":"Veyrier","kt":"GE","units":4546},{"bfs":6702,"name":"Boécourt","kt":"JU","units":474},{"bfs":6703,"name":"Bourrignon","kt":"JU","units":134},{"bfs":6704,"name":"Châtillon (JU)","kt":"JU","units":227},{"bfs":6706,"name":"Courchapoix","kt":"JU","units":221},{"bfs":6708,"name":"Courrendlin","kt":"JU","units":1923},{"bfs":6709,"name":"Courroux","kt":"JU","units":1701},{"bfs":6710,"name":"Courtételle","kt":"JU","units":1400},{"bfs":6711,"name":"Delsberg","kt":"JU","units":7673},{"bfs":6712,"name":"Develier","kt":"JU","units":654},{"bfs":6713,"name":"Ederswiler","kt":"JU","units":74},{"bfs":6715,"name":"Mervelier","kt":"JU","units":266},{"bfs":6716,"name":"Mettembert","kt":"JU","units":64},{"bfs":6718,"name":"Movelier","kt":"JU","units":267},{"bfs":6719,"name":"Pleigne","kt":"JU","units":208},{"bfs":6721,"name":"Rossemaison","kt":"JU","units":340},{"bfs":6722,"name":"Saulcy","kt":"JU","units":138},{"bfs":6724,"name":"Soyhières","kt":"JU","units":267},{"bfs":6729,"name":"Haute-Sorne","kt":"JU","units":3858},{"bfs":6730,"name":"Val Terbi","kt":"JU","units":1634},{"bfs":6741,"name":"Le Bémont (JU)","kt":"JU","units":169},{"bfs":6742,"name":"Les Bois","kt":"JU","units":653},{"bfs":6743,"name":"Les Breuleux","kt":"JU","units":878},{"bfs":6745,"name":"Les Enfers","kt":"JU","units":75},{"bfs":6748,"name":"Les Genevez (JU)","kt":"JU","units":297},{"bfs":6750,"name":"Lajoux (JU)","kt":"JU","units":381},{"bfs":6751,"name":"Montfaucon","kt":"JU","units":374},{"bfs":6753,"name":"Muriaux","kt":"JU","units":293},{"bfs":6754,"name":"Le Noirmont","kt":"JU","units":1033},{"bfs":6757,"name":"Saignelégier","kt":"JU","units":1516},{"bfs":6758,"name":"Saint-Brais","kt":"JU","units":137},{"bfs":6759,"name":"Soubey","kt":"JU","units":157},{"bfs":6771,"name":"Alle","kt":"JU","units":987},{"bfs":6774,"name":"Boncourt","kt":"JU","units":730},{"bfs":6778,"name":"Bure","kt":"JU","units":352},{"bfs":6781,"name":"Coeuve","kt":"JU","units":351},{"bfs":6782,"name":"Cornol","kt":"JU","units":563},{"bfs":6783,"name":"Courchavon","kt":"JU","units":161},{"bfs":6784,"name":"Courgenay","kt":"JU","units":1291},{"bfs":6785,"name":"Courtedoux","kt":"JU","units":400},{"bfs":6789,"name":"Fahy","kt":"JU","units":227},{"bfs":6790,"name":"Fontenais","kt":"JU","units":885},{"bfs":6792,"name":"Grandfontaine","kt":"JU","units":214},{"bfs":6800,"name":"Pruntrut","kt":"JU","units":4255},{"bfs":6806,"name":"Vendlincourt","kt":"JU","units":300},{"bfs":6807,"name":"Basse-Allaine","kt":"JU","units":708},{"bfs":6808,"name":"Clos du Doubs","kt":"JU","units":890},{"bfs":6809,"name":"Haute-Ajoie","kt":"JU","units":702},{"bfs":6810,"name":"La Baroche","kt":"JU","units":656},{"bfs":6811,"name":"Damphreux-Lugnez","kt":"JU","units":202},{"bfs":6812,"name":"Basse-Vendline","kt":"JU","units":537}]}</script>
+<script id="run2data" type="application/json">{
+  "run_meta": {
+    "title": "Run 2 — Gemeindeebene (Triage)",
+    "scope": "municipal",
+    "date": "2026-06-24",
+    "status": "in_progress",
+    "note": "Kommunale Tier-1-Recherche mit Triage. Einzeln geprüft werden Gemeinden über der Schwelle (kommunale Wohn-Reglemente/Quoten realistisch); kleinere per Triage übersprungen.",
+    "agents": [
+      "quellen-agent",
+      "wohnpolitik-taxonom"
+    ]
+  },
+  "cantons": [
+    {
+      "canton_abbr": "ZH",
+      "canton_nr": 1,
+      "total_gemeinden": 160,
+      "triage_threshold": 6000,
+      "checked": [
+        {
+          "bfs": 261,
+          "name": "Zürich",
+          "units": 237386,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 230,
+          "name": "Winterthur",
+          "units": 58873,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 198,
+          "name": "Uster",
+          "units": 17417,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 191,
+          "name": "Dübendorf",
+          "units": 16226,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 243,
+          "name": "Dietikon",
+          "units": 13113,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 121,
+          "name": "Wetzikon (ZH)",
+          "units": 12828,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 293,
+          "name": "Wädenswil",
+          "units": 12434,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 295,
+          "name": "Horgen",
+          "units": 11694,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 53,
+          "name": "Bülach",
+          "units": 11284,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 62,
+          "name": "Kloten",
+          "units": 11029,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 66,
+          "name": "Opfikon",
+          "units": 10213,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 247,
+          "name": "Schlieren",
+          "units": 9885,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 131,
+          "name": "Adliswil",
+          "units": 9751,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 96,
+          "name": "Regensdorf",
+          "units": 9436,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 141,
+          "name": "Thalwil",
+          "units": 9402,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 199,
+          "name": "Volketswil",
+          "units": 8627,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 69,
+          "name": "Wallisellen",
+          "units": 8560,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 296,
+          "name": "Illnau-Effretikon",
+          "units": 8534,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 154,
+          "name": "Küsnacht (ZH)",
+          "units": 7540,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 158,
+          "name": "Stäfa",
+          "units": 7435,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 156,
+          "name": "Meilen",
+          "units": 7195,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 161,
+          "name": "Zollikon",
+          "units": 6984,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 138,
+          "name": "Richterswil",
+          "units": 6619,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 118,
+          "name": "Rüti (ZH)",
+          "units": 6198,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 177,
+          "name": "Pfäffikon",
+          "units": 6107,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        },
+        {
+          "bfs": 2,
+          "name": "Affoltern am Albis",
+          "units": 6019,
+          "status": "pending",
+          "found": false,
+          "instruments": [],
+          "note": ""
+        }
+      ],
+      "triaged": [
+        {
+          "bfs": 117,
+          "name": "Hinwil",
+          "units": 5585,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 155,
+          "name": "Männedorf",
+          "units": 5558,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 52,
+          "name": "Bassersdorf",
+          "units": 5512,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 195,
+          "name": "Maur",
+          "units": 5069,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 120,
+          "name": "Wald (ZH)",
+          "units": 5060,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 115,
+          "name": "Gossau (ZH)",
+          "units": 4902,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 250,
+          "name": "Urdorf",
+          "units": 4886,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 135,
+          "name": "Kilchberg (ZH)",
+          "units": 4714,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 56,
+          "name": "Embrach",
+          "units": 4623,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 193,
+          "name": "Fällanden",
+          "units": 4405,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 153,
+          "name": "Hombrechtikon",
+          "units": 4296,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 90,
+          "name": "Niederhasli",
+          "units": 4176,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 192,
+          "name": "Egg",
+          "units": 4123,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 97,
+          "name": "Rümlang",
+          "units": 3787,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 227,
+          "name": "Seuzach",
+          "units": 3758,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 136,
+          "name": "Langnau am Albis",
+          "units": 3748,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 54,
+          "name": "Dietlikon",
+          "units": 3725,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 113,
+          "name": "Dürnten",
+          "units": 3654,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 200,
+          "name": "Wangen-Brüttisellen",
+          "units": 3622,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 245,
+          "name": "Oberengstringen",
+          "units": 3508,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 242,
+          "name": "Birmensdorf (ZH)",
+          "units": 3457,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 112,
+          "name": "Bubikon",
+          "units": 3454,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 92,
+          "name": "Oberglatt",
+          "units": 3412,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 152,
+          "name": "Herrliberg",
+          "units": 3234,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 86,
+          "name": "Dielsdorf",
+          "units": 3164,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 231,
+          "name": "Zell (ZH)",
+          "units": 3102,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 83,
+          "name": "Buchs (ZH)",
+          "units": 3078,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 172,
+          "name": "Fehraltorf",
+          "units": 3059,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 159,
+          "name": "Uetikon am See",
+          "units": 3033,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 139,
+          "name": "Rüschlikon",
+          "units": 2979,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 298,
+          "name": "Wiesendangen",
+          "units": 2951,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 64,
+          "name": "Nürensdorf",
+          "units": 2768,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 151,
+          "name": "Erlenbach (ZH)",
+          "units": 2714,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 10,
+          "name": "Obfelden",
+          "units": 2704,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 160,
+          "name": "Zumikon",
+          "units": 2704,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 248,
+          "name": "Uitikon",
+          "units": 2622,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 137,
+          "name": "Oberrieden",
+          "units": 2603,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 223,
+          "name": "Neftenbach",
+          "units": 2573,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 176,
+          "name": "Lindau",
+          "units": 2555,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 55,
+          "name": "Eglisau",
+          "units": 2550,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 3,
+          "name": "Bonstetten",
+          "units": 2533,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 58,
+          "name": "Glattfelden",
+          "units": 2491,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 297,
+          "name": "Bauma",
+          "units": 2470,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 197,
+          "name": "Schwerzenbach",
+          "units": 2467,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 89,
+          "name": "Niederglatt",
+          "units": 2465,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 9,
+          "name": "Mettmenstetten",
+          "units": 2453,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 294,
+          "name": "Elgg",
+          "units": 2431,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 228,
+          "name": "Turbenthal",
+          "units": 2421,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 111,
+          "name": "Bäretswil",
+          "units": 2417,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 194,
+          "name": "Greifensee",
+          "units": 2401,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 244,
+          "name": "Geroldswil",
+          "units": 2387,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 72,
+          "name": "Winkel",
+          "units": 2379,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 157,
+          "name": "Oetwil am See",
+          "units": 2354,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 14,
+          "name": "Wettswil am Albis",
+          "units": 2321,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 251,
+          "name": "Weiningen (ZH)",
+          "units": 2264,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 67,
+          "name": "Rafz",
+          "units": 2219,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 178,
+          "name": "Russikon",
+          "units": 2042,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 249,
+          "name": "Unterengstringen",
+          "units": 2020,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 84,
+          "name": "Dällikon",
+          "units": 1970,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 196,
+          "name": "Mönchaltorf",
+          "units": 1959,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 27,
+          "name": "Feuerthalen",
+          "units": 1910,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 51,
+          "name": "Bachenbülach",
+          "units": 1908,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 224,
+          "name": "Pfungen",
+          "units": 1846,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 4,
+          "name": "Hausen am Albis",
+          "units": 1840,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 116,
+          "name": "Grüningen",
+          "units": 1806,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 173,
+          "name": "Hittnau",
+          "units": 1779,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 13,
+          "name": "Stallikon",
+          "units": 1754,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 5,
+          "name": "Hedingen",
+          "units": 1752,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 219,
+          "name": "Elsau",
+          "units": 1732,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 101,
+          "name": "Steinmaur",
+          "units": 1699,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 291,
+          "name": "Andelfingen",
+          "units": 1682,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 88,
+          "name": "Neerach",
+          "units": 1631,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 180,
+          "name": "Weisslingen",
+          "units": 1598,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 60,
+          "name": "Höri",
+          "units": 1472,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 91,
+          "name": "Niederweningen",
+          "units": 1460,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 11,
+          "name": "Ottenbach",
+          "units": 1386,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 292,
+          "name": "Stammheim",
+          "units": 1377,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 221,
+          "name": "Hettlingen",
+          "units": 1354,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 94,
+          "name": "Otelfingen",
+          "units": 1316,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 246,
+          "name": "Oetwil an der Limmat",
+          "units": 1301,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 68,
+          "name": "Rorbas",
+          "units": 1299,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 114,
+          "name": "Fischenthal",
+          "units": 1260,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 225,
+          "name": "Rickenbach (ZH)",
+          "units": 1236,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 63,
+          "name": "Lufingen",
+          "units": 1211,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 100,
+          "name": "Stadel",
+          "units": 1178,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 7,
+          "name": "Knonau",
+          "units": 1080,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 57,
+          "name": "Freienstein-Teufen",
+          "units": 1070,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 33,
+          "name": "Kleinandelfingen",
+          "units": 1043,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 213,
+          "name": "Brütten",
+          "units": 1037,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 31,
+          "name": "Henggart",
+          "units": 1032,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 181,
+          "name": "Wila",
+          "units": 1021,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 102,
+          "name": "Weiach",
+          "units": 1016,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 35,
+          "name": "Marthalen",
+          "units": 950,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 1,
+          "name": "Aeugst am Albis",
+          "units": 942,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 34,
+          "name": "Laufen-Uhwiesen",
+          "units": 927,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 59,
+          "name": "Hochfelden",
+          "units": 895,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 25,
+          "name": "Dachsen",
+          "units": 877,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 93,
+          "name": "Oberweningen",
+          "units": 850,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 37,
+          "name": "Ossingen",
+          "units": 847,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 85,
+          "name": "Dänikon",
+          "units": 830,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 216,
+          "name": "Dinhard",
+          "units": 778,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 241,
+          "name": "Aesch (ZH)",
+          "units": 763,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 28,
+          "name": "Flaach",
+          "units": 704,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 29,
+          "name": "Flurlingen",
+          "units": 704,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 71,
+          "name": "Wil (ZH)",
+          "units": 697,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 119,
+          "name": "Seegräben",
+          "units": 694,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 38,
+          "name": "Rheinau",
+          "units": 690,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 99,
+          "name": "Schöfflisdorf",
+          "units": 679,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 82,
+          "name": "Boppelsen",
+          "units": 639,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 6,
+          "name": "Kappel am Albis",
+          "units": 606,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 40,
+          "name": "Trüllikon",
+          "units": 546,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 12,
+          "name": "Rifferswil",
+          "units": 544,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 65,
+          "name": "Oberembrach",
+          "units": 539,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 220,
+          "name": "Hagenbuch",
+          "units": 524,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 214,
+          "name": "Dägerlen",
+          "units": 506,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 61,
+          "name": "Hüntwangen",
+          "units": 500,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 182,
+          "name": "Wildberg",
+          "units": 483,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 218,
+          "name": "Ellikon an der Thur",
+          "units": 470,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 24,
+          "name": "Buch am Irchel",
+          "units": 464,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 39,
+          "name": "Thalheim an der Thur",
+          "units": 440,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 22,
+          "name": "Benken (ZH)",
+          "units": 431,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 98,
+          "name": "Schleinikon",
+          "units": 418,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 87,
+          "name": "Hüttikon",
+          "units": 395,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 215,
+          "name": "Dättlikon",
+          "units": 366,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 211,
+          "name": "Altikon",
+          "units": 348,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 26,
+          "name": "Dorf",
+          "units": 339,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 81,
+          "name": "Bachs",
+          "units": 331,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 226,
+          "name": "Schlatt (ZH)",
+          "units": 329,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 8,
+          "name": "Maschwanden",
+          "units": 319,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 23,
+          "name": "Berg am Irchel",
+          "units": 298,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 70,
+          "name": "Wasterkingen",
+          "units": 296,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 95,
+          "name": "Regensberg",
+          "units": 271,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 41,
+          "name": "Truttikon",
+          "units": 204,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        },
+        {
+          "bfs": 43,
+          "name": "Volken",
+          "units": 175,
+          "reason": "\u003c6000 Whg — kommunale Wohn-Reglemente/Quoten bei dieser Grösse unwahrscheinlich"
+        }
+      ]
+    }
+  ]
+}</script>
 <script>
 /* ================= Daten ================= */
 const RAW = JSON.parse(document.getElementById("mapdata").textContent);
@@ -3399,7 +4481,7 @@ function buildMap(){
   els.land={}; els.kt={};
   if(mapMode==="gem"){
     RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs;
-      p.style.fill = ktFill(g.kt);
+      p.style.fill = gemFill(g.bfs);
       p.addEventListener("click",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       svg.appendChild(p); els.land[g.bfs]=p; });
     RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.style.fill=LANDFILL;
@@ -3418,7 +4500,7 @@ function buildMap(){
 }
 /* Schnelles Neu-Einfärben ohne Pfad-Neubau (bei Auswahländerung) */
 function repaint(){
-  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].style.fill = ktFill(gemByBfs[bfs]?gemByBfs[bfs].kt:0); } }
+  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].style.fill = gemFill(+bfs); } }
   else { for(const nr in els.kt){ els.kt[nr].style.fill = ktFill(+nr); } }
 }
 function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
@@ -3429,13 +4511,26 @@ function rahmenRow(nr){
   const optLine = (a && a!==b)?`<div class="d-row"><div class="d-k">Inkl. Ermächtigungen (Kantonsebene)</div><div class="d-v">${catBadge(a)} <span class="mono">via Gemeindeoption</span></div></div>`:"";
   return `<div class="d-row"><div class="d-k">Direkt bindend (Gemeindeebene)</div><div class="d-v">${bindLine}</div></div>`+optLine;
 }
+function munRow(bfs){
+  const m=munByBfs[bfs];
+  if(m && (m.instruments||[]).length){
+    return `<div class="d-row"><div class="d-k">Kommunale Instrumente (Run 2)</div>`+m.instruments.map(i=>
+      `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
+      `<div class="ainstr-s">${i.bindingness?("Bindung: "+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}</div></div>`
+    ).join("")+`</div>`;
+  }
+  const st=run2StatusByBfs[bfs];
+  if(st==="checked") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">einzeln geprüft — kein kommunales Instrument gefunden</div></div>`;
+  if(st==="triaged") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">per Triage übersprungen (klein)</div></div>`;
+  return "";
+}
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
   const u=dwellByBfs[bfs];
   el.innerHTML = `<h3>Gemeinde</h3><div class="d-name">${g.name}</div>`+
     `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${g.bfs}</div></div>`+
     `<div class="d-row"><div class="d-k">Kanton</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
     (u!=null?`<div class="d-row"><div class="d-k">Wohnungen (GWS)</div><div class="d-v mono">${fmtN(u)}</div></div>`:"")+
-    rahmenRow(g.kt);
+    rahmenRow(g.kt)+munRow(bfs);
 }
 function detailKanton(nr){ const el=document.getElementById("detail");
   const a=auditByKt[nr];
@@ -3565,6 +4660,9 @@ function renderTaxonomy(){
 
 /* ================= Audit (kantonaler Rechtsrahmen-Run) ================= */
 const AUDIT = (()=>{ try{ return JSON.parse(document.getElementById("auditdata").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
+const RUN2 = (()=>{ try{ return JSON.parse(document.getElementById("run2data").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
+const munByBfs = {}; const run2StatusByBfs = {};
+(RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="checked"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="triaged"; }); });
 const aud={q:"",followup:false};
 const TAX_TITLE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
 /* Karten-Deploy — EBENEN-ABHÄNGIG:
@@ -3584,10 +4682,17 @@ function cantonTopCat(nr){ return strongest(cantonBindingCatSet(nr)); }   // bin
 function cantonTopCatAll(nr){ return strongest(cantonCatSet(nr,true)); }  // inkl. Ermächtigungen
 function ktCat(nr){ return strongestSel(levelSet(nr)); }                  // Kartenfarbe (ebenen- + auswahlabhängig)
 function ktFill(nr){ const cat=ktCat(nr); return cat?(TAX_COLORS[cat]||LANDFILL):LANDFILL; }
+/* Gemeindeebene: kantonal bindend (kantonsweit) + kommunale Instrumente dieser Gemeinde (Run 2) */
+function municipalCatSet(bfs){ const s=new Set(); const g=munByBfs[bfs]; if(!g) return s; (g.instruments||[]).forEach(i=>{ if(i.excluded) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
+function gemCatSet(bfs){ const g=gemByBfs[bfs]; const s=new Set(cantonBindingCatSet(g?g.kt:0)); municipalCatSet(bfs).forEach(c=>s.add(c)); return s; }
+function gemCat(bfs){ return strongestSel(gemCatSet(bfs)); }
+function gemFill(bfs){ const c=gemCat(bfs); return c?(TAX_COLORS[c]||LANDFILL):LANDFILL; }
 function renderMapLegend(){ const el=document.getElementById("map-legend"); if(!el) return;
   if(!(AUDIT.cantons||[]).length){ el.innerHTML=""; return; }
-  const used=new Set(); RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); });
-  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (Optionen erst nach komm. Aktivierung)";
+  const used=new Set();
+  if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const c=gemCat(g.bfs); if(c) used.add(c); }); }
+  else { RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); }); }
+  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (kantonsweit + kommunal aktiviert, Run 2)";
   el.innerHTML = `<span style="width:100%;color:var(--ink-faint)">Einfärbung: ${basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</span>`;
 }
 /* ===== Kategorie-Auswahl (Chips oberhalb der Karte) ===== */
@@ -3648,6 +4753,28 @@ function renderAudit(){
   document.getElementById("au-followup")?.addEventListener("change",e=>{aud.followup=e.target.checked;renderAuditList();});
   renderAuditList();
 }
+function renderRun2Overview(){
+  const box=document.getElementById("run2-overview"); if(!box) return;
+  const cantons=(RUN2.cantons||[]); const m=RUN2.run_meta||{};
+  if(!cantons.length){ box.innerHTML=""; return; }
+  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+cantons.map(c=>{
+    const checked=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const triaged=[...(c.triaged||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const found=checked.filter(g=>g.found);
+    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${m.date?(" · Stand "+esc(m.date)):""}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg"):""}</span></div>`+
+      `<div class="r2stat">`+
+        `<span class="r2chip checked"><b>${checked.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
+        `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
+        `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
+      `</div>`;
+    const checkedList=`<div class="r2list"><h4>Einzeln geprüft (${checked.length})</h4>`+checked.map(g=>{
+        const ist = g.found ? `<span class="ist ok">${(g.instruments||[]).filter(i=>!i.excluded&&i.taxonomy_category).map(i=>"Kat "+i.taxonomy_category).join(", ")||"Instrument"}</span>` : (g.status==="pending"?`<span class="ist mono">…</span>`:`<span class="ist none">nichts</span>`);
+        return `<div class="r2li"><span class="nm">${esc(g.name)}</span> ${ist}<span class="u">${fmtN(g.units)} Whg</span></div>`;
+      }).join("")+`</div>`;
+    const skipList=`<div class="r2list"><h4>Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div></div>`;
+    return `<div class="r2box">${head}<div class="r2cols">${checkedList}${skipList}</div></div>`;
+  }).join("");
+}
 
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
 const DWELL = (()=>{ try{ return JSON.parse(document.getElementById("dwellingdata").textContent); }catch(e){ return {total:0,gemeinden:[]}; } })();
@@ -3660,8 +4787,9 @@ function pctStr(v,total){ return (100*v/(total||1)).toFixed(1).replace(".",",")+
 function renderKpi(){
   const total=dwellTotal||1;
   const byCat={}; let none=0;
-  // exakt wie die Karte: ebenen- + auswahlabhängige Top-Kategorie je Kanton
-  RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; });
+  // exakt wie die Karte: Gemeindeebene je Gemeinde (inkl. kommunaler Instrumente), Kantonsebene je Kanton
+  if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const u=dwellByBfs[g.bfs]||0; const cat=gemCat(g.bfs); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
+  else { RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
   const selSum=total-none;
   const basis = mapMode==="kanton" ? "kantonal gilt (inkl. Ermächtigungen)" : "direkt bindend";
   document.getElementById("kpi-head").innerHTML = (AUDIT.cantons||[]).length
@@ -3720,6 +4848,7 @@ function init(){
   initOverview();
   renderTaxonomy();
   renderAudit();
+  renderRun2Overview();
   initDwellings();
   document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showView(t.dataset.view)));
   document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();renderKpi();}));

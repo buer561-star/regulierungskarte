@@ -156,6 +156,24 @@
   .asrc a{color:var(--brand);text-decoration:none;}
   .aq{font-size:12.5px;color:var(--ink-soft);margin:3px 0;}
   .empty{border:1px dashed var(--hairline-strong);border-radius:var(--radius);padding:26px;text-align:center;color:var(--ink-faint);font-size:13.5px;}
+  /* Run 2 Übersicht */
+  .r2box{border:1px solid var(--hairline-strong);border-radius:var(--radius);background:var(--surface);padding:14px 16px;margin:0 0 18px;}
+  .r2head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .r2head .r2t{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;}
+  .r2head .r2s{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);}
+  .r2stat{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px;}
+  .r2chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;border:1px solid var(--hairline-strong);border-radius:99px;padding:5px 12px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px;}
+  .r2chip b{font-family:"Space Grotesk",sans-serif;font-size:14px;color:var(--ink);}
+  .r2chip.found b{color:#216B45;} .r2chip.checked b{color:var(--brand);}
+  .r2cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  @media(max-width:760px){.r2cols{grid-template-columns:1fr;}}
+  .r2list h4{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 8px;}
+  .r2li{font-size:13px;padding:5px 0;border-bottom:1px solid var(--hairline);display:flex;align-items:baseline;gap:8px;}
+  .r2li:last-child{border-bottom:none;}
+  .r2li .nm{font-weight:600;} .r2li .u{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);margin-left:auto;}
+  .r2li .ist{font-size:11.5px;}
+  .r2skip{max-height:260px;overflow:auto;} .r2skip .r2li{color:var(--ink-faint);}
+  .r2li .ok{color:#216B45;font-weight:600;} .r2li .none{color:var(--ink-faint);}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
@@ -252,8 +270,9 @@
       <div class="vhead">
         <p class="eb">Evidenz · Kantonaler Rechtsrahmen</p>
         <h1>Audit — Run 1: Kantonale Tier-1-Quellen</h1>
-        <p id="audit-intro">Erster Run: ausschliesslich <b>kantonale Tier-1-Quellen</b> (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Noch <b>keine</b> Gemeinderecherche — wo kantonales Recht Gemeinden ermächtigt, ist <code>municipal_followup_required</code> gesetzt.</p>
+        <p id="audit-intro">Erster Run: ausschliesslich <b>kantonale Tier-1-Quellen</b> (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Wo kantonales Recht Gemeinden ermächtigt, ist <code>municipal_followup_required</code> gesetzt — dieser Teil wird in <b>Run 2 (Gemeindeebene)</b> geprüft.</p>
       </div>
+      <div id="run2-overview"></div>
       <div class="databanner" id="audit-banner"></div>
       <div class="filters" id="audit-filters" style="display:none">
         <div><span class="fl">Suche</span><input class="search" id="au-q" type="text" placeholder="Kanton, Instrument, Gesetz…"></div>
@@ -290,6 +309,7 @@
 <script id="mapdata" type="application/json">__MAPDATA__</script>
 <script id="auditdata" type="application/json">__AUDITDATA__</script>
 <script id="dwellingdata" type="application/json">__DWELLINGDATA__</script>
+<script id="run2data" type="application/json">__RUN2DATA__</script>
 <script>
 /* ================= Daten ================= */
 const RAW = JSON.parse(document.getElementById("mapdata").textContent);
@@ -315,7 +335,7 @@ function buildMap(){
   els.land={}; els.kt={};
   if(mapMode==="gem"){
     RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.bfs=g.bfs;
-      p.style.fill = ktFill(g.kt);
+      p.style.fill = gemFill(g.bfs);
       p.addEventListener("click",()=>{markSel("bfs",g.bfs);detailGemeinde(g.bfs);});
       svg.appendChild(p); els.land[g.bfs]=p; });
     RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.style.fill=LANDFILL;
@@ -334,7 +354,7 @@ function buildMap(){
 }
 /* Schnelles Neu-Einfärben ohne Pfad-Neubau (bei Auswahländerung) */
 function repaint(){
-  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].style.fill = ktFill(gemByBfs[bfs]?gemByBfs[bfs].kt:0); } }
+  if(mapMode==="gem"){ for(const bfs in els.land){ els.land[bfs].style.fill = gemFill(+bfs); } }
   else { for(const nr in els.kt){ els.kt[nr].style.fill = ktFill(+nr); } }
 }
 function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
@@ -345,13 +365,26 @@ function rahmenRow(nr){
   const optLine = (a && a!==b)?`<div class="d-row"><div class="d-k">Inkl. Ermächtigungen (Kantonsebene)</div><div class="d-v">${catBadge(a)} <span class="mono">via Gemeindeoption</span></div></div>`:"";
   return `<div class="d-row"><div class="d-k">Direkt bindend (Gemeindeebene)</div><div class="d-v">${bindLine}</div></div>`+optLine;
 }
+function munRow(bfs){
+  const m=munByBfs[bfs];
+  if(m && (m.instruments||[]).length){
+    return `<div class="d-row"><div class="d-k">Kommunale Instrumente (Run 2)</div>`+m.instruments.map(i=>
+      `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
+      `<div class="ainstr-s">${i.bindingness?("Bindung: "+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}</div></div>`
+    ).join("")+`</div>`;
+  }
+  const st=run2StatusByBfs[bfs];
+  if(st==="checked") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">einzeln geprüft — kein kommunales Instrument gefunden</div></div>`;
+  if(st==="triaged") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">per Triage übersprungen (klein)</div></div>`;
+  return "";
+}
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
   const u=dwellByBfs[bfs];
   el.innerHTML = `<h3>Gemeinde</h3><div class="d-name">${g.name}</div>`+
     `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${g.bfs}</div></div>`+
     `<div class="d-row"><div class="d-k">Kanton</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
     (u!=null?`<div class="d-row"><div class="d-k">Wohnungen (GWS)</div><div class="d-v mono">${fmtN(u)}</div></div>`:"")+
-    rahmenRow(g.kt);
+    rahmenRow(g.kt)+munRow(bfs);
 }
 function detailKanton(nr){ const el=document.getElementById("detail");
   const a=auditByKt[nr];
@@ -481,6 +514,9 @@ function renderTaxonomy(){
 
 /* ================= Audit (kantonaler Rechtsrahmen-Run) ================= */
 const AUDIT = (()=>{ try{ return JSON.parse(document.getElementById("auditdata").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
+const RUN2 = (()=>{ try{ return JSON.parse(document.getElementById("run2data").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
+const munByBfs = {}; const run2StatusByBfs = {};
+(RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="checked"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="triaged"; }); });
 const aud={q:"",followup:false};
 const TAX_TITLE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
 /* Karten-Deploy — EBENEN-ABHÄNGIG:
@@ -500,10 +536,17 @@ function cantonTopCat(nr){ return strongest(cantonBindingCatSet(nr)); }   // bin
 function cantonTopCatAll(nr){ return strongest(cantonCatSet(nr,true)); }  // inkl. Ermächtigungen
 function ktCat(nr){ return strongestSel(levelSet(nr)); }                  // Kartenfarbe (ebenen- + auswahlabhängig)
 function ktFill(nr){ const cat=ktCat(nr); return cat?(TAX_COLORS[cat]||LANDFILL):LANDFILL; }
+/* Gemeindeebene: kantonal bindend (kantonsweit) + kommunale Instrumente dieser Gemeinde (Run 2) */
+function municipalCatSet(bfs){ const s=new Set(); const g=munByBfs[bfs]; if(!g) return s; (g.instruments||[]).forEach(i=>{ if(i.excluded) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
+function gemCatSet(bfs){ const g=gemByBfs[bfs]; const s=new Set(cantonBindingCatSet(g?g.kt:0)); municipalCatSet(bfs).forEach(c=>s.add(c)); return s; }
+function gemCat(bfs){ return strongestSel(gemCatSet(bfs)); }
+function gemFill(bfs){ const c=gemCat(bfs); return c?(TAX_COLORS[c]||LANDFILL):LANDFILL; }
 function renderMapLegend(){ const el=document.getElementById("map-legend"); if(!el) return;
   if(!(AUDIT.cantons||[]).length){ el.innerHTML=""; return; }
-  const used=new Set(); RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); });
-  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (Optionen erst nach komm. Aktivierung)";
+  const used=new Set();
+  if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const c=gemCat(g.bfs); if(c) used.add(c); }); }
+  else { RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); }); }
+  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (kantonsweit + kommunal aktiviert, Run 2)";
   el.innerHTML = `<span style="width:100%;color:var(--ink-faint)">Einfärbung: ${basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</span>`;
 }
 /* ===== Kategorie-Auswahl (Chips oberhalb der Karte) ===== */
@@ -564,6 +607,28 @@ function renderAudit(){
   document.getElementById("au-followup")?.addEventListener("change",e=>{aud.followup=e.target.checked;renderAuditList();});
   renderAuditList();
 }
+function renderRun2Overview(){
+  const box=document.getElementById("run2-overview"); if(!box) return;
+  const cantons=(RUN2.cantons||[]); const m=RUN2.run_meta||{};
+  if(!cantons.length){ box.innerHTML=""; return; }
+  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+cantons.map(c=>{
+    const checked=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const triaged=[...(c.triaged||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const found=checked.filter(g=>g.found);
+    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${m.date?(" · Stand "+esc(m.date)):""}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg"):""}</span></div>`+
+      `<div class="r2stat">`+
+        `<span class="r2chip checked"><b>${checked.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
+        `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
+        `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
+      `</div>`;
+    const checkedList=`<div class="r2list"><h4>Einzeln geprüft (${checked.length})</h4>`+checked.map(g=>{
+        const ist = g.found ? `<span class="ist ok">${(g.instruments||[]).filter(i=>!i.excluded&&i.taxonomy_category).map(i=>"Kat "+i.taxonomy_category).join(", ")||"Instrument"}</span>` : (g.status==="pending"?`<span class="ist mono">…</span>`:`<span class="ist none">nichts</span>`);
+        return `<div class="r2li"><span class="nm">${esc(g.name)}</span> ${ist}<span class="u">${fmtN(g.units)} Whg</span></div>`;
+      }).join("")+`</div>`;
+    const skipList=`<div class="r2list"><h4>Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div></div>`;
+    return `<div class="r2box">${head}<div class="r2cols">${checkedList}${skipList}</div></div>`;
+  }).join("");
+}
 
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
 const DWELL = (()=>{ try{ return JSON.parse(document.getElementById("dwellingdata").textContent); }catch(e){ return {total:0,gemeinden:[]}; } })();
@@ -576,8 +641,9 @@ function pctStr(v,total){ return (100*v/(total||1)).toFixed(1).replace(".",",")+
 function renderKpi(){
   const total=dwellTotal||1;
   const byCat={}; let none=0;
-  // exakt wie die Karte: ebenen- + auswahlabhängige Top-Kategorie je Kanton
-  RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; });
+  // exakt wie die Karte: Gemeindeebene je Gemeinde (inkl. kommunaler Instrumente), Kantonsebene je Kanton
+  if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const u=dwellByBfs[g.bfs]||0; const cat=gemCat(g.bfs); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
+  else { RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
   const selSum=total-none;
   const basis = mapMode==="kanton" ? "kantonal gilt (inkl. Ermächtigungen)" : "direkt bindend";
   document.getElementById("kpi-head").innerHTML = (AUDIT.cantons||[]).length
@@ -636,6 +702,7 @@ function init(){
   initOverview();
   renderTaxonomy();
   renderAudit();
+  renderRun2Overview();
   initDwellings();
   document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showView(t.dataset.view)));
   document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();renderKpi();}));
