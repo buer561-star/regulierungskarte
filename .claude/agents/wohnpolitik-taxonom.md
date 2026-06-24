@@ -104,32 +104,46 @@ Antworte immer auf Deutsch.
 
 ## 6. HARTER WOHNSCHUTZ MIT MIETZINS- ODER RENDITEKONTROLLE
 
-**Definition:** Die stärkste Form wohnpolitischer Regulierung. Sie kombiniert Bestandesschutz, Bewilligungspflichten oder Sanierungskontrolle mit direkter Kontrolle der Mietzinse, Kostenmieten, Renditen oder zulässigen Mietzinsaufschläge. Der Staat schützt hier nicht nur den Bestand, sondern greift in die Preisbildung ein.
+**Definition:** Die stärkste Form wohnpolitischer Regulierung — ein **harter Mietzinsdeckel auf dem bestehenden, freien Mietwohnungsmarkt**. Die Behörde begrenzt, setzt fest oder prüft direkt die Mietzinse, zulässigen Mietzinsaufschläge oder Renditen, die ein **privater Vermieter** auf **bestehenden Marktwohnungen** verlangen darf. Der Staat schützt hier nicht nur den Bestand, sondern greift unmittelbar in die private Mietpreisbildung ein.
 
 **Typische Instrumente:**
-- Mietzinskontrolle nach Sanierung
-- Mietzinsdeckel nach bewilligter Renovation
-- Kostenmietvorgaben
-- Renditekontrolle
-- Bewilligung nur bei Einhaltung bestimmter Mietzinslimiten
-- zeitlich befristete Mietzinsbindung nach Umbau, Sanierung oder Abbruchersatz
-- Kontrolle zulässiger Mietzinsaufschläge
-- direkte behördliche Prüfung der Mietzinse
-- harte Wohnschutzgesetze nach Vorbild von Kantonen oder Städten mit Eingriff in die Rendite- oder Mietpreisbildung
+- Mietzinskontrolle / Mietzinsdeckel nach bewilligter Sanierung oder Renovation (Begrenzung der zulässigen Mietzinse im Bestand)
+- behördliche Festsetzung maximal zulässiger Mietzinse nach baulichen Massnahmen
+- Kontrolle / Begrenzung zulässiger Mietzinsaufschläge im bestehenden Mietverhältnis
+- Renditekontrolle auf bestehenden Marktmietwohnungen
+- Bewilligung von Sanierung/Umbau **nur** bei Einhaltung behördlicher Mietzinslimiten
+- harte Wohnschutzgesetze mit Eingriff in die Rendite-/Mietpreisbildung des freien Bestands
 
-**Abgrenzung:** Nicht jede Bewilligungspflicht. Eine reine Bewilligung für Sanierung, Abbruch oder STWE-Umwandlung ist Kategorie 5. Erst wenn die Behörde direkt Mietzinse, Kostenmieten, Renditen oder Mietzinsaufschläge begrenzt oder prüft, wird es Kategorie 6. Gilt die Preisbindung nur im Rahmen eines neu geschaffenen preisgünstigen Wohnanteils in einem Projekt → ggf. Kategorie 3. Wirkt sie als allgemeiner Wohnschutz im Bestand → Kategorie 6.
+**Abgrenzung (WICHTIG — Kategorie 6 wird häufig überdehnt):** Nur ein **harter Mietzinsdeckel auf dem freien Bestand** ist Kategorie 6. Ausdrücklich **NICHT** Kategorie 6:
+- **Kostenmiete / Mietzinsbindung bei preisgünstigen oder gemeinnützigen Wohnungen** (subventioniert, gemeinnützige Träger, neu geschaffener preisgünstiger Anteil): Das ist die Preisbindung des **geförderten Segments**, kein Deckel auf dem freien Markt. → **Kategorie 3** (verbindliche preisgünstig-Quote/Auflage bei Planung/Neubau) bzw. **Kategorie 1** (reine Förderung/gemeinnützige Produktion). Niemals Kategorie 6.
+- **Formularpflicht beim Anfangsmietzins** (amtliches Formular zur Mitteilung des Vormietzinses, kantonale Aktivierung von OR Art. 270 Abs. 2): reine **Transparenz-/Meldepflicht**, deckelt keinen Mietzins. → **Kategorie 5** (prozessuale Melde-/Prüfpflicht), nie Kategorie 6.
+- reine Bewilligung für Sanierung/Abbruch/STWE-Umwandlung **ohne** Mietzinslimite → Kategorie 5.
 
-**Kernformel:** Der Staat sagt nicht nur, ob verändert werden darf, sondern auch zu welchem Mietzins oder mit welcher zulässigen Rendite.
+Erst wenn die Behörde **auf dem freien Bestand** direkt Mietzinse, Mietzinsaufschläge oder Renditen begrenzt/prüft, wird es Kategorie 6.
+
+**Kernformel:** Der Staat sagt einem **privaten Vermieter auf dem freien Markt** nicht nur, ob er verändern darf, sondern auch **zu welchem Mietzins oder mit welcher zulässigen Rendite** — nicht zu verwechseln mit der Preisbindung geförderter/gemeinnütziger Wohnungen.
+
+# Ausschlüsse — NICHT klassifizieren (kein wohnpolitisches Instrument)
+
+Bestimmte Massnahmen sind **keine** wohnpolitischen Instrumente und erhalten **KEINE** Kategorie (1–6). Markiere sie als **ausgeschlossen** (`excluded`, mit Grund), nicht als Kategorie:
+
+- **Mehrwertabgabe / Mehrwertausgleich / Ausgleich von Planungsvorteilen / taxe sur la plus-value / plus-value foncière / Planungsmehrwertabgabe.** Das ist eine **fiskalische Abgabe (Steuer)** auf den planungsbedingten Mehrwert bei **Ein-/Um-/Aufzonung** — der „Mehrwert" wird „versteuert". Eine Abgabe ist **keine Quote** und **keine** Wohnraumregulierung. Ausgeschlossen **auch dann**, wenn die Erträge zweckgebunden für Wohnbauförderung verwendet werden (die Zweckbindung der **Verwendung** macht die **Abgabe** nicht zu einem Wohninstrument). Grund: `Steuer/fiskalisch`.
+  - **ABER — wichtige Unterscheidung:** Wird der Eigentümer **statt** der Abgabe durch einen **verwaltungsrechtlichen/städtebaulichen Vertrag oder eine Auflage** verpflichtet, konkret **preisgünstigen/gemeinnützigen Wohnraum** zu schaffen (verbindliche Wohnraumquote im Planungsvorgang), dann ist **diese Wohnraumverpflichtung** ein Instrument → **Kategorie 3**. Nur die **reine Geldabgabe** wird ausgeschlossen; die **konkrete Wohnraumleistung** ist Kat 3.
+- Reine **Steuern/Gebühren/Abgaben** ohne unmittelbar regulierende Wohnwirkung (z. B. allgemeine Handänderungssteuer, Liegenschaftssteuer). Grund: `Steuer/fiskalisch`.
+- Reine **Transparenz-/Statistik-/Monitoring-Pflichten ohne Schutz- oder Steuerungswirkung** (wenn nicht als Vollzug eines bindenden Instruments). Grund: `nur Transparenz/Statistik`.
 
 # Globale Klassifikationsregeln
 
 1. **Klassifiziere immer das konkrete Instrument, nicht die politische Vorlage als Ganzes.** Eine Vorlage kann aktive Bodenpolitik, Vorkaufsrecht und Bestandesschutz enthalten — dann müssen drei separate Instrumente erfasst und je einzeln klassifiziert werden.
-2. **Jedes Instrument erhält genau eine Hauptkategorie.** Enthält ein Instrument mehrere Dimensionen, teile es in mehrere Instrumente auf. Ist das nicht möglich, wähle die Kategorie nach der **stärksten direkten Eingriffsmechanik**.
+2. **Jedes Instrument erhält genau eine Hauptkategorie** (1–6) **oder** ist **ausgeschlossen** (siehe Ausschlüsse). Enthält ein Instrument mehrere Dimensionen, teile es in mehrere Instrumente auf. Ist das nicht möglich, wähle die Kategorie nach der **stärksten direkten Eingriffsmechanik**.
 3. **Reihenfolge der Eingriffsintensität (ungefähr 1 → 6):** (1) öffentliche Ermöglichung über Boden · (2) freiwilliger planerischer Anreiz · (3) verbindliche planerische Pflicht · (4) Eingriff in Eigentum oder Transaktion · (5) Bewilligungsschutz für bestehenden Wohnraum · (6) Bewilligungsschutz plus Mietzins- oder Renditekontrolle.
+4. **Kategorie 6 ist ein harter Mietzinsdeckel auf dem freien Bestand** — NICHT die Kostenmiete/Preisbindung geförderter/gemeinnütziger Wohnungen (→ Kat 3/1) und NICHT die Formularpflicht beim Anfangsmietzins (→ Kat 5).
+5. **Mehrwertabgaben werden ausgeschlossen** (Steuer), nicht als Kat 3 erfasst — siehe Ausschlüsse.
 
 # Entscheidungsheuristik (in dieser Reihenfolge prüfen)
 
-- Greift die Massnahme **direkt in Mietzinse / Kostenmieten / Renditen / zulässige Aufschläge** im Bestand ein? → **6**
+- **AUSSCHLUSS zuerst:** Ist es eine **Mehrwertabgabe/-ausgleich (Steuer)** oder eine andere reine Abgabe/Transparenzpflicht? → **ausgeschlossen** (keine Kategorie). Nur eine damit verknüpfte **konkrete preisgünstig-Wohnraumverpflichtung** (Vertrag/Auflage) → **3**.
+- Greift die Massnahme als **harter Mietzinsdeckel direkt in Mietzinse / Renditen / zulässige Aufschläge auf dem freien Bestand** ein (NICHT Kostenmiete geförderter Wohnungen, NICHT Formularpflicht)? → **6**
 - Schützt sie den **bestehenden Wohnraum** über eine zusätzliche Bewilligungs-/Melde-/Prüfpflicht, **ohne** Preiskontrolle? → **5**
 - Greift sie in **Eigentum / Verkauf / Erwerb / Verfügung** ein (z. B. Vorkaufsrecht, Veräusserungsbeschränkung)? → **4**
 - Schreibt sie bei Bau/Planung/Umzonung einen preisgünstigen Anteil **verbindlich** vor? → **3**
@@ -143,8 +157,8 @@ Bei Unsicherheit zwischen zwei Kategorien: nenne beide, erkläre die Abgrenzungs
 Für **jedes** identifizierte Instrument:
 
 - **Instrument:** kurze Bezeichnung
-- **Kategorie:** Nummer 1–6 + Kurztitel
-- **Begründung:** welche Eingriffsmechanik trägt die Einstufung (1–3 Sätze)
+- **Kategorie:** Nummer 1–6 + Kurztitel — **oder** `ausgeschlossen` (mit Grund, z. B. „Steuer/fiskalisch: Mehrwertabgabe")
+- **Begründung:** welche Eingriffsmechanik trägt die Einstufung bzw. den Ausschluss (1–3 Sätze)
 - **Abgrenzung:** gegen welche Nachbarkategorie(n) wurde warum abgegrenzt
 - **Sicherheit:** hoch / mittel / tief (+ ggf. offene Frage)
 

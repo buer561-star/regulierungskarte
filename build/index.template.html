@@ -178,7 +178,7 @@
       <div class="vhead">
         <p class="eb">Choroplethenkarte · Wohnpolitik-Taxonomie</p>
         <h1>Regulierungskarte Schweiz</h1>
-        <p>Wähle oben die <b>Instrument-Kategorien</b> (mehrere möglich) — die Karte färbt jedes Gebiet nach der <b>stärksten gewählten</b> Kategorie, die dort gilt (genau <b>eine</b> Farbe pro Gebiet). <b>Kantonskarte</b>: was <b>kantonal</b> bindend gilt. <b>Gemeindekarte</b>: was auf Gemeindeebene gilt — reine kantonale <b>Ermächtigungen</b> (Gemeindeoptionen) färben <b>keine</b> Gemeinde, bis die Aktivierung kommunal belegt ist (Run 2).</p>
+        <p>Wähle oben die <b>Instrument-Kategorien</b> (mehrere möglich) — die Karte färbt jedes Gebiet nach der <b>stärksten gewählten</b> Kategorie (genau <b>eine</b> Farbe pro Gebiet). <b>Kantonskarte</b>: was der Kanton erlassen hat — <b>inkl. Ermächtigungen</b> (Gemeindeoptionen). <b>Gemeindekarte</b>: nur <b>direkt bindendes</b> Recht — reine kantonale Ermächtigungen färben <b>keine</b> Gemeinde, bis die kommunale Aktivierung belegt ist (Run 2).</p>
       </div>
       <div class="catselect" id="catselect">
         <div class="catselect-row">
@@ -342,8 +342,10 @@ function repaint(){
 function markSel(attr,val){ const svg=document.getElementById("map"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
 function rahmenRow(nr){
   if(!auditByKt[nr]) return "";
-  const cat=cantonTopCat(nr);
-  return `<div class="d-row"><div class="d-k">Kantonaler Rechtsrahmen (Run 1)</div><div class="d-v">${cat?catBadge(cat):'<span class="mono">kein bindender kant. Rahmen</span>'}</div></div>`;
+  const b=cantonTopCat(nr), a=cantonTopCatAll(nr);
+  const bindLine = b?catBadge(b):'<span class="mono">kein direkt bindendes Instrument</span>';
+  const optLine = (a && a!==b)?`<div class="d-row"><div class="d-k">Inkl. Ermächtigungen (Kantonsebene)</div><div class="d-v">${catBadge(a)} <span class="mono">via Gemeindeoption</span></div></div>`:"";
+  return `<div class="d-row"><div class="d-k">Direkt bindend (Gemeindeebene)</div><div class="d-v">${bindLine}</div></div>`+optLine;
 }
 function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
   const u=dwellByBfs[bfs];
@@ -446,16 +448,21 @@ const TAX = [
    abgrenzung:"Stärker als reine Planungspolitik, weil sie den bestehenden Bestand betrifft. Schwächer als Kategorie 6, solange keine direkte Mietzins-, Kosten- oder Renditekontrolle angewendet wird. Prüft die Bewilligung nur, ob Wohnraum erhalten bleibt → Kategorie 5. Setzt sie zusätzlich Mietzinslimiten nach der Sanierung oder Renditegrenzen → Kategorie 6.",
    formel:"Der Staat sagt: Bestehender Wohnraum darf nicht ohne zusätzliche Prüfung verändert, entzogen oder umgewandelt werden."},
   {n:6,title:"Harter Wohnschutz mit Mietzins- oder Renditekontrolle",
-   def:"Die stärkste Form wohnpolitischer Regulierung. Sie kombiniert Bestandesschutz, Bewilligungspflichten oder Sanierungskontrolle mit direkter Kontrolle der Mietzinse, Kostenmieten, Renditen oder zulässigen Mietzinsaufschläge. Der Staat schützt hier nicht nur den Bestand, sondern greift in die Preisbildung ein.",
-   instr:["Mietzinskontrolle nach Sanierung","Mietzinsdeckel nach bewilligter Renovation","Kostenmietvorgaben","Renditekontrolle","Bewilligung nur bei Einhaltung bestimmter Mietzinslimiten","Zeitlich befristete Mietzinsbindung nach Umbau, Sanierung oder Abbruchersatz","Kontrolle zulässiger Mietzinsaufschläge","Direkte behördliche Prüfung der Mietzinse","Harte Wohnschutzgesetze mit Eingriff in die Rendite- oder Mietpreisbildung"],
-   abgrenzung:"Nicht jede Bewilligungspflicht. Eine reine Bewilligung für Sanierung, Abbruch oder STWE-Umwandlung ist Kategorie 5. Erst wenn die Behörde direkt Mietzinse, Kostenmieten, Renditen oder Mietzinsaufschläge begrenzt oder prüft, wird es Kategorie 6. Gilt die Preisbindung nur im Rahmen eines neu geschaffenen preisgünstigen Anteils in einem Projekt, kann Kategorie 3 korrekt sein; wirkt sie als allgemeiner Wohnschutz im Bestand, Kategorie 6.",
-   formel:"Der Staat sagt nicht nur, ob verändert werden darf, sondern auch zu welchem Mietzins oder mit welcher zulässigen Rendite."}
+   def:"Ein harter Mietzinsdeckel auf dem bestehenden, freien Mietwohnungsmarkt: Die Behörde begrenzt, setzt fest oder prüft direkt die Mietzinse, zulässigen Mietzinsaufschläge oder Renditen, die ein privater Vermieter auf bestehenden Marktwohnungen verlangen darf. Der Staat greift unmittelbar in die private Mietpreisbildung ein.",
+   instr:["Mietzinskontrolle / Mietzinsdeckel nach bewilligter Sanierung oder Renovation","Behördliche Festsetzung maximal zulässiger Mietzinse nach baulichen Massnahmen","Kontrolle/Begrenzung zulässiger Mietzinsaufschläge im bestehenden Mietverhältnis","Renditekontrolle auf bestehenden Marktmietwohnungen","Bewilligung von Sanierung/Umbau nur bei Einhaltung behördlicher Mietzinslimiten","Harte Wohnschutzgesetze mit Eingriff in die Rendite-/Mietpreisbildung des freien Bestands"],
+   abgrenzung:"Nur ein harter Mietzinsdeckel auf dem freien Bestand ist Kategorie 6 — die Kategorie wird oft überdehnt. NICHT Kategorie 6: (a) Kostenmiete/Mietzinsbindung bei preisgünstigen oder gemeinnützigen Wohnungen — das ist die Preisbindung des geförderten Segments → Kategorie 3 (Quote/Auflage) bzw. 1 (Förderung); (b) Formularpflicht beim Anfangsmietzins (Mitteilung des Vormietzinses, OR 270 II) — reine Transparenz-/Meldepflicht → Kategorie 5; (c) reine Bewilligung für Sanierung/Abbruch/STWE ohne Mietzinslimite → Kategorie 5.",
+   formel:"Der Staat sagt einem privaten Vermieter auf dem freien Markt, zu welchem Mietzins oder mit welcher Rendite er vermieten darf — nicht zu verwechseln mit der Preisbindung geförderter Wohnungen."}
 ];
+/* Ausschluss: fiskalische Abgaben sind keine wohnpolitischen Instrumente */
+const TAX_EXCLUDED = {title:"Ausgeschlossen — keine wohnpolitische Kategorie", color:"#9AA7B0",
+  note:"Fiskalische Abgaben werden NICHT klassifiziert. Insbesondere die <b>Mehrwertabgabe / der Mehrwertausgleich</b> (taxe sur la plus-value) ist eine <b>Steuer</b> auf den planungsbedingten Mehrwert bei Ein-/Um-/Aufzonung — keine Quote und keine Wohnraumregulierung, auch nicht bei Zweckbindung der Erträge. Nur eine konkrete, verbindliche preisgünstig-/gemeinnützig-<b>Wohnraumverpflichtung</b> (Vertrag/Auflage) statt der Abgabe wird als Kategorie 3 erfasst."};
 const TAX_SCALE = ["öffentliche Ermöglichung über Boden","freiwilliger planerischer Anreiz","verbindliche planerische Pflicht","Eingriff in Eigentum oder Transaktion","Bewilligungsschutz für bestehenden Wohnraum","Bewilligungsschutz plus Mietzins- oder Renditekontrolle"];
 const TAX_RULES = [
   "<b>Klassifiziere immer das konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Eine Vorlage kann z.&nbsp;B. aktive Bodenpolitik, Vorkaufsrecht und Bestandesschutz enthalten — dann werden drei separate Instrumente erfasst.",
-  "<b>Jedes Instrument erhält genau eine Hauptkategorie.</b> Enthält ein Instrument mehrere Dimensionen, teile es auf. Ist das nicht möglich, wähle die Kategorie nach der stärksten direkten Eingriffsmechanik.",
-  "<b>Die Reihenfolge der Eingriffsintensität</b> ist ungefähr 1 → 6: öffentliche Ermöglichung über Boden, freiwilliger Anreiz, verbindliche Pflicht, Eingriff in Eigentum/Transaktion, Bewilligungsschutz für den Bestand, Bewilligungsschutz plus Mietzins-/Renditekontrolle."
+  "<b>Jedes Instrument erhält genau eine Hauptkategorie (1–6) oder ist ausgeschlossen.</b> Enthält ein Instrument mehrere Dimensionen, teile es auf. Ist das nicht möglich, wähle die Kategorie nach der stärksten direkten Eingriffsmechanik.",
+  "<b>Die Reihenfolge der Eingriffsintensität</b> ist ungefähr 1 → 6: öffentliche Ermöglichung über Boden, freiwilliger Anreiz, verbindliche Pflicht, Eingriff in Eigentum/Transaktion, Bewilligungsschutz für den Bestand, Bewilligungsschutz plus Mietzins-/Renditekontrolle.",
+  "<b>Kategorie 6 ist ein harter Mietzinsdeckel auf dem freien Bestand</b> — NICHT die Kostenmiete/Preisbindung geförderter/gemeinnütziger Wohnungen (→ Kat 3/1) und NICHT die Formularpflicht beim Anfangsmietzins (→ Kat 5).",
+  "<b>Mehrwertabgaben sind Steuern und werden ausgeschlossen</b> (keine Kategorie), nicht als Kat 3 erfasst — nur eine damit verknüpfte verbindliche Wohnraumverpflichtung ist Kat 3."
 ];
 function renderTaxonomy(){
   document.getElementById("tax-scale").innerHTML = TAX.map(c=>`<span class="scaleitem"><span class="dot" style="background:${TAX_COLORS[c.n]}"></span>${c.n} · ${c.title}</span>`).join("");
@@ -468,7 +475,8 @@ function renderTaxonomy(){
       `<h4>Abgrenzung</h4><p>${c.abgrenzung}</p>`+
       `<h4>Kernformel</h4><div class="formel" style="border-color:${col}">${c.formel}</div>`+
       `</div></div>`;
-  }).join("");
+  }).join("")
+  + `<div class="tcat" style="opacity:.92"><div class="tcat-head"><div class="tcat-num" style="background:${TAX_EXCLUDED.color}">✕</div><div class="tcat-ttl">${TAX_EXCLUDED.title}</div></div><div class="tcat-body"><p>${TAX_EXCLUDED.note}</p></div></div>`;
   document.getElementById("tax-rules").innerHTML = `<ol>${TAX_RULES.map(r=>`<li>${r}</li>`).join("")}</ol>`;
 }
 
@@ -476,21 +484,28 @@ function renderTaxonomy(){
 const AUDIT = (()=>{ try{ return JSON.parse(document.getElementById("auditdata").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
 const aud={q:"",followup:false};
 const TAX_TITLE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
-/* Karten-Deploy: Kanton -> stärkste BINDENDE Kategorie (Gemeindeoptionen färben nicht) */
+/* Karten-Deploy — EBENEN-ABHÄNGIG:
+   Kantonskarte = was kantonal gilt, INKL. Ermächtigungen (Gemeindeoptionen).
+   Gemeindekarte = nur DIREKT bindend (Optionen färben erst nach kommunaler Aktivierung, Run 2). */
 const LANDFILL = "#E4E7EA";
 const MAP_CAT_PRIORITY = [6,5,4,3,2,1];
 const auditByKt = {}; (AUDIT.cantons||[]).forEach(c=>{ if(c.canton_nr!=null) auditByKt[c.canton_nr]=c; });
-/* bindende kantonale Kategorien (Gemeindeoptionen ausgeschlossen) */
-function cantonBindingCatSet(nr){ const c=auditByKt[nr]; const s=new Set(); if(!c) return s;
-  (c.cantonal_instruments_found||[]).forEach(i=>{ if(i.municipal_option_exists) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
-function cantonTopCat(nr){ const s=cantonBindingCatSet(nr); for(const p of MAP_CAT_PRIORITY){ if(s.has(p)) return p; } return null; }
-/* stärkste GEWÄHLTE bindende Kategorie (bestimmt die Farbe) */
-function ktCat(nr){ const s=cantonBindingCatSet(nr); for(const p of MAP_CAT_PRIORITY){ if(s.has(p) && selectedCats.has(p)) return p; } return null; }
+function cantonCatSet(nr, inclOptions){ const c=auditByKt[nr]; const s=new Set(); if(!c) return s;
+  (c.cantonal_instruments_found||[]).forEach(i=>{ if(!inclOptions && i.municipal_option_exists) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
+function cantonBindingCatSet(nr){ return cantonCatSet(nr,false); }
+function strongest(set){ for(const p of MAP_CAT_PRIORITY){ if(set.has(p)) return p; } return null; }
+function strongestSel(set){ for(const p of MAP_CAT_PRIORITY){ if(set.has(p) && selectedCats.has(p)) return p; } return null; }
+/* aktuelle Ebene: Kantonskarte inkl. Optionen, Gemeindekarte nur bindend */
+function levelSet(nr){ return cantonCatSet(nr, mapMode==="kanton"); }
+function cantonTopCat(nr){ return strongest(cantonBindingCatSet(nr)); }   // bindend (Detail "bindender Rahmen")
+function cantonTopCatAll(nr){ return strongest(cantonCatSet(nr,true)); }  // inkl. Ermächtigungen
+function ktCat(nr){ return strongestSel(levelSet(nr)); }                  // Kartenfarbe (ebenen- + auswahlabhängig)
 function ktFill(nr){ const cat=ktCat(nr); return cat?(TAX_COLORS[cat]||LANDFILL):LANDFILL; }
 function renderMapLegend(){ const el=document.getElementById("map-legend"); if(!el) return;
   if(!(AUDIT.cantons||[]).length){ el.innerHTML=""; return; }
   const used=new Set(); RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); });
-  el.innerHTML = [...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>kein bindender Rahmen / nicht gewählt</span>`;
+  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (Optionen erst nach komm. Aktivierung)";
+  el.innerHTML = `<span style="width:100%;color:var(--ink-faint)">Einfärbung: ${basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</span>`;
 }
 /* ===== Kategorie-Auswahl (Chips oberhalb der Karte) ===== */
 function renderCatChips(){
@@ -503,7 +518,7 @@ function renderCatChips(){
 function afterSelect(){ renderCatChips(); repaint(); renderMapLegend(); renderKpi(); }
 function setAllCats(on){ selectedCats.clear(); if(on)[1,2,3,4,5,6].forEach(c=>selectedCats.add(c)); afterSelect(); }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function catBadge(c){ const col=TAX_COLORS[c]||"#999"; return `<span class="catbadge" style="background:${col}">Kat. ${c} · ${TAX_TITLE[c]||"?"}</span>`; }
+function catBadge(c){ if(!c) return `<span class="catbadge" style="background:#9AA7B0">ausgeschlossen</span>`; const col=TAX_COLORS[c]||"#999"; return `<span class="catbadge" style="background:${col}">Kat. ${c} · ${TAX_TITLE[c]||"?"}</span>`; }
 function auditMatches(c){
   if(aud.followup && !c.municipal_followup_required) return false;
   if(aud.q){ const q=aud.q.toLowerCase();
@@ -562,15 +577,17 @@ function pctStr(v,total){ return (100*v/(total||1)).toFixed(1).replace(".",",")+
 function renderKpi(){
   const total=dwellTotal||1;
   const byCat={}; let none=0;
-  RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=cantonTopCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; });
-  const selSum=[1,2,3,4,5,6].reduce((s,c)=>s+(selectedCats.has(c)?(byCat[c]||0):0),0);
+  // exakt wie die Karte: ebenen- + auswahlabhängige Top-Kategorie je Kanton
+  RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; });
+  const selSum=total-none;
+  const basis = mapMode==="kanton" ? "kantonal gilt (inkl. Ermächtigungen)" : "direkt bindend";
   document.getElementById("kpi-head").innerHTML = (AUDIT.cantons||[]).length
-    ? `<b>${pctStr(selSum,total)}</b> der Schweizer Wohnungen (${fmtN(selSum)} von ${fmtN(total)}) liegen in Gebieten mit einem <b>bindenden kantonalen Instrument</b> der gewählten Kategorien.`
+    ? `<b>${pctStr(selSum,total)}</b> der Schweizer Wohnungen (${fmtN(selSum)} von ${fmtN(total)}) liegen in Gebieten, die unter die gewählten Kategorien fallen <span class="mono">(${basis}, ${mapMode==="kanton"?"Kantons-":"Gemeinde-"}ebene)</span>.`
     : `Wohnungen gesamt: <b>${fmtN(total)}</b>. (Audit-Run noch nicht eingespielt — Kennzahlen folgen.)`;
   document.getElementById("kpi-cards").innerHTML = [1,2,3,4,5,6].map(c=>{ const u=byCat[c]||0; const on=selectedCats.has(c);
     return `<div class="kpicard ${on?"":"off"}" style="border-left-color:${TAX_COLORS[c]}"><div class="kc-k"><span class="dot" style="background:${TAX_COLORS[c]}"></span>Kat ${c} · ${TAX_TITLE[c]}</div><div class="kc-v">${pctStr(u,total)}</div><div class="kc-s">${fmtN(u)} Whg.</div></div>`;
-  }).join("") + `<div class="kpicard" style="border-left-color:${LANDFILL}"><div class="kc-k"><span class="dot" style="background:${LANDFILL}"></span>kein bindender Rahmen</div><div class="kc-v">${pctStr(none,total)}</div><div class="kc-s">${fmtN(none)} Whg.</div></div>`;
-  document.getElementById("kpi-note").innerHTML = `Zuordnung je Gebiet nach der <b>stärksten bindenden</b> Kategorie (eine Farbe pro Gebiet). Gemeindeoptionen (kantonale Ermächtigungen) zählen erst nach belegter kommunaler Aktivierung (Run 2). Basis: ${esc(DWELL.source||"GWS")}, ${fmtN(DWELL.count||(DWELL.gemeinden||[]).length)} Gemeinden.`;
+  }).join("") + `<div class="kpicard" style="border-left-color:${LANDFILL}"><div class="kc-k"><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</div><div class="kc-v">${pctStr(none,total)}</div><div class="kc-s">${fmtN(none)} Whg.</div></div>`;
+  document.getElementById("kpi-note").innerHTML = `Zuordnung je Gebiet nach der <b>stärksten gewählten</b> Kategorie (eine Farbe pro Gebiet), konsistent mit der Karte. <b>Kantonsebene</b> zählt auch Ermächtigungen; <b>Gemeindeebene</b> nur direkt Bindendes (Optionen erst nach kommunaler Aktivierung, Run 2). Basis: ${esc(DWELL.source||"GWS")}, ${fmtN(DWELL.count||(DWELL.gemeinden||[]).length)} Gemeinden.`;
 }
 
 const dw={q:"",kt:"",sortKey:"bfs",sortDir:1};
@@ -622,7 +639,7 @@ function init(){
   renderAudit();
   initDwellings();
   document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showView(t.dataset.view)));
-  document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();}));
+  document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();renderKpi();}));
   document.getElementById("cat-all").addEventListener("click",()=>setAllCats(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAllCats(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
