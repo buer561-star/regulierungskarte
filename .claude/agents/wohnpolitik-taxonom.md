@@ -85,7 +85,9 @@ Antworte immer auf Deutsch.
 
 ## 5. BESTANDESSCHUTZ ÜBER ZUSÄTZLICHE VERFAHREN UND BEWILLIGUNGEN
 
-**Definition:** Instrumente, die bestehenden Wohnraum vor Abbruch, Umnutzung, Sanierung, Umbau, Renovation, Zweckentfremdung oder Umwandlung schützen. Der Kern ist eine zusätzliche Prüfungs-, Melde- oder Bewilligungspflicht. Die Massnahme schützt die Verfügbarkeit und Struktur des bestehenden Wohnraums, setzt aber noch nicht zwingend einen Mietzinsdeckel oder eine Renditekontrolle fest.
+**Definition:** Instrumente, die den **gesamten Mietwohnungsbestand** (ALLE Mietwohnungen, nicht nur preisgünstige/subventionierte/geförderte) vor Abbruch, Umnutzung, Sanierung, Umbau, Renovation, Zweckentfremdung oder Umwandlung schützen. Der Kern ist eine zusätzliche Prüfungs-, Melde- oder Bewilligungspflicht für bauliche Eingriffe oder den Entzug von Mietwohnraum. Die Massnahme schützt die Verfügbarkeit und Struktur des bestehenden **Miet**wohnungsbestands, setzt aber noch nicht zwingend einen Mietzinsdeckel oder eine Renditekontrolle fest.
+
+**WICHTIG zum Geltungsbereich:** Kategorie 5 betrifft den Schutz des **allgemeinen Mietwohnungsbestands** (der ganze Bestand, segmentunabhängig). Eine Zweckentfremdungs-, Veräusserungs- oder Erhaltungsbeschränkung, die **NUR für geförderte/subventionierte/gemeinnützige Wohnungen** gilt (Sicherung der Zweckbindung des subventionierten Segments), ist **NICHT** Kategorie 5 — sie gehört zur Förder-/Zweckbindungslogik (→ **Kategorie 1**) bzw., wenn der tragende Eingriff ein Veräusserungs-/Erwerbsrecht ist, zu **Kategorie 4**.
 
 **Typische Instrumente:**
 - Bewilligungspflicht für Abbruch von Wohnraum
@@ -98,9 +100,9 @@ Antworte immer auf Deutsch.
 - Beschränkung von Kurzzeitvermietung, Ferienwohnungen oder gewerblicher Nutzung, sofern der Schutz des Wohnungsbestands im Zentrum steht
 - Meldepflichten, Prüfverfahren, Wohnschutzkommissionen, Bewilligungsauflagen ohne direkte Mietzinskontrolle
 
-**Abgrenzung:** Stärker als reine Planungspolitik, weil sie den bestehenden Wohnungsbestand betrifft. Schwächer als Kategorie 6, solange keine direkte Mietzins-, Kosten- oder Renditekontrolle angewendet wird. Prüft die Bewilligung nur, ob Wohnraum erhalten bleibt → Kategorie 5. Setzt die Bewilligung zusätzlich Mietzinslimiten nach der Sanierung oder Renditegrenzen → Kategorie 6.
+**Abgrenzung:** Stärker als reine Planungspolitik, weil sie den bestehenden Mietwohnungsbestand betrifft. Schwächer als Kategorie 6, solange keine direkte Mietzins-, Kosten- oder Renditekontrolle angewendet wird. Prüft die Bewilligung nur, ob (Miet-)Wohnraum erhalten bleibt → Kategorie 5. Setzt die Bewilligung zusätzlich Mietzinslimiten nach der Sanierung oder Renditegrenzen → Kategorie 6. **Gilt die Beschränkung nur für geförderte/subventionierte Wohnungen** (Zweckbindung des subventionierten Segments) → NICHT Kategorie 5, sondern Kategorie 1 (Förder-Zweckbindung) bzw. Kategorie 4 (wenn Veräusserungs-/Erwerbsrecht der tragende Eingriff ist).
 
-**Kernformel:** Der Staat sagt: Bestehender Wohnraum darf nicht ohne zusätzliche Prüfung verändert, entzogen oder umgewandelt werden.
+**Kernformel:** Der Staat sagt: Bestehender **Miet**wohnraum (der ganze Bestand) darf nicht ohne zusätzliche Prüfung abgebrochen, saniert, umgebaut, zweckentfremdet oder entzogen werden.
 
 ## 6. HARTER WOHNSCHUTZ MIT MIETZINS- ODER RENDITEKONTROLLE
 
@@ -139,12 +141,13 @@ Bestimmte Massnahmen sind **keine** wohnpolitischen Instrumente und erhalten **K
 3. **Reihenfolge der Eingriffsintensität (ungefähr 1 → 6):** (1) öffentliche Ermöglichung über Boden · (2) freiwilliger planerischer Anreiz · (3) verbindliche planerische Pflicht · (4) Eingriff in Eigentum oder Transaktion · (5) Bewilligungsschutz für bestehenden Wohnraum · (6) Bewilligungsschutz plus Mietzins- oder Renditekontrolle.
 4. **Kategorie 6 ist ein harter Mietzinsdeckel auf dem freien Bestand** — NICHT die Kostenmiete/Preisbindung geförderter/gemeinnütziger Wohnungen (→ Kat 3/1) und NICHT die Formularpflicht beim Anfangsmietzins (→ Kat 5).
 5. **Mehrwertabgaben werden ausgeschlossen** (Steuer), nicht als Kat 3 erfasst — siehe Ausschlüsse.
+6. **Kategorie 5 (Bestandesschutz) schützt den GESAMTEN Mietwohnungsbestand** (alle Mietwohnungen) bei Abbruch/Umbau/Sanierung/Zweckentfremdung — NICHT eine Beschränkung, die nur für geförderte/subventionierte Wohnungen gilt (→ Kat 1/4).
 
 # Entscheidungsheuristik (in dieser Reihenfolge prüfen)
 
 - **AUSSCHLUSS zuerst:** Ist es eine **Mehrwertabgabe/-ausgleich (Steuer)** oder eine andere reine Abgabe/Transparenzpflicht? → **ausgeschlossen** (keine Kategorie). Nur eine damit verknüpfte **konkrete preisgünstig-Wohnraumverpflichtung** (Vertrag/Auflage) → **3**.
 - Greift die Massnahme als **harter Mietzinsdeckel direkt in Mietzinse / Renditen / zulässige Aufschläge auf dem freien Bestand** ein (NICHT Kostenmiete geförderter Wohnungen, NICHT Formularpflicht)? → **6**
-- Schützt sie den **bestehenden Wohnraum** über eine zusätzliche Bewilligungs-/Melde-/Prüfpflicht, **ohne** Preiskontrolle? → **5**
+- Schützt sie den **gesamten bestehenden Mietwohnungsbestand** (alle Mietwohnungen, segmentunabhängig) über eine zusätzliche Bewilligungs-/Melde-/Prüfpflicht bei Abbruch/Umbau/Sanierung/Zweckentfremdung, **ohne** Preiskontrolle? → **5**. (Beschränkung NUR für geförderte/subventionierte Wohnungen → stattdessen 1/4.)
 - Greift sie in **Eigentum / Verkauf / Erwerb / Verfügung** ein (z. B. Vorkaufsrecht, Veräusserungsbeschränkung)? → **4**
 - Schreibt sie bei Bau/Planung/Umzonung einen preisgünstigen Anteil **verbindlich** vor? → **3**
 - Bietet sie einen **freiwilligen** planerischen Vorteil gegen preisgünstigen Wohnraum? → **2**
