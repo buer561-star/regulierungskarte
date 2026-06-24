@@ -368,10 +368,12 @@ function rahmenRow(nr){
 function munRow(bfs){
   const m=munByBfs[bfs];
   if(m && (m.instruments||[]).length){
-    return `<div class="d-row"><div class="d-k">Kommunale Instrumente (Run 2)</div>`+m.instruments.map(i=>
-      `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
-      `<div class="ainstr-s">${i.bindingness?("Bindung: "+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}</div></div>`
-    ).join("")+`</div>`;
+    const STL={adopted_not_yet_in_force:"angenommen, noch nicht in Kraft",proposed:"pendent/Entwurf",rejected:"abgelehnt",repealed:"aufgehoben"};
+    return `<div class="d-row"><div class="d-k">Kommunale Instrumente (Run 2)</div>`+m.instruments.map(i=>{
+      const st = (i.legal_status && i.legal_status!=="in_force") ? `<span class="nofarb">[${esc(STL[i.legal_status]||i.legal_status)} — färbt nicht]</span> · ` : "";
+      return `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
+      `<div class="ainstr-s">${st}${i.bindingness?("Bindung: "+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}</div></div>`;
+    }).join("")+`</div>`;
   }
   const st=run2StatusByBfs[bfs];
   if(st==="checked") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">einzeln geprüft — kein kommunales Instrument gefunden</div></div>`;
@@ -537,7 +539,9 @@ function cantonTopCatAll(nr){ return strongest(cantonCatSet(nr,true)); }  // ink
 function ktCat(nr){ return strongestSel(levelSet(nr)); }                  // Kartenfarbe (ebenen- + auswahlabhängig)
 function ktFill(nr){ const cat=ktCat(nr); return cat?(TAX_COLORS[cat]||LANDFILL):LANDFILL; }
 /* Gemeindeebene: kantonal bindend (kantonsweit) + kommunale Instrumente dieser Gemeinde (Run 2) */
-function municipalCatSet(bfs){ const s=new Set(); const g=munByBfs[bfs]; if(!g) return s; (g.instruments||[]).forEach(i=>{ if(i.excluded) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
+/* nur in Kraft stehende, nicht ausgeschlossene Instrumente färben (angenommen-noch-nicht-in-Kraft / pendent zählen nicht) */
+function munInForce(i){ return !i.excluded && i.taxonomy_category && (!i.legal_status || i.legal_status==="in_force"); }
+function municipalCatSet(bfs){ const s=new Set(); const g=munByBfs[bfs]; if(!g) return s; (g.instruments||[]).forEach(i=>{ if(munInForce(i)) s.add(i.taxonomy_category); }); return s; }
 function gemCatSet(bfs){ const g=gemByBfs[bfs]; const s=new Set(cantonBindingCatSet(g?g.kt:0)); municipalCatSet(bfs).forEach(c=>s.add(c)); return s; }
 function gemCat(bfs){ return strongestSel(gemCatSet(bfs)); }
 function gemFill(bfs){ const c=gemCat(bfs); return c?(TAX_COLORS[c]||LANDFILL):LANDFILL; }
@@ -622,7 +626,8 @@ function renderRun2Overview(){
         `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
       `</div>`;
     const checkedList=`<div class="r2list"><h4>Einzeln geprüft (${checked.length})</h4>`+checked.map(g=>{
-        const ist = g.found ? `<span class="ist ok">${(g.instruments||[]).filter(i=>!i.excluded&&i.taxonomy_category).map(i=>"Kat "+i.taxonomy_category).join(", ")||"Instrument"}</span>` : (g.status==="pending"?`<span class="ist mono">…</span>`:`<span class="ist none">nichts</span>`);
+        const cats=[...new Set((g.instruments||[]).filter(munInForce).map(i=>i.taxonomy_category))].sort((a,b)=>a-b);
+        const ist = g.status==="pending" ? `<span class="ist mono">…</span>` : (cats.length?`<span class="ist ok">Kat ${cats.join(", ")}</span>`:`<span class="ist none">${g.found?"nur pendent/ausgeschl.":"nichts"}</span>`);
         return `<div class="r2li"><span class="nm">${esc(g.name)}</span> ${ist}<span class="u">${fmtN(g.units)} Whg</span></div>`;
       }).join("")+`</div>`;
     const skipList=`<div class="r2list"><h4>Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div></div>`;

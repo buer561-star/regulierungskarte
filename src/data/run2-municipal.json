@@ -3,7 +3,7 @@
     "title": "Run 2 — Gemeindeebene (Triage)",
     "scope": "municipal",
     "date": "2026-06-24",
-    "status": "in_progress",
+    "status": "complete_zh",
     "note": "Kommunale Tier-1-Recherche mit Triage. Einzeln geprüft werden Gemeinden über der Schwelle (kommunale Wohn-Reglemente/Quoten realistisch); kleinere per Triage übersprungen.",
     "agents": [
       "quellen-agent",
@@ -21,10 +21,133 @@
           "bfs": 261,
           "name": "Zürich",
           "units": 237386,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Wohnpolitischer Grundsatzartikel: aktive Förderung/Erhaltung/Erhöhung des Anteils preisgünstiger und gemeinnütziger Wohnungen (Schutz, soziale Durchmischung)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Gemeindeordnung der Stadt Zürich (Erlass 101.100), Art. 17-20, Gemeindebeschluss vom 13. Juni 2021",
+              "source_form": "ordinance",
+              "source_url": "https://www.stadt-zuerich.ch/dam/web/de/politik-verwaltung/politik-recht/amtliche-sammlung/101/100/101.100-Gemeindeordnung-2024.06_V28.pdf",
+              "evidence_quote_short": "Art. 17: Die Stadt setzt sich aktiv für den Schutz, die Erhaltung und die Erhöhung des Anteils von preisgünstigen Wohnungen und Gewerberäumen ein..."
+            },
+            {
+              "name": "Förderziel: ein Drittel gemeinnützige Mietwohnungen bis 2050 (stetige Erhöhung des gemeinnützigen/kostenmietegebundenen Bestands)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Gemeindeordnung der Stadt Zürich (101.100), Art. 18 Abs. 3-4 u. Art. 155 (Übergangsbestimmung, Fassung Gemeindebeschluss 9. Juni 2024, in Kraft 1.1.2025)",
+              "source_form": "ordinance",
+              "source_url": "https://www.stadt-zuerich.ch/dam/web/de/politik-verwaltung/politik-recht/amtliche-sammlung/101/100/101.100-Gemeindeordnung-2024.06_V28.pdf",
+              "evidence_quote_short": "Art. 155: Für das Erreichen von einem Drittel des Mietwohnungsbestands im Eigentum von gemeinnützigen Wohnbauträgerinnen oder Wohnbauträgern setzt die Stadt das Jahr 2050 als Ziel."
+            },
+            {
+              "name": "Kostenmiete für kommunale/gemeinnützige Wohnsiedlungen und uebrige städtische Wohnliegenschaften (Bewirtschaftung ohne Gewinnabsicht)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Gemeindeordnung der Stadt Zürich (101.100), Art. 21",
+              "source_form": "ordinance",
+              "source_url": "https://www.stadt-zuerich.ch/dam/web/de/politik-verwaltung/politik-recht/amtliche-sammlung/101/100/101.100-Gemeindeordnung-2024.06_V28.pdf",
+              "evidence_quote_short": "Art. 21: Die Stadt bewirtschaftet und vermietet die ... kommunalen Wohnsiedlungen und ihre übrigen Wohnliegenschaften ... grundsätzlich nach dem Prinzip der Kostenmiete."
+            },
+            {
+              "name": "Städtischer Wohnraumfonds: Beiträge an öffentliche/private gemeinnützige Wohnbauträger für Erwerb von Wohnbaugrundstücken/Wohnliegenschaften und Bau/Erneuerung von Mietwohnungen",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Gemeindeordnung der Stadt Zürich (101.100), Art. 155a (Fassung Gemeindebeschluss 18. Juni 2023, in Kraft 1.1.2024)",
+              "source_form": "ordinance",
+              "source_url": "https://www.stadt-zuerich.ch/dam/web/de/politik-verwaltung/politik-recht/amtliche-sammlung/101/100/101.100-Gemeindeordnung-2024.06_V28.pdf",
+              "evidence_quote_short": "Art. 155a: Die Stadt führt einen städtischen Wohnraumfonds ... an öffentliche und private gemeinnützige Wohnbauträgerschaften für: a. den Erwerb von Wohnbaugrundstücken und Wohnliegenschaften; b. den Bau und die Erneuerung von Mietwohnungen."
+            },
+            {
+              "name": "Abgabe von städtischem Land im Baurecht an gemeinnützige Wohnbauträger / Genossenschaften (aktive Bodenpolitik, >200 Baurechtsverträge)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Gemeindeordnung Stadt Zürich (101.100, Art. 17-21) i.V.m. kommunaler Wohnbauförderungspraxis / Baurechtsverträge der Stadt Zürich",
+              "source_form": "ordinance",
+              "source_url": "https://www.stadt-zuerich.ch/de/planen-und-bauen/bauberatung-und-dienstleistungen/foerderprogramme/wohnbaufoerderung/foerderinstrumente.html",
+              "evidence_quote_short": "Die Stadt vergibt Baurechte auf städtischem Boden an gemeinnützige Wohnbauträger; über 200 laufende Baurechtsverträge, rund die Hälfte an gemeinnützige Träger."
+            },
+            {
+              "name": "Stiftung PWG (öffentlich-rechtliche Stiftung) zum Erwerb und zur Erhaltung/Schaffung preisgünstiger Wohn- und Gewerberäume",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Stiftung PWG zur Erhaltung von preisgünstigen Wohn- und Gewerberäumen der Stadt Zürich, Statuten (Erlass 843.331), vom 15. Dezember 2021",
+              "source_form": "regulation",
+              "source_url": "https://www.stadt-zuerich.ch/de/politik-und-verwaltung/politik-und-recht/amtliche-sammlung/8/843/331/331_v2.html",
+              "evidence_quote_short": "Die Stiftung bezweckt, in bestehenden und allenfalls neu zu erstellenden Bauten preisgünstigen Wohnraum ... zu erhalten oder zu schaffen ... gemeinnützig und ohne Gewinnabsicht."
+            },
+            {
+              "name": "Verordnung über die Umsetzung von §49b PBG (UmV §49b PBG): Mindestanteil 75% der zusätzlichen Ausnützung als preisgünstiger Wohnraum bei Aufzonungen; Bagatellgrenze 650 m²",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Verordnung über die Umsetzung von § 49b Planungs- und Baugesetz (UmV § 49b PBG), Gemeinderatsbeschluss 17.9.2025, an der Volksabstimmung vom 14.6.2026 mit 57.1% angenommen",
+              "source_form": "regulation",
+              "source_url": "https://www.stadt-zuerich.ch/de/planen-und-bauen/stadtplanung/bau-zonenordnung/revision/49b.html",
+              "evidence_quote_short": "Bei allen Aufzonungen ... sind 75% dieser zusätzlichen Ausnützung als preisgünstiger Wohnraum zu erstellen; Bagatellgrenze 650 m² anrechenbare Geschossfläche. Verordnung am 14.6.2026 mit 57.1% angenommen."
+            },
+            {
+              "name": "BZO Art. 8: bei Arealüberbauung muss der freiwillige Ausnützungsbonus dem preisgünstigen Wohnraum gewidmet werden (verbindliche Auflage bei beanspruchter Mehrnutzung)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "binding",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Bau- und Zonenordnung der Stadt Zürich, Art. 8 (Arealüberbauungsbonus preisgünstig gewidmet); Teilrevision/Revision BZO, öffentliche Auflage 18.3.-1.6.2026",
+              "source_form": "zoning_code",
+              "source_url": "https://www.stadt-zuerich.ch/de/aktuell/medienmitteilungen/2022/08/220824b.html",
+              "evidence_quote_short": "Bei der Arealüberbauung (Art. 8 BZO) gilt, dass der freiwillige Arealüberbauungsbonus dem preisgünstigen Wohnraum gewidmet werden muss."
+            },
+            {
+              "name": "Mehrwertausgleich / Mehrwertabgabe der Stadt Zürich (Abgabe auf planungsbedingtem Mehrwert)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe ist eine fiskalische Abgabe auf den planungsbedingten Mehrwert, keine Wohnraumregulierung — gemäss Taxonomie ausgeschlossen, auch bei zweckgebundener Verwendung der Erträge.",
+              "bindingness": "binding",
+              "legal_status": "in_force",
+              "source_title": "Mehrwertausgleich Stadt Zürich (Vollzug Mehrwertausgleich nach PBG)",
+              "source_form": "other",
+              "source_url": "https://www.stadt-zuerich.ch/de/planen-und-bauen/stadtplanung/mehrwertausgleich.html"
+            },
+            {
+              "name": "Volksinitiative 'Wohnraum schützen – Airbnb und Business Apartments regulieren' (Beschränkung Kurzzeitvermietung/Business Apartments)",
+              "taxonomy_category": 5,
+              "excluded": true,
+              "excluded_reason": "Noch nicht in Kraft gesetzte Vorlage: Initiative ist erst zustande gekommen (eingereicht Okt. 2025, 3165 gültige Unterschriften), noch nicht zur Abstimmung gebracht und nicht in ein Reglement/BZO umgesetzt → kein Tier-1. Wäre inhaltlich Kat 5 (Bestandesschutz/Kurzzeitvermietung).",
+              "bindingness": "non_binding",
+              "legal_status": "proposed",
+              "source_title": "Volksinitiative «Wohnraum schützen – Airbnb und Business Apartments regulieren» zustande gekommen (Stadt Zürich, Okt. 2025)",
+              "source_form": "other",
+              "source_url": "https://www.stadt-zuerich.ch/de/aktuell/medienmitteilungen/2025/10/volksinitiative-wohnraum-schuetzen-airbnb-und-business-apartments-regulieren-zustande-gekommen.html"
+            },
+            {
+              "name": "Kantonale Wohnschutz-Initiative (Bewilligungspflicht Abbruch/Renovation + temporäre Mietzinskontrolle)",
+              "taxonomy_category": 6,
+              "excluded": true,
+              "excluded_reason": "Abgelehnt: An der kantonalen Volksabstimmung vom 14.6.2026 mit 57.3% Nein verworfen → nicht in Kraft; zudem kantonale Vorlage, keine kommunale Aktivierung Stadt Zürich. Wäre inhaltlich Kat 5/6 gewesen.",
+              "bindingness": "non_binding",
+              "legal_status": "rejected",
+              "source_title": "Kantonale Volksabstimmung Zürich 14.6.2026 — Wohnschutz-Initiative abgelehnt (57.3% Nein)",
+              "source_form": "decision",
+              "source_url": "https://www.srf.ch/news/schweiz/abstimmungen-kanton-zuerich-alle-drei-wohninitiativen-scheitern"
+            }
+          ],
+          "note": "RUN 2 — Gemeindeebene, Stadt Zürich (BFS 261, Kt. ZH). Quellen ausschliesslich kommunale Tier-1-Erlasse (Gemeindeordnung 101.100, Erlasse der Amtlichen Sammlung, rechtskräftiger Volksbeschluss). KERNFUNDE: (1) Gemeindeordnung der Stadt Zürich (101.100, Gemeindebeschluss 13.6.2021, in Kraft) enthält den wohnpolitischen Grundsatzartikel und mehrere Förderinstrumente: Art. 17-20 (Schutz/Erhaltung/Erhöhung Anteil preisgünstiger/gemeinnütziger Wohnraum, soziale Durchmischung), Art. 18 Abs. 4 + Art. 155 (Ziel: 1/3 gemeinnützige Mietwohnungen bis 2050; Stand Ende 2023: 27.0%), Art. 21 (Kostenmiete kommunaler/gemeinnütziger Wohnsiedlungen), Art. 155a (städtischer Wohnraumfonds, in Kraft seit 1.1.2024). (2) Abgabe städtischen Landes im Baurecht an gemeinnützige Wohnbauträger (>200 Baurechtsverträge) — aktive Bodenpolitik (Kat 1). (3) Öffentlich-rechtliche Stiftung PWG (Erlass 843.331, Statuten 15.12.2021) zum Erwerb/Erhalt preisgünstiger Wohn-/Gewerberäume (Kat 1). (4) §49b PBG IST in der Stadt Zürich AKTIVIERT: Verordnung über die Umsetzung von §49b PBG (UmV §49b PBG), Gemeinderatsbeschluss 17.9.2025, Referendum zustande gekommen, an der Volksabstimmung vom 14.6.2026 mit 57.1% ANGENOMMEN. %-Satz: 75% der zusätzlichen Ausnützung bei Aufzonungen als preisgünstiger Wohnraum; bei Arealüberbauung (Art. 8 BZO) freiwilliger Bonus zu 100% preisgünstig; Bagatellgrenze 650 m² anrechenbare Geschossfläche (Kat 3). Hinweis: Die parzellenscharfe Aktivierung läuft über die BZO-Revision, die per Stand Juni 2026 noch in der öffentlichen Auflage/kantonalen Genehmigung war; die Verordnung selbst ist via Volksbeschluss demokratisch bestätigt. AUSGESCHLOSSEN/NICHT GEFUNDEN: Mehrwertausgleich = Steuer/fiskalisch (ausgeschlossen). Volksinitiative 'Wohnraum schützen – Airbnb und Business Apartments regulieren' nur ZUSTANDE GEKOMMEN (eingereicht Okt. 2025), nicht abgestimmt/in Kraft → kein Tier-1 (wäre Kat 5), ausgeschlossen. Kantonale Wohnschutz-Initiative (Abbruch-/Renovationsbewilligung + Mietzinskontrolle, wäre Kat 5/6) am 14.6.2026 ABGELEHNT (57.3% Nein) → nicht in Kraft. Reglement über die Vermietung städtischer Wohnungen (Airbnb-Verbot) gilt nur für stadteigene Wohnungen (Teil der Eigentümer-/Förderlogik), kein Wohnschutz des ganzen Mietbestands → kein eigenständiges Kat-5-Instrument. Kein kommunales Vorkaufsrecht (Kat 4) und keine generelle Zweckentfremdungs-/Abbruchbewilligung für den GANZEN Mietbestand (Kat 5) als in Kraft stehende kommunale Tier-1-Quelle gefunden. Keine kommunale Mietzinskontrolle auf dem freien Bestand (Kat 6).",
+          "confidence": "hoch"
         },
         {
           "bfs": 230,
