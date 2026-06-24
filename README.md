@@ -1,41 +1,38 @@
-# Gemeinde-Kataster Schweiz
+# Gemeinde- & Kantonskarte Schweiz
 
-Interaktive Karte der Schweizer Kantone und Gemeinden. Die Klassifikation erfolgt
-ausschließlich über **Instrumente** (später zu definieren) — **keine** Stufen-Hierarchie,
-**kein** Status (in Kraft / pendent / abgelehnt / unklar), **keine** eingebetteten Regelinhalte.
+Interaktive Karte der Schweiz auf **Gemeinde-** und **Kantonsebene** — reine
+Geometrie, ohne weitere Klassifikation.
 
-> Hervorgegangen aus dem früheren „Regulierungs-Kataster Wohnungsmarkt". Dessen
-> Originalversion und der vollständige Audit liegen unter `legacy/` bzw. `docs/`.
+> Abgespeckte Variante des früheren „Gemeinde-Kataster Schweiz". Der gesamte
+> Instrumente-/Recherche-/Audit-Teil wurde in dieser Version entfernt; er liegt
+> weiterhin auf dem ursprünglichen Branch.
 
-## Das aktuelle Tool
+## Das Tool
 
 `index.html` — **selbst-enthaltenes Single-File-Tool** (keine externen Bibliotheken).
-Fünf Ansichten:
-- **Karte:** Gemeinde- oder Kantonskarte, interaktiv nach **exklusiver Kategorie (1–10)** eingefärbt. Rechts wählst du **einen oder mehrere** der 10 Instrument-Typen (mit Gebiets-Zähler); Umschalter **farbbestimmend** (nur in Kraft + bindend + Tier-1/2) ↔ **alle Instrumente** (inkl. Förderung/Vollzug/Pendentes). Bei mehreren gewählten Typen gilt der stärkste. Hover/Klick zeigt Instrumente mit Quelle; **SVG-Export**.
-- **Instrumente & Filter:** Katalog aller Instrumente mit Territorium, Kategorie, Status, Rechtsgrundlage, Quelle; nach Kategorie/Status/Kanton/Suche filterbar.
-- **Daten & Info:** Kennzahlen, Kategorien-Legende und Datenherkunft.
-- **Audit & Quellen:** zwei **Übersichtskarten** (Kantonsebene als Aggregat + Gemeindeebene) sowie Auditberichte je Gebiet (Recherche, geprüfte Quellen nach Tier, gefundene/verworfene Instrumente, Klassifikations- und Kartenrelevanz-Logik, offene Fragen); Read-only-Ebene, verändert Karte/Klassifikation nicht.
-- **Instrumente erklärt:** Übersicht der 10 exklusiven Kategorien (Erklärung + Anzahl) und aller erfassten Instrumente, nach Kategorie gruppiert.
+Eine Ansicht:
+
+- **Karte:** Umschalter **Gemeindekarte ↔ Kantonskarte**. Hover/Klick markiert das
+  Gebiet und zeigt rechts Name, BFS-Nummer und Kanton (bzw. Kantonsnummer und
+  Gemeindezahl in der Kantonsansicht). Die aktuelle Ansicht lässt sich als **SVG**
+  exportieren.
 
 Live ansehen (öffentliches Repo, ohne Setup):
 `https://raw.githack.com/buer561-star/regulierungskarte/<branch>/index.html`
 
 ## Datengrundlage
 
-- **Geometrie:** swisstopo swissBOUNDARIES (Stand 2025, Rev. 04/2025), WGS84, in den SVG-Raum projiziert (voll detailliert).
-- **Umfang:** nur Schweiz — **26 Kantone, 2115 Gemeinden, 10 Seen**. Liechtenstein und ausländische Enklaven (Büsingen, Campione) entfernt; CH-Sondergebiete (Staatswald Galm, 2 Kommunanzen) als neutrale Flächen.
-- **Amtliche ID-Liste:** „Politische Gemeinden 01.01.2024" (2131 BFS) als Referenz in `src/data/source/gemeinde-id-2024.json`.
-- ⚠ **Stichtags-Versatz:** ID-Liste = 2024, Geometrie = 2025 → 19 zwischenzeitlich fusionierte Gemeinden haben kein Polygon (Details in `docs/REBUILD_NOTES.md`).
-- **Instrumente:** Produktivdaten aus `src/data/instruments.json` + `territory-instruments.json` (beim Build in `index.html` injiziert). **Stand: alle 26 Kantone** (83 Instrumente, Tier-1/2-Quellen; ein Audit je Kanton in `src/data/audit-reports.json`). Schwerpunkt sind die grössten Gemeinden je Kanton (Gemeindeautonomie) plus kantonale Regimes; bei den **kantonsweiten** Regimes sind alle betroffenen Gemeinden eingefärbt — **Genf** (LDTR, alle 45), **Waadt** (LPPPL, alle Pénurie-Bezirke ausser Aigle) und **Tessin** (Kurzzeitvermietung kantonsweit). Insgesamt **457 farbbestimmende Gemeinden** (1664 Relationen). Die kleineren Deutschschweizer/Ost-Kantone (AG, SO, SH, TG, GL, UR, OW, AR, AI, SG) sind überwiegend neutral (Förderung/ermächtigend, keine bindende Marktregel); vereinzelte kommunale Quoten: Freienbach (SZ), Stans (NW), Delémont (JU) = **blau/Kat 3**. Abdeckung wird kantonsweise erweitert. **Keine Demo-Daten.** Beispiele: Genf = LDTR (Mietzinskontrolle, **rot/Kat 7**); Basel/Riehen/Bettingen = Kat 7 (rot); Bern = Wohnraumschutz (**orange/Kat 6**); Waadt = LPPPL (Pénurie-Bezirke, **rot/Kat 7**, ausser Aigle); Köniz, Burgdorf, Zug, Baar, Steinhausen, Lugano = preisgünstig-Quote (**blau/Kat 3**); Stadt Luzern, Davos, Crans-Montana, Val de Bagnes = Nutzungssteuerung (**gelb/Kat 8**); Neuenburg LVAL-Mangelgemeinden (**violett/Kat 5**); Basel-Landschaft, Freiburg, Stadt Zürich = nur Förderung/ermächtigend bzw. Quoten noch nicht in Kraft → neutral.
+- **Geometrie:** swisstopo swissBOUNDARIES (Stand 2025, Rev. 04/2025), WGS84, in den
+  SVG-Raum projiziert (voll detailliert).
+- **Umfang:** nur Schweiz — **26 Kantone, 2115 Gemeinden, 10 Seen**. Liechtenstein und
+  ausländische Enklaven (Büsingen, Campione) entfernt; CH-Sondergebiete (Staatswald
+  Galm, 2 Kommunanzen) als neutrale Flächen.
 
 ## Reproduzierbarer Build
 
 ```bash
 node build/build-map-data.mjs      # GeoJSON -> build/ch-map.generated.json (kompakte SVG-Pfade)
-node build/build-html.mjs          # injiziert Daten in build/index.template.html -> index.html
-
-# optionaler Render-Test (benötigt jsdom):
-npm install jsdom --no-save && node research/render-test.mjs
+node build/build-html.mjs          # injiziert Geometrie in build/index.template.html -> index.html
 ```
 
 Bearbeitet wird die App in **`build/index.template.html`**; `index.html` wird daraus generiert.
@@ -46,17 +43,5 @@ Bearbeitet wird die App in **`build/index.template.html`**; `index.html` wird da
 |---|---|
 | `index.html` | **Generiertes** Single-File-Tool (Deliverable) |
 | `build/` | Build-Pipeline: `build-map-data.mjs`, `build-html.mjs`, `index.template.html` |
-| `src/data/` | Produktivdaten: `instruments.json`, `territory-instruments.json`, `bfs-aliases.json`, `audit-reports.json` (+ `source/` Rohdaten) |
-| `validation/` | `validate-data.mjs` (read-only) + `VALIDATION_PLAN.md` |
-| `research/` | Werkzeuge (`render-test.mjs`, Legacy `validate.mjs`) + `pilots/` (BS-Plan, Findings, Bericht) + `AGENT_PLAN.md` |
-| `docs/` | Architektur: Datenmodell, Taxonomie, Quellen-/Vintage-Policy, WP-Matrix, Coverage + Legacy-Audits |
-| `legacy/` | Unveränderte Originalversion des alten Tools |
-
-## Nächster Schritt
-
-Weitere Kantone als Instrumente erfassen (nach `docs/RESEARCH_COVERAGE.md`), je Befund
-quellenbelegt (`docs/SOURCE_POLICY.md`) und exklusiv kategorisiert
-(`docs/INSTRUMENT_TAXONOMY.md`); vor Übernahme stets `node validation/validate-data.mjs`
-(0 ERROR). Eingebaut: **alle 26 Kantone** (Erstabdeckung). Weiter: nicht-Worklist-Gemeinden
-in den farbbestimmenden Kantonen (GE, VD, TI: kantonsweite Regimes) ergänzen; pendente
-Quoten bei Inkrafttreten nachführen (ZH, ZG-Cham/Risch, BE-Thun, LU-Vorkauf 2027).
+| `src/data/source/` | swisstopo-Rohdaten: `gemeinden.geojson`, `kantone.geojson` |
+| `docs/` | Geometrie-Notizen: Vintage-Policy, Rebuild-Notes |
