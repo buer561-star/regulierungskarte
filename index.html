@@ -3398,8 +3398,8 @@
     "title": "Run 2 — Gemeindeebene (Triage)",
     "scope": "municipal",
     "date": "2026-06-25",
-    "status": "in_progress_all",
-    "note": "Kommunale Tier-1-Recherche mit Triage. Einzeln geprüft werden Gemeinden über der Schwelle (kommunale Wohn-Reglemente/Quoten realistisch); kleinere per Triage übersprungen.",
+    "status": "partial_cut",
+    "note": "Run 2 (Gemeindeebene, Triage). CUT 2026-06-25: 76 Gemeinden einzeln geprüft (37 mit kommunalem Instrument), 268 als Triage-Plan offen (jederzeit fortsetzbar).",
     "agents": [
       "quellen-agent",
       "wohnpolitik-taxonom"
@@ -5323,100 +5323,424 @@
           "bfs": 351,
           "name": "Bern",
           "units": 82242,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Mindestanteil 1/3 preisguenstiger/gemeinnuetziger Wohnraum bei Um-/Neueinzonung (Kostenmiete) - Art. 16b Abs. 1/2 Bauordnung (BO)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Bauordnung der Stadt Bern (BO), SSSB 721.1, Art. 16b - Wohn-Initiative 'Fuer bezahlbare Wohnungen' (in Kraft seit 1.1.2020; BGer 14.11.2019)",
+              "source_url": "https://www.bern.ch/politik-und-verwaltung/stadtverwaltung/prd/stadtplanungsamt/fachstelle-wohnbauforderung/wohninitiative",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "mindestens ein Drittel der Wohnnutzung mit preisguenstigen Wohnungen bebaut oder an gemeinnuetzige Wohnbautraeger abgegeben wird. Die Wohnungen sind in Kostenmiete zu vermieten."
+            },
+            {
+              "name": "Freiwilliger 20%-Nutzungsbonus bei vollstaendig preisguenstigem/gemeinnuetzigem Gebaeude - Art. 16b Abs. 3 Bauordnung (BO)",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "bindingness": "freiwillig (planerischer Anreiz)",
+              "legal_status": "in_force",
+              "source_title": "Bauordnung der Stadt Bern (BO), SSSB 721.1, Art. 16b Abs. 3 (in Kraft seit 1.1.2020)",
+              "source_url": "https://stadtrecht.bern.ch/lex-721_1",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "das Nutzungsmass um 20 Prozent erhoeht werden, wenn dies staedtebaulich vertraeglich ist und alle Wohnungen im Gebaeude preisguenstig oder durch eine gemeinnuetzige Traegerschaft erstellt werden"
+            },
+            {
+              "name": "Wohnraumschutz: Umnutzungs-/Abbruchverbot fuer den gesamten Mietwohnungsbestand bei Wohnungsknappheit (\u003c1% Leerwohnungsziffer) - Art. 16a Bauordnung (BO)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich (Bewilligungs-/Schutzpflicht)",
+              "legal_status": "in_force",
+              "source_title": "Bauordnung der Stadt Bern (BO), SSSB 721.1, Art. 16a - Schutz von Wohnraum bei Wohnungsknappheit (in Kraft seit 2015); keine Mietzinskontrolle -> Kat 5",
+              "source_url": "https://www.bern.ch/themen/planen-und-bauen/baubewilligung/wohnraumschutz",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Die Umnutzung von Wohnraum ist ... grundsaetzlich nicht gestattet ... wenn der ueber drei Jahre gemittelte Leerwohnungsbestand unter einem Prozent liegt."
+            },
+            {
+              "name": "Fonds fuer Boden- und Wohnbaupolitik: Landerwerb, Abgabe im Baurecht an gemeinnuetzige Wohnbautraeger, Wohnbaufoerderung - Fondsreglement (FRBW)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindlich (kommunales Reglement)",
+              "legal_status": "in_force",
+              "source_title": "Reglement ueber die Boden- und Wohnbaupolitik der Stadt Bern (Fondsreglement; FRBW), SSSB 854.1 (in Kraft seit 1.1.1985)",
+              "source_url": "https://stadtrecht.bern.ch/lex-854_1/lex-854_1.pdf?change-id=0&effective-from=19850101",
+              "source_form": "regulation",
+              "evidence_quote_short": "Grundstuecke fuer den Wohnungsbau erworben ... Wohnungsbau gefoerdert ... Bekaempfung von Spekulationen und Preissteigerungen durch Teilnahme am Boden- und Wohnungsmarkt"
+            },
+            {
+              "name": "'Lex Airbnb': Beschraenkung gewerblicher Kurzzeitvermietung von Zweitwohnungen in der Altstadt (max. 90 Naechte/Jahr) - BO-Teilrevision",
+              "taxonomy_category": 5,
+              "excluded": true,
+              "excluded_reason": "Noch nicht in Kraft / nicht rechtskraeftig: Volksabstimmung Feb 2022 angenommen, aber wegen Kollektivbeschwerde (u.a. HEV) juristisch blockiert; per Juni 2026 beim Verwaltungsgericht haengig (nur 'Vorwirkung'). Keine rechtskraeftige Tier-1-Quelle -> konservativ ausgeschlossen.",
+              "bindingness": "noch nicht in Kraft",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Teilrevision Bauordnung Stadt Bern 'Lex Airbnb' (Volksabstimmung 13.2.2022)",
+              "source_url": "https://www.bern.ch/themen/planen-und-bauen/baubewilligung/wohnraumschutz",
+              "source_form": "zoning_code"
+            }
+          ],
+          "note": "Stadt Bern hat mehrere rechtskraeftige KOMMUNALE Tier-1-Instrumente. Art. 16b BO (Drittel-Regel preisguenstig/gemeinnuetzig bei Um-/Neueinzonung, Kostenmiete) = Kat 3; Art. 16b Abs. 3 BO (freiwilliger 20%-Nutzungsbonus bei vollstaendig preisguenstigem/gemeinnuetzigem Gebaeude) = Kat 2; beide nach Volksabstimmung 18.5.2014 (71,56% Ja), AGR-genehmigt und seit 1.1.2020 in Kraft (BGer 14.11.2019 wies Beschwerden ab). Art. 16a BO (Wohnraumschutz: Umnutzungs-/Abbruchverbot fuer den gesamten Mietwohnungsbestand in W-/D-/Schutz-/Altstadtzonen, sobald 3-Jahres-Leerwohnungsziffer \u003c1%) = Kat 5; in Kraft seit 2015; KEINE Mietzinskontrolle, daher NICHT Kat 6. Fondsreglement ueber die Boden- und Wohnbaupolitik (FRBW, SSSB 854.1; Volksabstimmung 1984, in Kraft seit 1985): Landerwerb, Abgabe im Baurecht an gemeinnuetzige Wohnbautraeger, Wohnbaufoerderung = Kat 1. AUSGESCHLOSSEN: 'Lex Airbnb' (Kurzzeitvermietung Altstadt, BO-Teilrevision, Volksabstimmung Feb 2022) ist trotz Annahme wegen Kollektivbeschwerde NOCH NICHT in Kraft (per Juni 2026 beim Verwaltungsgericht haengig) -> kein rechtskraeftiges Tier-1-Instrument, konservativ nicht erfasst. Rein kantonale BE-Instrumente nicht hier erfasst.",
+          "confidence": "high"
         },
         {
           "bfs": 371,
           "name": "Biel (BE)",
           "units": 32298,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Aktive Boden- und Wohnpolitik mit Baurechtsabgabe an gemeinnützige Wohnbauträger (inkl. verbindliche Gurzelen-Abgabe; Kostenmiete-/Zweckbindung gefördertes Segment)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindlicher Rahmen; Förderinstrument (Art. 4 Abs. 3 Gurzelen = rechtsverbindliche Abgabepflicht der Stadt)",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Förderung des gemeinnützigen Wohnungsbaus (RFGW), SGR 8.5-1, Stadt Biel, Art. 1/4/5/7/8 sowie Art. 3 Abs. 1 lit. d (Kostenmiete)",
+              "source_form": "regulation",
+              "source_url": "https://biel-bienne.tlex.ch/app/de/texts_of_law/8.5-1",
+              "evidence_quote_short": "In Kraft seit 08.08.2016. Art. 4 Abs. 3: im Gebiet «Gurzelen» gibt die Stadt die Grundstücke ... mindestens zur Hälfte im Baurecht ... an gemeinnützige Wohnbauträger ab; Art. 4 Abs. 2 lit. a Gewährung von Baurechten; Art. 3 Abs. 1 lit. d Kostenmiete."
+            },
+            {
+              "name": "Vergünstigte Darlehen an gemeinnützige Wohnbauträger (bis 80% der Gesamtkosten)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "Kann-Förderinstrument der Stadt (rechtsverbindliche Grundlage)",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Förderung des gemeinnützigen Wohnungsbaus (RFGW), SGR 8.5-1, Stadt Biel, Art. 9",
+              "source_form": "regulation",
+              "source_url": "https://biel-bienne.tlex.ch/app/de/texts_of_law/8.5-1",
+              "evidence_quote_short": "In Kraft seit 08.08.2016. Art. 9 Abs. 1: «Die Stadt kann gemeinnützigen Wohnbauträgern ... vergünstigte Darlehen im Umfang von bis zu 80% der Gesamtkosten gewähren.»"
+            },
+            {
+              "name": "Raumplanerische Förderung: Festlegung Mindestanteil preisgünstiger Wohnraum bzw. Nutzungsmass-Erhöhung in der Nutzungsplanung",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "Rahmen-/Kann-Bestimmung (Art. 6 RFGW); verbindliche Quote erst bei arealspezifischer Aktivierung in der Nutzungsplanung",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Förderung des gemeinnützigen Wohnungsbaus (RFGW), SGR 8.5-1, Stadt Biel, Art. 6",
+              "source_form": "regulation",
+              "source_url": "https://biel-bienne.tlex.ch/app/de/texts_of_law/8.5-1",
+              "evidence_quote_short": "In Kraft seit 08.08.2016. Art. 6 Abs. 2: «Insbesondere kann sie für ein gewisses Areal in der Nutzungsplanung einen Mindestanteil an preisgünstigem Wohnraum festlegen oder das zulässige Nutzungsmass erhöhen ...»; Abs. 3: Nutzungsplanung regelt die Einzelheiten. Keine flächendeckende %-Quote im Baureglement."
+            },
+            {
+              "name": "Mehrwertabgabe der Stadt Biel (Reglement über die Mehrwertabgabe, SGR 7.2.1-2)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe / Ausgleich von Planungsvorteilen ist eine fiskalische Abgabe, kein wohnpolitisches Regulierungsinstrument (gemäss Taxonomie ausgeschlossen, auch bei zweckgebundener Verwendung).",
+              "bindingness": "verbindlich, aber als wohnpolitisches Instrument ausgeschlossen",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Mehrwertabgabe der Stadt Biel, SGR 7.2.1-2",
+              "source_form": "regulation",
+              "source_url": "https://biel-bienne.tlex.ch/app/de/texts_of_law/7.2.1-2",
+              "evidence_quote_short": "Offizielle Stadt-Biel-Seite «Baurechtliche Grundlagen» verweist auf «Reglement über die Mehrwertabgabe der Stadt Biel (SGR 7.2.1-2)» als Instrument zum Ausgleich von Planungsvorteilen."
+            }
+          ],
+          "note": "Kommunaler Run für Biel/Bienne (BFS 371, BE, lang=de). Tragende kommunale Tier-1-Quelle: «Reglement über die Förderung des gemeinnützigen Wohnungsbaus» (RFGW, SGR 8.5-1), beschlossen vom Stadtrat 29.06.2016, in Kraft seit 08.08.2016, NICHT aufgehoben (offizielle Gemeinderechtssammlung tlex). Erfasst: aktive Boden-/Wohnpolitik mit Baurechtsabgabe + gemeinnütziger Förderung/Kostenmiete (Kat 1), vergünstigte Darlehen (Kat 1), sowie die raumplanerische Förderoption preisgünstiger Wohnraum (Art. 6, Kat 3). Wichtige Korrektur zu möglichen Fehlinformationen: (a) Das revidierte Baureglement (BauRB, SGR 7.2.1-1; Gemeindeabstimmung 26.11.2023, 4801:859 Ja) ist eine reine BMBV-Anpassung und enthält KEINE verbindliche preisgünstig-/gemeinnützig-Quote (ein 25%-Satz in Art. 6 BauRB existiert NICHT; Art. 6 BauRB betrifft Ausführungsvorschriften). (b) Die «Drittel-Regel bei Um-/Auf-/Einzonung» ist die Stadt-BERNER Wohn-Initiative, nicht Bieler rechtskräftiges Recht; Biel «orientiert sich» daran, hat aber nur die Kann-Bestimmung in Art. 6 RFGW. AUSGESCHLOSSEN: Mehrwertabgabe-Reglement (SGR 7.2.1-2) = Steuer/fiskalisch. NICHT gefunden (konservativ, keine kommunale Tier-1-Quelle): kommunaler Wohnschutz/Zweckentfremdung/Abbruchbewilligung für den GANZEN Mietbestand (Kat 5; Kanton BE hat kein solches Gesetz, keine kommunale Aktivierung), harter Mietzinsdeckel (Kat 6), Airbnb-/Kurzzeit-/Zweitwohnungsreglement (Kat 5), kommunales Vorkaufsrecht (Kat 4). Biel hat lediglich eine Leerstands-Meldepflicht = reine Transparenz/Statistik, ausgeschlossen.",
+          "confidence": "hoch"
         },
         {
           "bfs": 942,
           "name": "Thun",
           "units": 23792,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Mindestanteil gemeinnütziger/preisgünstiger Wohnraum in rechtskräftigen ZPP (Siegenthalergut min. 31% GFo, Freistatt/Länggasse min. 1/3 GFo, dauerhaft Kostenmiete)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_form": "zoning_code",
+              "source_title": "Stadt Thun, Baureglement (BR) 72.01, Reglementssammlung – Zonen mit Planungspflicht (ZPP) AX 'Siegenthalergut' und AA 'Freistatt' / Länggasse-Mattenstrasse",
+              "source_url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
+              "evidence_quote_short": "Mindestens 31 % der maximal zulässigen oberirdischen Geschossflächen für Wohnen (GFo) des Gesamtareals sind dem gemeinnützigen Wohnungsbau vorbehalten ... welche die Wohnungen dauerhaft in Kostenmiete vermietet (ZPP AX, in Kraft seit 04.07.2025; StRB 69/2024). Freistatt: Mindestens ein Drittel der GFo dem gemeinnützigen Wohnungsbau vorbehalten (BR in Kraft seit 01.02.2025).",
+              "excluded_reason": ""
+            },
+            {
+              "name": "Allgemeiner Pflichtanteil mind. 1/4 preisgünstiger Wohnraum in Kostenmiete bei Ein-/Umzonungen, ÜO und ZPP (Art. 7 BR)",
+              "taxonomy_category": 3,
+              "excluded": true,
+              "legal_status": "adopted_not_yet_in_force",
+              "bindingness": "verbindlich",
+              "source_form": "zoning_code",
+              "source_title": "Stadt Thun, Baureglement (BR) 72.01, Art. 7 'Gemeinnütziger und preisgünstiger Wohnungsbau'",
+              "source_url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
+              "evidence_quote_short": "Bei Ein- und Umzonungen sowie bei ÜO und ZPP wird sichergestellt, dass in den Wohnzonen mindestens ein Viertel der Wohnnutzung als preisgünstiger Wohnraum erstellt und dauerhaft in Kostenmiete vermietet wird. ABER Fussnote: 'Art. 7 noch nicht in Kraft (Verfügung vom 18.11.2024 der DIJ)'; GRB 490/2024: in Kraft mit Ausnahme von Art. 7, Art. 13 Abs. 1 lit. e und Art. 46.",
+              "excluded_reason": "Verbindliche Kat-3-Quote, aber durch hängige Beschwerde sistiert / noch nicht in Kraft (DIJ-Verfügung 18.11.2024). Keine rechtskräftige Tier-1-Geltung."
+            },
+            {
+              "name": "Arealbonus (Dichtebonus, Art. 46 BR)",
+              "taxonomy_category": 2,
+              "excluded": true,
+              "legal_status": "adopted_not_yet_in_force",
+              "bindingness": "freiwillig",
+              "source_form": "zoning_code",
+              "source_title": "Stadt Thun, Baureglement (BR) 72.01, Art. 46 'Gebiete mit Arealbonus'",
+              "source_url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
+              "evidence_quote_short": "Fussnote 9: 'Art. 46 noch nicht in Kraft (Verfügung vom 18.11.2024 der DIJ)'; durch Beschwerde betreffend Arealbonus sistiert.",
+              "excluded_reason": "Noch nicht in Kraft (sistiert durch hängige Beschwerde, DIJ-Verfügung 18.11.2024); zudem nur planerischer Anreiz, keine eigenständige preisgünstig-Wohnraumpflicht im in Kraft stehenden Recht."
+            },
+            {
+              "name": "Wohnraumförderungsreglement (WFR) – kommunales Förderreglement gemeinnütziger/preisgünstiger Wohnraum",
+              "taxonomy_category": 1,
+              "excluded": true,
+              "legal_status": "proposed",
+              "bindingness": "unklar",
+              "source_form": "regulation",
+              "source_title": "Stadt Thun, Medienmitteilung 'Stadt Thun schafft Grundlagen für gemeinnützigen und preisgünstigen Wohnraum'",
+              "source_url": "https://www.thun.ch/medienmitteilungen/2819572",
+              "evidence_quote_short": "Der Stadtrat befindet am 30. April 2026 über das Wohnraumförderungsreglement. Vernehmlassung 21.11.2025–09.01.2026. Quellen bis April 2026 beschreiben das WFR durchgehend als pendent.",
+              "excluded_reason": "Keine rechtskräftige Tier-1-Quelle: Entwurf/Vernehmlassung; Stadtratsentscheid erst für 30.04.2026 angesetzt, kein bestätigter Beschluss/Inkrafttreten/Referendumsstatus. Konservativ nicht validiert."
+            }
+          ],
+          "note": "Zielgemeinde gemeinden[2] = Thun (BFS 942, BE, de). Massgebliche Tier-1-Quelle ist das offiziell in Kraft stehende kommunale Baureglement (BR 72.01, Reglementssammlung Stadt Thun; per pdftotext direkt verifiziert). BEFUND: In Kraft und verbindlich sind projekt-/zonenbezogene gemeinnützig-Wohnraumquoten in rechtskräftigen ZPP (Siegenthalergut min. 31% GFo, in Kraft seit 04.07.2025; Freistatt/Länggasse min. 1/3 GFo, Teil des per 01.02.2025 in Kraft gesetzten BR) – dauerhaft Kostenmiete via gemeinnützige Organisation nach Art. 37 WFV → Kat 3, in force. NICHT erfasst (excluded): (a) der allgemeine Art. 7 BR (Pflichtanteil mind. 1/4 preisgünstig bei Ein-/Umzonungen/ÜO/ZPP) – wäre Kat 3, ist aber 'noch nicht in Kraft' (DIJ-Verfügung 18.11.2024, hängige Beschwerde; GRB 490/2024: BR in Kraft mit Ausnahme Art. 7, 13 Abs.1 lit.e, 46); (b) Arealbonus Art. 46 (Kat 2) – ebenfalls sistiert; (c) WFR-Förderreglement – nur Entwurf/Vernehmlassung, Stadtratsentscheid 30.04.2026, kein bestätigtes Inkrafttreten. KEINE Hinweise auf kommunalen Wohnschutz/Zweckentfremdungs-/Abbruchbewilligung für den gesamten Mietbestand (Kat 5), keine Mietzinskontrolle (Kat 6), kein kommunales Vorkaufsrecht/Veräusserungsbeschränkung (Kat 4), kein Zweitwohnungs-/Kurzzeit-/Airbnb-Reglement. Keine kommunale Mehrwertabgabe als Instrument (wäre ohnehin als Steuer ausgeschlossen). Rein kantonale Instrumente nicht erfasst.",
+          "confidence": "hoch"
         },
         {
           "bfs": 355,
           "name": "Köniz",
           "units": 22761,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Mindestanteil 20–40% preisgünstiger Wohnungsbau in Kostenmiete bei Nutzungsplanänderungen (>4'000 m2 Geschossfläche, in Ortsteilen mit hohen Mietzinsen)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement der Gemeinde Köniz (BauR), Systematische Nummer 721.0, Art. 51 Abs. 1 lit. a und Abs. 2",
+              "source_form": "zoning_code",
+              "source_url": "https://www.koeniz.ch/public/upload/assets/12600/721.0_Baureglement.pdf",
+              "evidence_quote_short": "Art. 51 Abs. 1 lit. a: 'bei Erlass oder Änderungen von Nutzungsplänen 20 – 40 % des für das Wohnen bestimmten zusätzlichen Nutzungsmasses – sofern dieses 4'000 m2 Geschossfläche übersteigt – dem preisgünstigen Wohnungsbau in Kostenmiete vorbehält'; Abs. 2: Anwendung wenn >4'000 m2 Geschossfläche neu ermöglicht und Areal in einem von besonders hohen Mietzinsen betroffenen Ortsteil liegt."
+            },
+            {
+              "name": "Abgabe von Land im Baurecht an gemeinnützige Wohnbauträger mit dauerhafter Zweckbindung + Unterstützung bei der Landbeschaffung",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindliche Rechtsgrundlage (Kann-Instrument der Gemeinde)",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Köniz 721.0 Art. 51 Abs. 1 lit. b+c i.V.m. Verordnung zu Artikel 51 Baureglement (721.15) Art. 16–17",
+              "source_form": "regulation",
+              "source_url": "https://www.koeniz.ch/public/upload/assets/17327/721.15_verordnung_artikel_51_baureglement.pdf",
+              "evidence_quote_short": "BauR Art. 51 Abs. 1 lit. b: 'geeignete Grundstücke im Baurecht an gemeinnützige Wohnbauträger abgibt und mit Auflagen die Zweckbestimmung für den preisgünstigen Wohnungsbau in Kostenmiete dauerhaft sichert'; Verordnung Art. 16 Abs. 1 / Art. 17: Abgabe im Baurecht sowie Beratung, Vermittlung von Grundstücken und Unterstützung bei Kaufverhandlungen."
+            },
+            {
+              "name": "Mehrwertausgleich / Ausgleich von Planungsvorteilen (Reglement 721.5)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe (Ausgleich von Planungsvorteilen) ist eine fiskalische Abgabe auf den planungsbedingten Mehrwert, kein wohnpolitisches Regulierungsinstrument — gemäss Taxonomie ausgeschlossen.",
+              "legal_status": "in_force",
+              "source_title": "Reglement über den Ausgleich von Planungsvorteilen, Gemeinde Köniz, Systematische Nummer 721.5",
+              "source_form": "regulation",
+              "source_url": "https://www.koeniz.ch/public/upload/assets/13933/721.5_reglement_ausgleich_planungsvorteile.pdf",
+              "evidence_quote_short": "Kommunales Reglement zum Ausgleich von Planungsvorteilen (Mehrwertabgabe) — fiskalische Abgabe, kein Wohnschutz-/Quoteninstrument."
+            }
+          ],
+          "note": "gemeinden[3] = Köniz (BFS 355, BE, de). Zwei kommunale Tier-1-Instrumente validiert über das rechtskräftige Baureglement (BauR, 721.0; von den Stimmberechtigten am 23.9.2018 beschlossen, vom AGR am 18.5.2020 genehmigt, in Kraft seit 1.9.2021 — Art. 51 nicht unter den gestaffelten Ausnahmen; Ausgabe mit Änderungen bis 1.2.2026) sowie die dazugehörige Verordnung zu Artikel 51 (721.15, in Kraft seit 1.5.2021, Änderung 1.9.2021). (1) Art. 51 Abs. 1 lit. a + Abs. 2 BauR: verbindlicher Mindestanteil 20–40% preisgünstiger Wohnungsbau in Kostenmiete bei Nutzungsplanänderungen, sofern >4'000 m2 Geschossfläche für Wohnen neu ermöglicht und Areal in einem von hohen Mietzinsen betroffenen Ortsteil (Wabern-Ost/West, Spiegel, Liebefeld, Köniz, Ried) liegt → Kat 3 (projektbezogene Pflichtquote bei Planung/Aufzonung; Kostenmiete-Bindung der neu geschaffenen Wohnungen ist Teil der Kat-3-Auflage, NICHT Kat 6, da Preisbindung des geförderten Segments, kein Deckel auf freiem Bestand). (2) Art. 51 Abs. 1 lit. b+c BauR i.V.m. Art. 16–17 Verordnung 721.15: Abgabe geeigneter Grundstücke im Baurecht an gemeinnützige Wohnbauträger mit dauerhafter Zweckbindung + Unterstützung bei der Landbeschaffung (Beratung, Vermittlung, Kaufverhandlungen) → Kat 1 (aktive Bodenpolitik, Gemeinde handelt als Bodenakteur/Träger-Ermöglicher). AUSGESCHLOSSEN: Mehrwertausgleich/Ausgleich von Planungsvorteilen (kommunales Reglement 721.5) = fiskalische Abgabe/Steuer. KEIN kommunaler Wohnraumschutz/Zweckentfremdungs-/Abbruch-Bewilligung für den ganzen Mietbestand (Kat 5), KEINE Mietzinskontrolle freier Bestand (Kat 6), KEIN Zweitwohnungs-/Kurzzeitvermietungs-Reglement gefunden (Köniz ist Agglomerationsgemeinde, keine Tourismusgemeinde; Baureglement-Inhaltsverzeichnis enthält keinen solchen Artikel; Websuche ohne kommunalen Treffer). Rein kantonale BE-Instrumente hier nicht erfasst.",
+          "confidence": "high"
         },
         {
           "bfs": 363,
           "name": "Ostermundigen",
           "units": 9626,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Reglement Mehrwertabgabe",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe/Mehrwertausgleich (Abschoepfung des planungsbedingten Mehrwerts) ist eine fiskalische Abgabe und kein wohnpolitisches Instrument - ausgeschlossen, auch wenn Ertraege zweckgebunden verwendet werden. Es ist KEINE verbindliche preisguenstig-Wohnraumquote (kein Vertrag/keine Auflage zu konkretem Wohnraum dokumentiert).",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Reglement Mehrwertabgabe, Gemeinde Ostermundigen (kommunales Reglement, Liste Reglemente und Verordnungen)",
+              "source_url": "https://www.ostermundigen.ch/de/verwaltung/reglementeundverordnungen/",
+              "source_form": "regulation",
+              "evidence_quote_short": "Reglement Mehrwertabgabe (in der offiziellen kommunalen Liste der Reglemente und Verordnungen aufgefuehrt)"
+            }
+          ],
+          "note": "gemeinden[4] = Ostermundigen (BFS 363, BE, de). Recherche ueber offizielle kommunale Quellen (ostermundigen.ch Reglemente-/Verordnungsverzeichnis, Baureglement Nr. 103 von 1995, Zonenplan, Teilrevision-Erlaeuterungsbericht 2020, ZPP-Dokumente, O'mundo/RES). Ergebnis: KEIN rechtskraeftiges kommunales Tier-1-wohnpolitisches Instrument gefunden. (1) Kein verbindlicher Mindestanteil preisguenstiger/gemeinnuetziger Wohnungen in Baureglement, Zonenplan oder rechtskraeftiger Ueberbauungsordnung/ZPP (Kat 3 verneint); die O'mundo-RES ist eine strategische Richtplanung (nicht bindend/Tier-1), und ZPP Nr. 39 'Tell' liegt nur als Mitwirkungsentwurf vor (nicht rechtskraeftig). (2) Kein kommunaler Wohnraumschutz / Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungsreglement fuer den ganzen Mietbestand (Kat 5 verneint), keine Mietzinskontrolle (Kat 6 verneint). (3) Kein kommunales Wohnbau-/Genossenschaftsfoerderungs-, Bodenpolitik-/Baurecht- oder Vorkaufsrechts-Reglement im Verzeichnis (Kat 1/4 verneint); die Genossenschaft OSM ('Soziale Wohnbaugenossenschaft Ostermundigen', 1947) ist ein privater Traeger ohne dokumentierte kommunale Tier-1-Grundlage. (4) Kein Zweitwohnungs-/Kurzzeitvermietungs-Reglement. (5) Das vorhandene 'Reglement Mehrwertabgabe' ist als Steuer/fiskalische Abgabe AUSGESCHLOSSEN (siehe instruments[0]); ebenso Liegenschaftssteuerreglement und Reglement Grundeigentuemerbeitraege (keine Wohninstrumente). Konservativ: ohne rechtskraeftige kommunale Tier-1-Quelle kein Instrument -> found=false.",
+          "confidence": "hoch"
         },
         {
           "bfs": 404,
           "name": "Burgdorf",
           "units": 9251,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Mindestanteil preisguenstiger Wohnraum (mind. 1/3) in Kostenmiete bei Ein-/Umzonungen ab 3'000 m2 Geschossflaeche (Art. 27a Baureglement), alternativ Bodenabgabe an gemeinnuetzige Organisation",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Baurechtliche Grundordnung / Baureglement der Stadt Burgdorf, Art. 27a 'Preisguenstiger Wohnungsbau' (Teilrevision, genehmigt/in Kraft 2. Mai 2023; konsolidiert bis 29.04.2024)",
+              "source_url": "https://oerebfiles.apps.be.ch/40401/4634/Baureglement_Burgdorf_31.10.2005_29.04.2024.pdf",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Bei Ein- oder Umzonungen in Zonen mit Wohnnutzung mit einem zusaetzlichen Nutzungsmass von mindestens 3'000 m2 Geschossflaeche oberirdisch muss mindestens ein Drittel der zusaetzlichen Wohnnutzung als preisguenstiger Wohnraum im Sinne der ... WFV ... erstellt und dauerhaft in Kostenmiete vermietet werden. Oder der dafuer noetige Boden muss durch Verkauf oder im selbststaendigen und dauernden Baurecht an eine gemeinnuetzige Organisation ... abgegeben werden, welche die Wohnungen dauerhaft in Kostenmiete vermietet."
+            },
+            {
+              "name": "Mehrwertabgabe / Ausgleich von Planungsvorteilen (Art. 13 BR i.V.m. Art. 142 ff. BauG und kommunalem Reglement ueber die Mehrwertabgabe)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe / Ausgleich von Planungsvorteilen ist eine fiskalische Abgabe auf den planungsbedingten Mehrwert, kein wohnpolitisches Instrument (auch bei zweckgebundener Verwendung ausgeschlossen).",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Baureglement der Stadt Burgdorf, Art. 13 'Ausgleich von Planungsvorteilen' (Verweis auf Art. 142 ff. BauG und kommunales Reglement ueber die Mehrwertabgabe)",
+              "source_url": "https://oerebfiles.apps.be.ch/40401/4634/Baureglement_Burgdorf_31.10.2005_29.04.2024.pdf",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Art. 13 Ausgleich von Planungsvorteilen: Der Ausgleich von Planungsvorteilen richtet sich nach Art. 142 ff. BauG sowie dem Reglement ueber die Mehrwertabgabe der Gemeinde."
+            }
+          ],
+          "note": "Kommunale Tier-1-Quelle: Baurechtliche Grundordnung / Baureglement der Stadt Burgdorf (vom 31.10.2005, konsolidiert bis 29.04.2024), gehostet auf dem offiziellen OEREB-/Geo-Register des Kantons Bern (oerebfiles.apps.be.ch). EIN kommunales Instrument bestaetigt: Art. 27a 'Preisguenstiger Wohnungsbau' (neuer Artikel, Teilrevision in Kraft/genehmigt 2. Mai 2023) - verbindlicher Mindestanteil von einem Drittel preisguenstiger Wohnraum (Kostenmiete nach WFV) bei Ein-/Umzonungen ab 3'000 m2 zusaetzlicher Geschossflaeche, alternativ Bodenabgabe an gemeinnuetzige Organisation -> Kategorie 3 (bindende planerische Quote bei Neuproduktion/Umzonung; Kostenmiete betrifft das neu geschaffene gefoerderte Segment, daher Kat 3, nicht Kat 6). AUSGESCHLOSSEN: Mehrwertabgabe (Art. 13 BR i.V.m. Art. 142 ff. BauG und kommunalem Reglement ueber die Mehrwertabgabe) = fiskalische Abgabe/Steuer, kein Wohninstrument. KEIN kommunaler Wohnraumschutz / Zweckentfremdungs-/Abbruch-Bewilligung fuer den gesamten Mietbestand (kein Kat 5), KEINE kommunale Mietzinskontrolle (kein Kat 6), KEIN eigenstaendiges kommunales Vorkaufsrechts-/Bodenpolitik-Reglement als separates Instrument gefunden (der Boden-/Baurechtsweg ist nur die Erfuellungsalternative innerhalb Art. 27a). Die in einigen Suchtreffern erscheinende 'Wohnraumfoerderung Stadt Burgdorf' bezog sich auf das gleichnamige deutsche Burgdorf (.de-Domain) und ist nicht einschlaegig.",
+          "confidence": "hoch"
         },
         {
           "bfs": 939,
           "name": "Steffisburg",
           "units": 8529,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Mindestanteil 20% preisgünstiger Wohnraum in ZPP T 'Au/Hodelmatte' (Baureglement, Anhang 3) -- verbindliche Quote im Planungsvorgang; geregelte Mietzinse = Preisbindung des geförderten Segments, NICHT harter Mietzinsdeckel des freien Bestands (daher Kat 3, nicht Kat 6)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Baurechtliche Grundordnung Steffisburg (721.01), Gemeindebaureglement, Anhang 3, ZPP T Au/Hodelmatte (Volksbeschluss 2022/2023, kantonal genehmigt AGR 20.04.2023/JID 04.07.2023, in Kraft rückwirkend 22.05.2023)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.steffisburg.ch/de/politik-verwaltung/politik/cdws/erlass.php?gid=cc5a9ea6e25e4345874721dcd1bf5407",
+              "evidence_quote_short": "20 % der dem Wohnen dienenden oberirdischen Geschossfläche GFo der ZPP sind für Wohnungen im günstigeren Preissegment reserviert. Für diesen Teil regelt die Gemeinde mit der Grundeigentümerschaft in einer öffentlichrechtlichen Vereinbarung die Bedingungen, namentlich die Flächen und das Raumprogramm sowie die Mietzinse."
+            },
+            {
+              "name": "Kommunale Förderung preisgünstigen Wohnraums (Art. 31 Baureglement) -- allgemeine Förder-/Ermöglichungsnorm ohne fixen %-Pflichtanteil; öffentliche Hand als Ermöglicher/Vertragspartner (Kat 1)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "Ermöglichung/Kompetenznorm (kein fixer %-Satz)",
+              "source_title": "Baurechtliche Grundordnung Steffisburg (721.01), Gemeindebaureglement, Art. 31 (E/5 Preisgünstiger Wohnraum)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.steffisburg.ch/de/politik-verwaltung/politik/cdws/erlass.php?gid=cc5a9ea6e25e4345874721dcd1bf5407",
+              "evidence_quote_short": "Art. 31 Abs. 1: Die Gemeinde fördert den Bau von preisgünstigem Wohnraum. Abs. 2: Der Gemeinderat kann zu diesem Zweck, insbesondere bei grösseren Überbauungen, mit der Grundeigentümerschaft vertragliche Abmachungen treffen."
+            },
+            {
+              "name": "Reglement über die Mehrwertabgabe (MWAR) 701.02",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe/Planungsmehrwertabgabe ist eine fiskalische Abgabe auf planungsbedingten Mehrwert, keine Wohnraumregulierung (Ausschluss gemäss Taxonomie, auch bei zweckgebundener Verwendung).",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Mehrwertabgabe (MWAR), Erlasssammlung Steffisburg 701.02",
+              "source_form": "regulation",
+              "source_url": "https://www.steffisburg.ch/de/politik-verwaltung/politik/cdws/erlasse.php"
+            }
+          ],
+          "note": "gemeinden[6] = Steffisburg (BFS 939, BE, lang=de). Recherche über offizielle kommunale Tier-1-Quellen: Erlasssammlung der Gemeinde (cdws/erlasse.php) und das rechtskräftige Gemeindebaureglement (Baurechtliche Grundordnung 721.01, vom Volk 13.02.2022/2023 beschlossen, kantonal genehmigt AGR 20.04.2023 / JID 04.07.2023, in Kraft rückwirkend per 22.05.2023; PDF Internetversion verifiziert). GEFUNDEN: (1) Verbindlicher 20%-Mindestanteil preisgünstiger Wohnraum in ZPP T 'Au/Hodelmatte' (Baureglement Anhang 3) -> Kat 3; die dort geregelten Mietzinse = Preisbindung des geförderten Segments im Planungskontext, ausdrücklich NICHT Kat 6. (2) Art. 31 allgemeine kommunale Förderung preisgünstigen Wohnraums -> Kat 1 (Ermöglichungs-/Kompetenznorm ohne zwingenden %-Satz). AUSGESCHLOSSEN: Reglement Mehrwertabgabe 701.02 (Steuer/fiskalisch). NICHT VORHANDEN (vollständige Erlasssammlung 1xx-9xx geprüft): kein kommunales Wohnschutz-/Zweckentfremdungsreglement (kein Schutz des ganzen Mietbestands -> kein Kat 5/6), kein Zweitwohnungs-/Kurzzeitvermietungs-Reglement (Steffisburg keine Tourismusgemeinde, Zweitwohnungsanteil \u003c20%), kein kommunales Vorkaufsrecht (kein Kat 4), kein eigenständiger Wohnbaufonds. Das in Art. 31 Abs. 2/3 angelegte Quoteninstrument ist bislang nur in ZPP T konkret aktiviert.",
+          "confidence": "hoch"
         },
         {
           "bfs": 329,
           "name": "Langenthal",
           "units": 8519,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Geprüft auf KOMMUNALER Ebene über Tier-1-Quellen. (1) Baureglement Langenthal 5.1 R (Urnenabstimmung 30.11.2003, in Kraft ab 31.03.2004; aktuelle Fassung, Referenz 07.01.2026) im Volltext durchsucht: enthält nur klassische Zonenvorschriften (W/Misch/Kern, Grenzabstände, Ausnützung). Die 'Wohnanteil'-Bestimmungen (Wohnanteil max. 70% der oberird. Geschossfläche in Mischzonen) sind reine Nutzungsmix-Regeln, KEINE Quote für preisgünstigen/gemeinnützigen Wohnraum. KEIN verbindlicher Mindestanteil preisgünstiger Wohnraum (kein Kat 3), KEIN Dichte-/Ausnützungsbonus gegen preisgünstigen Wohnraum (kein Kat 2), KEINE Bewilligungspflicht für Abbruch/Umbau/Sanierung/Zweckentfremdung des Mietbestands (kein Kat 5), KEINE Mietzinskontrolle (kein Kat 6), KEINE Zweitwohnungs-/Kurzzeitvermietungs-Regelung, KEIN kommunales Vorkaufsrecht/Bodenpolitik-Instrument (kein Kat 4). Die Treffer 'sozialer/genossenschaftlicher Wohnungsbau' stehen ausschliesslich im Bauinventar (architekturhistorische Beschreibung von Siedlungen der 1920er-50er), nicht als Instrument. (2) Systematische Rechtssammlung, Kapitel 5 Bauwesen 'Baureglemente' listet nur 3 Baureglemente (Langenthal + Ortsteile Unter-/Obersteckholz); kein separates Wohnraumförderungs-, Wohnschutz- oder Bodenpolitik-Reglement gefunden. (3) Laufende Ortsplanungsrevision (öffentl. Auflage 2023, erneute Auflage 2025) ist NICHT rechtskräftig (nur Vorwirkung) -> ausgeschlossen; auch dort keine publizierte preisgünstig-Quote erkennbar. (4) Vivola/Stiftung für Alterswohnungen = sektorale Alterswohnungs-Stiftung, kein allgemeines bindendes wohnpolitisches Marktinstrument mit kommunaler Tier-1-Rechtsgrundlage. Konservativ: ohne rechtskräftige kommunale Tier-1-Quelle KEIN Instrument erfasst (found=false).",
+          "confidence": "high"
         },
         {
           "bfs": 306,
           "name": "Lyss",
           "units": 8298,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Recherche auf Gemeindeebene Lyss (BFS 306, BE, de) über offizielle kommunale Quellen ergab KEIN rechtskräftig belegtes kommunales wohnpolitisches Instrument der Taxonomie (Kat 1-6). Geprüft: (1) Offizielles kommunales Reglemente-Register (lyss.ch/de/politik/cdws/reglemente.php) - enthält kein Wohnraum-/Wohnbauförderungs-/Wohnschutz-/Zweckentfremdungs-Reglement; vorhanden u.a. Baureglement 2021, Pachtlandreglement, Liegenschaftssteuerreglement (Steuer = ausgeschlossen). (2) Offizielles Baureglement Gemeinde Lyss (Grundordnung, Stand 09.03.2021) - KEIN verbindlicher Mindestanteil preisguenstiger/gemeinnuetziger Wohnungen, KEIN Ausnuetzungs-/Dichtebonus fuer preisguenstigen Wohnraum, KEINE Kostenmiete/Belegungsvorschriften, KEINE Zweckentfremdungs-/Abbruch-/Erhaltungsbestimmung -> weder Kat 3 noch Kat 5/6. (3) Kein kommunales Tier-1-Beleg fuer aktive Bodenpolitik/Baurechtsabgabe an Genossenschaften, Wohnbaustiftung, Fonds oder kommunales Vorkaufsrecht (Kat 1/4). (4) Lyss ist Mittelland-Gemeinde, keine Tourismusgemeinde -> kein Zweitwohnungs-/Kurzzeitvermietungs-Reglement. Mehrwertabgabe waere ohnehin ausgeschlossen (Steuer). Konservativ: ohne rechtskraeftige kommunale Tier-1-Quelle kein Instrument erfasst (found=false). Quellen: https://www.lyss.ch/de/politik/cdws/reglemente.php ; Baureglement (Grundordnung Lyss, Stand 09.03.2021) https://www.lyss.ch/de/politik/cdws/dok_geschaeft.php?did=7284e0bd79aa4248ab2adf08398bb730-332",
+          "confidence": "mittel-hoch"
         },
         {
           "bfs": 768,
           "name": "Spiez",
           "units": 7674,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Aktive kommunale Wohnbaupolitik / Foerderung gemeinnuetziger Wohnbautraeger (Baurecht-Landabgabe, zinslose Darlehen/Buergschaften, Beteiligung/Gruendung von Traegern, Finanzhilfen, kommunaler Wohnungsbau)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Reglement Wohnbaupolitik der Einwohnergemeinde Spiez vom 27. November 2017 (in Kraft seit 1.1.2018)",
+              "source_form": "regulation",
+              "source_url": "https://www.spiez.ch/de/verwaltung/dokumente/dokumente/reglement-wohnbaupolitik.pdf",
+              "evidence_quote_short": "Art. 5 Abs. 1: 'Die Gemeinde gibt innert 15 Jahren ... mindestens 20% ihres Landes im Finanzvermoegen, das sich fuer den preisguenstigen Wohnungsbau eignet ... an gemeinnuetzige Wohnbautraeger ab.' Abs. 4: 'Die Abgabe erfolgt im Baurecht.' Art. 6-9: zinslose Darlehen/Buergschaften, Beteiligung/Gruendung gemeinnuetziger Traeger, Finanzhilfen, kommunaler Wohnungsbau."
+            },
+            {
+              "name": "Spezialfinanzierung Mehrwertabschoepfung (planungsbedingter Mehrwertausgleich, Art. 142f BauG / Art. 10 Abs. 2 Reglement Wohnbaupolitik)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: planungsbedingte Mehrwertabgabe/-abschoepfung ist eine fiskalische Abgabe, kein wohnpolitisches Instrument (auch wenn Ertraege zweckgebunden fuer Wohnbaupolitik). Zudem kantonale Grundlage (BauG), kommunal nur als Finanzierungsquelle referenziert.",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Reglement Wohnbaupolitik Spiez, Art. 10 Abs. 2 (verweist auf Art. 142f Baugesetz BE vom 9. Juni 1985)",
+              "source_form": "regulation",
+              "source_url": "https://www.spiez.ch/de/verwaltung/dokumente/dokumente/reglement-wohnbaupolitik.pdf",
+              "evidence_quote_short": "Art. 10 Abs. 2: '... aus der kuenftigen Spezialfinanzierung Mehrwertabschoepfung nach Artikel 142f Absatz 3 des Baugesetzes vom 9. Juni 1985.'"
+            }
+          ],
+          "note": "Spiez (BFS 768, BE) verfuegt ueber ein rechtskraeftiges kommunales Tier-1-Instrument: das Reglement Wohnbaupolitik (Grosser Gemeinderat 27.11.2017, kein Beschwerde-/Referendumsgebrauch, in Kraft 1.1.2018). Es buendelt aktive Bodenpolitik/Foerderung: verbindliche Abgabe von mind. 20% des geeigneten Finanzvermoegen-Landes im Baurecht an gemeinnuetzige Traeger (Art. 5, Flaechen in Anhang I konkret bezeichnet), zinslose Darlehen/Buergschaften, Beteiligung/Gruendung gemeinnuetziger Traeger, Finanzhilfen, kommunaler Wohnungsbau (Art. 4-9). Staerkste Eingriffsmechanik = Boden/Foerderung => Kat 1. Die Kostenmiete/Bindung (Art. 2: Erstwohnungspflicht, kein STWE, Belegungsregeln) betrifft nur das gefoerderte Segment => gemaess Vorgabe Kat 1 (Foerder-Zweckbindung), NICHT Kat 6. KEINE verbindliche preisguenstig-Quote fuer private Bautraeger in BZO/Nutzungsplan (kein Kat 3). KEIN allgemeiner Wohnraumschutz/Zweckentfremdung/Abbruch-Bewilligungspflicht fuer den ganzen Mietbestand (kein Kat 5), keine Mietzinskontrolle (kein Kat 6), kein kommunales Vorkaufsrecht-Reglement gefunden (kein Kat 4). Mehrwertabschoepfung ausgeschlossen (Steuer). AUSGESCHLOSSEN/nicht erfasst: Zweitwohnungs-Obergrenze (max. 20%) im Areal Gygerrain/Faulensee - projektbezogene ZPP, Baureglement-Aenderung vom 20.12.2024, 2025 in oeffentlicher Auflage/Vorpruefung, Stimmberechtigte entscheiden erst 2026 => noch nicht rechtskraeftig (kein Tier 1) und nur ein einzelnes Areal, nicht der allgemeine Bestand. Spiez liegt mit ~11% Zweitwohnungsanteil unter 20%; das Bundes-ZWG greift nicht; keine gemeindeweite Erstwohnungspflicht.",
+          "confidence": "hoch"
         },
         {
           "bfs": 843,
           "name": "Saanen",
           "units": 7673,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Ortsansässigenanteil / Erstwohnungspflicht in Zonen W/Kxy-z% (festgelegter Geschossflächen-Anteil als Ortsansässigenwohnung gemäss ZWG Art. 2 Abs. 2, im Zonenplan fixiert, gesichert über Grundbuch-Anmerkung Zweckentfremdungsverbot)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Einwohnergemeinde Saanen, Baureglement (BauR) vom 15. März 2019, Art. 10 (Wohnzone/Kernzone für Ortsansässige W/Kxy-z%); konsolidiert nachgeführt bis 13. Januar 2021 / gültig bis 11.04.2025",
+              "source_form": "zoning_code",
+              "source_url": "https://oerebfiles.apps.be.ch/84301/3167/Baureglement_nachgefuehrt_bis_13_Januar_2021.pdf",
+              "evidence_quote_short": "In mit W/Kxy-z% bezeichneten Zonen ist ein Anteil der Geschossfläche festgelegt, der als Ortsansässigenwohnung im Sinne von Artikel 2 Absatz 2 ZWG genutzt werden muss ... im Rahmen des Baubewilligungsverfahrens festzulegen und im Grundbuch sicherzustellen (Anmerkung eines Zweckentfremdungsverbotes)."
+            },
+            {
+              "name": "Erstwohnungsbonus / Ortsansässigenbonus (freiwillige Nutzungs-/Dichteerhöhung gegen Schaffung von Ortsansässigen-/Erstwohnungen)",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "bindingness": "freiwillig",
+              "legal_status": "in_force",
+              "source_title": "Einwohnergemeinde Saanen, Baureglement (BauR) vom 15. März 2019, Art. 9 Abs. 3-6 (Erstwohnungsbonus in Wohn- und Kernzonen mit/ohne Ortsansässigenanteil)",
+              "source_form": "zoning_code",
+              "source_url": "https://oerebfiles.apps.be.ch/84301/3167/Baureglement_nachgefuehrt_bis_13_Januar_2021.pdf",
+              "evidence_quote_short": "Bei der Erstellung von Wohnungen für Ortsansässige ... ist eine Nutzungserhöhung und eine Erhöhung der Anzahl Wohneinheiten pro Gebäude ... möglich. ... Jede mit dem Bonus geschaffene Wohnung für Ortsansässige hat mindestens 70 m2 Nettowohnfläche aufzuweisen."
+            },
+            {
+              "name": "Kommunale Förderung preisgünstigen Wohnraums (Bodenpolitik/Bautätigkeit der Gemeinde)",
+              "taxonomy_category": 1,
+              "excluded": true,
+              "excluded_reason": "Keine rechtskräftige kommunale Tier-1-Quelle: nur Empfehlung der Studie 'Zukunft Saanen' / Projektgruppe Wohnbauproblematik (publiziert 28.02.2022), kein in Kraft gesetztes Reglement/Beschluss. Konservativ nicht erfasst.",
+              "bindingness": "nicht beschlossen",
+              "legal_status": "proposed",
+              "source_title": "Baublatt: 'Gemeinde Saanen BE soll preisgünstigen Wohnraum fördern' (Studie Zukunft Saanen, 28.02.2022)",
+              "source_form": "other",
+              "source_url": "https://www.baublatt.ch/kommunal/gemeinde-saanen-be-soll-preisguenstigen-wohnraum-foerdern-32351"
+            }
+          ],
+          "note": "gemeinden[10] = Saanen (BFS 843, BE, lang de; umfasst Gstaad). Validiert ueber kommunale Tier-1-Quelle: Baureglement (BauR) der Einwohnergemeinde Saanen vom 15. Maerz 2019, rechtskraeftig/in Kraft (konsolidiert nachgefuehrt bis 13.01.2021; aktuelle gueltige Fassung nachgefuehrt bis 11.04.2025), bestaetigt ueber das offizielle kantonale OEREB-Dateiregister oerebfiles.apps.be.ch. ERFASST: (1) Verbindlicher Ortsansaessigenanteil/Erstwohnungspflicht (Art. 10, Zonen W/Kxy-z%, Anteil z% im Zonenplan fixiert, gesichert via Grundbuch-Anmerkung Zweckentfremdungsverbot, oeffentliches Register + Vollzug/Ahndung) -> Kat 3 (verbindliche, planungs-/projektbezogene Bindung eines definierten Wohnsegments bei Neuproduktion; abgegrenzt gegen Kat 2, da nicht freiwillig). (2) Erstwohnungsbonus/Ortsansaessigenbonus (Art. 9 Abs. 3-6) -> Kat 2 (freiwilliger Dichtebonus gegen Erstellung von Ortsansaessigen-/Erstwohnungen). AUSGESCHLOSSEN/NICHT erfasst: Foerderung preisguenstigen Wohnraums (nur Studienempfehlung 'Zukunft Saanen' 2022, nicht rechtskraeftig -> proposed); Genossenschaftsprojekt Gstaad (privates Projekt, kein kommunaler Erlass). NICHT GEFUNDEN (kein kommunaler Tier-1-Beleg): preisguenstig-/gemeinnuetzig-Quote mit %-Satz im BZO, kommunales Vorkaufsrecht, kommunale Wohnbau-/Genossenschaftsfoerderung per Reglement, allgemeiner Wohnraumschutz/Zweckentfremdungs-/Abbruchbewilligung fuer den GANZEN Mietbestand (Kat 5), Mietzinskontrolle (Kat 6), separates Kurzzeitvermietungs-/Ferienwohnungsreglement. Methodik-Hinweis: BauR-PDF direkt per pdftotext ausgewertet (WebFetch-Zusammenfassung hatte Art. 9/10 zunaechst uebersehen); saanen.ch liefert WebFetch HTTP 403, daher Validierung ueber kantonales OEREB-Register.",
+          "confidence": "hoch"
         },
         {
           "bfs": 356,
@@ -5431,55 +5755,168 @@
           "bfs": 616,
           "name": "Münsingen",
           "units": 6505,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Kommunale Wohnraumförderung / aktive Bodenpolitik (Art. 50 Gemeindebaureglement: eigene Wohnungen zu günstigen Konditionen, Abgabe eigener Grundstücke im Baurecht an Wohnbauträger mit Kostenmiete-Verpflichtung, aktiver Grundstückserwerb)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "source_title": "Gemeindebaureglement (GBR) Münsingen 2021, Art. 50 Wohnraum- und Gewerbeförderung (Stand 31.10.2023, kantonal genehmigt)",
+              "source_url": "https://www.muensingen.ch/wAssets/docs/dienstleistungen/Reglemente-Verordnungen-Gebuehren/nutzungsplanung/Gemeindebaureglement-GBR-2021-Stand-31.10.2023.pdf",
+              "source_form": "zoning_code",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich (kommunales Reglement; Volksabstimmung 15.05.2022 angenommen 60.9% Ja, kantonal genehmigt AGR 31.10.2023)",
+              "evidence_quote_short": "Art. 50 Abs. 1: 'Die Gemeinde setzt sich für die Erstellung und Erhaltung von preisgünstigem Wohnraum ein, indem sie: eigene Wohnungen zu günstigen Konditionen vermietet; geeignete eigene Grundstücke im Baurecht an Wohnbauträger abgibt, die sich zur Kostenmiete verpflichten; ... aktiv Grundstücke erwirbt'"
+            },
+            {
+              "name": "Planerischer Nutzungsbonus für Kostenmiete in der ZPP AB 'Erlenauweg' (vollständig in Kostenmiete betriebenes Gebäude darf entlang Erlenauweg auf 5 Vollgeschosse erhöht werden)",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "source_title": "Gemeindebaureglement (GBR) Münsingen 2021, ZPP AB 'Erlenauweg', Mass der Nutzung (Stand 31.10.2023)",
+              "source_url": "https://www.muensingen.ch/wAssets/docs/dienstleistungen/Reglemente-Verordnungen-Gebuehren/nutzungsplanung/Gemeindebaureglement-GBR-2021-Stand-31.10.2023.pdf",
+              "source_form": "zoning_code",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich (Bestandteil des genehmigten Gemeindebaureglements); freiwilliger Anreiz, keine Pflicht",
+              "evidence_quote_short": "ZPP AB 'Erlenauweg', Mass der Nutzung: 'Wird innerhalb des Perimeters ein Gebäude vollständig in Kostenmiete betrieben, kann die maximal zulässige Geschosszahl entlang des Erlenauwegs auf 5 Vollgeschosse erhöht werden'"
+            },
+            {
+              "name": "Mehrwertabgabe / Ausgleich von Planungsvorteilen (RAP 2021): Einzonung 40–50%, Um-/Aufzonung 30%, Erträge teilweise zweckgebunden für Förderung preisgünstigen Wohnraums",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: reine Mehrwertabgabe auf planungsbedingten Mehrwert; keine Wohnraumquote, kein Realersatz-/Sachleistungsmechanismus. Zweckbindung der Ertragsverwendung (Förderung preisgünstigen Wohnraums) macht die Abgabe nicht zum Wohninstrument.",
+              "source_title": "Reglement über den Ausgleich von Planungsvorteilen (Mehrwertabgabe) Münsingen 2021",
+              "source_url": "https://www.muensingen.ch/wAssets/docs/dienstleistungen/Reglemente-Verordnungen-Gebuehren/Mehrwertabgabe-Reglement-ueber-den-Ausgleich-von-Planungsvorteilen-2021.pdf",
+              "source_form": "regulation",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich (kommunales Reglement), aber als Instrument ausgeschlossen (Steuer)",
+              "evidence_quote_short": "'Bei Einzonung ... beträgt die Abgabe des planungsbedingten Mehrwerts: 40% ... 45% ... 50%'; 'Bei Um- und Aufzonungen ... 30%'; Zweck-Spezialfinanzierung: '... Beiträge zur Förderung von preisgünstigem Wohnraum'"
+            }
+          ],
+          "note": "Münsingen (BE, BFS 616, Agglomeration Bern, keine Tourismus-/Zweitwohnungsgemeinde). KOMMUNALE Tier-1-Quelle: Gemeindebaureglement (GBR) 2021, Volksabstimmung 15.05.2022 (60.9% Ja), kantonal genehmigt (AGR) Stand 31.10.2023 → in Kraft. (1) Art. 50 GBR = kommunale Wohnraumförderung/aktive Bodenpolitik (Baurecht an Wohnbauträger mit Kostenmiete, eigener Grundstückserwerb, Vermietung eigener Wohnungen) → Kat 1. (2) ZPP AB 'Erlenauweg' = freiwilliger Nutzungsbonus (+1 Geschoss) bei vollständiger Kostenmiete → Kat 2. KEIN verbindlicher %-Mindestanteil preisgünstiger Wohnungen für private Bauvorhaben (kein Kat 3): 'durchmischtes Wohnungsangebot inkl. preisgünstigem Wohnraum' (ZPP AK 'Dorf') ist nur Planungszweck ohne fixe Quote. Die ZPP 'Underrütti' (hätte preisgünstigen Wohnraum geschaffen) wurde in der Volksabstimmung abgelehnt (55.7% Nein) → kein Instrument. KEIN kommunaler Wohnschutz/Zweckentfremdungs-/Abbruchbewilligungs-Regime für den ganzen Mietbestand (kein Kat 5), keine Mietzinskontrolle (kein Kat 6), kein Zweitwohnungs-/Airbnb-Reglement. AUSGESCHLOSSEN: RAP/Mehrwertabgabe 2021 (Steuer/fiskalisch), trotz Zweckbindung der Erträge für Wohnbauförderung; kein Realersatz in Wohnraum vorgesehen.",
+          "confidence": "hoch"
         },
         {
           "bfs": 362,
           "name": "Ittigen",
           "units": 6028,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Keine rechtskräftige KOMMUNALE Tier-1-Quelle belegt ein wohnpolitisches Instrument der Gemeinde Ittigen (BE). Geprüft: (1) Mindestanteil preisgünstiger/gemeinnütziger Wohnraum (Kat 3): Das aktuelle Baureglement (Publikumsversion 12.08.2025, ittigen.ch/_docn/6680228) enthält KEINE verbindliche Quote für preisgünstigen/gemeinnützigen Wohnraum. Auch Art. 314 BR (Zone mit Planungspflicht ZPP C «Worblaufen Ost», Areal Aarerain; Änderung beschlossen durch die Gemeindeversammlung am 28.11.2019 = Tier-1) regelt nur Nutzungsart (Mischzone MA), Geschossfläche (GF 22'000–30'000 m2), Höhen, qualitätssicherndes Verfahren und Gestaltung — kein preisgünstig-Anteil, keine Kostenmiete. Der in Web-Suchen wiederholt auftauchende «ein Drittel zur Kostenmiete»-Satz betrifft laut dem Originalartikel (Baublatt) das Wifag-Areal der Stadt BERN, nicht Ittigens Aarerain; eine kommunale «Wohn-Initiative» Ittigens ist in offiziellen Quellen NICHT auffindbar. (2) Wohnschutz/Zweckentfremdung für den GANZEN Mietbestand (Kat 5/6): nicht vorhanden; die einzige Abbruch-Bestimmung im BR betrifft Denkmalschutz (erhaltenswerte Baudenkmäler), nicht den Mietwohnungsbestand. (3) Wohnbau-/Genossenschaftsförderung, Bodenpolitik, Baurecht, kommunales Vorkaufsrecht, Fonds (Kat 1/4): Es existiert nur eine «Teilstrategie Wohnen, Wohnbau- und Bodenpolitik» des Gemeinderats — ausdrücklich Strategie/Leitbild (kein normativer Erlass, daher NICHT Tier-1; Quelle: ecoptima.ch, Gemeinderatsbeschluss als Leitlinien/Massnahmenkatalog). Kein verbindliches Reglement, kein aktiviertes kommunales Vorkaufsrecht, keine Baurechts-/Wohnbauförderungs-Erlasse gefunden. (4) Kurzzeitvermietung/Airbnb/Zweitwohnungen (Kat 5): kein kommunales Reglement gefunden. (5) Mehrwertabgabe = ausgeschlossen (Steuer); rein kantonale BE-Instrumente ohne kommunale Aktivierung gehören zum Kantons-Run und werden hier nicht erfasst. Konservatives Ergebnis: found=false. Geprüfte Tier-1-Quellen: Baureglement Ittigen 12.08.2025 (inkl. Art. 314 ZPP C, GV-Beschluss 28.11.2019). Nicht-Tier-1 (verworfen): Teilstrategie/Leitbild, Baublatt-Medienartikel, Mitwirkungsbericht ZPP C.",
+          "confidence": "mittel-hoch"
         },
         {
           "bfs": 627,
           "name": "Worb",
           "units": 5848,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Ausnützungs-/Dichtebonus für günstigen Wohnraum für soziale Zwecke (freiwillig, vertraglich gesichert nach Art. 142 BauG) in mehreren ZPP-Zonen",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "bindingness": "freiwillig (Kann-Bestimmung): bei freiwilliger Realisierung von günstigem Wohnraum kann die Geschossflächenziffer oberirdisch erhöht werden (z.B. +0.1 in ZPP N2, +0.15 in ZPP N7) — echter Planungsvorteil gegen freiwillige Wohnraumleistung, keine Pflichtquote; Abgrenzung: nicht Kat 3 (keine zwingende Quote), nicht Kat 1 (keine öffentliche Bodenpolitik)",
+              "legal_status": "in_force",
+              "source_form": "zoning_code",
+              "source_title": "Gemeindebaureglement Worb (GBR 720.1), baurechtliche Grundordnung, genehmigt durch das Amt für Gemeinden und Raumordnung (AGR) 03.02.2022, in Kraft",
+              "source_url": "https://www.worb.ch/wAssets/docs/Informationen-Portrait/Informationen/Ortsplanung/Gemeindebaureglement.pdf",
+              "evidence_quote_short": "Bei Realisierung von günstigem Wohnraum für soziale Zwecke und vertraglicher Sicherstellung (Art. 142 BauG) kann die Geschossflächenziffer oberirdisch um 0.1 erhöht werden."
+            },
+            {
+              "name": "Mindestanteil 20% hindernisfreie Wohnungen in ZPP-Zonen",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Barrierefreiheits-/Hindernisfreiheits-Vorgabe (Accessibility), kein wohnungsmarktregulierendes/wohnpolitisches Instrument im Sinne der 6-Kategorien-Taxonomie (kein preisgünstiger/gemeinnütziger Anteil, kein Bestandesschutz, keine Mietzinskontrolle).",
+              "bindingness": "verbindlich, aber thematisch ausserhalb der Taxonomie",
+              "legal_status": "in_force",
+              "source_form": "zoning_code",
+              "source_title": "Gemeindebaureglement Worb (GBR 720.1)",
+              "source_url": "https://www.worb.ch/wAssets/docs/Informationen-Portrait/Informationen/Ortsplanung/Gemeindebaureglement.pdf",
+              "evidence_quote_short": "Wohnen (mit einem Mindestanteil von hindernisfreien Wohnungen von 20% der oberirdischen Geschossfläche für das Wohnen)"
+            }
+          ],
+          "note": "Gemeinde Worb (BE, bfs 627, lang de), Agglomerationsgemeinde Bern. Geprüft: rechtskräftiges Gemeindebaureglement GBR 720.1 (baurechtliche Grundordnung, vom AGR am 03.02.2022 genehmigt/in Kraft — Tier-1-Quelle, Volltext heruntergeladen und durchsucht) sowie offizielle Reglemente-/Dokumentensammlung der Gemeinde. EIN kommunales Instrument gefunden: freiwilliger Dichte-/Ausnützungsbonus für günstigen Wohnraum für soziale Zwecke (vertraglich gesichert via Art. 142 kantonales BauG) in mehreren ZPP-Zonen (z.B. ZPP N2 +0.1, ZPP N7 +0.15) -> Kategorie 2. KEIN verbindlicher Pflichtanteil preisgünstiger Wohnraum (das im GBR genannte 20%-Minimum betrifft hindernisfreie/barrierefreie Wohnungen, nicht preisgünstige -> ausgeschlossen). KEIN kommunaler Wohnraumschutz/Zweckentfremdung/Bewilligungspflicht für Abbruch/Umbau des Mietbestands (Kat 5), KEINE Mietzinskontrolle (Kat 6), KEIN kommunales Vorkaufsrecht (Kat 4), KEINE eigenständige Wohnbau-/Genossenschaftsförderung/Baurechts-Bodenpolitik als kommunales Instrument (Kat 1), KEIN Kurzzeitvermietungs-/Zweitwohnungsreglement (Worb liegt im Mittelland deutlich unter 20% Zweitwohnungsanteil; ZWG ist ohnehin Bundesrecht). Ein SP-Postulat 'Mehr Wohnraum für junge Familien und ältere Menschen' existiert, ist aber als politischer Vorstoss KEINE rechtskräftige Tier-1-Quelle und wurde nicht als Instrument erfasst. Mehrwertabgabe nicht erfasst (Steuer/ausgeschlossen).",
+          "confidence": "high"
         },
         {
           "bfs": 361,
           "name": "Zollikofen",
           "units": 5796,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Gemeindeebene (kommunal) für Zollikofen (BFS 361, BE, de) geprüft. Zentrale kommunale Tier-1-Quelle: Baureglement (BR) der Einwohnergemeinde Zollikofen, beschlossen 26.11.2017, mit Teilrevisionen (z.B. ZPP F \"Bärenareal\" Fassung 15.05.2023), in Kraft (konsolidierte Fassung Stand 15.05.2024 auf www.zollikofen.ch/reglemente/18185; PDF https://www.zollikofen.ch/_docn/5181706/Baureglement.pdf). Volltext extrahiert und systematisch durchsucht. ERGEBNIS: Keine wohnpolitischen Instrumente nach Taxonomie. (1) KEIN verbindlicher Mindest-/Pflichtanteil preisgünstiger oder gemeinnütziger Wohnungen mit %-Satz in BR/Zonenplan/ZPP (kein Kat 3); die ZPP/Planungspflicht-Zonen enthalten nur Gestaltungs-/Dichte-/Nutzungsmischvorgaben (z.B. max. 30% Wohnnutzung in Mischzone, \"begrenzter Anteil\" verdichteter Wohnüberbauung), keine Preis-/Kostenmiete-/Belegungsbindung. (2) KEIN kommunaler Wohnraumschutz, keine Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungspflicht für den Mietbestand (kein Kat 5). (3) KEINE Mietzinskontrolle (kein Kat 6). (4) KEINE kommunale Wohnbau-/Genossenschaftsförderung, Bodenpolitik, Baurecht-/Vorkaufsrechts-Reglement, kein Wohnbaufonds im kommunalen Erlassregister (kein Kat 1/4). (5) KEIN Zweitwohnungs-/Kurzzeitvermietungs-/Airbnb-Reglement (kein Kat 5). Hinweis: Eine BWO-Publikation von 2010 erwähnt einen früheren \"Art. 41 BR Zollikofen\" zu gemeinnützigem Wohnungsbau; diese Bestimmung findet sich im aktuell rechtskräftigen BR (2017/2024) NICHT mehr und wird daher konservativ nicht erfasst. Mehrwertabgabe ausgeschlossen (Steuer) und ohnehin kantonal. Konservatives Fazit: ohne rechtskräftige kommunale Tier-1-Belegstelle kein Instrument -> found=false.",
+          "confidence": "high"
         },
         {
           "bfs": 861,
           "name": "Belp",
           "units": 5705,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Reglement über den Ausgleich von Planungsmehrwerten (Mehrwertabgabe)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe/Mehrwertausgleich auf planungsbedingten Mehrwert bei Ein-/Um-/Aufzonung. Per Taxonomie ausdrücklich ausgeschlossen (keine Wohnraumregulierung, keine Quote). Kein damit verknüpfter verbindlicher preisgünstig-Wohnraum-Anteil ersichtlich.",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Baureglement Belp Art. 103 (Ausgleich von Planungsvorteilen) i.V.m. kommunalem Reglement über den Ausgleich von Planungsmehrwerten",
+              "source_url": "https://www.belp.ch/wAssets/docs/praesidiales/Gemeindeversammlungen/Reglement-ueber-den-Ausgleich-von-Planungsmehrwerten_Auflage.pdf",
+              "source_form": "regulation",
+              "evidence_quote_short": "Art. 103 BR: 'Der Ausgleich von Planungsvorteilen richtet sich nach den kantonalen Vorschriften sowie dem Reglement über den Ausgleich von Planungsmehrwerten der Gemeinde.'"
+            }
+          ],
+          "note": "Belp (BFS 861, BE) ist eine Agglomerationsgemeinde im Raum Bern-Mittelland. Die rechtskräftige kommunale Grundordnung ist das Baureglement (BR) aus der Ortsplanungsrevision, an der Urne am 27.11.2022 beschlossen (geprüfte Auflagefassung April 2022, ecoptima). Volltextprüfung aller BR-Artikel ergab KEINES der wohnpolitischen Instrumente: kein verbindlicher Mindestanteil preisgünstiger/gemeinnütziger Wohnraum (kein %-Satz, kein Wohnanteil) in BZO/Nutzungsplan (Kat 3); kein Ausnützungs-/Dichtebonus für preisgünstigen Wohnraum (Kat 2); kein kommunaler Wohnraumschutz/Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungspflicht für den Mietbestand (Kat 5/6); kein kommunales Vorkaufsrecht (Kat 4); keine kommunale Wohnbau-/Genossenschaftsförderung, Bodenpolitik/Baurechtsabgabe oder Fonds mit kommunaler Tier-1-Grundlage (Kat 1); keine Zweitwohnungs-/Erstwohnungsanteil-/Kurzzeitvermietungsregelung (Belp \u003c20% Zweitwohnungen, kein ZWG-Regime). Die im BR (Art. 103) referenzierte kommunale Mehrwertabgabe (Reglement über den Ausgleich von Planungsmehrwerten) ist gemäss Taxonomie als Steuer/fiskalisch AUSGESCHLOSSEN. Konservativ daher found=false: keine rechtskräftige kommunale Tier-1-Quelle belegt ein wohnpolitisches Instrument der Kategorien 1-6. Hinweis: Eine Änderung BR/Zonenplan 'Zone mit Planungspflicht Amtschreibermatte' befand sich im Juni 2026 noch im Mitwirkungsverfahren (Auflage 12.09.-13.10.2025) und ist nicht rechtskräftig; zudem kein Wohnanteil-Instrument ersichtlich. Quelle BR geprüft via lokal extrahiertem PDF-Volltext (öffentliche Auflagefassung): https://www.belp.ch/wAssets/docs/bau/Ortsplanungsrevision-2022/Baureglement_oeffentliche-Auflage-2022.pdf",
+          "confidence": "hoch"
         },
         {
           "bfs": 576,
           "name": "Grindelwald",
           "units": 5374,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Erstwohnungsanteil (EWAP) mind. 30% in allen Bauzonen, grundbuchlich gesichertes Zweckentfremdungsverbot",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Einwohnergemeinde Grindelwald 2007 (Stand Juni 2018), Art. 46-48d; Art. 60 Abs. 2",
+              "source_form": "zoning_code",
+              "source_url": "https://www.gemeinde-grindelwald.ch/wp-content/uploads/2020/06/Baureglement_2018.pdf",
+              "evidence_quote_short": "Art. 46 Abs. 1: 'Alle Wohnbauten haben Wohnungen fuer die ansaessige Bevoelkerung (Erst-, bzw. Hauptwohnung) zu enthalten. Der Erstwohnungsanteil betraegt in allen Bauzonen mind. 30%'. Art. 46 Abs. 4: 'werden saemtliche Wohnungen mit dem Verbot, die Wohnung anders als Erstwohnung zu nutzen belegt. Das Zweckentfremdungsverbot ist im Grundbuch anzumerken.'"
+            },
+            {
+              "name": "Kommunale Spezialfinanzierung fuer einheimischen Wohnraum: Erwerb von Grundstuecken und Erstellung/Unterhalt gemeindeeigener Erstwohnungen, Foerderung einheimischen Wohnraums",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Einwohnergemeinde Grindelwald 2007 (Stand Juni 2018), Art. 48c",
+              "source_form": "zoning_code",
+              "source_url": "https://www.gemeinde-grindelwald.ch/wp-content/uploads/2020/06/Baureglement_2018.pdf",
+              "evidence_quote_short": "Art. 48c Abs. 1: 'Die Ersatzabgabe ist zweckgebunden zu verwenden fuer die Sicherstellung eines ausreichenden ... Wohnungsangebots fuer die ansaessige Bevoelkerung, insbesondere fuer: a) den Erwerb von Grundstuecken und die Erstellung von Erstwohnungen durch die Gemeinde, b) Foerderung von einheimischem Wohnraum, c) Unterhalt gemeindeigener Erstwohnungen.'"
+            },
+            {
+              "name": "Ersatzabgabe zur Abloesung des Zweckentfremdungsverbots (EWAP-Ersatzabgabe)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Ersatzabgabe (Geldabgabe) zur Ablösung der Erstwohnungspflicht; eine Abgabe ist keine Wohnraumregulierung, auch wenn die Erträge zweckgebunden für Wohnbauförderung verwendet werden.",
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Einwohnergemeinde Grindelwald 2007 (Stand Juni 2018), Art. 48b; Verordnung Ersatzabgabe EWAP 2012",
+              "source_form": "zoning_code",
+              "source_url": "https://www.gemeinde-grindelwald.ch/wp-content/uploads/2020/06/Baureglement_2018.pdf",
+              "evidence_quote_short": "Art. 48b Abs. 1 lit. c: 'der Grundeigentuemer eine Ersatzabgabe leistet.' Abs. 3: 'Der Gemeinderat legt die Hoehe der Ersatzabgabe in einer Verordnung ... fest' (Befreiung gegen 5-40% des Verkehrswerts)."
+            }
+          ],
+          "note": "Gemeinde gemeinden[17] = Grindelwald (bfs 576, BE, de). Massgebliche rechtskräftige kommunale Tier-1-Quelle: Baureglement Einwohnergemeinde Grindelwald 2007 (Stand Juni 2018), Art. 46-48d (Erstwohnungsanteil/EWAP) sowie die zugehörigen kommunalen Verordnungen (EWAP-Ausführungsbestimmungen 2009, Verordnung Ersatzabgabe EWAP 2012). KERNINSTRUMENT: verbindlicher Mindest-Erstwohnungsanteil von mind. 30% der Bruttowohnfläche in ALLEN Bauzonen (Art. 46 Abs. 1; geändert 03.12.2010), ebenfalls 30% in Landwirtschaftszone/übrigem Gemeindegebiet (Art. 60 Abs. 2); im Baubewilligungsverfahren werden sämtliche Wohnungen mit einem grundbuchlich angemerkten Zweckentfremdungsverbot belegt (Art. 46 Abs. 4). Dieser bindende preisgünstig-/einheimisch-Wohnraum-Pflichtanteil bei Neubau/Wiederaufbau ist Kat 3 (das Zweckentfremdungsverbot ist die Durchsetzungsmechanik der Quote, NICHT ein eigenständiger Bestandesschutz des gesamten Mietwohnungsbestands, daher nicht Kat 5). ZWEITES INSTRUMENT: kommunale Spezialfinanzierung (Art. 48c) - zweckgebundener Fonds für Erwerb von Grundstücken und Erstellung/Unterhalt gemeindeeigener Erstwohnungen sowie Förderung einheimischen Wohnraums (Gemeinde als Bodenakteur/Finanzierer) = Kat 1. AUSGESCHLOSSEN: Ersatzabgabe zur Ablösung des Zweckentfremdungsverbots (Art. 48b) = fiskalische Abgabe/Steuer, ausgeschlossen (auch wenn Erträge zweckgebunden in die Spezialfinanzierung fliessen). NICHT erfasst: HOBE-Verordnung 'hotelmässige Bewirtschaftung' 2013 - regelt touristische/hotelmässig bewirtschaftete Beherbergung im Rahmen des eidg. Zweitwohnungsregimes (warme Betten), nicht Schutz des allgemeinen Mietwohnungsbestands, daher kein Kat-5-Wohnschutzinstrument (konservativ ausgelassen). Kein kommunales Vorkaufsrecht, kein harter Mietzinsdeckel (Kat 6), keine bestandesweite Abbruch-/Umbau-Bewilligungspflicht (Kat 5) in den rechtskräftigen kommunalen Erlassen gefunden. Hinweis: Die Ortsplanungsrevision/Baureglement-Arbeitsversion (Stand Okt. 2025) ist noch in Mitwirkung/Vorprüfung und NICHT rechtskräftig - daher nicht als Quelle verwendet; massgeblich ist die in Kraft stehende Fassung Stand Juni 2018.",
+          "confidence": "hoch"
         },
         {
           "bfs": 546,
@@ -5494,163 +5931,431 @@
           "bfs": 902,
           "name": "Langnau im Emmental",
           "units": 5066,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Keine kommunalen wohnpolitischen Instrumente mit rechtskraeftiger kommunaler Tier-1-Quelle validierbar. Geprueft: (1) Rechtskraeftige baurechtliche Grundordnung Langnau i.E. stammt vom 5.7.2013; die aktuelle Fassung 'Baureglement (BR), Stand 12.2.2024' ist nur die oeffentliche Auflage/Beschlussfassung der laufenden Ortsplanungsrevision und gemaess Art. 66 BR NOCH NICHT IN KRAFT (tritt erst am Tag nach Publikation der Genehmigung in Kraft) -> nicht Tier-1-tauglich. Im BR (Entwurf wie geltend) KEIN Pflichtanteil preisguenstiger/gemeinnuetziger Wohnungen (alle 14 ZPP geprueft, keine Wohnquote) -> kein Kat 3; KEIN Wohnschutz/Zweckentfremdungs-/Abbruchbewilligung fuer den ganzen Mietbestand -> kein Kat 5/6; kein kommunales Vorkaufsrecht -> kein Kat 4. (2) Der im BR enthaltene 'Ausgleich von Planungsvorteilen' (Art. 142 ff. BauG + kommunales Reglement) ist Mehrwertabgabe -> AUSGESCHLOSSEN (Steuer/fiskalisch). (3) Boden-/Baurechtspolitik (Kat-1-Kandidat): Gemeinde gab 2017 eine eigene Parzelle (ehem. Kindergarten Mooseggstrasse 44, Parz. 2423/2424) im Baurecht an die gemeinnuetzige Wohngenossenschaft Langnau i.E. ab (Generationenhaus, 14 Wohnungen, 80 Jahre, Heimfall 80% Verkehrswert). Substanziell waere dies Kat 1 (Abgabe von Land im Baurecht an gemeinnuetzigen Traeger). ABER: nur Einzeltransaktion, und alle auffindbaren Belege sind Nicht-Tier-1 (Berner Zeitung, neo1, nau.ch, Genossenschafts-'Angebot', Architekturportale). Kein zugaenglicher rechtskraeftiger Grosser-Gemeinderat-Beschluss und kein kommunales Bodenpolitik-/Baurecht-Reglement gefunden, das dies als normatives Instrument belegt. Konservativ daher found=false. EMPFEHLUNG manuelle Pruefung: (a) Inkrafttreten der Ortsplanungsrevision 2024 nachverfolgen; (b) Grosser-Gemeinderat-Protokoll Juni 2017 zum Baurecht Mooseggstrasse als moegliche Kat-1-Tier-1-Quelle beschaffen.",
+          "confidence": "mittel"
         },
         {
           "bfs": 360,
           "name": "Wohlen bei Bern",
           "units": 4638,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Verbindlicher Mindestanteil preisgünstiger Wohnraum (mind. 1/3 der zusätzlichen Wohnnutzung) bei Ein-/Umzonungen ab 3'000 m2 oberirdischer Geschossfläche (Art. 1a Baureglement)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Einwohnergemeinde Wohlen bei Bern - Art. 1a Baureglement 'Preisgünstiges Wohnen' (kommunale Mitteilung mit verbatim Artikeltext und Inkrafttretens-/Einsprache-Vermerk)",
+              "source_url": "https://www.wohlen-be.ch/de/aktuelles/meldungen/archiv/Preisguenstiges-Wohnen02-04-2021.php",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Bei Ein- oder Umzonungen in Zonen mit Wohnnutzung mit einem zusätzlichen Nutzungsmass von mindestens 3'000 m2 Geschossfläche oberirdisch muss mindestens ein Drittel der zusätzlichen Wohnnutzung als preisgünstiger Wohnraum im Sinne der eidgenössischen Wohnraumförderungsverordnung vom 26. November 2003 (WFV) erstellt oder der dafür nötige Boden ... an eine gemeinnützige Organisation ... abgegeben werden. Der neue Artikel im Baureglement ist am Tag nach seiner Publikation in Kraft getreten."
+            }
+          ],
+          "note": "gemeinden[20] = Wohlen bei Bern (BFS 360, BE, de). 1 kommunales Tier-1-Instrument validiert: Art. 1a Baureglement 'Preisgünstiges Wohnen' - bei Ein-/Umzonungen in Wohnzonen ab 3'000 m2 oberirdischer Geschossfläche muss mind. ein Drittel der zusätzlichen Wohnnutzung als preisgünstiger Wohnraum (i.S. eidg. WFV vom 26.11.2003) erstellt oder der Boden an eine gemeinnützige Organisation (Art. 37 WFV) abgegeben werden. Verbindliche planerische Quote bei Planungsvorgang -> Kat 3 (nicht Kat 2: keine Freiwilligkeit; nicht Kat 1: tragende Mechanik ist die zwingende Quote bei Um-/Einzonung, die Bodenabgabe an Gemeinnützige ist nur Erfüllungsvariante derselben Pflicht; nicht Kat 6: Kostenmiete/Preisbindung des geförderten Segments, kein Mietzinsdeckel auf freiem Bestand). Quelle: amtliche Gemeinde-Mitteilung mit verbatim Artikeltext; Artikel am Tag nach Publikation in Kraft getreten, Einsprachen abgewiesen -> rechtskräftig (in force). Der Art. 1a ist Teil des aktuell geltenden Baureglements (offizielles Baureglement-PDF auf wohlen-be.ch). NICHT erfasst: Die laufende BZO-/Zonenplan-Gesamtrevision (Herbst 2023 zur Genehmigung beim AGR eingereicht, 3. öffentliche Auflage 2025) ist noch NICHT rechtskräftig/in Kraft -> konservativ ausgeschlossen. Kein kommunales RFGW/Wohnbauförderungs-Reglement, kein kommunaler Wohnraumschutz/Zweckentfremdung, kein Zweitwohnungs-/Kurzzeitvermietungs-Reglement, kein kommunales Vorkaufsrecht in Tier-1-Quellen gefunden (RFGW-Treffer betrafen Biel/Bern, nicht Wohlen). Mehrwertabgabe als Steuer ausgeschlossen.",
+          "confidence": "hoch"
         },
         {
           "bfs": 561,
           "name": "Adelboden",
           "units": 4411,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Erstwohnungsanteilplan (EWAP): verbindlicher Mindestanteil von 40% der Bruttogeschossfläche pro Gebäude für Erstwohnungen bei Neubauten und neubauähnlichen Umgestaltungen, gesichert durch grundbuchlich angemerktes Zweckentfremdungsverbot (Auskauf via Ersatzabgabe CHF 200/m2 BGF möglich)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Verordnung Erstwohnungsanteilplan (EWAP) der Einwohnergemeinde Adelboden vom 01.08.2014, gestützt auf Art. 12 des Gemeindebaureglements (GBR)",
+              "source_form": "regulation",
+              "source_url": "https://www.3715.ch/public/upload/assets/655/2014-07_EWAP-Verordnung_gueltig_ab_01.8.14.pdf",
+              "evidence_quote_short": "Art. 3 Abs. 1: 'Art. 12 Abs. 1 des Gemeindebaureglements (GBR) verlangt, dass bei Neubauten oder neubauaehnlichen Umgestaltungen pro Gebaeude mindestens 40% der Bruttogeschossflaeche fuer Erstwohnungen sicherzustellen sind.' Art. 5: Erstwohnungen werden mit einem Zweckentfremdungsverbot belegt und im Grundbuch angemerkt; Art. 6: Ersatzabgabe Fr. 200/m2 BGF. Art. 11: in Kraft seit 1.8.2014."
+            }
+          ],
+          "note": "Adelboden (BE, lang=de) ist eine Tourismusgemeinde (Zweitwohnungsanteil >60%). Validiertes kommunales Tier-1-Instrument: Erstwohnungsanteilplan (EWAP). Rechtsgrundlage: Art. 12 Gemeindebaureglement (GBR, von der Gemeindeversammlung am 23.11.2013 beschlossen, kantonal/AGR genehmigt, rechtskraeftig seit 31.3.2014) plus die vom Gemeinderat erlassene EWAP-Verordnung (in Kraft seit 1.8.2014, oeffentlich aufgelegt, keine Beschwerden). Verbindlicher Mindestanteil 40% BGF Erstwohnungen pro Gebaeude bei Neubau/neubauaehnlicher Umgestaltung -> Kat 3 (bindende planerische Quote). Das Zweckentfremdungsverbot (Art. 5) sichert NUR die EWAP-pflichtigen Erstwohnungen (nicht den gesamten Mietwohnungsbestand) -> daher KEIN Kat 5. Die Ersatzabgabe (Art. 6, CHF 200/m2) ist der Auskauf der EWAP-Pflicht, KEINE Mehrwertabgabe/Plus-value-Steuer -> nicht ausgeschlossen, Bestandteil des Kat-3-Instruments. Bewusst NICHT erfasst: (a) Kurtaxenreglement (1.1.2017) = fiskalische Abgabe/Tourismussteuer, ausgeschlossen, kein Wohnschutz; (b) kein genereller kommunaler Wohnraumschutz/Zweckentfremdung fuer den ganzen Mietbestand (Kat 5) belegt; (c) kein kommunaler preisguenstig-/gemeinnuetzig-Pflichtanteil ueber EWAP hinaus, kein kommunales Vorkaufsrecht, keine Mietzinskontrolle (Kat 6) belegt; (d) Zweitwohnungsbeschraenkung folgt aus Bundesrecht (ZWG, Art. 75b BV) und ist kein eigenstaendiges kommunales Instrument. Bundesgerichtsentscheid 1C_373/2024 betrifft Zweitwohnungs-/EWAP-Vollzug der Region, bestaetigt die Geltung des Regimes.",
+          "confidence": "high"
         },
         {
           "bfs": 700,
           "name": "Münster (BE)",
           "units": 4292,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "gemeinden[22] = BFS 700, \"Münster (BE)\" = offiziell Moutier (frz.), ~7'700 Einw., Berner Jura (zum Recherchezeitpunkt rechtlich noch BE; lang im Datensatz \"de\", recherchiert primär frz. + dt.). Geprüft: offizielles kommunales Erlassregister (moutier.ch \"Règlements et Ordonnances\") und Service de l'Urbanisme. KEIN kommunaler Mindestanteil preisgünstiger/gemeinnütziger Wohnraum (logements à loyer modéré/d'utilité publique) in BZO/PAL/Reglement (Kat 3) auffindbar. KEIN kommunaler Wohnraumschutz / préservation du logement / changement d'affectation für den ganzen Mietbestand (Kat 5/6). KEIN Reglement zu Kurzzeitvermietung/résidences secondaires (Kat 5). Mehrwertabgabe = ausgeschlossen (Steuer). Es existiert ein \"Règlement concernant l'établissement de droits de superficie et la vente de terrains appartenant à la Municipalité de Moutier\" (potenziell Kat 1, aktive Bodenpolitik/Baurecht) sowie ein \"Règlement concernant les bâtiments locatifs communaux\" (eigener kommunaler Mietbestand, interne Verwaltung). Der Volltext des droit-de-superficie-Reglements war nicht abrufbar (PDF-Links JS-gerendert/nicht extrahierbar), daher konnte NICHT verifiziert werden, ob das Baurecht an wohnpolitische Auflagen (preisgünstig/gemeinnützig) geknüpft ist oder nur eine generische Landabgaberegel darstellt. Gemäss konservativer Tier-1-Regel ohne bestätigten Reglementstext KEIN Instrument erfasst. Empfehlung manuelle Nachprüfung: PDF des droit-de-superficie-Reglements direkt einsehen. URL Erlassregister: https://moutier.ch/services/service-administratifs/reglements-et-ordonnances/",
+          "confidence": "mittel"
         },
         {
           "bfs": 563,
           "name": "Frutigen",
           "units": 4033,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "gemeinden[23] = Frutigen (BFS 563, BE, lang de). Geprueft via offizielle kommunale Tier-1-Quellen: (1) Baureglement/GBR (https://www.frutigen.ch/de/verwaltung/dokumente/dokumente/Baureglement.pdf, von KAGR Kt. Bern genehmigt; Volltext extrahiert) - standardmaessiges laendliches BZO mit Wohn-/Misch-/Arbeitszonen, Bau-/Gebaeudemassen und ZPP/Sondernutzungszonen. KEIN verbindlicher Mindestanteil preisguenstiger/gemeinnuetziger Wohnraum (%-Satz), KEIN Wohnanteilsplan, KEIN Ausnuetzungs-/Dichtebonus fuer preisguenstigen Wohnraum (Kat 2/3 -> nein), KEINE Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungspflicht zum Schutz des Mietbestands (Kat 5 -> nein), KEINE Mietzinskontrolle (Kat 6 -> nein), KEIN kommunaler Erstwohnungsanteil/Zweitwohnungs-Reglement, KEIN kommunales Vorkaufsrecht (Kat 4 -> nein), KEINE Baurechtsabgabe/Bodenpolitik fuer Wohnraum (Kat 1 -> nein). 'Baurecht'-Treffer betreffen nur 'baurechtliche Grundordnung' und Naeherbaurechte. (2) 'Liegenschaftsreglement' (vom 30.01.2020, Volltext extrahiert) ist ein Benutzungsreglement fuer gemeindeeigene Schul-/Sport-Anlagen (Gebuehren, Benutzungszeiten, Hausdienst etc.) - KEIN Bodenpolitik-/Baurecht-/Wohnrauminstrument. (3) Reglement ueber die Mehrwertabgabe (MWAR) = AUSGESCHLOSSEN (Steuer/fiskalisch), auch bei Zweckbindung. (4) Eidg. Zweitwohnungsgesetz (ZWG): Frutigen >20% Zweitwohnungen, aber dies ist Bundesrecht ohne eigenstaendige kommunale Aktivierung/Reglement -> gehoert nicht in den Gemeinde-Run. Konservativ: ohne rechtskraeftige KOMMUNALE Tier-1-Quelle fuer ein Instrument -> found=false.",
+          "confidence": "hoch"
         },
         {
           "bfs": 792,
           "name": "Lenk",
           "units": 3949,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Ortsansaessigenanteil / Erstwohnungs-Mindestanteil 30% (Art. 14 Baureglement)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Gemeinde Lenk, Baureglement (Genehmigungsexemplar vom 7. Februar 2025, rechtskraeftige Aenderungen nachgefuehrt bis 03.07.2025), Art. 14 Ortsansaessigenanteil",
+              "source_url": "https://www.lenkgemeinde.ch/_doc/6220384",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "In den im Zonenplan Siedlung ... bezeichneten Gebieten (Ortsansaessigenanteil OA) haben alle Wohnbauten Wohnungen fuer die ansaessige Bevoelkerung (Erstwohnung) zu enthalten. Der Ortsansaessigenanteil (OA) betraegt in diesen Bauzonen mind. 30% ... Im Baubewilligungsverfahren werden saemtliche Erstwohnungen mit einer Nutzungsbeschraenkung belegt. Die Nutzungsbeschraenkung ist im Grundbuch anzumerken."
+            },
+            {
+              "name": "Qualifiziert touristisch bewirtschaftete Zweitwohnungen max. 1/3 in Kur-/Hotelzone (Art. 7 Baureglement)",
+              "taxonomy_category": 5,
+              "excluded": true,
+              "excluded_reason": "Lokale Umsetzung des eidg. Zweitwohnungsgesetzes (ZWG) in einer spezifischen Hotelzone ('im Sinne der uebergeordneten Gesetzgebung'); steuert Neuproduktion von Zweitwohnungen in einer Zone, schuetzt nicht den gesamten Mietwohnungsbestand und ist kein autonomes kommunales Wohnschutz-/Zweckentfremdungsregime. Konservativ ausgeschlossen (kein eigenstaendiges Kat-5-Instrument; rein kantonal/bundesrechtlich getriebener Vollzug).",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Gemeinde Lenk, Baureglement 2025, Art. 7 Kur- und Hotelzone (KH)",
+              "source_url": "https://www.lenkgemeinde.ch/_doc/6220384",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Qualifiziert touristisch bewirtschaftete Zweitwohnungen im Sinne der uebergeordneten Gesetzgebung und Personalwohnungen sind wie folgt zugelassen: - max. 1/3 der tatsaechlich realisierten Geschossflaeche oberirdisch fuer Hotelnutzung."
+            },
+            {
+              "name": "Kontrolle und Monitoring Umwandlung Erst-/Zweitwohnungen (Art. 15 Baureglement)",
+              "taxonomy_category": 5,
+              "excluded": true,
+              "excluded_reason": "Reine Melde-/Verzeichnis-/Auskunftspflicht (Gemeinde fuehrt Verzeichnis, fordert Informationen ein); keine Bewilligungs-, Schutz- oder Steuerungswirkung -> nach Taxonomie ausgeschlossen (nur Transparenz/Statistik), kein wohnpolitisches Instrument.",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich (aber nur prozessual)",
+              "source_title": "Gemeinde Lenk, Baureglement 2025, Art. 15 Kontrolle und Monitoring Umwandlung von Erstwohnungen in Zweitwohnungen",
+              "source_url": "https://www.lenkgemeinde.ch/_doc/6220384",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Die Gemeinde verfolgt die Entwicklung des Verhaeltnisses von Erstwohnungen und Zweitwohnungen, fuehrt ein Verzeichnis und haelt diese in einem Bericht fest."
+            }
+          ],
+          "note": "Tourismusgemeinde Lenk i.S. (Obersimmental, BE). Massgebliche kommunale Tier-1-Quelle ist das Baureglement (Genehmigungsexemplar vom 7. Februar 2025, rechtskraeftige Aenderungen nachgefuehrt bis 03.07.2025), direkt von lenkgemeinde.ch geladen; Art. 52 bestaetigt Inkrafttreten am Tag nach Publikation der Genehmigung. ERFASST: Art. 14 Ortsansaessigenanteil = verbindlicher Erstwohnungs-Mindestanteil (mind. 30% der oberirdischen Geschossflaeche) in im Zonenplan bezeichneten Gebieten, grundbuchlich als Nutzungsbeschraenkung gesichert -> Kat 3 (bindende planerische Auflage/Quote in der BZO; staerkste direkte Eingriffsmechanik). NICHT erfasst (konservativ): Art. 7 Kur-/Hotelzone (qualifiziert touristisch bewirtschaftete Zweitwohnungen max. 1/3) ist lokale Umsetzung des eidg. Zweitwohnungsgesetzes ZWG in einer Hotelzone, schuetzt nicht den gesamten Mietbestand und ist kein autonomes kommunales Wohnschutz-/Zweckentfremdungsregime -> kein Kat-5-Instrument. Art. 15 (Kontrolle/Monitoring Umwandlung Erst->Zweitwohnungen) = reine Melde-/Verzeichnis-/Auskunftspflicht ohne Schutz-/Steuerungswirkung -> ausgeschlossen (nur Transparenz/Statistik). Im rechtskraeftigen Baureglement KEIN preisguenstiger/gemeinnuetziger Wohnraum-Anteil (Kat 3 i.e.S.), KEIN Wohnschutz/Zweckentfremdung des gesamten Mietbestands (Kat 5/6), KEIN kommunales Vorkaufsrecht/Baurecht/Bodenpolitik (Kat 1/4), KEIN preisguenstig-/Ausnuetzungsbonus (Kat 2). Keine Mehrwertabgabe erfasst (waere ohnehin Steuer/ausgeschlossen).",
+          "confidence": "hoch"
         },
         {
           "bfs": 743,
           "name": "Nidau",
           "units": 3915,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Mehrwertabgabe-Reglement (MWAR)",
+              "taxonomy_category": 3,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: kommunale Mehrwertabgabe (Abgabe auf Planungsmehrwert) ist gemaess Taxonomie ausgeschlossen, auch wenn Ertraege zweckgebunden gemeinnuetzigen Wohnungsbau foerdern wuerden. Zusaetzlich nicht in Kraft: Reglement am 13.06.2021 per Referendum abgelehnt (58.9% Nein, 1158:807).",
+              "legal_status": "rejected",
+              "bindingness": "nicht_in_kraft",
+              "source_title": "Nidau: Reglement ueber die Mehrwertabgabe wird abgelehnt (Bieler Tagblatt / SRF kommunale Urnengaenge 13.06.2021)",
+              "source_url": "https://www.bielertagblatt.ch/nachrichten/biel/nidau-reglement-ueber-die-mehrwertabgabe-wird-abgelehnt",
+              "source_form": "decision",
+              "evidence_quote_short": "Reglement ueber die Mehrwertabgabe in Nidau mit 58.9% Nein abgelehnt (13.06.2021)"
+            },
+            {
+              "name": "AGGLOlac: 18% Anteil gemeinnuetziger/preisguenstiger Wohnraum (Kostenmiete) in der teilbaurechtlichen Grundordnung",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "excluded_reason": "",
+              "legal_status": "rejected",
+              "bindingness": "nicht_rechtskraeftig",
+              "source_title": "Parlamente von Biel und Nidau versenken Grossprojekt Agglolac (Der Bund, 18.03.2021); AGGLOlac Bericht an SR Nidau 2020",
+              "source_url": "https://www.derbund.ch/parlamente-von-biel-und-nidau-versenken-grossprojekt-agglolac-472877695714",
+              "source_form": "plan",
+              "evidence_quote_short": "18 Prozent der Wohnflaeche fuer gemeinnuetzige Wohnbautraeger zur Kostenmiete waehrend gesamter Baurechtsdauer - aber Teilgrundordnung am 18.03.2021 von Nidauer und Bieler Stadtrat abgelehnt"
+            }
+          ],
+          "note": "Gemeinden[25] = Nidau (BFS 743, BE, de). KEIN rechtskraeftiges kommunales Tier-1-Instrument gefunden -> found=false (konservativ). Geprueft: kommunale Erlass-Sammlung nidau.tlex.ch sowie Baureglement SRS 720.1, Teilbaureglement Altstadt SRS 720.2 und Teilbaureglement 'weiteres Stadtgebiet' (in Kraft ab 16.09.2022) enthalten nur ordentliche Nutzungs-/Bauzonen (Wohnzonen, Misch-/Kernzonen) - KEINE verbindliche Quote preisguenstiger/gemeinnuetziger Wohnraum, KEIN Wohnschutz/Zweckentfremdung/Abbruch-Bewilligung fuer den Mietbestand, KEIN Ausnuetzungsbonus fuer guenstigen Wohnraum, KEINE Kurzzeitvermietungs-/Zweitwohnungsregelung. Nidau hat KEIN eigenes Wohnraumfoerderungs-Reglement (die in Suchergebnissen auftauchende 'RFGW' gehoert zu Biel, nicht Nidau). Zwei Kandidaten geprueft und verworfen: (1) Mehrwertabgabe-Reglement (MWAR) -> ausgeschlossen (Steuer/fiskalisch) UND am 13.06.2021 per Referendum abgelehnt; (2) AGGLOlac mit 18% gemeinnuetzigem Wohnraum/Kostenmiete (waere Kat 3 gewesen) -> Projekt inkl. teilbaurechtlicher Grundordnung am 18.03.2021 von beiden Stadtparlamenten (Nidau+Biel) abgelehnt, nie rechtskraeftig. Vorhandene Genossenschaften (z.B. Eisenbahner-Baugenossenschaft Nidau) sind private Traeger, kein kommunales Foerderinstrument mit Tier-1-Grundlage. Rein kantonale Instrumente (kant. Mehrwertabgabe min. 20% bei Einzonung, kant. WFG) gehoeren zum Kantons-Run, nicht hierher.",
+          "confidence": "hoch"
         },
         {
           "bfs": 938,
           "name": "Sigriswil",
           "units": 3910,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Kommunaler Erstwohnungsanteil (EWAP) - verbindlicher Mindestanteil kommunaler Erstwohnungen bei Neubauten (60-70% je Zone)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Einwohnergemeinde Sigriswil, Baureglement (BR) 2016 / Revision Ortsplanung Phase 1 (Januar 2019), Art. 212 Abs. 1 und Art. 213 (Kommunaler Erstwohnungsanteil); Gemeindeversammlungsbeschluss, vom AGR am 12.2.2019 genehmigt",
+              "source_url": "https://oerebfiles.apps.be.ch/93801/459/GN_Baureglement_Sigriswil.pdf",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "Art. 213 Abs. 1: 'In den Zonen, in welchen das Wohnen zugelassen ist, sind bei Neubauten minimale Flaechenanteile der Hauptnutz- und Konstruktionsflaechen als kommunale Erstwohnungen (EWAP-Wohnungen) auszuweisen.' (EWA Art. 212: W1/K2 60%, W2/K3 70%, M2 70%, LWZ-Wohnbauten 70%; Zweckentfremdungsverbot/Grundbuchanmerkung Art. 213 Abs. 6)"
+            },
+            {
+              "name": "Planungszone Zweitwohnungen - Baubewilligungspflicht fuer Umnutzung Erstwohnung zu Zweitwohnung und fuer kommerzielle/gewerbsmaessige Kurzzeitvermietung (Airbnb)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Gemeinde Sigriswil, Planungszone Zweitwohnungen, Gemeinderatsbeschluss vom 25.11.2024 (temporaeres Sicherungsmittel, 2 Jahre Gueltigkeit)",
+              "source_url": "https://www.zweitwohnung-thunersee.ch/de/news/article/planungszone-zweitwohnungen-gemeinde-sigriswil.html",
+              "source_form": "decision",
+              "evidence_quote_short": "'Die Umnutzung von bisher als Erstwohnung genutzten Wohnungen zu Zweitwohnungen ist baubewilligungspflichtig.' und 'Auch die Um- oder Neunutzung einer Wohnung zur kommerziellen, gewerbsmaessigen Kurzzeitvermietung ist baubewilligungspflichtig.' (Beschluss 25.11.2024, gilt zwei Jahre)"
+            }
+          ],
+          "note": "Gemeinde Sigriswil (BE, Tourismusgemeinde am Thunersee, ~30% Zweitwohnungen, ZWG-pflichtig). Zwei kommunale Tier-1-Instrumente validiert: (1) Kommunaler Erstwohnungsanteil (EWAP) nach Art. 213 i.V.m. Art. 212 Abs. 1 BR — verbindlicher Mindestanteil kommunaler Erstwohnungen bei Neubauten (W1/K2 60%, W2/K3 70%, Mischzone M2 70%, LWZ-Wohnbauten 70%), gesichert durch Zweckentfremdungsverbot/Grundbuchanmerkung; Baureglement (BR) 2016/Revision 2019, von der Gemeindeversammlung beschlossen (5.12.2016/27.8.2018) und vom AGR am 12.2.2019 genehmigt (rechtskräftig) -> Kat 3 (bindende planerische Quote; betrifft Neuproduktion, daher nicht Kat 5; keine Mietzinskontrolle, daher nicht Kat 6). Hinweis: Erstwohnungs-/ZWG-Quote, nicht preisgünstig/gemeinnützig; eingestuft nach tragender Mechanik (verbindliche planungsrechtliche Quote im Nutzungsplan). (2) Planungszone Zweitwohnungen, Gemeinderatsbeschluss vom 25.11.2024 — macht die Umnutzung bisheriger Erstwohnungen in Zweitwohnungen sowie die Um-/Neunutzung zur kommerziellen, gewerbsmässigen Kurzzeitvermietung (Airbnb) baubewilligungspflichtig; temporäres Sicherungsmittel (2 Jahre), rechtskräftig in Kraft -> Kat 5 (zusätzliche Bewilligungspflicht zum Schutz des bestehenden Wohnungsbestands inkl. Kurzzeitvermietungs-Beschränkung, ohne Mietzinskontrolle). Art. 214 BR (touristisch bewirtschaftete Zweitwohnungen) = blosser kommunaler Vollzug von ZWG Art. 7 (Bezeichnungs-/Grundbuchanmerkungspflicht), kein eigenständiges Instrument, daher nicht separat erfasst. Keine kommunale preisgünstig/gemeinnützig-Quote, kein kommunales Vorkaufsrecht, keine kommunale Mietzinskontrolle gefunden. Rein kantonale Instrumente nicht hier erfasst.",
+          "confidence": "high"
         },
         {
           "bfs": 979,
           "name": "Herzogenbuchsee",
           "units": 3875,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Keine kommunalen wohnpolitischen Tier-1-Instrumente belegbar. Geprüft: rechtskräftige Bau- und Zonenordnung / Ortsplanungsrevision-Baureglement (\"BauR inkl. Umsetzung BMBV\", Volltext extrahiert, 2034 Zeilen) sowie Legislaturprogramm und gezielte Suchen. (1) Kein verbindlicher Mindestanteil/Quote preisgünstiger oder gemeinnütziger Wohnungen in BZO/Nutzungsplan (einzige Wohnraum-Erwähnung: qualitative Vorgabe \"differenziertes Wohnraumangebot\" in ZPP M = Wohnungsmix-/Gestaltungsvorgabe, keine Preisbindung; alle %-Werte betreffen Fassaden, Energie, Parkierung, Wohnungsmix). (2) Kein kommunaler Wohnraumschutz / Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungspflicht (Kt. BE kennt kein allgemeines kommunales Wohnschutzregime). (3) Keine kommunale Genossenschafts-/Wohnbauförderung, Bodenpolitik, Baurecht-Abgabe oder kommunales Vorkaufsrecht. (4) Kein Zweitwohnungs-/Kurzzeitvermietungs-Reglement (keine Tourismusgemeinde, nicht kZWG/EWAP-relevant). (5) Mehrwertabgabe ausgeschlossen (Steuer). Konservativ: ohne rechtskräftige kommunale Tier-1-Quelle kein Instrument; rein kantonale BE-Instrumente gehören zum Kantons-Run. Geprüfte Quelle: Ortsplanungsrevision Baureglement, https://www.herzogenbuchsee.ch/public/upload/assets/2091/BauR%20inkl.%20Umsetzung%20BMBV.pdf",
+          "confidence": "hoch"
         },
         {
           "bfs": 581,
           "name": "Interlaken",
           "units": 3793,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Erstwohnungsanteil (EWA) mit Zweckentfremdungsverbot – 25% (Mischzone Kern MK) / 50% (Mischzone A); Umnutzung einer Erstwohnung zur Zweitwohnung baubewilligungspflichtig, Erstwohnungen mit grundbuchlich angemerktem Zweckentfremdungsverbot belegt",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Gemeindebaureglement (GBR) der Einwohnergemeinde Interlaken, Art. 211 / 213 / 214 (Teilrevision Ortsplanung 'Zweitwohnungen'), genehmigt durch das Amt für Gemeinden und Raumordnung (AGR) am 16.03.2021",
+              "source_form": "zoning_code",
+              "source_url": "https://oerebfiles.apps.be.ch/58101/5152/581_Baureglement.pdf",
+              "evidence_quote_short": "Art. 214 Abs. 1: 'In der Baubewilligung sind die Erstwohnungen mit einem Zweckentfremdungsverbot, das vor Baubeginn im Grundbuch anzumerken ist, zu belegen.' / Art. 213: Erstwohnungsanteil; Mischnutzung 50%, Mischzone Kern 25%."
+            },
+            {
+              "name": "Verbot der kurzzeitigen (touristischen) Vermietung von Wohnungen und Einzelzimmern für weniger als drei aufeinanderfolgende Nächte in den Wohnzonen (Airbnb-/Kurzzeitvermietungs-Verbot); Besitzstandsgarantie ausgeschlossen, Ausnahmen für strukturierte Beherbergungsbetriebe und Einliegerwohnungen",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Gemeindebaureglement (GBR) der Einwohnergemeinde Interlaken, Art. 211 (Wohnzonen, Fassung vom 16.03.2021), Teilrevision 'Zweitwohnungen'",
+              "source_form": "zoning_code",
+              "source_url": "https://oerebfiles.apps.be.ch/58101/5152/581_Baureglement.pdf",
+              "evidence_quote_short": "Nicht zulässig in den Wohnzonen: 'die Vermietung von Wohnungen und Einzelzimmern ... für eine Dauer von weniger als drei hintereinander folgenden Nächten; für derartige kurzzeitige Vermietungen ist die Besitzstandsgarantie ausgeschlossen.'"
+            },
+            {
+              "name": "Reglement über die Mehrwertabgabe (MWAR, 701.11) – Abgabe auf planungsbedingtem Mehrwert bei Ein-/Um-/Aufzonung",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe ist eine fiskalische Abgabe auf den planungsbedingten Mehrwert, keine Wohnraumregulierung; gemäss Taxonomie-Ausschluss nicht zu klassifizieren.",
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Mehrwertabgabe (MWAR) 701.11, Einwohnergemeinde Interlaken (kommunales Erlassregister, Kategorie 7 Bauwesen)",
+              "source_form": "regulation",
+              "source_url": "https://www.interlaken-gemeinde.ch/politik/reglemente/7-bauwesen-oeffentliche-werke-energie-verkehr",
+              "evidence_quote_short": "Erlassregister Interlaken, Ziff. 701.11 'Reglement über die Mehrwertabgabe (MWAR)'."
+            }
+          ],
+          "note": "Gemeinde Interlaken (BFS 581, BE, de). Zwei rechtskräftige kommunale Tier-1-Wohnschutzinstrumente aus dem Gemeindebaureglement (GBR), Teilrevision Ortsplanung 'Zweitwohnungen' (beschlossen Grosser Gemeinderat 08.12.2020, Referendumsfrist abgelaufen 18.01.2021, genehmigt durch AGR 16.03.2021, in Kraft): (1) Erstwohnungsanteil 25%/50% mit grundbuchlichem Zweckentfremdungsverbot und Bewilligungspflicht bei Umnutzung Erst- zu Zweitwohnung (Art. 211/213/214) → Kat 5; (2) Verbot kurzzeitiger Vermietung \u003c3 Nächte in Wohnzonen (Art. 211) → Kat 5. Beide schützen den Wohnungsbestand über zusätzliche Bewilligungs-/Nutzungsbeschränkungen ohne Mietzinskontrolle (daher Kat 5, nicht Kat 6). KEINE Kat 6: keine Mietzins-/Renditekontrolle im freien Bestand. KEIN Kat 3: das kommunale Erlassregister enthält keine verbindliche preisgünstig-/gemeinnützig-Quote mit %-Satz in BZO/Nutzungsplan. IBI-Areal (Überbauungsordnung Nr. 23, vom Volk angenommen 18.05.2025) wurde geprüft, ergibt aber KEIN kommunales Kat-3-Instrument: Die ÜO setzt einen Erstwohnungsanteil von 100% (zusätzliche projektbezogene Anwendung desselben Wohnschutz-Mechanismus), enthält jedoch KEINE verbindliche kommunale Preis-/Kostenmiete-Quote; die 30 'bezahlbaren' Mietwohnungen entstehen durch Abgabe des Baurechts der privaten IBI AG an die gemeinnützige Trägerin lewo plus deren Unterstützungsbeitrag und eine private 'Vereinbarung betreffend bezahlbares Wohnen' (Boden privat, keine Gemeindekosten, Gemeinde nur Planungsbehörde) – konservativ keine eigenständige kommunale Regulierung. Mehrwertabgabe-Reglement (MWAR 701.11) = ausgeschlossen (Steuer/fiskalisch). Kein kommunales Reglement zu Wohnbauförderung, Genossenschaftsförderung, Bodenpolitik, kommunalem Vorkaufsrecht oder Wohnraumfonds vorhanden (Kat 1/4 nicht belegt).",
+          "confidence": "hoch"
         },
         {
           "bfs": 584,
           "name": "Lauterbrunnen",
           "units": 3628,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Erstwohnungsanteilsplan (EWAP) mit Zweckentfremdungsverbot und Ersatzabgabe-Auskauf",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Einwohnergemeinde Lauterbrunnen, Art. 38-38g (Erstwohnungsanteilsplan EWAP), Genehmigung 05.11.2018, Fassung ab 08.06.2023",
+              "source_form": "zoning_code",
+              "source_url": "https://www.lauterbrunnen.ch/_docn/4595959/Baureglement_ab_08.06.2023..pdf.pdf",
+              "evidence_quote_short": "Art. 38a Abs. 1: 'Der Erstwohnungsanteil gilt im ganzen Gemeindegebiet bei jeder Erweiterung einer bestehenden Wohnung.' Art. 38d: Erstwohnungen mit Grundbuch-Zweckentfremdungsverbot. Art. 38e: Ersatzabgabe 800 Fr./m2 HNF (Auskauf)."
+            },
+            {
+              "name": "Touristische Bewirtschaftungspflicht / Verordnung strukturierte Beherbergung (Zweitwohnungs-/Nutzungsbeschraenkung)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Baureglement Lauterbrunnen Art. 36-37 (Beschraenkung Zweitwohnungen / Touristische Bewirtschaftung) + kommunale Verordnung 'Touristisch bewirtschaftete Zweitwohnungen durch strukturierte Beherbergungsbetriebe' (publ. 01.07.2017)",
+              "source_form": "regulation",
+              "source_url": "https://www.lauterbrunnen.ch/reglemente/106969",
+              "evidence_quote_short": "Art. 37 Abs. 4: Eigentuemer verpflichtet, die Wohnung dem strukturierten Beherbergungsbetrieb zur touristischen Bewirtschaftung zu ueberlassen (Service-Vertrag); Abs. 5: Nutzungsbeschraenkung im Grundbuch; Abs. 6-7: oeffentliches Verzeichnis + Kontrollen durch Baupolizeibehoerde."
+            }
+          ],
+          "note": "gemeinden[29] = Lauterbrunnen (BFS 584, BE, lang=de). Recherche in Deutsch ueber offizielle kommunale Quellen (lauterbrunnen.ch). ZWEI kommunale Tier-1-Instrumente bestaetigt: (1) Erstwohnungsanteilsplan EWAP, Baureglement Art. 38-38g, gilt im ganzen Gemeindegebiet, Genehmigung 05.11.2018 / Fassung ab 08.06.2023, rechtskraeftige Bau- und Zonenordnung -> Kat 3 (verbindliche planerische Erstwohnungs-/Nutzungsbindung, gesichert durch Grundbuch-Zweckentfremdungsverbot). Der Auskauf via Ersatzabgabe 800 Fr./m2 ist der EWAP-eigene Mechanismus, KEINE ausgeschlossene Mehrwertabgabe (keine Steuer auf planungsbedingten Mehrwert bei Zonenaenderung). (2) Touristische Bewirtschaftungspflicht fuer touristisch bewirtschaftete Zweitwohnungen, Baureglement Art. 36-37 + kommunale Verordnung vom 01.07.2017, mit Grundbuch-Nutzungsbeschraenkung, oeffentlichem Verzeichnis und behoerdlichen Kontrollen -> Kat 5 (Nutzungs-/Bewirtschaftungsbeschraenkung mit zusaetzlicher Bewilligungs-/Melde-/Kontrollpflicht, ohne Mietzinskontrolle, daher nicht Kat 6). AUSGESCHLOSSEN/NICHT erfasst: kommunale Lenkungsabgabe auf Zweitwohnungen (an Gemeindeversammlung 20.01.2014 abgelehnt = nicht in Kraft; zudem fiskalische Abgabe/Steuer -> ausgeschlossen). KEIN verbindlicher preisguenstig-/gemeinnuetzig-Anteil ueber EWAP hinaus, KEIN genereller Wohnraumschutz des GESAMTEN Mietbestands (Kat 5/6 i.e.S.), KEIN kommunales Vorkaufsrecht im Baureglement. Hinweis: EWAP-Ersatzabgabe ist zweckgebunden u.a. fuer Grunderwerb und Abgabe im Baurecht fuer Erstwohnungen (Naehe zu Kat 1 aktive Bodenpolitik), aber als blosser Verwendungszweck der Abgabe kein eigenstaendig aktiviertes Bodenpolitik-Instrument mit eigener Tier-1-Belegung -> konservativ nicht separat erfasst.",
+          "confidence": "hoch"
         },
         {
           "bfs": 855,
           "name": "Schwarzenburg",
           "units": 3561,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Kommunaler Run für Schwarzenburg (BFS 855, BE, lang=de). Geprüfte offizielle Quellen: (1) Reglemente-/Verordnungsverzeichnis der Gemeinde (https://www.schwarzenburg.ch/verwaltung/reglemente-verordnungen/), (2) rechtskräftiges Gemeindebaureglement GBR, Nachführung 2026-03 (https://www.schwarzenburg.ch/app/uploads/1736_399_GBR_NACHFUEHRUNG_202603.pdf), (3) Teilrevision Ortsplanung GBR (https://www.schwarzenburg.ch/app/uploads/Teilrevision-Ortsplanung-Gemeindebaureglement.pdf). Volltext beider GBR-PDFs extrahiert und durchsucht. Ergebnis: KEIN kommunales wohnpolitisches Tier-1-Instrument. Kein verbindlicher Mindestanteil preisgünstiger/gemeinnütziger Wohnraum (Begriffe 'preisgünstig/gemeinnützig/Wohnanteil/Quote/Kostenmiete' fehlen vollständig im GBR) -> kein Kat 3. Die 'Förderung der Innenentwicklung' (GBR Art. 19) ist ein reiner Verdichtungs-/Gestaltungsanreiz ohne preisgünstig-Bedingung -> kein wohnpolitisches Instrument. Kein kommunaler Wohnschutz/Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungsregime fuer den Mietbestand (kein Kat 5/6). Kein kommunales Wohnbauförderungs-/Genossenschafts-/Bodenpolitik-/Baurecht-/Vorkaufsrechts-Reglement (kein Kat 1/4); Gemeinde plant ausdruecklich keine Einzonungen, Wohnbauland bleibt unveraendert. Zweitwohnungs-Bezug im GBR ist nur ein Verweis auf das EIDGENOESSISCHE Zweitwohnungsgesetz (ZWG, SR 702, Art. 9) zur Bezeichnung ortsbildpraegender Bauten -> Bundesrecht, kein kommunales Instrument, nicht erfasst. GBR Art. 3 'Ausgleich von Planungsvorteilen' verweist auf das Reglement ueber die Mehrwertabgabe (MWAR, 1.1.2019) -> gemaess Taxonomie AUSGESCHLOSSEN (Steuer/fiskalisch). Liegenschaftssteuerreglement ebenfalls fiskalisch, ausgeschlossen. Konservativ: ohne rechtskraeftige kommunale Tier-1-Quelle kein Instrument -> found=false.",
+          "confidence": "high"
         },
         {
           "bfs": 593,
           "name": "Unterseen",
           "units": 3402,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Baubewilligungspflicht fuer Umnutzung zu gewerbsmaessig touristisch genutzten Wohnungen (Art. 60.1 Abs. 2 GBR)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Gemeindebaureglement Unterseen, Art. 60.1 (Beschraenkung von Zweitwohnungen und gewerbsmaessig touristisch genutzten Wohnungen)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.unterseen.ch/newsmeldungen/604-art-60-1-gemeindebaureglement-und-ausf%C3%BChrungsbestimmungen-genehmigung-und-inkrafttretung.html",
+              "evidence_quote_short": "Die Umnutzung von Raeumlichkeiten aller Nutzungsarten zu gewerbsmaessig touristisch genutzten Wohnungen gilt als baubewilligungspflichtige Umnutzung."
+            },
+            {
+              "name": "Minimaler Erstwohnungsanteil (EWA) 30/50/70% nach Zone bei Neu-/Erweiterungsbauten und Umnutzungen, mit Grundbucheintrag (Art. 60.1 Abs. 3-4 GBR)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Gemeindebaureglement Unterseen, Art. 60.1 Abs. 3-4 (minimaler Erstwohnungsanteil)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.unterseen.ch/newsmeldungen/604-art-60-1-gemeindebaureglement-und-ausf%C3%BChrungsbestimmungen-genehmigung-und-inkrafttretung.html",
+              "evidence_quote_short": "Bei Neu- und Erweiterungsbauten sowie Umnutzungen ist mindestens folgender Anteil ... der Erstwohnungsnutzung vorbehalten: a) 30% in der Dorfzone ... b) 50% in den Wohn- und Gewerbezonen ... c) 70% in den Wohnzonen ... Der minimale EWA ist fuer jedes Gebaeude selbstaendig einzuhalten. Er ist im Grundbuch einzutragen."
+            },
+            {
+              "name": "Beschraenkung der kurzzeitigen touristischen Vermietung (Airbnb/Plattformen) in Wohn-/ES-II-Zonen, unter 30 Naechte unzulaessig (Art. 60.1 Abs. 5 GBR)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Gemeindebaureglement Unterseen, Art. 60.1 Abs. 5 (Einschraenkung der kurzzeitigen touristischen Vermietung)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.unterseen.ch/newsmeldungen/604-art-60-1-gemeindebaureglement-und-ausf%C3%BChrungsbestimmungen-genehmigung-und-inkrafttretung.html",
+              "evidence_quote_short": "In den Wohnzonen sowie in den uebrigen der ES II zugeteilten Zonen ist es nicht zulaessig, der Wohnnutzung gewidmete Flaechen (Erst- und Zweitwohnungen) kurzzeitig, namentlich ueber elektronische Buchungsplattformen, zu Uebernachtungszwecken zur Verfuegung zu stellen. Als kurzzeitig gilt eine Vermietung, wenn sie weniger als 30 Tage betraegt."
+            }
+          ],
+          "note": "Kommunale Tier-1-Quelle bestaetigt: Art. 60.1 Gemeindebaureglement (GBR) Unterseen 'Beschraenkung von Zweitwohnungen und gewerbsmaessig touristisch genutzten Wohnungen'. Gemeindeversammlungsbeschluss 11.03.2024, Genehmigung Amt fuer Gemeinden und Raumordnung (AGR) BE 04.02.2025, Ausfuehrungsbestimmungen Gemeinderat 11.11.2024, in Kraft seit 04.04.2025 (kantonale Grundlage Art. 71a BauG BE + kommunale Aktivierung). Alle drei erfassten Instrumente schuetzen den lokalen Erstwohnungs-/Wohnungsbestand vor Umwandlung in Zweit-/touristisch genutzte Wohnungen ueber zusaetzliche Bewilligungs-/Nutzungspflichten = Kat 5. KEIN Kat 6 (keine Mietzins-/Renditekontrolle auf dem freien Bestand). KEIN Kat 3: Der Erstwohnungsanteil sichert Erst- vs. Zweitwohnnutzung, NICHT preisguenstigen/gemeinnuetzigen Wohnraum (keine Preisbindung, keine Affordability-Quote). KEIN Kat 1/4: Gemeindeordnung 2024 (101.1) und uebrige kommunale Erlasse enthalten kein kommunales Vorkaufsrecht, keine aktive Bodenpolitik, keine kommunale Wohnbau-/Genossenschaftsfoerderung, keine Baurechtsvergabe mit Wohnauflagen. Eine Lenkungsabgabe wird nur als kantonale Option (Art. 71a BauG) erwaehnt, von Unterseen NICHT erhoben -> kein auszuschliessendes Steuerinstrument. Die separate Aenderung des Kurtaxenreglements (01.07.2019) ist eine Tourismusabgabe/Transparenzregelung ohne wohnpolitische Schutzwirkung und wird nicht erfasst.",
+          "confidence": "hoch"
         },
         {
           "bfs": 928,
           "name": "Heimberg",
           "units": 3391,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Reglement über die Mehrwertabgabe (MWAR)",
+              "taxonomy_category": 3,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe (Planungsmehrwert bei Ein-/Um-/Aufzonung). Per Taxonomie ausgeschlossen, auch wenn Erträge zweckgebunden für Raumplanung/Bauland verwendet werden. Keine verbindliche preisgünstig-Wohnraumquote, daher auch nicht Kat 3.",
+              "legal_status": "in_force",
+              "bindingness": "binding",
+              "source_title": "Reglement über die Mehrwertabgabe (MWAR), Gemeinde Heimberg",
+              "source_url": "https://www.heimberg.ch/fileadmin/user_upload/MWAR.pdf",
+              "source_form": "regulation",
+              "evidence_quote_short": "Die Erträge der Abgabe müssen zweckgebunden für Massnahmen der Raumplanung (z.B. Entschädigungen wegen materiellen Enteignungen, Förderung der Verfügbarkeit von Bauland, Erhalt von Kulturland) verwendet werden."
+            }
+          ],
+          "note": "Heimberg (BE, bfs 928), Agglomerationsgemeinde bei Thun, lang=de. Geprüfte kommunale Tier-1-Quellen: offizielle Erlass-/Reglemente-Liste (heimberg.ch/politik/erlasse-und-reglemente.html), Baureglement (BR) Stand Januar 2024 (rechtskräftige baurechtliche Grundordnung, Volltext via pdftotext geprüft), Gemeindeverfassung 2012/2024, MWAR, Liegenschaftssteuer-Reglement. ERGEBNIS: KEIN kommunales wohnpolitisches Tier-1-Instrument. (1) Kein verbindlicher Mindestanteil preisgünstiger/gemeinnütziger Wohnungen im BR/Nutzungsplan; die im BR genannten 'Wohnanteile' sind reine zonenbezogene Nutzungsart-Vorgaben (Anteil Wohnnutzung je Zone), keine Bezahlbarkeits-/Gemeinnützigkeitsquote -> NICHT Kat 3. Kein Ausnützungs-/Dichtebonus für preisgünstigen Wohnraum -> kein Kat 2. (2) Kein kommunaler Wohnraumschutz / keine Abbruch-/Umbau-/Zweckentfremdungs-/STWE-Umwandlungs-Bewilligungspflicht für den Mietbestand -> kein Kat 5/6. (3) Keine kommunale Wohnbau-/Genossenschaftsförderung, kein Baurecht-/Bodenpolitik-/Fonds-/Vorkaufsrechts-Reglement -> kein Kat 1/4. (4) Kein kommunales Zweitwohnungs-/Kurzzeitvermietungs-Reglement (Heimberg liegt nicht unter ZWG-Regime; Suche ergab keine Quelle). (5) Einziger boden-/eigentumsbezogener kommunaler Erlass ist die Mehrwertabgabe (MWAR) -> taxonomisch AUSGESCHLOSSEN (Steuer/fiskalisch), Zweckbindung der Verwendung ändert das nicht. Das BWO-/kantonale Förderregime (BE Verordnung 854.151 preisgünstiger Wohnraum) ist eine kantonale Option ohne nachgewiesene kommunale Aktivierung in Heimberg und gehört zum Kantons-Run. Konservatives Ergebnis: found=false.",
+          "confidence": "high"
         },
         {
           "bfs": 551,
           "name": "Urtenen-Schönbühl",
           "units": 3178,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "Keine rechtskräftige KOMMUNALE Tier-1-Quelle belegt ein kommunales wohnpolitisches Instrument. Geprüft: (1) Rechtskräftiges Gemeindebaureglement (GBR, Stand 04.2018, https://www.urtenen-schoenbuehl.ch/_docn/1638260/Baureglement_04.2018.pdf) enthält KEINEN verbindlichen Mindestanteil preisgünstiger/gemeinnütziger Wohnungen (kein Kat 3), KEINEN Ausnützungs-/Dichtebonus (kein Kat 2), KEINEN Wohnschutz/Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungstatbestand für den Mietbestand (kein Kat 5/6), KEINE Zweitwohnungs-/Kurzzeitvermietungs-Beschränkung, KEIN kommunales Vorkaufsrecht (kein Kat 4), KEINE Mehrwertabgabe (ohnehin ausgeschlossen). (2) Offizielle Reglemente-/Erlassseite (https://www.urtenen-schoenbuehl.ch/reglemente) listet kein Wohnbauförderungs-/Wohnschutzreglement; Reglemente nur auf Bestellung. (3) Seite 'Wohnen' (https://www.urtenen-schoenbuehl.ch/wohnen) ist reine Informationsseite mit Links zu Mietportalen, kein Instrument. (4) Einzige Wohnbau-Spur: einmalige Sozialdienst-Unterstützung 2003-2006 für die 'Genossenschaft Begleitetes Wohnen' (Anteilschein CHF 30'000 + CHF 15'000 Anschubfinanzierung aus zweckgebundenem Spezialfonds), belegt NUR über BWO-Tagungs-Handout (https://www.bwo.admin.ch/dam/de/sd-web/Koeh91VSR6UV/03_Handout-Urtenen.pdf) und Age-Stiftung — ein Bericht/Handout über ein Einzelprojekt, KEINE normative Tier-1-Quelle (kein Reglement, keine Fonds-Rechtsgrundlage, kein Baurechtsvertrag dokumentiert); beweist kein laufendes kommunales Instrument. Kanton BE hat kein aktivierbares Wohnschutzgesetz; keine kommunale Aktivierung erkennbar. Konservativ: found=false.",
+          "confidence": "hoch"
         },
         {
           "bfs": 352,
           "name": "Bolligen",
           "units": 3140,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "ZPP X \"Lutertal\": bindende Verpflichtung zu preisguenstigen (alters-/behindertengerechten) Wohnungen im Rahmen der Zone mit Planungspflicht / Ueberbauungsordnung",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich",
+              "legal_status": "in_force",
+              "source_title": "Einwohnergemeinde Bolligen - Baureglement (BR), Genehmigung (Bern, 23. August 2021), Anhang 2 A2.10 ZPP X \"Lutertal\"; ZPP-Grundsaetze Art. 15 BR",
+              "source_form": "zoning_code",
+              "source_url": "https://www.bolligen.ch/verwaltung/dokumente/dokumente/B01Baureglement_1394202471.pdf",
+              "evidence_quote_short": "Planungszweck: Realisierung einer sorgfaeltigen Ueberbauung mit preisguenstigen alters- und behindertengerechten Wohnungen. (ZPP X \"Lutertal\", Wohnzone, GFZo max. 0,75)"
+            },
+            {
+              "name": "Stiftung fuer Wohnraumbeschaffung der EG Bolligen / Genossenschaft Lutertalpark (gemeindegestuetzte guenstige Alters-/Sozialwohnungen)",
+              "taxonomy_category": 1,
+              "excluded": true,
+              "excluded_reason": "Keine Tier-1-Quelle: nur auf behoerdlicher Dienstleistungs-Webseite (bolligen.ch, detail i=157) ohne genannte Rechtsgrundlage (kein Reglement/Stiftungsstatut/Gemeindebeschluss belegt). Konservativ nicht validiert.",
+              "bindingness": "unklar",
+              "legal_status": "unclear",
+              "source_title": "Einwohnergemeinde Bolligen - Dienstleistungen: Wohnen zu guenstigen Bedingungen",
+              "source_form": "other",
+              "source_url": "https://www.bolligen.ch/verwaltung/dienstleistungen/detail/detail.php?i=157",
+              "evidence_quote_short": "Stiftung ... vermietet zirka 15 Wohnungen zu guenstigen Bedingungen an Betagte sowie sozial Benachteiligte; Genossenschaft Lutertalpark ... ca. 40 hindernisfreie Seniorenwohnungen."
+            }
+          ],
+          "note": "gemeinden[34] = Bolligen (bfs 352, BE, de). Validierte KOMMUNALE Tier-1-Quelle: Baureglement (BR) der Einwohnergemeinde Bolligen, Genehmigungsexemplar \"Bern, 23. August 2021\", beschlossen durch den Gemeinderat (Kopfzeile \"Genehmigung\", \"siehe Genehmigung AGR\"). Im rechtskraeftigen BR enthaelt Anhang 2 die Zone mit Planungspflicht ZPP X \"Lutertal\" (A2.10) mit verbindlichem Planungszweck: \"Realisierung einer sorgfaeltigen Ueberbauung mit preisguenstigen alters- und behindertengerechten Wohnungen\" (Wohnzone, GFZo max 0.75; Bauen setzt gem. Art. 15 BR / Art. 93 BauG eine rechtskraeftige Ueberbauungsordnung voraus). Dies ist eine projektbezogene, NICHT freiwillige Verpflichtung zur Schaffung preisguenstigen Wohnraums im Rahmen eines Sondernutzungsplan-Instruments -> Kat 3 (keine %-Quote angegeben, aber bindender preisguenstig-Zweck der ZPP). Sicherheit mittel, da \"preisguenstig\" als bindender Planungszweck formuliert ist, nicht als beziffertes Quoten-/Kostenmieteregime. ABGRENZUNG: kein Mietzinsdeckel auf freiem Bestand (nicht Kat 6); kein Wohnschutz/Abbruch-/Sanierungsbewilligung fuer den GESAMTEN Mietwohnungsbestand im BR (nicht Kat 5); kein kommunales Vorkaufsrecht (nicht Kat 4). NICHT validiert/ausgeschlossen: Die \"Stiftung fuer Wohnraumbeschaffung der EG Bolligen\" und die \"Genossenschaft Lutertalpark\" (ca. 15 bzw. 40 guenstige/altersgerechte Wohnungen) waeren inhaltlich Kat 1 (oeffentlich gestuetzte gemeinnuetzige Wohnraumversorgung), sind aber NUR auf einer behoerdlichen Dienstleistungs-Webseite (bolligen.ch/dienstleistungen, i=157) ohne genannte Rechtsgrundlage belegt -> keine Tier-1-Quelle, daher konservativ nicht aufgenommen. Bolligen nicht ZWG-pflichtig (keine kommunale Zweitwohnungsregelung), keine kommunale Mehrwertabgabe-relevante Wohnauflage (Mehrwertabgabe ohnehin ausgeschlossen). Gesamter BR (pdftotext) durchsucht: Begriffe Wohnanteil, gemeinnuetzig, Kostenmiete, Belegung, Mietzins kommen NICHT vor.",
+          "confidence": "mittel"
         },
         {
           "bfs": 443,
           "name": "St. Immer",
           "units": 3137,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Taxe de plus-value foncière (Mehrwertabgabe)",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe (taxe sur la plus-value foncière) auf planungsbedingtem Mehrwert bei Einzonung / Changement d'affectation / Erhöhung des Nutzungsgrades. Reine fiskalische Abgabe, kein wohnpolitisches Instrument; keine konkrete preisgünstig-Wohnraumpflicht angeknüpft.",
+              "legal_status": "in_force",
+              "bindingness": "verbindlich",
+              "source_title": "Règlement sur la taxe de plus-value foncière (RDCo 728.1), Conseil de ville de Saint-Imier, du 11 mars 2021",
+              "source_url": "https://www.saint-imier.ch/wp-content/uploads/2024/03/st-imier_-reglements-communaux-7_91.pdf",
+              "source_form": "regulation",
+              "evidence_quote_short": "Lorsqu'une plus-value est réalisée, la commune prélève une taxe de plus-value auprès des propriétaires fonciers en cas de classement durable d'un terrain en zone à bâtir ... changement d'affectation ... augmentation du degré d'affectation."
+            }
+          ],
+          "note": "gemeinden[35] = St. Immer (BFS 443, Kt. BE, lang 'de'). Hinweis: Die reale Gemeinde ist Saint-Imier im Berner Jura (französischsprachig); Recherche daher primär auf Französisch durchgeführt. Geprüfte rechtskräftige KOMMUNALE Tier-1-Quellen: (1) Règlement municipal de l'affectation du sol et de construction (RAC), https://www.saint-imier.ch/wp-content/uploads/2024/03/st-imier_-reglements-communaux-7_28.pdf — Volltext via pdftotext analysiert: reines Bau-/Zonenreglement (Zonen, Bauvorschriften, Denkmal-/Natur-/Landschaftsschutz). KEINE preisgünstig-/logement-abordable-Quote, KEIN Wohnschutz/Abbruch-/Umbaubewilligung für den ganzen Mietbestand, KEINE Mietzinskontrolle, KEIN kommunales Vorkaufsrecht (droit de préemption), KEINE Zweitwohnungs-/résidence-secondaire-Beschränkung, KEINE aktive Bodenpolitik/Baurecht/Genossenschaftsförderung. 'Logement(s) familiaux' = nur Wohnungs-Zähleinheit in Zonenvorschriften; 'Zones d'utilité publique (ZUP)' = öffentliche Zweckzonen (Infrastruktur), kein Wohninstrument. (2) Règlement sur la taxe de plus-value foncière (RDCo 728.1, 11.03.2021) — bestätigt als Mehrwertabgabe → AUSGESCHLOSSEN (Steuer). Vollständige kommunale Reglementsliste (https://www.saint-imier.ch/autorites/reglements-communaux/) enthält kein Wohn-/Logement-Reglement mit Kat-1–6-Instrument. Konservativ: ohne rechtskräftige kommunale Tier-1-Quelle für ein Kat-1–6-Instrument => found=false.",
+          "confidence": "high"
         },
         {
           "bfs": 785,
           "name": "Meiringen",
           "units": 3044,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "RUN 2 (kommunal) für Meiringen (BFS 785, BE, de). Geprüfte kommunale Tier-1-Quellen: Baureglement/GBR der Einwohnergemeinde Meiringen (Ortsplanung Juni 2013, Nachführung Januar 2019; https://www.meiringen.ch/regpub/72760), Zonenpläne TZP1-5 (https://www.meiringen.ch/regpub/89056), Reglemente-/Publikationsregister der Gemeinde (https://www.meiringen.ch/regpub). Der vollständige Baureglement-Text wurde extrahiert und durchsucht. KEINE der katalogisierten kommunalen wohnpolitischen Instrumente belegt: (1) kein verbindlicher Mindestanteil preisgünstiger/gemeinnütziger Wohnraum (%-Satz) in BZO/Nutzungsplan (→ kein Kat 3); (2) kein kommunaler Wohnraumschutz / keine Zweckentfremdungs-/Abbruch-/Umbau-Bewilligungspflicht für den Mietbestand (→ kein Kat 5), keine Mietzinskontrolle (→ kein Kat 6); (3) keine kommunale Wohnbau-/Genossenschaftsförderung, keine Abgabe von Land im Baurecht, kein Fonds, kein kommunales Vorkaufsrecht im Reglement (→ kein Kat 1/4); (4) keine kommunale Erstwohnungsanteils-/Zweitwohnungs-/Kurzzeitvermietungs-Regelung (Begriffe erstwohnung/zweitwohnung/ferienwohnung/kurzzeit kommen im GBR nicht vor; das bundesrechtliche Zweitwohnungsgesetz greift zwar (Zweitwohnungsanteil >20%), ist aber ein BUNDES-Instrument ohne kommunale Aktivierung → gehört nicht in den Kommunal-Run). Mehrwertabgabe/Mehrwertausgleich: im GBR nicht geregelt und ohnehin als Steuer ausgeschlossen. Das auf der Gemeindeseite genannte \"Mietamt\" ist Vollzug der kantonalen Schlichtungs-/Formularpflicht, kein kommunales Schutzinstrument. Konservatives Ergebnis: ohne rechtskräftige kommunale Tier-1-Quelle kein Instrument -> found=false.",
+          "confidence": "hoch"
         }
       ],
       "triaged": [
@@ -7454,37 +8159,203 @@
           "bfs": 1061,
           "name": "Luzern",
           "units": 48120,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Förderung gemeinnütziger Wohnungsbau: Zugänglichmachen städtischer Areale für gemeinnützige Wohnbauträger",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindlich (kommunales Reglement, in Kraft)",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Förderung des gemeinnützigen Wohnungsbaus (sRSL 5.2.1.1.1), Stadt Luzern, vom 24. Oktober 2013, in Kraft seit 1. Januar 2014, Art. 2",
+              "source_form": "regulation",
+              "source_url": "https://www.stadtluzern.ch/dokumentebilder/rechtssammlung/sammlung/230677",
+              "evidence_quote_short": "Die Stadt macht den gemeinnützigen Wohnbauträgern zusätzliche Areale für den gemeinnützigen Wohnungsbau zugänglich. (Art. 2 Abs. 2)"
+            },
+            {
+              "name": "BZR-Pflichtquote: in bezeichneten Gebieten sind gemeinnützige Wohnungen zu erstellen (Wohnzone / Wohn- und Arbeitszone)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich (Bau- und Zonenreglement, in Kraft)",
+              "legal_status": "in_force",
+              "source_title": "Bau- und Zonenreglement der Stadt Luzern (BZR), Art. 5 Abs. 3/4 (Wohnzone) und Art. 7 Abs. 3/4 (Wohn- und Arbeitszone); vom Regierungsrat genehmigt, mit Änderungen in Kraft (zuletzt bis 2024)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.stadtluzern.ch/_docn/5364361/sRSL_7.1.2.1.1_Bau-_und_Zonenreglement_der_Stadt_Luzern.pdf",
+              "evidence_quote_short": "In den Bestimmungen im Anhang sind Gebiete bezeichnet, in denen gemeinnützige Wohnungen zu erstellen sind. Der Stadtrat legt Details ... wie Anforderungen und Anteile pro Gebiet in einer Verordnung fest. (Art. 5/7 Abs. 3-4)"
+            },
+            {
+              "name": "BZR-Ausnützungsbonus für freiwillig erstellte gemeinnützige Wohnungen (Gestaltungsplan)",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "bindingness": "freiwilliger planerischer Anreiz (in Kraft)",
+              "legal_status": "in_force",
+              "source_title": "Bau- und Zonenreglement der Stadt Luzern (BZR), Art. 24 Abs. 3 (Gestaltungsplan)",
+              "source_form": "zoning_code",
+              "source_url": "https://www.stadtluzern.ch/_docn/5364361/sRSL_7.1.2.1.1_Bau-_und_Zonenreglement_der_Stadt_Luzern.pdf",
+              "evidence_quote_short": "Es kann ein Bonus von 10 Prozent auf die Überbauungsziffer gewährt werden. Der zusätzliche Bonus für die Errichtung von gemeinnützigen Wohnungen beträgt 5 Prozent und insgesamt max. 15 Prozent. (Art. 24 Abs. 3)"
+            },
+            {
+              "name": "Reglement über die Kurzzeitvermietung (Airbnb-Regulierung, Wohnraumschutz, 90-Nächte-Limite)",
+              "taxonomy_category": 5,
+              "excluded": false,
+              "bindingness": "verbindlich (kommunales Reglement, in Kraft)",
+              "legal_status": "in_force",
+              "source_title": "Reglement über die Kurzzeitvermietung, Stadt Luzern (vom Grossen Stadtrat beschlossen Juni 2024, in Kraft seit 1. Januar 2025; Umsetzung Initiative 'Wohnraum schützen – Airbnb regulieren', Volksabstimmung März 2023)",
+              "source_form": "regulation",
+              "source_url": "https://www.stadtluzern.ch/aktuelles/newslist/2245330",
+              "evidence_quote_short": "Werden gegen Bezahlung Gäste beherbergt, die sich weniger als drei Monate in der Stadt Luzern aufhalten, ist die Vermietung ab 1. Januar 2025 auf 90 Nächte pro Jahr begrenzt [für seit 2010 als Wohnraum genutzte Räume]."
+            },
+            {
+              "name": "Vorkaufsrecht der Stadt Luzern",
+              "taxonomy_category": 4,
+              "excluded": true,
+              "excluded_reason": "Noch nicht in Kraft: Volksabstimmung 14.6.2026 angenommen (67.48% Ja), Inkrafttreten erst per Anfang/1.1.2027. Konservativ -> nicht aufnehmen, bis rechtskräftig in Kraft.",
+              "bindingness": "noch nicht in Kraft",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Stadt Luzern: Ja zur Einführung des Vorkaufsrechts der Stadt Luzern (Abstimmung 14. Juni 2026); Inkrafttreten per 2027",
+              "source_form": "decision",
+              "source_url": "https://www.stadtluzern.ch/aktuelles/newslist/2903941",
+              "evidence_quote_short": "Ja zur Einführung des Vorkaufsrechts ... würde das Vorkaufsrecht per 2027 in Kraft treten."
+            },
+            {
+              "name": "Aktive Bodenpolitik: Stiftung 'Wohnraum für alle', Kauf/Vermietung von Wohnungen, Darlehen an gemeinnützige Wohnbauträger",
+              "taxonomy_category": 1,
+              "excluded": true,
+              "excluded_reason": "Noch nicht in Kraft: Massnahmenpaket/Sonderkredite an Volksabstimmung 14.6.2026 angenommen (69.29% Ja), Inkrafttreten/Umsetzung erst ab 2027. Konservativ -> nicht aufnehmen.",
+              "bindingness": "noch nicht in Kraft",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Stadt Luzern: Ja zur Umsetzung einer aktiven Bodenpolitik (Abstimmung 14. Juni 2026); Inkrafttreten per 2027",
+              "source_form": "decision",
+              "source_url": "https://www.stadtluzern.ch/beitraege/2869339",
+              "evidence_quote_short": "Ja zur Umsetzung einer aktiven Bodenpolitik ... Gründung der Stiftung 'Wohnraum für alle', Kauf und Vermietung von Wohnungen, Darlehen für gemeinnützige Wohnbauträger; in Kraft ab 2027."
+            },
+            {
+              "name": "Unterstellung unter das kantonale Gesetz über die Erhaltung von Wohnraum (GEW): Bewilligungspflicht Abbruch/Umbau/Zweckentfremdung",
+              "taxonomy_category": 5,
+              "excluded": true,
+              "excluded_reason": "Noch nicht in Kraft: Stadtrat beantragt erst den Reglementerlass zur Unterstellung; formaler Beschluss des Grossen Stadtrates ausstehend, geplantes Inkrafttreten 1.1.2027. Kein Mietzinsdeckel (nur Bewilligungspflicht), daher kein Kat 6. Konservativ -> nicht aufnehmen.",
+              "bindingness": "noch nicht in Kraft (beantragt)",
+              "legal_status": "proposed",
+              "source_title": "Stadt Luzern: Der Stadtrat beantragt die Unterstellung unter das kantonale Gesetz über die Erhaltung von Wohnraum (GEW); geplantes Inkrafttreten 1.1.2027",
+              "source_form": "decision",
+              "source_url": "https://www.stadtluzern.ch/projekte/oeffentlicher-raum/91871",
+              "evidence_quote_short": "Der Stadtrat beantragt die Unterstellung unter das kantonale Gesetz über die Erhaltung von Wohnraum ... geplantes Inkrafttreten 1. Januar 2027 (Reglementerlass, Beschluss ausstehend)."
+            }
+          ],
+          "note": "RUN 2 (kommunal) für Stadt Luzern, bfs 1061 = gemeinden[37]. Vier rechtskräftige kommunale Tier-1-Instrumente belegt: (a) Reglement über die Förderung des gemeinnützigen Wohnungsbaus, sRSL 5.2.1.1.1, in Kraft seit 1.1.2014 — Art. 2: Stadt macht gemeinnützigen Wohnbauträgern zusätzliche Areale zugänglich + institutionalisierte Zusammenarbeit (öffentliche Hand als Bodenakteur/Ermöglicher → Kat 1; Art. 1 16%-Ziel ist Zielvorgabe, keine bindende Entwicklerquote). (b) BZR Art. 5 Abs. 3 / Art. 7 Abs. 3: in im Anhang bezeichneten Gebieten 'sind gemeinnützige Wohnungen zu erstellen', Anteile pro Gebiet per Stadtratsverordnung — verbindliche Quote → Kat 3. (c) BZR Art. 24 Abs. 3: freiwilliger Überbauungsziffer-Bonus, zusätzlicher 5%-Bonus für gemeinnützige Wohnungen ('kann gewährt werden') → Kat 2. (d) Reglement über die Kurzzeitvermietung, in Kraft seit 1.1.2025 (Umsetzung Initiative 'Wohnraum schützen – Airbnb regulieren', angenommen März 2023): Registrierungs-/Bewilligungspflicht, 90-Nächte-Limite für seit 2010 als Wohnraum genutzte Räume, Schutz des Wohnraumbestands ohne Mietzinskontrolle → Kat 5. AUSGESCHLOSSEN bzw. NOCH NICHT in Kraft (konservativ): GEW-Unterstellung (Gesetz über die Erhaltung von Wohnraum) — erst beantragt, Reglementerlass ausstehend, geplant 1.1.2027 → nicht in Kraft, kein Mietzinsdeckel (nur Bewilligungspflicht, Kat-5-Charakter, würde nach Inkraftsetzung Kat 5 sein). Vorkaufsrecht (Abstimmung 14.6.2026, 67.48% Ja) → in Kraft erst 1.1.2027, ausgeschlossen (wäre Kat 4). Aktive Bodenpolitik-Massnahmen (Stiftung 'Wohnraum für alle', Kauf/Vermietung, Darlehen; Abstimmung 14.6.2026, 69.29% Ja) → in Kraft erst 1.1.2027, ausgeschlossen (wäre Kat 1). Mehrwertabgabe taxonomisch ausgeschlossen (Steuer). Rein kantonale Instrumente nicht hier erfasst. BZR ist kommunales Bau- und Zonenreglement, vom Regierungsrat genehmigt, mit Änderungen bis 2024 in Kraft.",
+          "confidence": "hoch"
         },
         {
           "bfs": 1024,
           "name": "Emmen",
           "units": 15648,
-          "status": "pending",
+          "status": "checked",
           "found": false,
-          "instruments": [],
-          "note": ""
+          "instruments": [
+            {
+              "name": "Art. 52 Abs. 10 BZR Emmen — 25% preisgünstiger Wohnraum (Kostenmiete) bei Dichtebonus in Gestaltungsplangebieten mit qualifiziertem Konkurrenzverfahren",
+              "taxonomy_category": 3,
+              "excluded": true,
+              "excluded_reason": "Nicht in Kraft / keine zulässige Tier-1-Quelle: Bestimmung stammt nur aus dem Entwurf des revidierten BZR (Stand 13.11.2023, vom Gemeinderat zu Handen 1. Lesung Einwohnerrat verabschiedet). Reglement tritt laut eigener Schlussbestimmung erst 'mit der Genehmigung durch den Regierungsrat' in Kraft. Einwohnerrat-Beschluss (2. Lesung) erst 16.12.2025; Referendumsfrist und kantonale Genehmigung noch ausstehend, Rechtskraft erwartet frühestens 2027. Konservativ ausgeschlossen (quellen-agent: 'noch nicht in Kraft gesetzte Vorlage' = nicht zulässig).",
+              "bindingness": "verbindlich (geplant) — aber noch nicht rechtskräftig",
+              "legal_status": "adopted_not_yet_in_force",
+              "source_title": "Gemeinde Emmen, Bau- und Zonenreglement BZR mit Erläuterungen, Stand vom 13. November 2023 (Entwurf Ortsplanungsrevision), Art. 52 Abs. 10",
+              "source_url": "https://www.emmen.ch/_docn/4868101/01._Bau-_und_Zonenreglement_inkl._Erl%C3%A4uterungen_231113_(1).pdf",
+              "source_form": "zoning_code",
+              "evidence_quote_short": "In Gestaltungsplangebieten, in denen durch ein qualifiziertes Konkurrenzverfahren nach Art. 8 BZR von den Abweichungen gemäss Abs. 4 profitiert wird, sind 25% der zusätzlich möglichen Hauptnutzflächen gemäss Anhang 7 als preisgünstiger Wohnraum zu erstellen. Als preisgünstig gilt die Kostenmiete, berechnet gemäss Wohnraumförderungsverordnung WFV Art. 8."
+            }
+          ],
+          "note": "gemeinden[38] = Emmen (BFS 1024, KT LU, lang de). RUN 2 kommunal. Ergebnis: KEIN rechtskräftiges kommunales Tier-1-Instrument -> found=false (konservativ). Begründung: (1) Das aktuell IN KRAFT befindliche Bau- und Zonenreglement der Gemeinde Emmen (vom 4. Juni 1996, Ausgabe September 2017, Erlass-Nr. 6.0.1, offizielle Gesetzessammlung emmen.ch) enthält KEIN wohnpolitisches Instrument: keine preisgünstig-Quote, kein Wohnraumschutz/Abbruch-/Umbaubewilligungsregime für den Mietbestand, keine Mietzinskontrolle, kein kommunales Wohnbau-/Genossenschafts-/Baurechts-/Vorkaufsrechts-Reglement. Die im 1996er BZR vorhandenen 'Abbruch'-Stellen betreffen allgemeine Abbrucharbeiten/Index, keinen Wohnraumschutz. (2) Das einzige potenzielle Instrument — Art. 52 Abs. 10 BZR: 'In Gestaltungsplangebieten, in denen durch ein qualifiziertes Konkurrenzverfahren nach Art. 8 BZR von den Abweichungen gemäss Abs. 4 profitiert wird, sind 25% der zusätzlich möglichen Hauptnutzflächen gemäss Anhang 7 als preisgünstiger Wohnraum zu erstellen. Als preisgünstig gilt die Kostenmiete, berechnet gemäss Wohnraumförderungsverordnung WFV Art. 8, unter Berücksichtigung der Anlagekostenlimiten gemäss BWO.' — wäre inhaltlich Kat 3 (verbindliche preisgünstig-Quote, an Dichtebonus/Aufzonung gekoppelt; Kostenmiete des geförderten Segments, NICHT Kat 6). ABER: Dieser Artikel stammt ausschliesslich aus dem ENTWURF der laufenden Ortsplanungsrevision (Dokumentkopf: 'Stand vom 13. November 2023, Vom Gemeinderat am 22. November 2023 verabschiedet zu Handen der 1. Lesung im Einwohnerrat'; Schlussbestimmung: 'Die vorliegende Bau- und Zonenordnung tritt mit der Genehmigung durch den Regierungsrat in Kraft'). Stand Juni 2026 ist die Revision NICHT in Kraft: 2. Lesung/Beschluss Einwohnerrat erst am 16.12.2025; danach noch Referendumsfrist (60 Tage) und finale Genehmigung durch den Luzerner Regierungsrat (erteilt erst die Rechtskraft) — erwartet frühestens 2027. Nach quellen-agent ist eine 'noch nicht in Kraft gesetzte Vorlage' KEINE zulässige Tier-1-Quelle -> Instrument bleibt 'adopted_not_yet_in_force' und wird ausgeschlossen. (3) Die genossenschaftliche Wohnbautätigkeit in Emmen (GBE, Wohnbaugenossenschaft Emmen) ist private Trägerschaft, kein kommunales Tier-1-Instrument. Mehrwertabgabe ohnehin ausgeschlossen (Steuer). Fazit: found=false bis zur Rechtskraft der Ortsplanungsrevision.",
+          "confidence": "hoch"
         },
         {
           "bfs": 1059,
           "name": "Kriens",
           "units": 15131,
-          "status": "pending",
+          "status": "checked",
           "found": false,
           "instruments": [],
-          "note": ""
+          "note": "RUN 2 (kommunal) fuer Kriens (BFS 1059, LU, de). Ergebnis: found=false. Begruendung konservativ nach Quellen-Agent: Es existiert KEINE rechtskraeftige kommunale Tier-1-Quelle, die ein wohnpolitisches Instrument belegt. Geprueft: (1) Das in Kraft stehende Bau- und Zonenreglement (BZR) Kriens [https://www.stadt-kriens.ch/public/upload/assets/23616/Bau-%20und%20Zonenreglement.pdf] und die Bau- und Zonenverordnung (BZV) [https://www.stadt-kriens.ch/public/upload/assets/23617/Bau-%20und%20Zonenverordnung.pdf] enthalten KEINE Bestimmungen zu preisguenstigem/gemeinnuetzigem Wohnraum, Wohnquoten, Ausnuetzungsbonus, Wohnraumschutz/Abbruch/Zweckentfremdung, Zweitwohnung/Airbnb oder Vorkaufsrecht. (2) Ein 'Reglement ueber die Wohnraumfoerderung' (Gegenvorschlag des Stadtrats zur Wohninitiative) ist im Gesetzgebungsprozess: 1. Lesung im Einwohnerrat absolviert (Behandlung u.a. 29.01.2026), Initiativkomitee fordert vor der 2. Lesung Nachbesserungen (Mind.-Quote gemeinnuetzig 12% statt 10%, mind. 25% ab 24 WE via Sondernutzungsplanung, aktive Bodenpolitik/Baurecht, Airbnb-Beschraenkung) und zieht die Initiative NICHT zurueck (Stand Bericht 22.05.2026, https://www.nau.ch/ort/kriens/initiativkomitee-fordert-nachbesserungen-bei-wohnbaureglement-67131236; vgl. https://www.luzernerzeitung.ch/zentralschweiz/stadt-region-luzern/wohninitiative-kriens-einwohnerrat-beraet-gegenvorschlag-ld.4109712). Das Reglement ist somit NICHT beschlossen, NICHT rechtskraeftig, NICHT in Kraft -> nach Quellen-Agent-Regel (proposed/noch nicht in Kraft = rejected) nicht erfassbar. (3) Die Anfangsmietzins-Formularpflicht (Art. 270 Abs. 2 OR) gilt im Kanton Luzern wegen Leerwohnungsziffer \u003c1.5% (1.11% per 01.06.2025) -> rein KANTONALES Instrument, gehoert nicht in RUN 2 (kommunal) und waere zudem nur Kat 5 (Transparenz-/Meldepflicht). Fazit: Sobald das kommunale Wohnraumfoerderungs-Reglement rechtskraeftig in Kraft ist, waeren voraussichtlich Kat 3 (verbindliche gemeinnuetzig-Quote bei Sondernutzungsplanung), Kat 1 (Bodenpolitik/Baurecht an Genossenschaften) und Kat 5 (Airbnb/Zweckentfremdung) zu erfassen. Aktuell konservativ found=false.",
+          "confidence": "hoch"
         },
         {
           "bfs": 1058,
           "name": "Horw",
           "units": 8023,
-          "status": "pending",
-          "found": false,
-          "instruments": [],
-          "note": ""
+          "status": "checked",
+          "found": true,
+          "instruments": [
+            {
+              "name": "Aktive Boden- und Wohnpolitik: Beschaffung und Abgabe gemeindeeigener Grundstücke an interessierte/gemeinnützige Wohnbauträger (i.d.R. via Ausschreibungs-/Einladungsverfahren)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "verbindlich (kommunale Aufgabe/Politikgrundlage)",
+              "legal_status": "in_force",
+              "source_title": "Reglement Preisgünstiger Wohnraum der Gemeinde Horw, Nr. 890 (24.05.2018, in Kraft 01.01.2019), Art. 10 (Boden- und Wohnpolitik), Art. 6 lit. a",
+              "source_form": "regulation",
+              "source_url": "https://www.horw.ch/reglemente/282893",
+              "evidence_quote_short": "Art. 10 Abs. 2: 'die Beschaffung von Grundstücken, die sich ... für die Schaffung von preisgünstigen Wohnraum eignen, sowie die Abgabe von solchen Grundstücken an interessierte Wohnbauträger zu prüfen.'"
+            },
+            {
+              "name": "Abgabe von Land im Baurecht an Wohnbauträger mit Baurechtszins-Rabatt/-Erlass, Kostenmiete- und Heimfall-/Sicherungsmechanismen",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "bindendes Förderinstrument (vertraglich, kein Rechtsanspruch der Träger)",
+              "legal_status": "in_force",
+              "source_title": "Reglement Preisgünstiger Wohnraum der Gemeinde Horw, Nr. 890 (24.05.2018, in Kraft 01.01.2019), Art. 7 lit. a, Art. 8 (Baurechtsverträge), Art. 9 (Baurechtszins)",
+              "source_form": "regulation",
+              "source_url": "https://www.horw.ch/reglemente/282893",
+              "evidence_quote_short": "Art. 7 Abs. 1 lit. a 'Gewährung von Baurechten an Grundstücken im Eigentum der Gemeinde'; Art. 9 Abs. 3 'Zur Förderung des preisgünstigen Wohnraums kann der Baurechtszins herabgesetzt werden (Rabatt).'"
+            },
+            {
+              "name": "Individuelle Förderung preisgünstigen/gemeinnützigen Wohnbaus: vergünstigte Darlehen, Bürgschaften, Leistungsvereinbarungen (objekt-/bodenbezogen, vertraglich gesicherte Leistungsverpflichtung)",
+              "taxonomy_category": 1,
+              "excluded": false,
+              "bindingness": "bindendes Förderinstrument (kein Rechtsanspruch)",
+              "legal_status": "in_force",
+              "source_title": "Reglement Preisgünstiger Wohnraum der Gemeinde Horw, Nr. 890 (24.05.2018, in Kraft 01.01.2019), Art. 7 lit. b–d",
+              "source_form": "regulation",
+              "source_url": "https://www.horw.ch/reglemente/282893",
+              "evidence_quote_short": "Art. 7 Abs. 1: 'b) Gewährung vergünstigter Darlehen; c) Gewährung von Bürgschaften; d) Abschluss von Leistungsvereinbarungen ...'"
+            },
+            {
+              "name": "Ausnützungs-/Dichtebonus von 5 % auf die Überbauungsziffer für die Errichtung preisgünstiger Wohnungen (freiwilliger planerischer Anreiz)",
+              "taxonomy_category": 2,
+              "excluded": false,
+              "bindingness": "freiwillig (Kann-Bestimmung, Anreiz)",
+              "legal_status": "in_force",
+              "source_title": "Bau- und Zonenreglement der Gemeinde Horw, Nr. 600 (Ausgabe 08.04.2025), Art. 4a Abs. 7; vgl. Reglement Preisgünstiger Wohnraum Art. 11 Abs. 2 lit. b",
+              "source_form": "zoning_code",
+              "source_url": "https://www.horw.ch/gesetzessammlung/sammlung/603322",
+              "evidence_quote_short": "Art. 4a Abs. 7: 'Für die Errichtung von preisgünstigen Wohnungen kann ein Bonus von 5 % auf die Überbauungsziffer gewährt werden.'"
+            },
+            {
+              "name": "Verbindlicher Mindestanteil preisgünstiger Wohnungen in Gestaltungs-/Bebauungsplänen, dauerhaft zweckgebunden (projektbezogene Wohnraumquote; konkret als bindende Gebietszielsetzung in Gestaltungsplanpflicht-Gebieten Riedmatt-Schöngrund und Steinen-Grisigen)",
+              "taxonomy_category": 3,
+              "excluded": false,
+              "bindingness": "verbindlich im Sondernutzungsplan (Festlegung in Gestaltungs-/Bebauungsplan; bindende Gebietszielsetzung gem. Anhang 5)",
+              "legal_status": "in_force",
+              "source_title": "Bau- und Zonenreglement der Gemeinde Horw, Nr. 600 (Ausgabe 08.04.2025), Art. 29 Abs. 4 i.V.m. Art. 30 und Anhang 5; vgl. Reglement Preisgünstiger Wohnraum Art. 11 Abs. 2 lit. c",
+              "source_form": "zoning_code",
+              "source_url": "https://www.horw.ch/gesetzessammlung/sammlung/603322",
+              "evidence_quote_short": "Art. 29 Abs. 4: 'In Gestaltungsplänen und Bebauungsplänen kann festgelegt werden, dass ein Prozentsatz an preisgünstigen Wohnungen zu bauen und dauerhaft für diesen Zweck zu nutzen ist.' Anhang 5 (Riedmatt-Schöngrund, Steinen-Grisigen): 'Erstellung von preisgünstigem Wohnraum'."
+            },
+            {
+              "name": "Erlass/Reduktion einer allfälligen Mehrwertabgabe zugunsten preisgünstigen Wohnbaus",
+              "taxonomy_category": 0,
+              "excluded": true,
+              "excluded_reason": "Steuer/fiskalisch: Mehrwertabgabe ist eine fiskalische Abgabe; deren Erlass/Reduktion ist kein eigenständiges wohnpolitisches Instrument.",
+              "bindingness": "n/a",
+              "legal_status": "in_force",
+              "source_title": "Reglement Preisgünstiger Wohnraum der Gemeinde Horw, Nr. 890 (24.05.2018), Art. 7 Abs. 1 lit. e",
+              "source_form": "regulation",
+              "source_url": "https://www.horw.ch/reglemente/282893",
+              "evidence_quote_short": "Art. 7 Abs. 1 lit. e: 'Erlass oder Reduktion einer allfälligen Mehrwertabgabe'."
+            }
+          ],
+          "note": "Kanton LU, Sprache de. Horw hat ein eigenes, rechtskräftiges kommunales Reglement \"Preisgünstiger Wohnraum\" (Nr. 890, beschlossen vom Einwohnerrat am 24.05.2018, in Kraft seit 01.01.2019, gestützt auf das LU Gesetz über Wohnbau- und Eigentumsförderung sowie Art. 29 Gemeindeordnung; bisher keine Änderungen) sowie ein rechtskräftiges Bau- und Zonenreglement (Nr. 600, vom 26.09.2010, aktuelle Ausgabe 08.04.2025; wohnraumrelevante Bestimmungen via Teilrevision vom 03.03.2024, in Kraft ab 08.04.2025). Beide sind kommunale Tier-1-Quellen. Materielles Ziel (Reglement Art. 5): bis 2029 mind. 100 zusätzliche preisgünstige Wohnungen nach Kostenmiete. AUSGESCHLOSSEN: Erlass/Reduktion einer Mehrwertabgabe (Reglement Art. 7 lit. e) = Entlastung von einer Steuer (Mehrwertabgabe = fiskalisch), kein eigenständiges Wohninstrument. Kostenmiete betrifft das geförderte/gemeinnützige Segment -> Kat 1/3, NICHT Kat 6. KEINE kommunale Zweckentfremdungs-/Abbruch-/Wohnschutzregelung (kein Kat 5), KEIN kommunales Vorkaufsrecht (kein Kat 4), KEINE Mietzinskontrolle auf dem freien Bestand (kein Kat 6) im BZR/Reglement gefunden. Rein kantonale Instrumente hier nicht erfasst; die kommunale Aktivierung der Förderung ist durch Reglement 890 belegt.",
+          "confidence": "hoch"
         },
         {
           "bfs": 1054,
@@ -18879,20 +19750,28 @@ function renderRun2Overview(){
   const box=document.getElementById("run2-overview"); if(!box) return;
   const cantons=(RUN2.cantons||[]); const m=RUN2.run_meta||{};
   if(!cantons.length){ box.innerHTML=""; return; }
-  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+cantons.map(c=>{
-    const checked=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+  const H='font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 8px';
+  const allDone=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked").length,0);
+  const allFound=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked"&&g.found).length,0);
+  const allPlan=cantons.reduce((s,c)=>s+(c.checked||[]).length,0);
+  const summary=`<div style="font-size:14.5px;color:var(--ink);margin:0 0 16px;padding:11px 15px;background:var(--brand-tint);border:1px solid #9fd6df;border-radius:var(--radius)"><b style="font-family:'Space Grotesk',sans-serif;font-size:18px">${allDone}</b> Gemeinden einzeln geprüft · <b>${allFound}</b> mit kommunalem Instrument · ${allPlan-allDone} geplant offen · über ${cantons.length} Kantone</div>`;
+  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+summary+cantons.map(c=>{
+    const list=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const done=list.filter(g=>g.status==="checked");
+    const pending=list.filter(g=>g.status!=="checked");
     const triaged=[...(c.triaged||[])].sort((a,b)=>(b.units||0)-(a.units||0));
-    const found=checked.filter(g=>g.found);
-    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${m.date?(" · Stand "+esc(m.date)):""}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg"):""}</span></div>`+
+    const found=done.filter(g=>g.found);
+    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg ∪ Top-3"):""}</span></div>`+
       `<div class="r2stat">`+
-        `<span class="r2chip checked"><b>${checked.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
+        `<span class="r2chip checked"><b>${done.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
         `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
+        (pending.length?`<span class="r2chip"><b>${pending.length}</b> geplant offen</span>`:``)+
         `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
       `</div>`;
-    const cards=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 8px">Auditberichte je Gemeinde (einzeln geprüft, ${checked.length}) — anklicken zum Aufklappen</h4>`+
-      checked.map(g=>gemCard(g, c.canton_abbr)).join("");
-    const skipList=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 8px">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
-    return `<div class="r2box">${head}${cards}${skipList}</div>`;
+    const cards=done.length?(`<h4 style="${H}">Auditberichte je Gemeinde (einzeln geprüft, ${done.length}) — anklicken zum Aufklappen</h4>`+done.map(g=>gemCard(g, c.canton_abbr)).join("")):"";
+    const pendList=pending.length?(`<h4 style="${H}">Geplant, noch nicht geprüft (${pending.length})</h4><div class="r2skip">`+pending.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`):"";
+    const skipList=`<h4 style="${H}">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
+    return `<div class="r2box">${head}${cards}${pendList}${skipList}</div>`;
   }).join("");
   box.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
 }

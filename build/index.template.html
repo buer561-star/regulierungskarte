@@ -639,20 +639,28 @@ function renderRun2Overview(){
   const box=document.getElementById("run2-overview"); if(!box) return;
   const cantons=(RUN2.cantons||[]); const m=RUN2.run_meta||{};
   if(!cantons.length){ box.innerHTML=""; return; }
-  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+cantons.map(c=>{
-    const checked=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+  const H='font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 8px';
+  const allDone=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked").length,0);
+  const allFound=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked"&&g.found).length,0);
+  const allPlan=cantons.reduce((s,c)=>s+(c.checked||[]).length,0);
+  const summary=`<div style="font-size:14.5px;color:var(--ink);margin:0 0 16px;padding:11px 15px;background:var(--brand-tint);border:1px solid #9fd6df;border-radius:var(--radius)"><b style="font-family:'Space Grotesk',sans-serif;font-size:18px">${allDone}</b> Gemeinden einzeln geprüft · <b>${allFound}</b> mit kommunalem Instrument · ${allPlan-allDone} geplant offen · über ${cantons.length} Kantone</div>`;
+  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+summary+cantons.map(c=>{
+    const list=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
+    const done=list.filter(g=>g.status==="checked");
+    const pending=list.filter(g=>g.status!=="checked");
     const triaged=[...(c.triaged||[])].sort((a,b)=>(b.units||0)-(a.units||0));
-    const found=checked.filter(g=>g.found);
-    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${m.date?(" · Stand "+esc(m.date)):""}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg"):""}</span></div>`+
+    const found=done.filter(g=>g.found);
+    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg ∪ Top-3"):""}</span></div>`+
       `<div class="r2stat">`+
-        `<span class="r2chip checked"><b>${checked.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
+        `<span class="r2chip checked"><b>${done.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
         `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
+        (pending.length?`<span class="r2chip"><b>${pending.length}</b> geplant offen</span>`:``)+
         `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
       `</div>`;
-    const cards=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 8px">Auditberichte je Gemeinde (einzeln geprüft, ${checked.length}) — anklicken zum Aufklappen</h4>`+
-      checked.map(g=>gemCard(g, c.canton_abbr)).join("");
-    const skipList=`<h4 style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 8px">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
-    return `<div class="r2box">${head}${cards}${skipList}</div>`;
+    const cards=done.length?(`<h4 style="${H}">Auditberichte je Gemeinde (einzeln geprüft, ${done.length}) — anklicken zum Aufklappen</h4>`+done.map(g=>gemCard(g, c.canton_abbr)).join("")):"";
+    const pendList=pending.length?(`<h4 style="${H}">Geplant, noch nicht geprüft (${pending.length})</h4><div class="r2skip">`+pending.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`):"";
+    const skipList=`<h4 style="${H}">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
+    return `<div class="r2box">${head}${cards}${pendList}${skipList}</div>`;
   }).join("");
   box.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
 }
