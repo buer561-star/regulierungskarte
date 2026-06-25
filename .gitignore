@@ -4,3 +4,5 @@ build/ch-map.generated.json
 .claude/settings.local.json
 
 build/_*
+*.pdf
+*_tmp.txt
