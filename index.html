@@ -185,8 +185,10 @@
       <button class="tab active" data-view="karte"><span class="num">01</span> Karte</button>
       <button class="tab" data-view="uebersicht"><span class="num">02</span> Übersicht Kantone &amp; Gemeinden</button>
       <button class="tab" data-view="taxonomie"><span class="num">03</span> Taxonomie</button>
-      <button class="tab" data-view="audit"><span class="num">04</span> Audit · Kantone</button>
-      <button class="tab" data-view="wohnungen"><span class="num">05</span> Wohnungen</button>
+      <button class="tab" data-view="audit-kt"><span class="num">04</span> Audit · Kantone</button>
+      <button class="tab" data-view="audit-gem"><span class="num">05</span> Audit · Gemeinden</button>
+      <button class="tab" data-view="audit-cov"><span class="num">06</span> Audit · Übersicht</button>
+      <button class="tab" data-view="wohnungen"><span class="num">07</span> Wohnungen</button>
     </nav>
   </aside>
 
@@ -266,13 +268,13 @@
     </section>
 
     <!-- 04 AUDIT -->
-    <section class="view" id="v-audit">
+    <!-- 04 AUDIT KANTONE -->
+    <section class="view" id="v-audit-kt">
       <div class="vhead">
-        <p class="eb">Evidenz · Kantonaler Rechtsrahmen</p>
-        <h1>Audit — Run 1: Kantonale Tier-1-Quellen</h1>
-        <p id="audit-intro">Erster Run: ausschliesslich <b>kantonale Tier-1-Quellen</b> (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Wo kantonales Recht Gemeinden ermächtigt, ist <code>municipal_followup_required</code> gesetzt — dieser Teil wird in <b>Run 2 (Gemeindeebene)</b> geprüft.</p>
+        <p class="eb">Evidenz · Kantonaler Rechtsrahmen (Run 1)</p>
+        <h1>Audit · Kantone</h1>
+        <p>Kantonale Tier-1-Quellen (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Je Kanton aufklappbar: Instrumente, Quellen, Follow-up, offene Fragen.</p>
       </div>
-      <div id="run2-overview"></div>
       <div class="databanner" id="audit-banner"></div>
       <div class="filters" id="audit-filters" style="display:none">
         <div><span class="fl">Suche</span><input class="search" id="au-q" type="text" placeholder="Kanton, Instrument, Gesetz…"></div>
@@ -280,6 +282,46 @@
       </div>
       <p class="count" id="audit-count"></p>
       <div id="audit-list"></div>
+    </section>
+
+    <!-- 05 AUDIT GEMEINDEN -->
+    <section class="view" id="v-audit-gem">
+      <div class="vhead">
+        <p class="eb">Evidenz · Gemeindeebene (Run 2)</p>
+        <h1>Audit · Gemeinden</h1>
+        <p>Kommunale Tier-1-Quellen je einzeln geprüfter Gemeinde (mit Triage). Pro Kanton: wie viele <b>einzeln geprüft</b>, wie viele <b>mit kommunalem Instrument</b>, wie viele <b>geplant offen</b> bzw. <b>per Triage übersprungen</b> — je Gemeinde aufklappbar mit Instrumenten und Quellen.</p>
+      </div>
+      <div id="run2-overview"></div>
+    </section>
+
+    <!-- 06 AUDIT ÜBERSICHT (Abdeckung) -->
+    <section class="view" id="v-audit-cov">
+      <div class="vhead">
+        <p class="eb">Abdeckung · Run-2-Prüfumfang</p>
+        <h1>Audit · Übersicht</h1>
+        <p>Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben.</p>
+      </div>
+      <div class="maptools">
+        <span class="mmwrap">
+          <button data-cm-mode="gem" class="mmbtn won">Gemeindekarte</button>
+          <button data-cm-mode="kanton" class="mmbtn">Kantonskarte</button>
+        </span>
+        <button class="dlbtn" id="cov-dlsvg" title="Abdeckungskarte als SVG exportieren">SVG ↓</button>
+      </div>
+      <div class="maprow">
+        <div>
+          <div class="mapwrap"><svg class="chmap" id="covmap" xmlns="http://www.w3.org/2000/svg"></svg></div>
+          <div class="maplegend" id="cov-legend"></div>
+          <div class="foot" id="cov-foot"></div>
+        </div>
+        <div>
+          <div class="panel" id="cov-detail">
+            <h3>Gebiet</h3>
+            <div class="d-name">Gebiet wählen</div>
+            <div class="d-v">Klicke ein Gebiet auf der Karte für Details.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 05 WOHNUNGEN -->
@@ -20260,6 +20302,7 @@ function munRow(bfs){
   }
   const st=run2StatusByBfs[bfs];
   if(st==="checked") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">einzeln geprüft — kein kommunales Instrument gefunden</div></div>`;
+  if(st==="pending") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">geplant, noch nicht geprüft (tbd)</div></div>`;
   if(st==="triaged") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">per Triage übersprungen (klein)</div></div>`;
   return "";
 }
@@ -20401,7 +20444,7 @@ function renderTaxonomy(){
 const AUDIT = (()=>{ try{ return JSON.parse(document.getElementById("auditdata").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
 const RUN2 = (()=>{ try{ return JSON.parse(document.getElementById("run2data").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
 const munByBfs = {}; const run2StatusByBfs = {};
-(RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="checked"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ run2StatusByBfs[g.bfs]="triaged"; }); });
+(RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]=(g.status==="checked")?"checked":"pending"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ if(run2StatusByBfs[g.bfs]==null) run2StatusByBfs[g.bfs]="triaged"; }); });
 const aud={q:"",followup:false};
 const TAX_TITLE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
 /* Karten-Deploy — EBENEN-ABHÄNGIG:
@@ -20548,6 +20591,70 @@ function renderRun2Overview(){
   box.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
 }
 
+/* ================= Audit · Übersicht: Abdeckungskarte ================= */
+const COV={mode:"gem"};
+const COV_COL={checked:"#2E9E5B", pending:"#E8883A", none:"#FFFFFF"};
+const run2ByKt={}; (RUN2.cantons||[]).forEach(c=>{ if(c.canton_nr!=null) run2ByKt[c.canton_nr]=c; });
+function covStatusGem(bfs){ const s=run2StatusByBfs[bfs]; return s==="checked"?"checked":(s==="pending"?"pending":"none"); }
+function covFillGem(bfs){ return COV_COL[covStatusGem(bfs)]; }
+function covKtStatus(nr){ const c=run2ByKt[nr]; if(!c||!(c.checked||[]).length) return "none";
+  const done=(c.checked||[]).filter(e=>e.status==="checked").length, pend=(c.checked||[]).filter(e=>e.status==="pending").length;
+  if(done>0 && pend===0) return "checked"; if(done>0) return "pending"; return "none"; }
+function covFillKt(nr){ return COV_COL[covKtStatus(nr)]; }
+function covLabel(st){ return st==="checked"?"einzeln geprüft":(st==="pending"?"geplant, noch offen (tbd)":"nicht im Prüfumfang"); }
+function buildCovMap(){
+  const svg=document.getElementById("covmap"); if(!svg)return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
+  if(COV.mode==="gem"){
+    RAW.gemeinden.forEach(g=>{ const p=path(g.d,"land area"); p.dataset.cbfs=g.bfs; p.style.fill=covFillGem(g.bfs);
+      p.addEventListener("click",()=>{covMarkSel("cbfs",g.bfs);covDetailGem(g.bfs);}); svg.appendChild(p); });
+    RAW.sonder.forEach(s=>{ const p=path(s.d,"land area"); p.style.fill=COV_COL.none; svg.appendChild(p); });
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
+    RAW.cantons.forEach(c=>svg.appendChild(path(c.d,"ktborder")));
+    ktLabels(svg);
+  } else {
+    RAW.cantons.forEach(c=>{ const p=path(c.d,"land area"); p.dataset.ckt=c.nr; p.style.fill=covFillKt(c.nr);
+      p.addEventListener("click",()=>{covMarkSel("ckt",c.nr);covDetailKt(c.nr);}); svg.appendChild(p); });
+    RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
+    ktLabels(svg);
+  }
+}
+function covMarkSel(attr,val){ const svg=document.getElementById("covmap"); svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=svg.querySelector(`[data-${attr}="${val}"]`); if(el)el.classList.add("sel"); }
+function covPill(st){ const c=COV_COL[st]; return `<span class="pill" style="background:${st==="none"?"#EEF2F4":c};color:${st==="none"?"var(--ink-soft)":"#fff"}">${covLabel(st)}</span>`; }
+function covDetailGem(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("cov-detail"); if(!g)return;
+  const st=covStatusGem(bfs); const m=munByBfs[bfs];
+  el.innerHTML=`<h3>Gemeinde</h3><div class="d-name">${esc(g.name)}</div>`+
+    `<div class="d-row"><div class="d-k">BFS / Kanton</div><div class="d-v"><span class="mono">${g.bfs}</span> · ${esc(ktNameByNr[g.kt]||"")} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
+    `<div class="d-row"><div class="d-k">Run-2-Status</div><div class="d-v">${covPill(st)}</div></div>`+
+    (m&&(m.instruments||[]).length?`<div class="d-row"><div class="d-k">Kommunale Instrumente</div>${m.instruments.map(i=>`<div class="ainstr-s" style="padding:3px 0">${catBadge(i.excluded?null:i.taxonomy_category)} ${esc(i.name)}</div>`).join("")}</div>`:"")+
+    (st==="checked"&&!(m&&(m.instruments||[]).length)?`<div class="d-v">geprüft — kein kommunales Instrument gefunden.</div>`:"");
+}
+function covDetailKt(nr){ const el=document.getElementById("cov-detail"); const c=run2ByKt[nr];
+  const done=c?(c.checked||[]).filter(e=>e.status==="checked").length:0, pend=c?(c.checked||[]).filter(e=>e.status==="pending").length:0, tri=c?(c.triaged||[]).length:0;
+  el.innerHTML=`<h3>Kanton</h3><div class="d-name">${esc(ktNameByNr[nr]||"")} (${KT_ABBR[nr]||nr})</div>`+
+    `<div class="d-row"><div class="d-k">Run-2-Status</div><div class="d-v">${covPill(covKtStatus(nr))}</div></div>`+
+    `<div class="d-row"><div class="d-k">einzeln geprüft</div><div class="d-v mono">${done}</div></div>`+
+    `<div class="d-row"><div class="d-k">geplant offen (tbd)</div><div class="d-v mono">${pend}</div></div>`+
+    `<div class="d-row"><div class="d-k">per Triage übersprungen</div><div class="d-v mono">${tri}</div></div>`;
+}
+function renderCovLegend(){ const el=document.getElementById("cov-legend"); if(!el)return;
+  el.innerHTML=`<span><span class="dot" style="background:${COV_COL.checked}"></span>einzeln geprüft</span>`+
+    `<span><span class="dot" style="background:${COV_COL.pending}"></span>geplant, noch offen (tbd)</span>`+
+    `<span><span class="dot" style="background:${COV_COL.none};border:1px solid var(--hairline-strong)"></span>nicht im Prüfumfang</span>`;
+}
+function renderCovFoot(){ const el=document.getElementById("cov-foot"); if(!el)return;
+  const done=(RUN2.cantons||[]).reduce((s,c)=>s+(c.checked||[]).filter(e=>e.status==="checked").length,0);
+  const pend=(RUN2.cantons||[]).reduce((s,c)=>s+(c.checked||[]).filter(e=>e.status==="pending").length,0);
+  el.innerHTML=`<b>${done}</b> Gemeinden einzeln geprüft · <b>${pend}</b> geplant offen · Rest (${fmtN(RAW.meta.counts.gemeinden-done-pend)}) nicht im Prüfumfang · Geometrie swisstopo 2025`;
+}
+function covDownloadSVG(){ const svg=document.getElementById("covmap"); const c=svg.cloneNode(true);
+  const vb=(svg.getAttribute("viewBox")||"0 0 2000 1282").split(/\s+/); c.setAttribute("xmlns",NS); c.setAttribute("width",vb[2]); c.setAttribute("height",vb[3]);
+  const st=document.createElementNS(NS,"style"); st.textContent=`.land{stroke:#FBFCFA;stroke-width:0.5}.ktborder{fill:none;stroke:#8DA2B0;stroke-width:1.1}.lake{fill:#C5DCEE;stroke:#9CC2DD;stroke-width:0.6;fill-rule:evenodd}.area{fill-rule:evenodd}text.ktlabel{font-family:monospace;font-size:13px;font-weight:500;fill:#07314C;paint-order:stroke;stroke:#fff;stroke-width:2.4px}`;
+  c.insertBefore(st,c.firstChild);
+  const blob=new Blob([`<?xml version="1.0" encoding="UTF-8"?>\n`+new XMLSerializer().serializeToString(c)],{type:"image/svg+xml"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`ch-abdeckung-${COV.mode}.svg`; document.body.appendChild(a); a.click(); a.remove();
+}
+function renderCoverage(){ buildCovMap(); renderCovLegend(); renderCovFoot(); }
+
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
 const DWELL = (()=>{ try{ return JSON.parse(document.getElementById("dwellingdata").textContent); }catch(e){ return {total:0,gemeinden:[]}; } })();
 const dwellByBfs={}, dwellByKt={}, dwellGemCountByKt={};
@@ -20621,9 +20728,12 @@ function init(){
   renderTaxonomy();
   renderAudit();
   renderRun2Overview();
+  renderCoverage();
   initDwellings();
   document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showView(t.dataset.view)));
   document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();renderKpi();}));
+  document.querySelectorAll("[data-cm-mode]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-cm-mode]").forEach(x=>x.classList.remove("won"));b.classList.add("won");COV.mode=b.dataset.cmMode;buildCovMap();renderCovLegend();}));
+  document.getElementById("cov-dlsvg").addEventListener("click",covDownloadSVG);
   document.getElementById("cat-all").addEventListener("click",()=>setAllCats(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAllCats(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
