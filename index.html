@@ -299,8 +299,9 @@
       <div class="vhead">
         <p class="eb">Abdeckung · Run-2-Prüfumfang</p>
         <h1>Audit · Übersicht</h1>
-        <p>Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben.</p>
+        <p>Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben. Die Kennzahlen messen die <b>Abdeckung nach Wohnungsbestand</b> (Anteil der Schweizer Wohnungen).</p>
       </div>
+      <div class="kpi-cards" id="cov-kpi" style="margin-bottom:16px"></div>
       <div class="maptools">
         <span class="mmwrap">
           <button data-cm-mode="gem" class="mmbtn won">Gemeindekarte</button>
@@ -20653,7 +20654,16 @@ function covDownloadSVG(){ const svg=document.getElementById("covmap"); const c=
   const blob=new Blob([`<?xml version="1.0" encoding="UTF-8"?>\n`+new XMLSerializer().serializeToString(c)],{type:"image/svg+xml"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`ch-abdeckung-${COV.mode}.svg`; document.body.appendChild(a); a.click(); a.remove();
 }
-function renderCoverage(){ buildCovMap(); renderCovLegend(); renderCovFoot(); }
+function renderCovKpi(){ const el=document.getElementById("cov-kpi"); if(!el)return;
+  let cu=0,pu=0;
+  (RUN2.cantons||[]).forEach(c=>(c.checked||[]).forEach(e=>{ const u=e.units||dwellByBfs[e.bfs]||0; if(e.status==="checked")cu+=u; else pu+=u; }));
+  const total=dwellTotal||1;
+  const card=(label,units,col)=>`<div class="kpicard" style="border-left-color:${col}"><div class="kc-k"><span class="dot" style="background:${col}"></span>${label}</div><div class="kc-v">${pctStr(units,total)}</div><div class="kc-s">${fmtN(units)} von ${fmtN(total)} Whg</div></div>`;
+  el.innerHTML = card("Wohnungen geprüft", cu, COV_COL.checked)+
+    card("Wohnungen noch zu prüfen (tbd)", pu, COV_COL.pending)+
+    card("Im Prüfumfang gesamt", cu+pu, "#0FA9BD");
+}
+function renderCoverage(){ renderCovKpi(); buildCovMap(); renderCovLegend(); renderCovFoot(); }
 
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
 const DWELL = (()=>{ try{ return JSON.parse(document.getElementById("dwellingdata").textContent); }catch(e){ return {total:0,gemeinden:[]}; } })();
