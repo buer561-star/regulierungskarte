@@ -3,6 +3,46 @@
 **Stand:** 2026-06-22 · verbindlich für alle Gemeinde-/Kantons-Zuordnungen
 **Status:** Policy festgelegt; Geometriedaten in dieser Phase **nicht** verändert.
 
+---
+
+## ✅ UPDATE 2026-06-27 — für `dwellings.json` UMGESETZT (Commit `41e7586`)
+
+Die unten als „offen" / „zu verifizieren" markierten 19 Alt-BFS sind inzwischen
+**recherchiert, bestätigt und in `src/data/dwellings.json` angewandt**
+(Skript `build/_remap_dwellings.mjs`, gitignored). Statt der geplanten
+`bfs-aliases.json` wurden die Wohnungszahlen der retirierten BFS **direkt in ihre
+Nachfolger summiert** — alle innerhalb desselben Kantons, daher bleiben Kantons-
+und CH-Total **exakt** erhalten (4'840'096). `dwellings.count` ist jetzt **2115**
+(= 2025-Geometrie), Gemeindeabdeckung **100 %**.
+
+**Verifiziertes Mapping** (Alt-BFS → Nachfolger):
+
+| Alt-BFS (2024) | Nachfolger 2025 |
+|---|---|
+| 1057 Honau | 1065 Root (LU) |
+| 2061 Auboranges, 2066 Chapelle (Glâne), 2072 Ecublens (FR) | 2097 Rue (FR) |
+| 2089 Montet (Glâne) | 2102 Ursy (FR) |
+| 2200 Grolley, 2217 Ponthaux | **2239 Grolley-Ponthaux** (neu) |
+| 3932 Tschiertschen-Praden | 3901 Chur (GR) |
+| 5064 Bodio | 5073 Giornico (TI) |
+| 5078 Prato (Leventina) | 5079 Quinto (TI) |
+| 5146 Astano, 5149 Bedigliora, 5181 Curio, 5200 Miglieglia, 5207 Novaggio | **5395 Lema** (neu) |
+| 6453 Enges, 6454 Hauterive (NE), 6459 Saint-Blaise, 6461 La Tène | **6513 Laténa** (neu) |
+
+Die drei Fusionsprodukte (2239, 5395, 6513) erhielten so erstmals Wohnungszahlen.
+
+**Bewusst NICHT angefasst:** `run2-municipal.json` behält die 19 Alt-BFS (alle
+`found=false`, nur in den Audit-Listen sichtbar, **nicht** auf der Karte — sie
+stehen nicht in `munByBfs`; die Coverage nutzt eigene `units`-Felder). Ein
+Ändern würde dokumentierte Run-2-Zähler / Coverage-62,8 % ohne Recherchebasis
+verschieben. Eine `bfs-aliases.json` wurde nach wie vor **nicht** angelegt — für
+`dwellings.json` ersetzt das Summieren sie; für Instrument-Verweise bleibt die
+Alias-Idee unten als Option dokumentiert.
+
+> Der nachfolgende Originaltext (Stand 2026-06-22) bleibt als historische
+> Analyse erhalten; die Spalte „Nachfolger-Kandidat … (zu verifizieren)" ist
+> durch die obige verifizierte Tabelle überholt.
+
 ## Problem
 
 | Quelle | Stichtag | Umfang |
