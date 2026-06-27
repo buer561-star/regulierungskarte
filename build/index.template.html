@@ -74,6 +74,27 @@
   .maplegend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);}
   .maplegend span{display:inline-flex;align-items:center;gap:6px;}
   .maplegend .dot{width:11px;height:11px;border-radius:3px;}
+  /* Verteilung der Wohnungen (Audit · Übersicht) */
+  .cd-overall{margin-bottom:20px;}
+  .cd-obar{display:flex;height:30px;border-radius:7px;overflow:hidden;border:1px solid var(--hairline-strong);}
+  .cd-obar>div{height:100%;}
+  .cd-olegend{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:10px;font-size:12.5px;color:var(--ink-soft);align-items:center;}
+  .cd-olegend span{display:inline-flex;align-items:center;gap:7px;}
+  .cd-olegend .dot{width:12px;height:12px;border-radius:3px;flex:0 0 auto;}
+  .cd-olegend b{color:var(--ink);font-family:"Space Grotesk",sans-serif;font-weight:700;}
+  .cd-olegend .cd-tot{margin-left:auto;color:var(--ink-faint);}
+  .cd-sub{font-size:12px;color:var(--ink-faint);margin:0 0 14px;line-height:1.6;}
+  .cd-rows{display:flex;flex-direction:column;gap:7px;}
+  .cd-row{display:grid;grid-template-columns:150px 1fr 210px;gap:12px;align-items:center;}
+  .cd-name{font-size:12.5px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .cd-name .cd-abbr{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-faint);margin-left:5px;}
+  .cd-bar{display:flex;height:16px;background:var(--paper);border:1px solid var(--hairline);border-radius:4px;overflow:hidden;}
+  .cd-bar>div{height:100%;}
+  .cd-num{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);text-align:right;white-space:nowrap;}
+  .cd-num .cd-g{color:#2E9E5B;font-weight:600;}
+  .cd-num .cd-r{color:var(--ink-soft);}
+  .cd-num .cd-pct{display:inline-block;min-width:48px;color:var(--ink);font-weight:600;}
+  @media(max-width:720px){.cd-row{grid-template-columns:108px 1fr;}.cd-num{grid-column:2;text-align:left;}.cd-olegend .cd-tot{margin-left:0;}}
   /* Kategorie-Auswahl oberhalb der Karte */
   .catselect{border:1px solid var(--hairline);border-radius:var(--radius);background:var(--surface);padding:12px 14px;margin-bottom:13px;}
   .catselect-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px;}
@@ -323,6 +344,9 @@
           </div>
         </div>
       </div>
+      <div class="blocklabel">Verteilung der Wohnungen — geprüft vs. nicht geprüft</div>
+      <p class="cd-sub">Wie viele Wohnungen liegen in <b>einzeln geprüften</b> Gemeinden, wie viele in Gemeinden, die <b>nicht einzeln geprüft</b> wurden (per Triage übersprungen / unter Schwelle)? Gesamt sowie je Kanton (Balkenlänge = Wohnungsbestand des Kantons; grün = geprüfter Anteil).</p>
+      <div id="cov-dist"></div>
     </section>
 
     <!-- 05 WOHNUNGEN -->
@@ -780,7 +804,44 @@ function renderCovKpi(){ const el=document.getElementById("cov-kpi"); if(!el)ret
     card("Wohnungen noch zu prüfen (tbd)", pu, COV_COL.pending)+
     card("Im Prüfumfang gesamt", cu+pu, "#0FA9BD");
 }
-function renderCoverage(){ renderCovKpi(); buildCovMap(); renderCovLegend(); renderCovFoot(); }
+function renderCovDist(){
+  const el=document.getElementById("cov-dist"); if(!el)return;
+  const GREEN=COV_COL.checked, GREY="#C2CED6";
+  const total=dwellTotal||1;
+  let chk=0; const rows=[];
+  (RUN2.cantons||[]).forEach(c=>{
+    const nr=c.canton_nr, abbr=c.canton_abbr||KT_ABBR[nr]||nr; let kc=0;
+    (c.checked||[]).forEach(e=>{ if(e.status==="checked") kc+=(e.units||dwellByBfs[e.bfs]||0); });
+    chk+=kc;
+    const tot=dwellByKt[abbr]||0;
+    rows.push({nr, name:ktNameByNr[nr]||"", abbr, tot, chk:kc, rest:Math.max(0,tot-kc)});
+  });
+  const rest=Math.max(0,total-chk);
+  rows.sort((a,b)=>b.tot-a.tot);
+  const maxTot=rows.reduce((m,r)=>Math.max(m,r.tot),1);
+  const overall=
+    `<div class="cd-overall">`+
+      `<div class="cd-obar">`+
+        `<div style="width:${(chk/total*100).toFixed(2)}%;background:${GREEN}"></div>`+
+        `<div style="width:${(rest/total*100).toFixed(2)}%;background:${GREY}"></div>`+
+      `</div>`+
+      `<div class="cd-olegend">`+
+        `<span><span class="dot" style="background:${GREEN}"></span>geprüft: <b>${fmtN(chk)}</b> Whg (${pctStr(chk,total)})</span>`+
+        `<span><span class="dot" style="background:${GREY}"></span>nicht geprüft: <b>${fmtN(rest)}</b> Whg (${pctStr(rest,total)})</span>`+
+        `<span class="cd-tot">Total Schweiz: <b>${fmtN(total)}</b> Whg</span>`+
+      `</div>`+
+    `</div>`;
+  const body=rows.map(r=>{
+    const gw=(r.chk/maxTot*100).toFixed(2), rw=(r.rest/maxTot*100).toFixed(2);
+    return `<div class="cd-row">`+
+      `<div class="cd-name">${esc(r.name)}<span class="cd-abbr">${r.abbr}</span></div>`+
+      `<div class="cd-bar"><div style="width:${gw}%;background:${GREEN}"></div><div style="width:${rw}%;background:${GREY}"></div></div>`+
+      `<div class="cd-num"><span class="cd-g">${fmtN(r.chk)}</span> / <span class="cd-r">${fmtN(r.rest)}</span> <span class="cd-pct">${pctStr(r.chk,r.tot||1)}</span></div>`+
+    `</div>`;
+  }).join("");
+  el.innerHTML=overall+`<div class="cd-rows">${body}</div>`;
+}
+function renderCoverage(){ renderCovKpi(); buildCovMap(); renderCovLegend(); renderCovFoot(); renderCovDist(); }
 
 /* ================= Wohnungen (GWS) + Kennzahlen ================= */
 const DWELL = (()=>{ try{ return JSON.parse(document.getElementById("dwellingdata").textContent); }catch(e){ return {total:0,gemeinden:[]}; } })();
