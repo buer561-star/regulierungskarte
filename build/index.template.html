@@ -195,51 +195,83 @@
   .r2li .ist{font-size:11.5px;}
   .r2skip{max-height:260px;overflow:auto;} .r2skip .r2li{color:var(--ink-faint);}
   .r2li .ok{color:#216B45;font-weight:600;} .r2li .none{color:var(--ink-faint);}
+  /* Topbar: Sprache + Tutorial */
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:-12px 0 20px;position:sticky;top:0;z-index:40;padding:10px 0 8px;background:linear-gradient(var(--paper) 72%,rgba(245,248,250,0));}
+  .langsw{display:inline-flex;border:1px solid var(--hairline-strong);border-radius:99px;overflow:hidden;background:var(--surface);}
+  .lsbtn{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;background:none;border:none;color:var(--ink-soft);padding:6px 15px;cursor:pointer;transition:background .12s,color .12s;}
+  .lsbtn.on{background:var(--ink);color:#fff;}
+  .tutbtn{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:var(--brand);color:#04222E;border:none;border-radius:99px;padding:7px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-weight:500;transition:background .12s;}
+  .tutbtn:hover{background:#0c93a5;}
+  /* Tutorial-Modal */
+  .tut-ov{position:fixed;inset:0;background:rgba(7,49,76,.55);backdrop-filter:blur(2px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto;}
+  .tut-ov.open{display:flex;}
+  .tut-modal{background:var(--surface);border-radius:8px;max-width:680px;width:100%;box-shadow:0 18px 60px rgba(7,49,76,.35);overflow:hidden;animation:fade .2s ease;}
+  .tut-head{display:flex;align-items:flex-start;gap:14px;padding:20px 24px 16px;border-bottom:1px solid var(--hairline);}
+  .tut-head .eb{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 7px;}
+  .tut-head h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:21px;line-height:1.15;margin:0;letter-spacing:-.01em;}
+  .tut-x{margin-left:auto;background:var(--paper);border:1px solid var(--hairline-strong);color:var(--ink-soft);width:32px;height:32px;border-radius:99px;cursor:pointer;font-size:18px;line-height:1;flex:0 0 auto;}
+  .tut-x:hover{background:var(--hairline);}
+  .tut-body{padding:18px 24px 6px;max-height:62vh;overflow:auto;}
+  .tut-intro{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;}
+  .tut-step{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--hairline);}
+  .tut-step:first-of-type{border-top:none;}
+  .tut-step .tn{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;color:#fff;background:var(--brand);width:26px;height:26px;border-radius:99px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .tut-step .tt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14.5px;margin:2px 0 3px;}
+  .tut-step .td{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
+  .tut-step .td b{color:var(--ink);}
+  .tut-foot{padding:13px 24px 18px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);}
 </style></head><body>
 <div class="app">
   <aside class="sidebar">
     <div class="brand">
-      <p class="eb">smzh · Wohnpolitik</p>
-      <div class="ttl">Schweizer Karte &amp; Wohnpolitik-Taxonomie</div>
+      <p class="eb" data-i18n="brand_eb">smzh · Wohnpolitik</p>
+      <div class="ttl" data-i18n="brand_ttl">Schweizer Karte &amp; Wohnpolitik-Taxonomie</div>
     </div>
     <nav class="tabs" id="tabs">
-      <button class="tab active" data-view="karte"><span class="num">01</span> Karte</button>
-      <button class="tab" data-view="uebersicht"><span class="num">02</span> Übersicht Kantone &amp; Gemeinden</button>
-      <button class="tab" data-view="taxonomie"><span class="num">03</span> Taxonomie</button>
-      <button class="tab" data-view="audit-kt"><span class="num">04</span> Audit · Kantone</button>
-      <button class="tab" data-view="audit-gem"><span class="num">05</span> Audit · Gemeinden</button>
-      <button class="tab" data-view="audit-cov"><span class="num">06</span> Audit · Übersicht</button>
-      <button class="tab" data-view="wohnungen"><span class="num">07</span> Wohnungen</button>
+      <button class="tab active" data-view="karte"><span class="num">01</span> <span data-i18n="tab_karte">Karte</span></button>
+      <button class="tab" data-view="uebersicht"><span class="num">02</span> <span data-i18n="tab_uebersicht">Übersicht Kantone &amp; Gemeinden</span></button>
+      <button class="tab" data-view="taxonomie"><span class="num">03</span> <span data-i18n="tab_taxonomie">Taxonomie</span></button>
+      <button class="tab" data-view="audit-kt"><span class="num">04</span> <span data-i18n="tab_audit_kt">Audit · Kantone</span></button>
+      <button class="tab" data-view="audit-gem"><span class="num">05</span> <span data-i18n="tab_audit_gem">Audit · Gemeinden</span></button>
+      <button class="tab" data-view="audit-cov"><span class="num">06</span> <span data-i18n="tab_audit_cov">Audit · Übersicht</span></button>
+      <button class="tab" data-view="wohnungen"><span class="num">07</span> <span data-i18n="tab_wohnungen">Wohnungen</span></button>
     </nav>
   </aside>
 
   <main class="content">
+    <div class="topbar">
+      <span class="langsw" id="langsw">
+        <button class="lsbtn" data-lang="de">DE</button>
+        <button class="lsbtn" data-lang="en">EN</button>
+      </span>
+      <button class="tutbtn" id="tutbtn"><span>?</span> <span data-i18n="tut_btn">Tutorial</span></button>
+    </div>
     <!-- 01 KARTE -->
     <section class="view active" id="v-karte">
       <div class="vhead">
-        <p class="eb">Choroplethenkarte · Wohnpolitik-Taxonomie</p>
-        <h1>Regulierungskarte Schweiz</h1>
-        <p>Wähle oben die <b>Instrument-Kategorien</b> (mehrere möglich) — die Karte färbt jedes Gebiet nach der <b>stärksten gewählten</b> Kategorie (genau <b>eine</b> Farbe pro Gebiet). <b>Kantonskarte</b>: was der Kanton erlassen hat — <b>inkl. Ermächtigungen</b> (Gemeindeoptionen). <b>Gemeindekarte</b>: nur <b>direkt bindendes</b> Recht — reine kantonale Ermächtigungen färben <b>keine</b> Gemeinde, bis die kommunale Aktivierung belegt ist (Run 2).</p>
+        <p class="eb" data-i18n="karte_eb">Choroplethenkarte · Wohnpolitik-Taxonomie</p>
+        <h1 data-i18n="karte_h1">Regulierungskarte Schweiz</h1>
+        <p data-i18n-html="karte_desc">Wähle oben die <b>Instrument-Kategorien</b> (mehrere möglich) — die Karte färbt jedes Gebiet nach der <b>stärksten gewählten</b> Kategorie (genau <b>eine</b> Farbe pro Gebiet). <b>Kantonskarte</b>: was der Kanton erlassen hat — <b>inkl. Ermächtigungen</b> (Gemeindeoptionen). <b>Gemeindekarte</b>: nur <b>direkt bindendes</b> Recht — reine kantonale Ermächtigungen färben <b>keine</b> Gemeinde, bis die kommunale Aktivierung belegt ist (Run 2).</p>
       </div>
       <div class="catselect" id="catselect">
         <div class="catselect-row">
-          <span class="fl">Instrument-Kategorien</span>
-          <span class="pbtns"><button id="cat-all">alle</button><button id="cat-none">keine</button></span>
+          <span class="fl" data-i18n="cat_label">Instrument-Kategorien</span>
+          <span class="pbtns"><button id="cat-all" data-i18n="cat_all">alle</button><button id="cat-none" data-i18n="cat_none">keine</button></span>
         </div>
         <div class="catchips" id="catchips"></div>
       </div>
       <div class="maptools">
         <span class="mmwrap">
-          <button data-mm="gem" class="mmbtn won">Gemeindekarte</button>
-          <button data-mm="kanton" class="mmbtn">Kantonskarte</button>
+          <button data-mm="gem" class="mmbtn won" data-i18n="mode_gem">Gemeindekarte</button>
+          <button data-mm="kanton" class="mmbtn" data-i18n="mode_kanton">Kantonskarte</button>
         </span>
-        <button class="dlbtn" id="dlsvg" title="Aktuelle Karte als SVG exportieren">SVG ↓</button>
+        <button class="dlbtn" id="dlsvg" data-i18n-title="svg_export_title" title="Aktuelle Karte als SVG exportieren">SVG ↓</button>
       </div>
       <div class="maprow">
         <div>
           <div class="mapwrap"><svg class="chmap" id="map" xmlns="http://www.w3.org/2000/svg"></svg></div>
           <div class="maplegend" id="map-legend"></div>
-          <div class="foot"><b id="foot-n">0</b> Gemeinden · <b id="foot-k">0</b> Kantone · Geometrie swisstopo 2025</div>
+          <div class="foot" id="karte-foot"></div>
           <div class="kpi" id="kpi">
             <div class="kpi-head" id="kpi-head"></div>
             <div class="kpi-cards" id="kpi-cards"></div>
@@ -247,11 +279,7 @@
           </div>
         </div>
         <div>
-          <div class="panel" id="detail">
-            <h3>Gebiet</h3>
-            <div class="d-name">Gebiet wählen</div>
-            <div class="d-v">Klicke ein Gebiet auf der Karte für Details.</div>
-          </div>
+          <div class="panel" id="detail"></div>
         </div>
       </div>
     </section>
@@ -259,32 +287,32 @@
     <!-- 02 ÜBERSICHT -->
     <section class="view" id="v-uebersicht">
       <div class="vhead">
-        <p class="eb">Verzeichnis · BFS-Kodierung</p>
-        <h1>Übersicht Kantone &amp; Gemeinden</h1>
-        <p>Alle <b>26 Kantone</b> mit Kantonsnummer und Gemeindezahl sowie das vollständige Verzeichnis aller <b id="ov-total">0</b> Gemeinden mit ihrer <b>BFS-Nummer</b> (amtliche Gemeindenummer des Bundesamts für Statistik). Nach Name, BFS oder Kanton filterbar.</p>
+        <p class="eb" data-i18n="ov_eb">Verzeichnis · BFS-Kodierung</p>
+        <h1 data-i18n="ov_h1">Übersicht Kantone &amp; Gemeinden</h1>
+        <p data-i18n-html="ov_desc">Alle <b>26 Kantone</b> mit Kantonsnummer und Gemeindezahl sowie das vollständige Verzeichnis aller <b id="ov-total">0</b> Gemeinden mit ihrer <b>BFS-Nummer</b> (amtliche Gemeindenummer des Bundesamts für Statistik). Nach Name, BFS oder Kanton filterbar.</p>
       </div>
-      <div class="blocklabel">Gemeinden mit BFS-Nummer</div>
+      <div class="blocklabel" data-i18n="ov_blocklabel">Gemeinden mit BFS-Nummer</div>
       <div class="filters">
-        <div><span class="fl">Suche</span><input class="search" id="ov-q" type="text" placeholder="Gemeindename oder BFS-Nummer…"></div>
-        <div><span class="fl">Kanton</span><select class="sel" id="ov-kt"><option value="">Alle Kantone</option></select></div>
+        <div><span class="fl" data-i18n="search">Suche</span><input class="search" id="ov-q" type="text" data-i18n-ph="ph_mun_bfs" placeholder="Gemeindename oder BFS-Nummer…"></div>
+        <div><span class="fl" data-i18n="canton">Kanton</span><select class="sel" id="ov-kt"><option value="">Alle Kantone</option></select></div>
       </div>
       <p class="count" id="ov-count"></p>
       <div class="tablewrap"><table class="rtable" id="ovtable"><thead><tr>
-        <th data-k="bfs">BFS-Nr.</th><th data-k="name">Gemeinde</th><th data-k="kt">Kanton</th><th data-k="abbr">Kt.</th>
+        <th data-k="bfs" data-i18n="th_bfs">BFS-Nr.</th><th data-k="name" data-i18n="th_municipality">Gemeinde</th><th data-k="kt" data-i18n="canton">Kanton</th><th data-k="abbr" data-i18n="th_ct">Kt.</th>
       </tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- 03 TAXONOMIE -->
     <section class="view" id="v-taxonomie">
       <div class="vhead">
-        <p class="eb">Klassifikation · Wohnpolitik</p>
-        <h1>Taxonomie wohnpolitischer Instrumente</h1>
-        <p>Sechs Hauptkategorien, geordnet nach <b>Eingriffsintensität</b> — von der öffentlichen Ermöglichung über Boden (1) bis zum harten Wohnschutz mit Mietzins- oder Renditekontrolle (6). Jedes konkrete Instrument erhält genau <b>eine</b> Hauptkategorie.</p>
+        <p class="eb" data-i18n="tax_eb">Klassifikation · Wohnpolitik</p>
+        <h1 data-i18n="tax_h1">Taxonomie wohnpolitischer Instrumente</h1>
+        <p data-i18n-html="tax_desc">Sechs Hauptkategorien, geordnet nach <b>Eingriffsintensität</b> — von der öffentlichen Ermöglichung über Boden (1) bis zum harten Wohnschutz mit Mietzins- oder Renditekontrolle (6). Jedes konkrete Instrument erhält genau <b>eine</b> Hauptkategorie.</p>
       </div>
-      <div class="taxnote">Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Bestandesschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.</div>
+      <div class="taxnote" data-i18n-html="tax_note">Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Bestandesschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.</div>
       <div class="scale" id="tax-scale"></div>
       <div id="tax-cats" style="margin-top:18px"></div>
-      <div class="blocklabel">Globale Klassifikationsregeln</div>
+      <div class="blocklabel" data-i18n="tax_rules_label">Globale Klassifikationsregeln</div>
       <div class="rulebox" id="tax-rules"></div>
     </section>
 
@@ -292,14 +320,14 @@
     <!-- 04 AUDIT KANTONE -->
     <section class="view" id="v-audit-kt">
       <div class="vhead">
-        <p class="eb">Evidenz · Kantonaler Rechtsrahmen (Run 1)</p>
-        <h1>Audit · Kantone</h1>
-        <p>Kantonale Tier-1-Quellen (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Je Kanton aufklappbar: Instrumente, Quellen, Follow-up, offene Fragen.</p>
+        <p class="eb" data-i18n="aukt_eb">Evidenz · Kantonaler Rechtsrahmen (Run 1)</p>
+        <h1 data-i18n="aukt_h1">Audit · Kantone</h1>
+        <p data-i18n-html="aukt_desc">Kantonale Tier-1-Quellen (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Je Kanton aufklappbar: Instrumente, Quellen, Follow-up, offene Fragen.</p>
       </div>
       <div class="databanner" id="audit-banner"></div>
       <div class="filters" id="audit-filters" style="display:none">
-        <div><span class="fl">Suche</span><input class="search" id="au-q" type="text" placeholder="Kanton, Instrument, Gesetz…"></div>
-        <div><span class="fl">Nur</span><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="au-followup"> Follow-up nötig</label></div>
+        <div><span class="fl" data-i18n="search">Suche</span><input class="search" id="au-q" type="text" data-i18n-ph="ph_audit_search" placeholder="Kanton, Instrument, Gesetz…"></div>
+        <div><span class="fl" data-i18n="only">Nur</span><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="au-followup"> <span data-i18n="followup_needed">Follow-up nötig</span></label></div>
       </div>
       <p class="count" id="audit-count"></p>
       <div id="audit-list"></div>
@@ -308,9 +336,9 @@
     <!-- 05 AUDIT GEMEINDEN -->
     <section class="view" id="v-audit-gem">
       <div class="vhead">
-        <p class="eb">Evidenz · Gemeindeebene (Run 2)</p>
-        <h1>Audit · Gemeinden</h1>
-        <p>Kommunale Tier-1-Quellen je einzeln geprüfter Gemeinde (mit Triage). Pro Kanton: wie viele <b>einzeln geprüft</b>, wie viele <b>mit kommunalem Instrument</b>, wie viele <b>geplant offen</b> bzw. <b>per Triage übersprungen</b> — je Gemeinde aufklappbar mit Instrumenten und Quellen.</p>
+        <p class="eb" data-i18n="augem_eb">Evidenz · Gemeindeebene (Run 2)</p>
+        <h1 data-i18n="augem_h1">Audit · Gemeinden</h1>
+        <p data-i18n-html="augem_desc">Kommunale Tier-1-Quellen je einzeln geprüfter Gemeinde (mit Triage). Pro Kanton: wie viele <b>einzeln geprüft</b>, wie viele <b>mit kommunalem Instrument</b>, wie viele <b>geplant offen</b> bzw. <b>per Triage übersprungen</b> — je Gemeinde aufklappbar mit Instrumenten und Quellen.</p>
       </div>
       <div id="run2-overview"></div>
     </section>
@@ -318,17 +346,17 @@
     <!-- 06 AUDIT ÜBERSICHT (Abdeckung) -->
     <section class="view" id="v-audit-cov">
       <div class="vhead">
-        <p class="eb">Abdeckung · Run-2-Prüfumfang</p>
-        <h1>Audit · Übersicht</h1>
-        <p>Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben. Die Kennzahlen messen die <b>Abdeckung nach Wohnungsbestand</b> (Anteil der Schweizer Wohnungen).</p>
+        <p class="eb" data-i18n="cov_eb">Abdeckung · Run-2-Prüfumfang</p>
+        <h1 data-i18n="cov_h1">Audit · Übersicht</h1>
+        <p data-i18n-html="cov_desc">Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben. Die Kennzahlen messen die <b>Abdeckung nach Wohnungsbestand</b> (Anteil der Schweizer Wohnungen).</p>
       </div>
       <div class="kpi-cards" id="cov-kpi" style="margin-bottom:16px"></div>
       <div class="maptools">
         <span class="mmwrap">
-          <button data-cm-mode="gem" class="mmbtn won">Gemeindekarte</button>
-          <button data-cm-mode="kanton" class="mmbtn">Kantonskarte</button>
+          <button data-cm-mode="gem" class="mmbtn won" data-i18n="mode_gem">Gemeindekarte</button>
+          <button data-cm-mode="kanton" class="mmbtn" data-i18n="mode_kanton">Kantonskarte</button>
         </span>
-        <button class="dlbtn" id="cov-dlsvg" title="Abdeckungskarte als SVG exportieren">SVG ↓</button>
+        <button class="dlbtn" id="cov-dlsvg" data-i18n-title="cov_svg_export_title" title="Abdeckungskarte als SVG exportieren">SVG ↓</button>
       </div>
       <div class="maprow">
         <div>
@@ -337,40 +365,53 @@
           <div class="foot" id="cov-foot"></div>
         </div>
         <div>
-          <div class="panel" id="cov-detail">
-            <h3>Gebiet</h3>
-            <div class="d-name">Gebiet wählen</div>
-            <div class="d-v">Klicke ein Gebiet auf der Karte für Details.</div>
-          </div>
+          <div class="panel" id="cov-detail"></div>
         </div>
       </div>
-      <div class="blocklabel">Verteilung der Wohnungen — geprüft vs. nicht geprüft</div>
-      <p class="cd-sub">Wie viele Wohnungen liegen in <b>einzeln geprüften</b> Gemeinden, wie viele in Gemeinden, die <b>nicht einzeln geprüft</b> wurden (per Triage übersprungen / unter Schwelle)? Gesamt sowie je Kanton (Balkenlänge = Wohnungsbestand des Kantons; grün = geprüfter Anteil).</p>
+      <div class="blocklabel" data-i18n="cov_dist_label">Verteilung der Wohnungen — geprüft vs. nicht geprüft</div>
+      <p class="cd-sub" data-i18n-html="cov_dist_sub">Wie viele Wohnungen liegen in <b>einzeln geprüften</b> Gemeinden, wie viele in Gemeinden, die <b>nicht einzeln geprüft</b> wurden (per Triage übersprungen / unter Schwelle)? Gesamt sowie je Kanton (Balkenlänge = Wohnungsbestand des Kantons; grün = geprüfter Anteil).</p>
       <div id="cov-dist"></div>
     </section>
 
     <!-- 05 WOHNUNGEN -->
     <section class="view" id="v-wohnungen">
       <div class="vhead">
-        <p class="eb">Wohnungsbestand · GWS</p>
-        <h1>Wohnungen je Gemeinde</h1>
-        <p>Wohnungsbestand pro Gemeinde (<b id="dw-source">GWS</b>). Grundlage für die Kennzahl auf der Karte: <b>wie viel % der Schweizer Wohnungen</b> unter den gewählten Taxonomie-Kategorien liegen. Total Schweiz: <b id="dw-total">0</b> Wohnungen in <b id="dw-count">0</b> Gemeinden.</p>
+        <p class="eb" data-i18n="dw_eb">Wohnungsbestand · GWS</p>
+        <h1 data-i18n="dw_h1">Wohnungen je Gemeinde</h1>
+        <p data-i18n-html="dw_desc">Wohnungsbestand pro Gemeinde (<b id="dw-source">GWS</b>). Grundlage für die Kennzahl auf der Karte: <b>wie viel % der Schweizer Wohnungen</b> unter den gewählten Taxonomie-Kategorien liegen. Total Schweiz: <b id="dw-total">0</b> Wohnungen in <b id="dw-count">0</b> Gemeinden.</p>
       </div>
-      <div class="blocklabel">Je Kanton (mit kantonalem Rechtsrahmen)</div>
+      <div class="blocklabel" data-i18n="dw_kt_label">Je Kanton (mit kantonalem Rechtsrahmen)</div>
       <div class="tablewrap"><table class="rtable" id="dwkttable"><thead><tr>
-        <th data-k="kt">Kanton</th><th data-k="units">Wohnungen</th><th data-k="pct">% CH</th><th data-k="gem">Gemeinden</th><th data-k="cat">Stärkste bindende Kat.</th>
+        <th data-k="kt" data-i18n="canton">Kanton</th><th data-k="units" data-i18n="th_dwellings">Wohnungen</th><th data-k="pct" data-i18n="th_pct_ch">% CH</th><th data-k="gem" data-i18n="th_municipalities">Gemeinden</th><th data-k="cat" data-i18n="th_strongest_cat">Stärkste bindende Kat.</th>
       </tr></thead><tbody></tbody></table></div>
-      <div class="blocklabel">Je Gemeinde</div>
+      <div class="blocklabel" data-i18n="dw_gem_label">Je Gemeinde</div>
       <div class="filters">
-        <div><span class="fl">Suche</span><input class="search" id="dw-q" type="text" placeholder="Gemeindename oder BFS-Nummer…"></div>
-        <div><span class="fl">Kanton</span><select class="sel" id="dw-kt"><option value="">Alle Kantone</option></select></div>
+        <div><span class="fl" data-i18n="search">Suche</span><input class="search" id="dw-q" type="text" data-i18n-ph="ph_mun_bfs" placeholder="Gemeindename oder BFS-Nummer…"></div>
+        <div><span class="fl" data-i18n="canton">Kanton</span><select class="sel" id="dw-kt"><option value="">Alle Kantone</option></select></div>
       </div>
       <p class="count" id="dw-gcount"></p>
       <div class="tablewrap"><table class="rtable" id="dwtable"><thead><tr>
-        <th data-k="bfs">BFS-Nr.</th><th data-k="name">Gemeinde</th><th data-k="kt">Kt.</th><th data-k="units">Wohnungen</th>
+        <th data-k="bfs" data-i18n="th_bfs">BFS-Nr.</th><th data-k="name" data-i18n="th_municipality">Gemeinde</th><th data-k="kt" data-i18n="th_ct">Kt.</th><th data-k="units" data-i18n="th_dwellings">Wohnungen</th>
       </tr></thead><tbody></tbody></table></div>
     </section>
   </main>
+</div>
+
+<div class="tut-ov" id="tut-ov">
+  <div class="tut-modal" role="dialog" aria-modal="true">
+    <div class="tut-head">
+      <div>
+        <p class="eb" id="tut-eb"></p>
+        <h2 id="tut-title"></h2>
+      </div>
+      <button class="tut-x" id="tut-x" aria-label="close">×</button>
+    </div>
+    <div class="tut-body">
+      <p class="tut-intro" id="tut-intro"></p>
+      <div id="tut-steps"></div>
+    </div>
+    <div class="tut-foot" id="tut-foot"></div>
+  </div>
 </div>
 
 <script id="mapdata" type="application/json">__MAPDATA__</script>
@@ -385,6 +426,260 @@ const KT_ABBR = {1:"ZH",2:"BE",3:"LU",4:"UR",5:"SZ",6:"OW",7:"NW",8:"GL",9:"ZG",
 const ktNameByNr = {}; RAW.cantons.forEach(c=>ktNameByNr[c.nr]=c.name);
 const gemByBfs = {}; RAW.gemeinden.forEach(g=>gemByBfs[g.bfs]=g);
 const gemCountByKt = {}; RAW.gemeinden.forEach(g=>gemCountByKt[g.kt]=(gemCountByKt[g.kt]||0)+1);
+
+/* ================= i18n (DE / EN) ================= */
+let LANG = (()=>{ try{ const s=localStorage.getItem("rk-lang"); if(s==="de"||s==="en") return s; }catch(e){} return "de"; })();
+const STR = {
+de:{
+  brand_eb:"smzh · Wohnpolitik", brand_ttl:"Schweizer Karte & Wohnpolitik-Taxonomie",
+  tab_karte:"Karte", tab_uebersicht:"Übersicht Kantone & Gemeinden", tab_taxonomie:"Taxonomie",
+  tab_audit_kt:"Audit · Kantone", tab_audit_gem:"Audit · Gemeinden", tab_audit_cov:"Audit · Übersicht", tab_wohnungen:"Wohnungen",
+  tut_btn:"Tutorial",
+  karte_eb:"Choroplethenkarte · Wohnpolitik-Taxonomie", karte_h1:"Regulierungskarte Schweiz",
+  karte_desc:"Wähle oben die <b>Instrument-Kategorien</b> (mehrere möglich) — die Karte färbt jedes Gebiet nach der <b>stärksten gewählten</b> Kategorie (genau <b>eine</b> Farbe pro Gebiet). <b>Kantonskarte</b>: was der Kanton erlassen hat — <b>inkl. Ermächtigungen</b> (Gemeindeoptionen). <b>Gemeindekarte</b>: nur <b>direkt bindendes</b> Recht — reine kantonale Ermächtigungen färben <b>keine</b> Gemeinde, bis die kommunale Aktivierung belegt ist (Run 2).",
+  cat_label:"Instrument-Kategorien", cat_all:"alle", cat_none:"keine",
+  mode_gem:"Gemeindekarte", mode_kanton:"Kantonskarte",
+  svg_export_title:"Aktuelle Karte als SVG exportieren", cov_svg_export_title:"Abdeckungskarte als SVG exportieren",
+  ov_eb:"Verzeichnis · BFS-Kodierung", ov_h1:"Übersicht Kantone & Gemeinden",
+  ov_desc:"Alle <b>26 Kantone</b> mit Kantonsnummer und Gemeindezahl sowie das vollständige Verzeichnis aller <b id=\"ov-total\">0</b> Gemeinden mit ihrer <b>BFS-Nummer</b> (amtliche Gemeindenummer des Bundesamts für Statistik). Nach Name, BFS oder Kanton filterbar.",
+  ov_blocklabel:"Gemeinden mit BFS-Nummer",
+  search:"Suche", canton:"Kanton", only:"Nur",
+  ph_mun_bfs:"Gemeindename oder BFS-Nummer…", ph_audit_search:"Kanton, Instrument, Gesetz…",
+  th_bfs:"BFS-Nr.", th_municipality:"Gemeinde", th_ct:"Kt.", th_dwellings:"Wohnungen", th_pct_ch:"% CH", th_municipalities:"Gemeinden", th_strongest_cat:"Stärkste bindende Kat.",
+  tax_eb:"Klassifikation · Wohnpolitik", tax_h1:"Taxonomie wohnpolitischer Instrumente",
+  tax_desc:"Sechs Hauptkategorien, geordnet nach <b>Eingriffsintensität</b> — von der öffentlichen Ermöglichung über Boden (1) bis zum harten Wohnschutz mit Mietzins- oder Renditekontrolle (6). Jedes konkrete Instrument erhält genau <b>eine</b> Hauptkategorie.",
+  tax_note:"Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Bestandesschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.",
+  tax_rules_label:"Globale Klassifikationsregeln",
+  tax_def:"Definition", tax_instr:"Typische Instrumente", tax_demarc:"Abgrenzung", tax_formula:"Kernformel",
+  aukt_eb:"Evidenz · Kantonaler Rechtsrahmen (Run 1)", aukt_h1:"Audit · Kantone",
+  aukt_desc:"Kantonale Tier-1-Quellen (Gesetze/Verordnungen), validiert durch den <b>Quellen-Agent</b> und klassifiziert durch den <b>Taxonom-Agent</b>. Je Kanton aufklappbar: Instrumente, Quellen, Follow-up, offene Fragen.",
+  followup_needed:"Follow-up nötig",
+  augem_eb:"Evidenz · Gemeindeebene (Run 2)", augem_h1:"Audit · Gemeinden",
+  augem_desc:"Kommunale Tier-1-Quellen je einzeln geprüfter Gemeinde (mit Triage). Pro Kanton: wie viele <b>einzeln geprüft</b>, wie viele <b>mit kommunalem Instrument</b>, wie viele <b>geplant offen</b> bzw. <b>per Triage übersprungen</b> — je Gemeinde aufklappbar mit Instrumenten und Quellen.",
+  cov_eb:"Abdeckung · Run-2-Prüfumfang", cov_h1:"Audit · Übersicht",
+  cov_desc:"Welche Gemeinden wurden auf Gemeindeebene <b>einzeln geprüft</b>, welche stehen noch <b>aus</b> (geplant, Triage), welche sind <b>nicht im Prüfumfang</b> (per Triage übersprungen / klein)? Drei Farben. Die Kennzahlen messen die <b>Abdeckung nach Wohnungsbestand</b> (Anteil der Schweizer Wohnungen).",
+  cov_dist_label:"Verteilung der Wohnungen — geprüft vs. nicht geprüft",
+  cov_dist_sub:"Wie viele Wohnungen liegen in <b>einzeln geprüften</b> Gemeinden, wie viele in Gemeinden, die <b>nicht einzeln geprüft</b> wurden (per Triage übersprungen / unter Schwelle)? Gesamt sowie je Kanton (Balkenlänge = Wohnungsbestand des Kantons; grün = geprüfter Anteil).",
+  dw_eb:"Wohnungsbestand · GWS", dw_h1:"Wohnungen je Gemeinde",
+  dw_desc:"Wohnungsbestand pro Gemeinde (<b id=\"dw-source\">GWS</b>). Grundlage für die Kennzahl auf der Karte: <b>wie viel % der Schweizer Wohnungen</b> unter den gewählten Taxonomie-Kategorien liegen. Total Schweiz: <b id=\"dw-total\">0</b> Wohnungen in <b id=\"dw-count\">0</b> Gemeinden.",
+  dw_kt_label:"Je Kanton (mit kantonalem Rechtsrahmen)", dw_gem_label:"Je Gemeinde",
+  /* dynamisch */
+  all_cantons:"Alle Kantone",
+  panel_area_h3:"Gebiet", panel_select:"Gebiet wählen", panel_hint:"Klicke ein Gebiet auf der Karte für Details.",
+  d_municipality:"Gemeinde", d_canton:"Kanton", d_bfs:"BFS-Nummer", d_dwellings_gws:"Wohnungen (GWS)", d_canton_nr:"Kantonsnummer", d_municipalities:"Gemeinden",
+  d_cantonal_instr:(n)=>`Kantonale Instrumente (${n})`, no_cantonal_t1:"Keine kantonalen Tier-1-Instrumente.",
+  mun_followup:"Kommunaler Follow-up", required:"erforderlich", activation_open:"Aktivierung offen",
+  special_area:"Sondergebiet", type:"Art", special_area_desc:"CH-Sondergebiet (keine politische Gemeinde)",
+  rahmen_binding:"Direkt bindend (Gemeindeebene)", rahmen_incl:"Inkl. Ermächtigungen (Kantonsebene)", rahmen_none:"kein direkt bindendes Instrument", via_mun_option:"via Gemeindeoption",
+  mun_instr_run2:"Kommunale Instrumente (Run 2)",
+  STL:{adopted_not_yet_in_force:"angenommen, noch nicht in Kraft",proposed:"pendent/Entwurf",rejected:"abgelehnt",repealed:"aufgehoben"},
+  binding_lbl:"Bindung: ", source_word:"Quelle",
+  run2_level:"Run 2 (Gemeindeebene)", run2_checked_none:"einzeln geprüft — kein kommunales Instrument gefunden", run2_pending:"geplant, noch nicht geprüft (tbd)", run2_triaged:"per Triage übersprungen (klein)",
+  not_colored:"färbt nicht",
+  badge_excluded:"ausgeschlossen", badge_cat_prefix:"Kat. ",
+  legend_coloring:"Einfärbung: ", legend_basis_kanton:"kantonal gilt — inkl. Ermächtigungen", legend_basis_gem:"direkt bindend (kantonsweit + kommunal aktiviert, Run 2)", nothing_unselected:"nichts / nicht gewählt",
+  kpi_basis_kanton:"kantonal gilt (inkl. Ermächtigungen)", kpi_basis_gem:"direkt bindend",
+  level_cantonal:"Kantons", level_municipal:"Gemeinde",
+  whg_card:"Whg.", whg_short:"Whg",
+  kpi_head:(pct,sel,total,basis,levelWord)=>`<b>${pct}</b> der Schweizer Wohnungen (${sel} von ${total}) liegen in Gebieten, die unter die gewählten Kategorien fallen <span class="mono">(${basis}, ${levelWord}ebene)</span>.`,
+  kpi_head_nodata:(total)=>`Wohnungen gesamt: <b>${total}</b>. (Audit-Run noch nicht eingespielt — Kennzahlen folgen.)`,
+  kpi_note:(src,count)=>`Zuordnung je Gebiet nach der <b>stärksten gewählten</b> Kategorie (eine Farbe pro Gebiet), konsistent mit der Karte. <b>Kantonsebene</b> zählt auch Ermächtigungen; <b>Gemeindeebene</b> nur direkt Bindendes (Optionen erst nach kommunaler Aktivierung, Run 2). Basis: ${src}, ${count} Gemeinden.`,
+  foot_karte:(n,k)=>`<b>${n}</b> Gemeinden · <b>${k}</b> Kantone · Geometrie swisstopo 2025`,
+  banner_pending:(note)=>`<b>Status: ausstehend.</b> ${note}`,
+  banner_pending_default:"Der kantonale Rechtsrahmen-Run wurde noch nicht eingespielt.",
+  banner_done:(title,done,date,fu,agents)=>`<b>${title}</b> · ${done}/26 Kantone${date?` · Stand ${date}`:""} · ${fu} mit kommunalem Follow-up · Agenten: ${agents}`,
+  audit_count:(r,n)=>`${r} von ${n} Kantonen`,
+  audit_empty:"Noch keine Daten — der kantonale Rechtsrahmen-Run wurde noch nicht ausgeführt.",
+  instr_count:(n)=>`${n} Instrument(e)`, src_count:(n)=>`${n} Tier-1-Quelle(n)`,
+  followup_none:"kein Follow-up", conf_lbl:"Conf. ",
+  cantonal_instr_classified:"Kantonale Instrumente (klassifiziert)", tier1_sources:"Tier-1-Quellen", no_cantonal_t1_found:"Keine kantonalen Tier-1-Instrumente gefunden.",
+  binding_b:"<b>Bindung:</b> ", cantonal_option_for_mun:"<b>kantonale Option für Gemeinden</b>",
+  required_yes_no:(req,reason)=>`<b>erforderlich:</b> ${req?"ja":"nein"}${reason?` — ${reason}`:""}`,
+  later_scope:"<b>Späterer Recherche-Umfang:</b> ", open_questions:"Offene Fragen",
+  run2_blocklabel:"Run 2 · Gemeindeebene (fortlaufend)",
+  run2_summary:(done,found,planOpen,nC)=>`<b style="font-family:'Space Grotesk',sans-serif;font-size:18px">${done}</b> Gemeinden einzeln geprüft · <b>${found}</b> mit kommunalem Instrument · ${planOpen} geplant offen · über ${nC} Kantone`,
+  run2_threshold:(thr)=>` · Triage ≥ ${thr} Whg ∪ Top-3`,
+  run2_chip_checked:(done,total)=>`<b>${done}</b> von ${total} einzeln geprüft`,
+  run2_chip_found:(n)=>`<b>${n}</b> mit kommunalem Instrument`,
+  run2_chip_planopen:(n)=>`<b>${n}</b> geplant offen`,
+  run2_chip_triaged:(n)=>`<b>${n}</b> per Triage übersprungen`,
+  run2_reports_h:(n)=>`Auditberichte je Gemeinde (einzeln geprüft, ${n}) — anklicken zum Aufklappen`,
+  run2_planned_h:(n)=>`Geplant, noch nicht geprüft (${n})`,
+  run2_triaged_h:(n)=>`Per Triage übersprungen (${n})`,
+  dwell_chip:(n)=>`${n} Whg`, instr_chip:(n)=>`${n} Instr.`, running:"…läuft",
+  cat_list:(cats)=>`Kat ${cats}`, only_pending_excl:"nur pendent/ausgeschl.", nothing_found:"nichts gefunden",
+  mun_instr_classified:"Kommunale Instrumente (klassifiziert)", no_mun_t1_found:"Keine kommunalen Tier-1-Instrumente gefunden.",
+  exclusion_b:"<b>Ausschluss:</b> ", research_note:"Recherche-Notiz",
+  cov_checked:"einzeln geprüft", cov_pending:"geplant, noch offen (tbd)", cov_none:"nicht im Prüfumfang",
+  cov_d_bfs_canton:"BFS / Kanton", cov_run2_status:"Run-2-Status", cov_mun_instr:"Kommunale Instrumente",
+  cov_checked_none:"geprüft — kein kommunales Instrument gefunden.",
+  cov_d_checked:"einzeln geprüft", cov_d_planopen:"geplant offen (tbd)", cov_d_triaged:"per Triage übersprungen",
+  cov_foot:(done,pend,rest)=>`<b>${done}</b> Gemeinden einzeln geprüft · <b>${pend}</b> geplant offen · Rest (${rest}) nicht im Prüfumfang · Geometrie swisstopo 2025`,
+  cov_kpi_checked:"Wohnungen geprüft", cov_kpi_tbd:"Wohnungen noch zu prüfen (tbd)", cov_kpi_total:"Im Prüfumfang gesamt",
+  cov_kpi_sub:(u,t)=>`${u} von ${t} Whg`,
+  cd_checked:(n,pct)=>`geprüft: <b>${n}</b> Whg (${pct})`, cd_notchecked:(n,pct)=>`nicht geprüft: <b>${n}</b> Whg (${pct})`, cd_total:(n)=>`Total Schweiz: <b>${n}</b> Whg`,
+  no_mun_filter:"Keine Gemeinde für diese Filter.", count_of_mun:(r,n)=>`${r} von ${n} Gemeinden`
+},
+en:{
+  brand_eb:"smzh · housing policy", brand_ttl:"Swiss map & housing-policy taxonomy",
+  tab_karte:"Map", tab_uebersicht:"Cantons & municipalities", tab_taxonomie:"Taxonomy",
+  tab_audit_kt:"Audit · Cantons", tab_audit_gem:"Audit · Municipalities", tab_audit_cov:"Audit · Coverage", tab_wohnungen:"Dwellings",
+  tut_btn:"Tutorial",
+  karte_eb:"Choropleth map · housing-policy taxonomy", karte_h1:"Switzerland regulation map",
+  karte_desc:"Select the <b>instrument categories</b> above (several possible) — the map colours each area by its <b>strongest selected</b> category (exactly <b>one</b> colour per area). <b>Cantonal map</b>: what the canton has enacted — <b>incl. enabling provisions</b> (municipal options). <b>Municipal map</b>: only <b>directly binding</b> law — pure cantonal enabling provisions colour <b>no</b> municipality until municipal activation is documented (Run 2).",
+  cat_label:"Instrument categories", cat_all:"all", cat_none:"none",
+  mode_gem:"Municipal map", mode_kanton:"Cantonal map",
+  svg_export_title:"Export current map as SVG", cov_svg_export_title:"Export coverage map as SVG",
+  ov_eb:"Directory · BFS coding", ov_h1:"Cantons & municipalities overview",
+  ov_desc:"All <b>26 cantons</b> with canton number and municipality count, plus the complete directory of all <b id=\"ov-total\">0</b> municipalities with their <b>BFS number</b> (official municipality number of the Federal Statistical Office). Filterable by name, BFS or canton.",
+  ov_blocklabel:"Municipalities with BFS number",
+  search:"Search", canton:"Canton", only:"Only",
+  ph_mun_bfs:"Municipality name or BFS number…", ph_audit_search:"Canton, instrument, law…",
+  th_bfs:"BFS no.", th_municipality:"Municipality", th_ct:"Ct.", th_dwellings:"Dwellings", th_pct_ch:"% CH", th_municipalities:"Municipalities", th_strongest_cat:"Strongest binding cat.",
+  tax_eb:"Classification · housing policy", tax_h1:"Taxonomy of housing-policy instruments",
+  tax_desc:"Six main categories, ordered by <b>intervention intensity</b> — from public enablement via land (1) to hard housing protection with rent or return control (6). Each concrete instrument receives exactly <b>one</b> main category.",
+  tax_note:"What is classified is always the <b>concrete instrument</b>, not the political proposal as a whole. If a proposal contains several dimensions (e.g. land policy + pre-emption right + stock protection), it is split into several instruments — each with its own category.",
+  tax_rules_label:"Global classification rules",
+  tax_def:"Definition", tax_instr:"Typical instruments", tax_demarc:"Demarcation", tax_formula:"Core formula",
+  aukt_eb:"Evidence · cantonal legal framework (Run 1)", aukt_h1:"Audit · Cantons",
+  aukt_desc:"Cantonal tier-1 sources (laws/ordinances), validated by the <b>source agent</b> and classified by the <b>taxonomy agent</b>. Expandable per canton: instruments, sources, follow-up, open questions.",
+  followup_needed:"Follow-up needed",
+  augem_eb:"Evidence · municipal level (Run 2)", augem_h1:"Audit · Municipalities",
+  augem_desc:"Municipal tier-1 sources per individually checked municipality (with triage). Per canton: how many <b>individually checked</b>, how many <b>with a municipal instrument</b>, how many <b>planned/open</b> or <b>skipped via triage</b> — expandable per municipality with instruments and sources.",
+  cov_eb:"Coverage · Run 2 scope", cov_h1:"Audit · Coverage",
+  cov_desc:"Which municipalities were <b>individually checked</b> at municipal level, which are still <b>pending</b> (planned, triage), which are <b>out of scope</b> (skipped via triage / small)? Three colours. The metrics measure <b>coverage by dwelling stock</b> (share of Swiss dwellings).",
+  cov_dist_label:"Distribution of dwellings — checked vs. not checked",
+  cov_dist_sub:"How many dwellings lie in <b>individually checked</b> municipalities, how many in municipalities that were <b>not individually checked</b> (skipped via triage / below threshold)? Overall and per canton (bar length = the canton's dwelling stock; green = checked share).",
+  dw_eb:"Dwelling stock · GWS", dw_h1:"Dwellings per municipality",
+  dw_desc:"Dwelling stock per municipality (<b id=\"dw-source\">GWS</b>). Basis for the metric on the map: <b>what % of Swiss dwellings</b> fall under the selected taxonomy categories. Total Switzerland: <b id=\"dw-total\">0</b> dwellings in <b id=\"dw-count\">0</b> municipalities.",
+  dw_kt_label:"Per canton (with cantonal legal framework)", dw_gem_label:"Per municipality",
+  /* dynamic */
+  all_cantons:"All cantons",
+  panel_area_h3:"Area", panel_select:"Select an area", panel_hint:"Click an area on the map for details.",
+  d_municipality:"Municipality", d_canton:"Canton", d_bfs:"BFS number", d_dwellings_gws:"Dwellings (GWS)", d_canton_nr:"Canton number", d_municipalities:"Municipalities",
+  d_cantonal_instr:(n)=>`Cantonal instruments (${n})`, no_cantonal_t1:"No cantonal tier-1 instruments.",
+  mun_followup:"Municipal follow-up", required:"required", activation_open:"activation open",
+  special_area:"Special area", type:"Type", special_area_desc:"Swiss special area (not a political municipality)",
+  rahmen_binding:"Directly binding (municipal level)", rahmen_incl:"Incl. enabling provisions (cantonal level)", rahmen_none:"no directly binding instrument", via_mun_option:"via municipal option",
+  mun_instr_run2:"Municipal instruments (Run 2)",
+  STL:{adopted_not_yet_in_force:"adopted, not yet in force",proposed:"pending/draft",rejected:"rejected",repealed:"repealed"},
+  binding_lbl:"Binding: ", source_word:"Source",
+  run2_level:"Run 2 (municipal level)", run2_checked_none:"individually checked — no municipal instrument found", run2_pending:"planned, not yet checked (tbd)", run2_triaged:"skipped via triage (small)",
+  not_colored:"does not colour",
+  badge_excluded:"excluded", badge_cat_prefix:"Cat. ",
+  legend_coloring:"Colouring: ", legend_basis_kanton:"applies cantonally — incl. enabling provisions", legend_basis_gem:"directly binding (canton-wide + municipally activated, Run 2)", nothing_unselected:"nothing / not selected",
+  kpi_basis_kanton:"applies cantonally (incl. enabling provisions)", kpi_basis_gem:"directly binding",
+  level_cantonal:"cantonal ", level_municipal:"municipal ",
+  whg_card:"dwellings", whg_short:"dw.",
+  kpi_head:(pct,sel,total,basis,levelWord)=>`<b>${pct}</b> of Swiss dwellings (${sel} of ${total}) lie in areas falling under the selected categories <span class="mono">(${basis}, ${levelWord}level)</span>.`,
+  kpi_head_nodata:(total)=>`Total dwellings: <b>${total}</b>. (Audit run not yet loaded — key figures to follow.)`,
+  kpi_note:(src,count)=>`Each area is assigned by its <b>strongest selected</b> category (one colour per area), consistent with the map. The <b>cantonal level</b> also counts enabling provisions; the <b>municipal level</b> only directly binding law (options only after municipal activation, Run 2). Basis: ${src}, ${count} municipalities.`,
+  foot_karte:(n,k)=>`<b>${n}</b> municipalities · <b>${k}</b> cantons · geometry swisstopo 2025`,
+  banner_pending:(note)=>`<b>Status: pending.</b> ${note}`,
+  banner_pending_default:"The cantonal legal-framework run has not been loaded yet.",
+  banner_done:(title,done,date,fu,agents)=>`<b>${title}</b> · ${done}/26 cantons${date?` · as of ${date}`:""} · ${fu} with municipal follow-up · agents: ${agents}`,
+  audit_count:(r,n)=>`${r} of ${n} cantons`,
+  audit_empty:"No data yet — the cantonal legal-framework run has not been executed.",
+  instr_count:(n)=>`${n} instrument(s)`, src_count:(n)=>`${n} tier-1 source(s)`,
+  followup_none:"no follow-up", conf_lbl:"Conf. ",
+  cantonal_instr_classified:"Cantonal instruments (classified)", tier1_sources:"Tier-1 sources", no_cantonal_t1_found:"No cantonal tier-1 instruments found.",
+  binding_b:"<b>Binding:</b> ", cantonal_option_for_mun:"<b>cantonal option for municipalities</b>",
+  required_yes_no:(req,reason)=>`<b>required:</b> ${req?"yes":"no"}${reason?` — ${reason}`:""}`,
+  later_scope:"<b>Later research scope:</b> ", open_questions:"Open questions",
+  run2_blocklabel:"Run 2 · municipal level (ongoing)",
+  run2_summary:(done,found,planOpen,nC)=>`<b style="font-family:'Space Grotesk',sans-serif;font-size:18px">${done}</b> municipalities individually checked · <b>${found}</b> with a municipal instrument · ${planOpen} planned/open · across ${nC} cantons`,
+  run2_threshold:(thr)=>` · triage ≥ ${thr} dw. ∪ top 3`,
+  run2_chip_checked:(done,total)=>`<b>${done}</b> of ${total} individually checked`,
+  run2_chip_found:(n)=>`<b>${n}</b> with a municipal instrument`,
+  run2_chip_planopen:(n)=>`<b>${n}</b> planned/open`,
+  run2_chip_triaged:(n)=>`<b>${n}</b> skipped via triage`,
+  run2_reports_h:(n)=>`Audit reports per municipality (individually checked, ${n}) — click to expand`,
+  run2_planned_h:(n)=>`Planned, not yet checked (${n})`,
+  run2_triaged_h:(n)=>`Skipped via triage (${n})`,
+  dwell_chip:(n)=>`${n} dw.`, instr_chip:(n)=>`${n} instr.`, running:"…running",
+  cat_list:(cats)=>`Cat ${cats}`, only_pending_excl:"only pending/excluded", nothing_found:"nothing found",
+  mun_instr_classified:"Municipal instruments (classified)", no_mun_t1_found:"No municipal tier-1 instruments found.",
+  exclusion_b:"<b>Exclusion:</b> ", research_note:"Research note",
+  cov_checked:"individually checked", cov_pending:"planned, still open (tbd)", cov_none:"out of scope",
+  cov_d_bfs_canton:"BFS / canton", cov_run2_status:"Run 2 status", cov_mun_instr:"Municipal instruments",
+  cov_checked_none:"checked — no municipal instrument found.",
+  cov_d_checked:"individually checked", cov_d_planopen:"planned/open (tbd)", cov_d_triaged:"skipped via triage",
+  cov_foot:(done,pend,rest)=>`<b>${done}</b> municipalities individually checked · <b>${pend}</b> planned/open · rest (${rest}) out of scope · geometry swisstopo 2025`,
+  cov_kpi_checked:"Dwellings checked", cov_kpi_tbd:"Dwellings still to check (tbd)", cov_kpi_total:"Total in scope",
+  cov_kpi_sub:(u,t)=>`${u} of ${t} dwellings`,
+  cd_checked:(n,pct)=>`checked: <b>${n}</b> dw. (${pct})`, cd_notchecked:(n,pct)=>`not checked: <b>${n}</b> dw. (${pct})`, cd_total:(n)=>`Total Switzerland: <b>${n}</b> dw.`,
+  no_mun_filter:"No municipality for these filters.", count_of_mun:(r,n)=>`${r} of ${n} municipalities`
+}
+};
+let T = STR[LANG];
+const TUT = {
+de:{ eb:"Anleitung", title:"Wie du dieses Tool benutzt",
+  intro:"Dieses Tool zeigt, wo in der Schweiz welche wohnpolitischen Instrumente gelten — auf Kantons- und Gemeindeebene. Sieben Reiter findest du links. Oben rechts wechselst du jederzeit zwischen Deutsch und Englisch.",
+  steps:[
+    {t:"Karte lesen", d:"Reiter <b>Karte</b>: Jedes Gebiet ist nach der stärksten geltenden Instrument-Kategorie eingefärbt. Klicke ein Gebiet für Details (Rechtsrahmen + Wohnungen)."},
+    {t:"Kategorien & Ebene wählen", d:"Oben die <b>Instrument-Kategorien</b> an-/abwählen (alle/keine). Mit <b>Gemeindekarte/Kantonskarte</b> die Ebene umschalten — die Kantonskarte zeigt auch Ermächtigungen, die Gemeindekarte nur direkt bindendes Recht."},
+    {t:"Kennzahlen", d:"Unter der Karte: Anteil der Schweizer Wohnungen je Kategorie, konsistent mit der eingefärbten Karte."},
+    {t:"Taxonomie verstehen", d:"Reiter <b>Taxonomie</b>: die sechs Kategorien (1 = Bodenpolitik … 6 = harte Mietzinskontrolle) mit Definition, Beispielen und Abgrenzung."},
+    {t:"Evidenz prüfen", d:"<b>Audit · Kantone</b> und <b>Audit · Gemeinden</b> zeigen die belegten Instrumente je Kanton bzw. Gemeinde mit Tier-1-Quellen — jede Karte aufklappbar."},
+    {t:"Abdeckung", d:"<b>Audit · Übersicht</b>: welcher Anteil der Wohnungen einzeln geprüft wurde — als Karte und als Verteilung je Kanton."},
+    {t:"Daten durchsuchen", d:"<b>Übersicht</b> und <b>Wohnungen</b>: alle Kantone und Gemeinden mit BFS-Nummer und Wohnungsbestand, such- und sortierbar."}
+  ],
+  foot:"Tipp: Die Sprache lässt sich jederzeit oben rechts umschalten (DE / EN)." },
+en:{ eb:"Guide", title:"How to use this tool",
+  intro:"This tool shows where in Switzerland which housing-policy instruments apply — at cantonal and municipal level. The seven tabs are on the left. You can switch between German and English any time at the top right.",
+  steps:[
+    {t:"Read the map", d:"<b>Map</b> tab: each area is coloured by the strongest applicable instrument category. Click an area for details (legal framework + dwellings)."},
+    {t:"Choose categories & level", d:"Toggle the <b>instrument categories</b> above (all/none). Switch the level with <b>Municipal map/Cantonal map</b> — the cantonal map also shows enabling provisions, the municipal map only directly binding law."},
+    {t:"Key figures", d:"Below the map: the share of Swiss dwellings per category, consistent with the coloured map."},
+    {t:"Understand the taxonomy", d:"<b>Taxonomy</b> tab: the six categories (1 = land policy … 6 = hard rent control) with definition, examples and demarcation."},
+    {t:"Check the evidence", d:"<b>Audit · Cantons</b> and <b>Audit · Municipalities</b> show the documented instruments per canton or municipality with tier-1 sources — each card expandable."},
+    {t:"Coverage", d:"<b>Audit · Coverage</b>: what share of dwellings was individually checked — as a map and as a per-canton distribution."},
+    {t:"Browse the data", d:"<b>Cantons & municipalities</b> and <b>Dwellings</b>: all cantons and municipalities with BFS number and dwelling stock, searchable and sortable."}
+  ],
+  foot:"Tip: you can switch the language any time at the top right (DE / EN)." }
+};
+function applyStatic(){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const v=T[el.dataset.i18n]; if(typeof v==="string") el.textContent=v; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{ const v=T[el.dataset.i18nHtml]; if(typeof v==="string") el.innerHTML=v; });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ const v=T[el.dataset.i18nPh]; if(typeof v==="string") el.placeholder=v; });
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{ const v=T[el.dataset.i18nTitle]; if(typeof v==="string") el.title=v; });
+}
+function defaultPanel(){ return `<h3>${T.panel_area_h3}</h3><div class="d-name">${T.panel_select}</div><div class="d-v">${T.panel_hint}</div>`; }
+function resetDetailPanels(){ const a=document.getElementById("detail"); if(a) a.innerHTML=defaultPanel(); const b=document.getElementById("cov-detail"); if(b) b.innerHTML=defaultPanel(); }
+function renderKarteFoot(){ const el=document.getElementById("karte-foot"); if(el) el.innerHTML=T.foot_karte(RAW.meta.counts.gemeinden, RAW.meta.counts.cantons); }
+function fillDynamicSpans(){
+  const ovt=document.getElementById("ov-total"); if(ovt) ovt.textContent=RAW.gemeinden.length;
+  const ds=document.getElementById("dw-source"); if(ds) ds.textContent=DWELL.source||"GWS";
+  const dt=document.getElementById("dw-total"); if(dt) dt.textContent=fmtN(dwellTotal);
+  const dc=document.getElementById("dw-count"); if(dc) dc.textContent=fmtN(DWELL.count||(DWELL.gemeinden||[]).length);
+}
+function updateLangButtons(){ document.querySelectorAll("#langsw .lsbtn").forEach(b=>b.classList.toggle("on", b.dataset.lang===LANG)); }
+function renderTutorial(){ const x=TUT[LANG];
+  document.getElementById("tut-eb").textContent=x.eb;
+  document.getElementById("tut-title").textContent=x.title;
+  document.getElementById("tut-intro").innerHTML=x.intro;
+  document.getElementById("tut-steps").innerHTML=x.steps.map((s,i)=>`<div class="tut-step"><div class="tn">${i+1}</div><div><div class="tt">${s.t}</div><div class="td">${s.d}</div></div></div>`).join("");
+  document.getElementById("tut-foot").innerHTML=x.foot;
+}
+function openTut(){ renderTutorial(); document.getElementById("tut-ov").classList.add("open"); }
+function closeTut(){ document.getElementById("tut-ov").classList.remove("open"); }
+function setLang(l){ if(l!=="de"&&l!=="en") l="de"; LANG=l; try{ localStorage.setItem("rk-lang", l); }catch(e){} applyI18n(); }
+function applyI18n(){
+  T=STR[LANG];
+  TAX=LANG==="en"?TAX_EN:TAX_DE; TAX_TITLE=LANG==="en"?TAX_TITLE_EN:TAX_TITLE_DE;
+  TAX_SCALE=LANG==="en"?TAX_SCALE_EN:TAX_SCALE_DE; TAX_RULES=LANG==="en"?TAX_RULES_EN:TAX_RULES_DE; TAX_EXCLUDED=LANG==="en"?TAX_EXCLUDED_EN:TAX_EXCLUDED_DE;
+  document.documentElement.lang=LANG;
+  document.title=T.brand_ttl;
+  applyStatic(); updateLangButtons(); fillDynamicSpans(); resetDetailPanels();
+  renderCatChips(); renderMapLegend(); renderKarteFoot(); renderKpi();
+  buildKtSelect(); renderOvTable();
+  renderTaxonomy();
+  renderAuditBanner(); renderAuditList();
+  renderRun2Overview();
+  renderCovKpi(); renderCovLegend(); renderCovFoot(); renderCovDist();
+  buildDwSelect(); renderDwKtTable(); renderDwTable();
+  renderTutorial();
+}
 
 /* ================= Tabs ================= */
 function showView(v){ document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id==="v-"+v)); document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===v)); window.scrollTo({top:0}); }
@@ -428,32 +723,32 @@ function markSel(attr,val){ const svg=document.getElementById("map"); svg.queryS
 function rahmenRow(nr){
   if(!auditByKt[nr]) return "";
   const b=cantonTopCat(nr), a=cantonTopCatAll(nr);
-  const bindLine = b?catBadge(b):'<span class="mono">kein direkt bindendes Instrument</span>';
-  const optLine = (a && a!==b)?`<div class="d-row"><div class="d-k">Inkl. Ermächtigungen (Kantonsebene)</div><div class="d-v">${catBadge(a)} <span class="mono">via Gemeindeoption</span></div></div>`:"";
-  return `<div class="d-row"><div class="d-k">Direkt bindend (Gemeindeebene)</div><div class="d-v">${bindLine}</div></div>`+optLine;
+  const bindLine = b?catBadge(b):`<span class="mono">${T.rahmen_none}</span>`;
+  const optLine = (a && a!==b)?`<div class="d-row"><div class="d-k">${T.rahmen_incl}</div><div class="d-v">${catBadge(a)} <span class="mono">${T.via_mun_option}</span></div></div>`:"";
+  return `<div class="d-row"><div class="d-k">${T.rahmen_binding}</div><div class="d-v">${bindLine}</div></div>`+optLine;
 }
 function munRow(bfs){
   const m=munByBfs[bfs];
   if(m && (m.instruments||[]).length){
-    const STL={adopted_not_yet_in_force:"angenommen, noch nicht in Kraft",proposed:"pendent/Entwurf",rejected:"abgelehnt",repealed:"aufgehoben"};
-    return `<div class="d-row"><div class="d-k">Kommunale Instrumente (Run 2)</div>`+m.instruments.map(i=>{
-      const st = (i.legal_status && i.legal_status!=="in_force") ? `<span class="nofarb">[${esc(STL[i.legal_status]||i.legal_status)} — färbt nicht]</span> · ` : "";
+    const STL=T.STL;
+    return `<div class="d-row"><div class="d-k">${T.mun_instr_run2}</div>`+m.instruments.map(i=>{
+      const st = (i.legal_status && i.legal_status!=="in_force") ? `<span class="nofarb">[${esc(STL[i.legal_status]||i.legal_status)} — ${T.not_colored}]</span> · ` : "";
       return `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
-      `<div class="ainstr-s">${st}${i.bindingness?("Bindung: "+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}</div></div>`;
+      `<div class="ainstr-s">${st}${i.bindingness?(T.binding_lbl+esc(i.bindingness)+" · "):""}${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||T.source_word)} ↗</a>`:esc(i.source_title||"")}</div></div>`;
     }).join("")+`</div>`;
   }
   const st=run2StatusByBfs[bfs];
-  if(st==="checked") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">einzeln geprüft — kein kommunales Instrument gefunden</div></div>`;
-  if(st==="pending") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">geplant, noch nicht geprüft (tbd)</div></div>`;
-  if(st==="triaged") return `<div class="d-row"><div class="d-k">Run 2 (Gemeindeebene)</div><div class="d-v mono">per Triage übersprungen (klein)</div></div>`;
+  if(st==="checked") return `<div class="d-row"><div class="d-k">${T.run2_level}</div><div class="d-v mono">${T.run2_checked_none}</div></div>`;
+  if(st==="pending") return `<div class="d-row"><div class="d-k">${T.run2_level}</div><div class="d-v mono">${T.run2_pending}</div></div>`;
+  if(st==="triaged") return `<div class="d-row"><div class="d-k">${T.run2_level}</div><div class="d-v mono">${T.run2_triaged}</div></div>`;
   return "";
 }
-function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML="";return;}
+function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML=defaultPanel();return;}
   const u=dwellByBfs[bfs];
-  el.innerHTML = `<h3>Gemeinde</h3><div class="d-name">${g.name}</div>`+
-    `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${g.bfs}</div></div>`+
-    `<div class="d-row"><div class="d-k">Kanton</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
-    (u!=null?`<div class="d-row"><div class="d-k">Wohnungen (GWS)</div><div class="d-v mono">${fmtN(u)}</div></div>`:"")+
+  el.innerHTML = `<h3>${T.d_municipality}</h3><div class="d-name">${g.name}</div>`+
+    `<div class="d-row"><div class="d-k">${T.d_bfs}</div><div class="d-v mono">${g.bfs}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.d_canton}</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
+    (u!=null?`<div class="d-row"><div class="d-k">${T.d_dwellings_gws}</div><div class="d-v mono">${fmtN(u)}</div></div>`:"")+
     rahmenRow(g.kt)+munRow(bfs);
 }
 function detailKanton(nr){ const el=document.getElementById("detail");
@@ -461,20 +756,20 @@ function detailKanton(nr){ const el=document.getElementById("detail");
   let aud="";
   if(a){ const instr=a.cantonal_instruments_found||[];
     aud = rahmenRow(nr)+
-      `<div class="d-row"><div class="d-k">Kantonale Instrumente (${instr.length})</div>${instr.length?instr.map(i=>
+      `<div class="d-row"><div class="d-k">${T.d_cantonal_instr(instr.length)}</div>${instr.length?instr.map(i=>
         `<div class="ainstr"><div class="ainstr-t">${catBadge(i.taxonomy_category)}${esc(i.name)}</div>`+
-        `<div class="ainstr-s">${i.bindingness?("Bindung: "+esc(i.bindingness)):""}${i.municipal_option_exists?' · <b>Gemeindeoption</b> (Aktivierung offen)':""}</div></div>`
-      ).join(""):'<div class="d-v">Keine kantonalen Tier-1-Instrumente.</div>'}</div>`+
-      (a.municipal_followup_required?`<div class="d-row"><div class="d-k">Kommunaler Follow-up</div><div class="d-v">erforderlich${a.municipal_followup_reason?" — "+esc(a.municipal_followup_reason):""}</div></div>`:"");
+        `<div class="ainstr-s">${i.bindingness?(T.binding_lbl+esc(i.bindingness)):""}${i.municipal_option_exists?` · ${T.cantonal_option_for_mun} (${T.activation_open})`:""}</div></div>`
+      ).join(""):`<div class="d-v">${T.no_cantonal_t1}</div>`}</div>`+
+      (a.municipal_followup_required?`<div class="d-row"><div class="d-k">${T.mun_followup}</div><div class="d-v">${T.required}${a.municipal_followup_reason?" — "+esc(a.municipal_followup_reason):""}</div></div>`:"");
   }
-  el.innerHTML = `<h3>Kanton</h3><div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
-    `<div class="d-row"><div class="d-k">Kantonsnummer</div><div class="d-v mono">${nr}</div></div>`+
-    `<div class="d-row"><div class="d-k">Gemeinden</div><div class="d-v mono">${gemCountByKt[nr]||0}</div></div>`+aud;
+  el.innerHTML = `<h3>${T.d_canton}</h3><div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
+    `<div class="d-row"><div class="d-k">${T.d_canton_nr}</div><div class="d-v mono">${nr}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.d_municipalities}</div><div class="d-v mono">${gemCountByKt[nr]||0}</div></div>`+aud;
 }
 function detailSonder(s){ const el=document.getElementById("detail");
-  el.innerHTML = `<h3>Sondergebiet</h3><div class="d-name">${s.name}</div>`+
-    `<div class="d-row"><div class="d-k">Art</div><div class="d-v">CH-Sondergebiet (keine politische Gemeinde)</div></div>`+
-    `<div class="d-row"><div class="d-k">BFS-Nummer</div><div class="d-v mono">${s.bfs}</div></div>`;
+  el.innerHTML = `<h3>${T.special_area}</h3><div class="d-name">${s.name}</div>`+
+    `<div class="d-row"><div class="d-k">${T.type}</div><div class="d-v">${T.special_area_desc}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.d_bfs}</div><div class="d-v mono">${s.bfs}</div></div>`;
 }
 function downloadSVG(){
   const svg=document.getElementById("map"); const c=svg.cloneNode(true);
@@ -492,7 +787,8 @@ const ov={kt:"",q:"",sortKey:"bfs",sortDir:1};
 function buildKtSelect(){
   const sorted=[...RAW.cantons].sort((a,b)=>a.nr-b.nr);
   const sel=document.getElementById("ov-kt");
-  sel.innerHTML = `<option value="">Alle Kantone</option>`+sorted.map(c=>`<option value="${c.nr}">${c.name} (${KT_ABBR[c.nr]})</option>`).join("");
+  sel.innerHTML = `<option value="">${T.all_cantons}</option>`+sorted.map(c=>`<option value="${c.nr}">${c.name} (${KT_ABBR[c.nr]})</option>`).join("");
+  sel.value=ov.kt;
 }
 function renderOvTable(){
   let rows=RAW.gemeinden.filter(g=>{
@@ -508,21 +804,18 @@ function renderOvTable(){
     if(x<y)return -1*ov.sortDir; if(x>y)return 1*ov.sortDir; return a.bfs-b.bfs; });
   document.querySelector("#ovtable tbody").innerHTML = rows.length ? rows.map(g=>
     `<tr><td class="mono">${g.bfs}</td><td class="nm">${g.name}</td><td>${ktNameByNr[g.kt]||""}</td><td class="mono">${KT_ABBR[g.kt]||g.kt}</td></tr>`).join("")
-    : `<tr><td colspan="4"><div class="d-v" style="padding:14px">Keine Gemeinde für diese Filter.</div></td></tr>`;
-  document.getElementById("ov-count").textContent = `${rows.length} von ${RAW.gemeinden.length} Gemeinden`;
+    : `<tr><td colspan="4"><div class="d-v" style="padding:14px">${T.no_mun_filter}</div></td></tr>`;
+  document.getElementById("ov-count").textContent = T.count_of_mun(rows.length, RAW.gemeinden.length);
 }
-function initOverview(){
-  document.getElementById("ov-total").textContent=RAW.gemeinden.length;
-  buildKtSelect();
+function wireOverview(){
   document.getElementById("ov-q").addEventListener("input",e=>{ov.q=e.target.value;renderOvTable();});
   document.getElementById("ov-kt").addEventListener("change",e=>{ov.kt=e.target.value;renderOvTable();});
   document.querySelectorAll("#ovtable thead th").forEach(th=>th.addEventListener("click",()=>{ const k=th.dataset.k; if(ov.sortKey===k)ov.sortDir*=-1; else {ov.sortKey=k;ov.sortDir=1;} renderOvTable(); }));
-  renderOvTable();
 }
 
 /* ================= Taxonomie ================= */
 const TAX_COLORS = {1:"#4F9D69",2:"#8FBCE8",3:"#3B7DC4",4:"#7E8AC4",5:"#E8883A",6:"#C5322B"};
-const TAX = [
+const TAX_DE = [
   {n:1,title:"Aktive Bodenpolitik / Baulandmobilisierung",
    def:"Instrumente, bei denen die öffentliche Hand über Boden, Eigentum, Baurechte, Landreserven, gemeinnützige Träger oder strategische Grundstückspolitik zusätzlichen oder preisgünstigen Wohnraum ermöglicht. Die Gemeinde oder der Kanton handelt primär als Bodenakteur, Eigentümer, Partner, Finanzierer oder Ermöglicher — nicht als direkter Regulator privater Mietverhältnisse.",
    instr:["Erwerb von Grundstücken durch Gemeinde, Kanton oder öffentlich kontrollierte Träger","Strategische Landreserven","Aktive Bodenpolitik","Abgabe von Land im Baurecht","Baurechtsverträge mit preisgünstigen Wohnauflagen","Unterstützung oder Gründung von Wohnbaustiftungen","Zusammenarbeit mit Wohnbaugenossenschaften","Darlehen, Bürgschaften oder Kapitalbeiträge an gemeinnützige Wohnbauträger, sofern objekt- oder bodenbezogen","Mobilisierung von Bauland durch öffentliche Entwicklung, Arrondierung oder Infrastrukturkoordination","Rückfall-, Heimfall- oder langfristige Sicherungsmechanismen in Baurechtsverträgen, sofern aus der Rolle als Grundeigentümer"],
@@ -555,10 +848,11 @@ const TAX = [
    formel:"Der Staat sagt einem privaten Vermieter auf dem freien Markt, zu welchem Mietzins oder mit welcher Rendite er vermieten darf — nicht zu verwechseln mit der Preisbindung geförderter Wohnungen."}
 ];
 /* Ausschluss: fiskalische Abgaben sind keine wohnpolitischen Instrumente */
-const TAX_EXCLUDED = {title:"Ausgeschlossen — keine wohnpolitische Kategorie", color:"#9AA7B0",
+const TAX_EXCLUDED_DE = {title:"Ausgeschlossen — keine wohnpolitische Kategorie", color:"#9AA7B0",
   note:"Fiskalische Abgaben werden NICHT klassifiziert. Insbesondere die <b>Mehrwertabgabe / der Mehrwertausgleich</b> (taxe sur la plus-value) ist eine <b>Steuer</b> auf den planungsbedingten Mehrwert bei Ein-/Um-/Aufzonung — keine Quote und keine Wohnraumregulierung, auch nicht bei Zweckbindung der Erträge. Nur eine konkrete, verbindliche preisgünstig-/gemeinnützig-<b>Wohnraumverpflichtung</b> (Vertrag/Auflage) statt der Abgabe wird als Kategorie 3 erfasst."};
-const TAX_SCALE = ["öffentliche Ermöglichung über Boden","freiwilliger planerischer Anreiz","verbindliche planerische Pflicht","Eingriff in Eigentum oder Transaktion","Bewilligungsschutz für bestehenden Wohnraum","Bewilligungsschutz plus Mietzins- oder Renditekontrolle"];
-const TAX_RULES = [
+const TAX_SCALE_DE = ["öffentliche Ermöglichung über Boden","freiwilliger planerischer Anreiz","verbindliche planerische Pflicht","Eingriff in Eigentum oder Transaktion","Bewilligungsschutz für bestehenden Wohnraum","Bewilligungsschutz plus Mietzins- oder Renditekontrolle"];
+const TAX_SCALE_EN = ["public enablement via land","voluntary planning incentive","binding planning obligation","intervention in ownership or transaction","permit protection for existing housing","permit protection plus rent or return control"];
+const TAX_RULES_DE = [
   "<b>Klassifiziere immer das konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Eine Vorlage kann z.&nbsp;B. aktive Bodenpolitik, Vorkaufsrecht und Bestandesschutz enthalten — dann werden drei separate Instrumente erfasst.",
   "<b>Jedes Instrument erhält genau eine Hauptkategorie (1–6) oder ist ausgeschlossen.</b> Enthält ein Instrument mehrere Dimensionen, teile es auf. Ist das nicht möglich, wähle die Kategorie nach der stärksten direkten Eingriffsmechanik.",
   "<b>Die Reihenfolge der Eingriffsintensität</b> ist ungefähr 1 → 6: öffentliche Ermöglichung über Boden, freiwilliger Anreiz, verbindliche Pflicht, Eingriff in Eigentum/Transaktion, Bewilligungsschutz für den Bestand, Bewilligungsschutz plus Mietzins-/Renditekontrolle.",
@@ -566,16 +860,62 @@ const TAX_RULES = [
   "<b>Mehrwertabgaben sind Steuern und werden ausgeschlossen</b> (keine Kategorie), nicht als Kat 3 erfasst — nur eine damit verknüpfte verbindliche Wohnraumverpflichtung ist Kat 3.",
   "<b>Kategorie 5 schützt den gesamten Mietwohnungsbestand</b> (alle Mietwohnungen) bei Abbruch/Umbau/Sanierung/Zweckentfremdung — eine Beschränkung nur für geförderte/subventionierte Wohnungen ist Kat 1/4, nicht Kat 5."
 ];
+const TAX_EN = [
+  {n:1,title:"Active land policy / building-land mobilisation",
+   def:"Instruments through which the public sector enables additional or affordable housing via land, ownership, building rights, land reserves, non-profit developers or strategic land policy. The municipality or canton acts primarily as a land actor, owner, partner, financier or enabler — not as a direct regulator of private tenancies.",
+   instr:["Acquisition of land by the municipality, canton or publicly controlled bodies","Strategic land reserves","Active land policy","Granting land under building leases (Baurecht)","Building-lease contracts with affordable-housing conditions","Support or creation of housing foundations","Cooperation with housing cooperatives","Loans, guarantees or capital contributions to non-profit housing developers, where object- or land-related","Mobilisation of building land through public development, land readjustment or infrastructure coordination","Reversion (Heimfall) or long-term securing mechanisms in building-lease contracts, where based on the role as land owner"],
+   abgrenzung:"Not every municipal measure for affordable housing. What matters is acting through land, ownership or public bodies. A statutory pre-emption right over a private sale belongs to category 4. A planning obligation for affordable housing belongs to category 3. A voluntary bonus belongs to category 2.",
+   formel:"The state creates room to act through land. It does not yet intervene directly in existing rents, private stock or private transactions."},
+  {n:2,title:"Planning incentives / voluntary planning advantages",
+   def:"Instruments through which private land owners or developers can voluntarily create affordable, non-profit or socially bound housing because they receive a planning advantage for doing so. The state sets an incentive, but no binding obligation.",
+   instr:["Floor-area (plot-ratio) bonus for affordable housing","Density bonus","Additional use in exchange for a voluntary contribution","Eased or prioritised planning for a voluntary share of affordable housing","Voluntary agreements within design plans","Optional special-land-use-plan advantages","Planning privileges for non-profit housing","Bonus mechanisms in area developments"],
+   abgrenzung:"Correct only if the owner or developer has a genuine choice. If the law or land-use plan mandates an affordable share, it belongs to category 3. If the municipality grants its own land under a building lease, it belongs to category 1. If the state influences a sale, it belongs to category 4.",
+   formel:"The state says: if you create affordable housing, you get more room to build."},
+  {n:3,title:"Planning obligations / binding quotas",
+   def:"Instruments through which affordable, non-profit or socially bound housing is mandatorily required in certain planning or building processes. The intervention is project-related and supply-side — above all in new production, rezoning, up-zoning, special-use and design plans or larger development areas.",
+   instr:["Mandatory share of affordable housing in new buildings","Quota for non-profit housing","Minimum share of affordable housing on zoning-in","Minimum share on up-zoning or rezoning","Obligation in a design or special-use plan","Urban-development contract with a binding housing quota","Planning value capture in exchange for a binding housing contribution","Binding cost-rent or occupancy rules for newly created housing, where project-related and not a general rent control on the stock"],
+   abgrenzung:"Differs from category 2 by being binding (not voluntary). From category 5 in that it primarily steers new production or planning-law development rather than protecting the existing stock. From category 6 in that it is not primarily a general rent or return control over existing housing.",
+   formel:"The state says: if building, rezoning or densification happens here, a certain share must be affordable."},
+  {n:4,title:"Ownership and transaction interventions",
+   def:"Instruments through which the public sector intervenes directly in changes of ownership, sales, acquisition options or rights of disposal in the property market. The focus is not on rent regulation and not primarily on physical stock protection, but on who may acquire, hold, transfer or re-acquire a plot or property.",
+   instr:["Statutory pre-emption right of the municipality or canton","Acquisition rights in favour of the public sector","Buy-back rights, where designed as a statutory or regulatory intervention right","Restrictions on disposal","Approval requirements for certain sales","Municipal or cantonal rights to secure strategic plots","Cession obligations or acquisition options, where they directly affect the private transaction market"],
+   abgrenzung:"A pre-emption right is not active land policy. Land policy = the municipality buys, holds, develops or grants land from its own capacity to act (category 1). A pre-emption right = a statutory right to intervene in a private transaction. If the instrument only makes physical changes subject to approval, it belongs to category 5. If rents are controlled afterwards, to category 6.",
+   formel:"The state intervenes not primarily in the rent, but in the logic of ownership or transactions."},
+  {n:5,title:"Stock protection through additional procedures and permits",
+   def:"Instruments that protect the ENTIRE rental-housing stock (all rental dwellings, not only affordable/subsidised ones) from demolition, change of use, refurbishment, conversion, renovation, misuse or transformation. At their core is an additional review, notification or approval requirement for physical interventions or the withdrawal of rental housing — without (yet) a rent cap or return control.",
+   instr:["Approval requirement for demolition of rental housing","Approval requirement for conversion or comprehensive refurbishment","Approval requirement for renovations with a displacement risk","Approval requirement for change of use / misuse","Approval requirement for converting rental dwellings into condominium ownership","Approval requirement for merging/splitting or withdrawing rental housing","Restriction of short-term rentals/holiday flats, where protecting the housing stock is central","Housing-protection commissions/notification duties without direct rent control"],
+   abgrenzung:"Covers the whole rental-housing stock. Weaker than category 6 as long as there is no direct rent/return control. Important: if the restriction applies ONLY to subsidised/promoted housing (purpose binding of the subsidised segment), it is NOT category 5 but category 1 (subsidy purpose binding) or category 4 (where an ownership/acquisition right carries it).",
+   formel:"The state says: existing rental housing (the whole stock) may not be demolished, refurbished, converted, misused or withdrawn without additional review."},
+  {n:6,title:"Hard housing protection with rent or return control",
+   def:"A hard rent cap on the existing, free rental-housing market: the authority limits, sets or directly reviews the rents, permissible rent increases or returns that a private landlord may charge on existing market dwellings. The state intervenes directly in private rent setting.",
+   instr:["Rent control / rent cap after an approved refurbishment or renovation","Official setting of maximum permissible rents after building measures","Control/limitation of permissible rent increases in an ongoing tenancy","Return control on existing market rental dwellings","Approval of refurbishment/conversion only if official rent limits are met","Hard housing-protection laws intervening in the return/rent setting of the free stock"],
+   abgrenzung:"Only a hard rent cap on the free stock is category 6 — the category is often overstretched. NOT category 6: (a) cost-rent/rent binding for affordable or non-profit housing — that is the price binding of the subsidised segment → category 3 (quota/obligation) or 1 (subsidy); (b) the form requirement for the initial rent (notice of the previous rent, CO art. 270 II) — a pure transparency/notification duty → category 5; (c) a mere permit for refurbishment/demolition/condominium conversion without a rent limit → category 5.",
+   formel:"The state tells a private landlord on the free market at what rent or with what return they may let — not to be confused with the price binding of subsidised housing."}
+];
+const TAX_EXCLUDED_EN = {title:"Excluded — not a housing-policy category", color:"#9AA7B0",
+  note:"Fiscal levies are NOT classified. In particular the <b>value-added levy / betterment levy</b> (taxe sur la plus-value) is a <b>tax</b> on the planning-induced added value on zoning-in/rezoning/up-zoning — not a quota and not housing regulation, even where the proceeds are earmarked. Only a concrete, binding affordable/non-profit <b>housing obligation</b> (contract/condition) in place of the levy is recorded as category 3."};
+const TAX_RULES_EN = [
+  "<b>Always classify the concrete instrument</b>, not the political proposal as a whole. A proposal may e.g. contain active land policy, a pre-emption right and stock protection — then three separate instruments are recorded.",
+  "<b>Each instrument receives exactly one main category (1–6) or is excluded.</b> If an instrument contains several dimensions, split it. If that is not possible, choose the category by the strongest direct intervention mechanism.",
+  "<b>The order of intervention intensity</b> runs roughly 1 → 6: public enablement via land, voluntary incentive, binding obligation, intervention in ownership/transaction, permit protection for the stock, permit protection plus rent/return control.",
+  "<b>Category 6 is a hard rent cap on the free stock</b> — NOT the cost-rent/price binding of subsidised/non-profit housing (→ cat 3/1) and NOT the form requirement for the initial rent (→ cat 5).",
+  "<b>Value-added levies are taxes and are excluded</b> (no category), not recorded as cat 3 — only a binding housing obligation linked to them is cat 3.",
+  "<b>Category 5 protects the entire rental-housing stock</b> (all rental dwellings) against demolition/conversion/refurbishment/misuse — a restriction only for subsidised housing is cat 1/4, not cat 5."
+];
+let TAX = LANG==="en"?TAX_EN:TAX_DE;
+let TAX_EXCLUDED = LANG==="en"?TAX_EXCLUDED_EN:TAX_EXCLUDED_DE;
+let TAX_SCALE = LANG==="en"?TAX_SCALE_EN:TAX_SCALE_DE;
+let TAX_RULES = LANG==="en"?TAX_RULES_EN:TAX_RULES_DE;
 function renderTaxonomy(){
   document.getElementById("tax-scale").innerHTML = TAX.map(c=>`<span class="scaleitem"><span class="dot" style="background:${TAX_COLORS[c.n]}"></span>${c.n} · ${c.title}</span>`).join("");
   document.getElementById("tax-cats").innerHTML = TAX.map(c=>{
     const col=TAX_COLORS[c.n];
     return `<div class="tcat"><div class="tcat-head"><div class="tcat-num" style="background:${col}">${c.n}</div><div class="tcat-ttl">${c.title}</div></div>`+
       `<div class="tcat-body">`+
-      `<h4>Definition</h4><p>${c.def}</p>`+
-      `<h4>Typische Instrumente</h4><ul>${c.instr.map(i=>`<li>${i}</li>`).join("")}</ul>`+
-      `<h4>Abgrenzung</h4><p>${c.abgrenzung}</p>`+
-      `<h4>Kernformel</h4><div class="formel" style="border-color:${col}">${c.formel}</div>`+
+      `<h4>${T.tax_def}</h4><p>${c.def}</p>`+
+      `<h4>${T.tax_instr}</h4><ul>${c.instr.map(i=>`<li>${i}</li>`).join("")}</ul>`+
+      `<h4>${T.tax_demarc}</h4><p>${c.abgrenzung}</p>`+
+      `<h4>${T.tax_formula}</h4><div class="formel" style="border-color:${col}">${c.formel}</div>`+
       `</div></div>`;
   }).join("")
   + `<div class="tcat" style="opacity:.92"><div class="tcat-head"><div class="tcat-num" style="background:${TAX_EXCLUDED.color}">✕</div><div class="tcat-ttl">${TAX_EXCLUDED.title}</div></div><div class="tcat-body"><p>${TAX_EXCLUDED.note}</p></div></div>`;
@@ -588,7 +928,9 @@ const RUN2 = (()=>{ try{ return JSON.parse(document.getElementById("run2data").t
 const munByBfs = {}; const run2StatusByBfs = {};
 (RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]=(g.status==="checked")?"checked":"pending"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ if(run2StatusByBfs[g.bfs]==null) run2StatusByBfs[g.bfs]="triaged"; }); });
 const aud={q:"",followup:false};
-const TAX_TITLE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
+const TAX_TITLE_DE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
+const TAX_TITLE_EN = {1:"Active land policy",2:"Planning incentives",3:"Binding quotas",4:"Ownership/transactions",5:"Stock protection (permits)",6:"Hard rent/return control"};
+let TAX_TITLE = LANG==="en"?TAX_TITLE_EN:TAX_TITLE_DE;
 /* Karten-Deploy — EBENEN-ABHÄNGIG:
    Kantonskarte = was kantonal gilt, INKL. Ermächtigungen (Gemeindeoptionen).
    Gemeindekarte = nur DIREKT bindend (Optionen färben erst nach kommunaler Aktivierung, Run 2). */
@@ -618,8 +960,8 @@ function renderMapLegend(){ const el=document.getElementById("map-legend"); if(!
   const used=new Set();
   if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const c=gemCat(g.bfs); if(c) used.add(c); }); }
   else { RAW.cantons.forEach(c=>{ const cat=ktCat(c.nr); if(cat) used.add(cat); }); }
-  const basis = mapMode==="kanton" ? "kantonal gilt — inkl. Ermächtigungen" : "direkt bindend (kantonsweit + kommunal aktiviert, Run 2)";
-  el.innerHTML = `<span style="width:100%;color:var(--ink-faint)">Einfärbung: ${basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</span>`;
+  const basis = mapMode==="kanton" ? T.legend_basis_kanton : T.legend_basis_gem;
+  el.innerHTML = `<span style="width:100%;color:var(--ink-faint)">${T.legend_coloring}${basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>${T.nothing_unselected}</span>`;
 }
 /* ===== Kategorie-Auswahl (Chips oberhalb der Karte) ===== */
 function renderCatChips(){
@@ -632,7 +974,7 @@ function renderCatChips(){
 function afterSelect(){ renderCatChips(); repaint(); renderMapLegend(); renderKpi(); }
 function setAllCats(on){ selectedCats.clear(); if(on)[1,2,3,4,5,6].forEach(c=>selectedCats.add(c)); afterSelect(); }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function catBadge(c){ if(!c) return `<span class="catbadge" style="background:#9AA7B0">ausgeschlossen</span>`; const col=TAX_COLORS[c]||"#999"; return `<span class="catbadge" style="background:${col}">Kat. ${c} · ${TAX_TITLE[c]||"?"}</span>`; }
+function catBadge(c){ if(!c) return `<span class="catbadge" style="background:#9AA7B0">${T.badge_excluded}</span>`; const col=TAX_COLORS[c]||"#999"; return `<span class="catbadge" style="background:${col}">${T.badge_cat_prefix}${c} · ${TAX_TITLE[c]||"?"}</span>`; }
 function auditMatches(c){
   if(aud.followup && !c.municipal_followup_required) return false;
   if(aud.q){ const q=aud.q.toLowerCase();
@@ -643,46 +985,47 @@ function auditMatches(c){
 function renderAuditList(){
   const wrap=document.getElementById("audit-list");
   const rows=(AUDIT.cantons||[]).filter(auditMatches).sort((a,b)=>(a.canton_nr||99)-(b.canton_nr||99));
-  document.getElementById("audit-count").textContent = (AUDIT.cantons||[]).length ? `${rows.length} von ${AUDIT.cantons.length} Kantonen` : "";
-  if(!(AUDIT.cantons||[]).length){ wrap.innerHTML = `<div class="empty">Noch keine Daten — der kantonale Rechtsrahmen-Run wurde noch nicht ausgeführt.</div>`; return; }
+  document.getElementById("audit-count").textContent = (AUDIT.cantons||[]).length ? T.audit_count(rows.length, AUDIT.cantons.length) : "";
+  if(!(AUDIT.cantons||[]).length){ wrap.innerHTML = `<div class="empty">${T.audit_empty}</div>`; return; }
   wrap.innerHTML = rows.map(c=>{
     const instr=c.cantonal_instruments_found||[]; const srcs=c.tier_1_sources_found||[];
     const conf=c.confidence||"—";
-    const fu=c.municipal_followup_required?`<span class="pill fu">Follow-up nötig</span>`:`<span class="pill ok">kein Follow-up</span>`;
+    const fu=c.municipal_followup_required?`<span class="pill fu">${T.followup_needed}</span>`:`<span class="pill ok">${T.followup_none}</span>`;
     const head=`<div class="acard-head"><span class="acard-ka">${esc(c.canton_abbr||"")}</span><span class="acard-nm">${esc(c.canton)}</span>`+
-      `<span class="acard-meta"><span class="pill">${instr.length} Instrument(e)</span><span class="pill">${srcs.length} Tier-1-Quelle(n)</span>${fu}<span class="pill conf-${conf}">Conf. ${esc(conf)}</span></span></div>`;
+      `<span class="acard-meta"><span class="pill">${T.instr_count(instr.length)}</span><span class="pill">${T.src_count(srcs.length)}</span>${fu}<span class="pill conf-${conf}">${T.conf_lbl}${esc(conf)}</span></span></div>`;
     const instrHtml = instr.length ? instr.map(i=>
       `<div class="ainstr"><div class="ainstr-t">${catBadge(i.taxonomy_category)}${esc(i.name)}</div>`+
-      `<div class="ainstr-s">${i.bindingness?`<b>Bindung:</b> ${esc(i.bindingness)} · `:""}${i.municipal_option_exists?`<b>kantonale Option für Gemeinden</b> · `:""}${esc(i.note||"")}</div></div>`
-    ).join("") : `<div class="aq">Keine kantonalen Tier-1-Instrumente gefunden.</div>`;
+      `<div class="ainstr-s">${i.bindingness?`${T.binding_b}${esc(i.bindingness)} · `:""}${i.municipal_option_exists?`${T.cantonal_option_for_mun} · `:""}${esc(i.note||"")}</div></div>`
+    ).join("") : `<div class="aq">${T.no_cantonal_t1_found}</div>`;
     const srcHtml = srcs.length ? srcs.map(s=>
       `<div class="asrc">${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} ↗</a>`:esc(s.title)}${s.form?` <span class="mono">· ${esc(s.form)}</span>`:""}${s.article?` <span class="mono">· ${esc(s.article)}</span>`:""}</div>`
     ).join("") : `<div class="aq">—</div>`;
-    const fuBlock = `<h4>Kommunaler Follow-up</h4><div class="aq"><b>erforderlich:</b> ${c.municipal_followup_required?"ja":"nein"}${c.municipal_followup_reason?` — ${esc(c.municipal_followup_reason)}`:""}</div>`+
-      (c.municipal_research_scope_later?`<div class="aq"><b>Späterer Recherche-Umfang:</b> ${esc(c.municipal_research_scope_later)}</div>`:"");
-    const oq = (c.open_questions||[]).length ? `<h4>Offene Fragen</h4>${c.open_questions.map(q=>`<div class="aq">• ${esc(q)}</div>`).join("")}` : "";
-    const body=`<div class="acard-body"><h4>Kantonale Instrumente (klassifiziert)</h4>${instrHtml}`+
-      `<h4>Tier-1-Quellen</h4>${srcHtml}${fuBlock}${oq}</div>`;
+    const fuBlock = `<h4>${T.mun_followup}</h4><div class="aq">${T.required_yes_no(c.municipal_followup_required, c.municipal_followup_reason?esc(c.municipal_followup_reason):"")}</div>`+
+      (c.municipal_research_scope_later?`<div class="aq">${T.later_scope}${esc(c.municipal_research_scope_later)}</div>`:"");
+    const oq = (c.open_questions||[]).length ? `<h4>${T.open_questions}</h4>${c.open_questions.map(q=>`<div class="aq">• ${esc(q)}</div>`).join("")}` : "";
+    const body=`<div class="acard-body"><h4>${T.cantonal_instr_classified}</h4>${instrHtml}`+
+      `<h4>${T.tier1_sources}</h4>${srcHtml}${fuBlock}${oq}</div>`;
     return `<div class="acard">${head}${body}</div>`;
   }).join("");
   wrap.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
 }
-function renderAudit(){
+function renderAuditBanner(){
   const m=AUDIT.run_meta||{};
   const banner=document.getElementById("audit-banner");
   const has=(AUDIT.cantons||[]).length;
-  if(!has){ banner.className="databanner pending"; banner.innerHTML = `<b>Status: ausstehend.</b> ${esc(m.note||"Der kantonale Rechtsrahmen-Run wurde noch nicht eingespielt.")}`; }
+  if(!has){ banner.className="databanner pending"; banner.innerHTML = T.banner_pending(m.note?esc(m.note):T.banner_pending_default); }
   else { banner.className="databanner"; const done=AUDIT.cantons.length; const fu=AUDIT.cantons.filter(c=>c.municipal_followup_required).length;
-    banner.innerHTML = `<b>${esc(m.title||"Run 1")}</b> · ${done}/26 Kantone${m.date?` · Stand ${esc(m.date)}`:""} · ${fu} mit kommunalem Follow-up · Agenten: ${esc((m.agents||[]).join(", "))}`; }
+    banner.innerHTML = T.banner_done(esc(m.title||"Run 1"), done, m.date?esc(m.date):"", fu, esc((m.agents||[]).join(", "))); }
   document.getElementById("audit-filters").style.display = has ? "" : "none";
+}
+function wireAudit(){
   document.getElementById("au-q")?.addEventListener("input",e=>{aud.q=e.target.value;renderAuditList();});
   document.getElementById("au-followup")?.addEventListener("change",e=>{aud.followup=e.target.checked;renderAuditList();});
-  renderAuditList();
 }
 function gemSourcesHtml(g){
   const seen=new Set(); const out=[];
   (g.instruments||[]).forEach(i=>{ const key=(i.source_url||i.source_title||""); if(!key||seen.has(key))return; seen.add(key);
-    out.push(`<div class="asrc">${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||"Quelle")} ↗</a>`:esc(i.source_title||"")}`+
+    out.push(`<div class="asrc">${i.source_url?`<a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source_title||T.source_word)} ↗</a>`:esc(i.source_title||"")}`+
       `${i.source_form?` <span class="mono">· ${esc(i.source_form)}</span>`:""}${i.legal_status?` <span class="mono">· ${esc(i.legal_status)}</span>`:""}`+
       `${i.evidence_quote_short?`<br><span style="font-size:12px;color:var(--ink-soft)">${esc(i.evidence_quote_short)}</span>`:""}</div>`); });
   return out.length?out.join(""):`<div class="aq">—</div>`;
@@ -690,17 +1033,17 @@ function gemSourcesHtml(g){
 function gemCard(g, abbr){
   const instr=g.instruments||[]; const conf=g.confidence||"—";
   const cats=[...new Set(instr.filter(munInForce).map(i=>i.taxonomy_category))].sort((a,b)=>a-b);
-  const catTag = g.status==="pending" ? `<span class="pill">…läuft</span>` : (cats.length?`<span class="pill ok">Kat ${cats.join(", ")}</span>`:`<span class="pill">${g.found?"nur pendent/ausgeschl.":"nichts gefunden"}</span>`);
+  const catTag = g.status==="pending" ? `<span class="pill">${T.running}</span>` : (cats.length?`<span class="pill ok">${T.cat_list(cats.join(", "))}</span>`:`<span class="pill">${g.found?T.only_pending_excl:T.nothing_found}</span>`);
   const head=`<div class="acard-head"><span class="acard-ka">${esc(abbr)} ${g.bfs}</span><span class="acard-nm">${esc(g.name)}</span>`+
-    `<span class="acard-meta"><span class="pill">${fmtN(g.units)} Whg</span><span class="pill">${instr.length} Instr.</span>${catTag}<span class="pill conf-${conf}">Conf. ${esc(conf)}</span></span></div>`;
+    `<span class="acard-meta"><span class="pill">${T.dwell_chip(fmtN(g.units))}</span><span class="pill">${T.instr_chip(instr.length)}</span>${catTag}<span class="pill conf-${conf}">${T.conf_lbl}${esc(conf)}</span></span></div>`;
   const instrHtml = instr.length ? instr.map(i=>{
-    const st=(i.legal_status&&i.legal_status!=="in_force")?`<span class="nofarb">[${esc(i.legal_status)} — färbt nicht]</span> · `:"";
+    const st=(i.legal_status&&i.legal_status!=="in_force")?`<span class="nofarb">[${esc(T.STL[i.legal_status]||i.legal_status)} — ${T.not_colored}]</span> · `:"";
     return `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
-      `<div class="ainstr-s">${st}${i.bindingness?("<b>Bindung:</b> "+esc(i.bindingness)+" · "):""}${i.excluded&&i.excluded_reason?("<b>Ausschluss:</b> "+esc(i.excluded_reason)):""}</div></div>`;
-  }).join("") : `<div class="aq">Keine kommunalen Tier-1-Instrumente gefunden.</div>`;
-  const body=`<div class="acard-body"><h4>Kommunale Instrumente (klassifiziert)</h4>${instrHtml}`+
-    `<h4>Tier-1-Quellen</h4>${gemSourcesHtml(g)}`+
-    (g.note?`<h4>Recherche-Notiz</h4><div class="aq">${esc(g.note)}</div>`:"")+`</div>`;
+      `<div class="ainstr-s">${st}${i.bindingness?(T.binding_b+esc(i.bindingness)+" · "):""}${i.excluded&&i.excluded_reason?(T.exclusion_b+esc(i.excluded_reason)):""}</div></div>`;
+  }).join("") : `<div class="aq">${T.no_mun_t1_found}</div>`;
+  const body=`<div class="acard-body"><h4>${T.mun_instr_classified}</h4>${instrHtml}`+
+    `<h4>${T.tier1_sources}</h4>${gemSourcesHtml(g)}`+
+    (g.note?`<h4>${T.research_note}</h4><div class="aq">${esc(g.note)}</div>`:"")+`</div>`;
   return `<div class="acard">${head}${body}</div>`;
 }
 function renderRun2Overview(){
@@ -711,23 +1054,23 @@ function renderRun2Overview(){
   const allDone=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked").length,0);
   const allFound=cantons.reduce((s,c)=>s+(c.checked||[]).filter(g=>g.status==="checked"&&g.found).length,0);
   const allPlan=cantons.reduce((s,c)=>s+(c.checked||[]).length,0);
-  const summary=`<div style="font-size:14.5px;color:var(--ink);margin:0 0 16px;padding:11px 15px;background:var(--brand-tint);border:1px solid #9fd6df;border-radius:var(--radius)"><b style="font-family:'Space Grotesk',sans-serif;font-size:18px">${allDone}</b> Gemeinden einzeln geprüft · <b>${allFound}</b> mit kommunalem Instrument · ${allPlan-allDone} geplant offen · über ${cantons.length} Kantone</div>`;
-  box.innerHTML = `<div class="blocklabel" style="margin-top:0">Run 2 · Gemeindeebene (fortlaufend)</div>`+summary+cantons.map(c=>{
+  const summary=`<div style="font-size:14.5px;color:var(--ink);margin:0 0 16px;padding:11px 15px;background:var(--brand-tint);border:1px solid #9fd6df;border-radius:var(--radius)">${T.run2_summary(allDone, allFound, allPlan-allDone, cantons.length)}</div>`;
+  box.innerHTML = `<div class="blocklabel" style="margin-top:0">${T.run2_blocklabel}</div>`+summary+cantons.map(c=>{
     const list=[...(c.checked||[])].sort((a,b)=>(b.units||0)-(a.units||0));
     const done=list.filter(g=>g.status==="checked");
     const pending=list.filter(g=>g.status!=="checked");
     const triaged=[...(c.triaged||[])].sort((a,b)=>(b.units||0)-(a.units||0));
     const found=done.filter(g=>g.found);
-    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${c.triage_threshold?(" · Triage ≥ "+fmtN(c.triage_threshold)+" Whg ∪ Top-3"):""}</span></div>`+
+    const head=`<div class="r2head"><span class="r2t">${esc(c.canton_abbr)} — ${esc(ktNameByNr[c.canton_nr]||"")}</span><span class="r2s">${esc(m.title||"")}${c.triage_threshold?T.run2_threshold(fmtN(c.triage_threshold)):""}</span></div>`+
       `<div class="r2stat">`+
-        `<span class="r2chip checked"><b>${done.length}</b> von ${c.total_gemeinden} einzeln geprüft</span>`+
-        `<span class="r2chip found"><b>${found.length}</b> mit kommunalem Instrument</span>`+
-        (pending.length?`<span class="r2chip"><b>${pending.length}</b> geplant offen</span>`:``)+
-        `<span class="r2chip"><b>${triaged.length}</b> per Triage übersprungen</span>`+
+        `<span class="r2chip checked">${T.run2_chip_checked(done.length, c.total_gemeinden)}</span>`+
+        `<span class="r2chip found">${T.run2_chip_found(found.length)}</span>`+
+        (pending.length?`<span class="r2chip">${T.run2_chip_planopen(pending.length)}</span>`:``)+
+        `<span class="r2chip">${T.run2_chip_triaged(triaged.length)}</span>`+
       `</div>`;
-    const cards=done.length?(`<h4 style="${H}">Auditberichte je Gemeinde (einzeln geprüft, ${done.length}) — anklicken zum Aufklappen</h4>`+done.map(g=>gemCard(g, c.canton_abbr)).join("")):"";
-    const pendList=pending.length?(`<h4 style="${H}">Geplant, noch nicht geprüft (${pending.length})</h4><div class="r2skip">`+pending.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`):"";
-    const skipList=`<h4 style="${H}">Per Triage übersprungen (${triaged.length})</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${fmtN(g.units)} Whg</span></div>`).join("")+`</div>`;
+    const cards=done.length?(`<h4 style="${H}">${T.run2_reports_h(done.length)}</h4>`+done.map(g=>gemCard(g, c.canton_abbr)).join("")):"";
+    const pendList=pending.length?(`<h4 style="${H}">${T.run2_planned_h(pending.length)}</h4><div class="r2skip">`+pending.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${T.dwell_chip(fmtN(g.units))}</span></div>`).join("")+`</div>`):"";
+    const skipList=`<h4 style="${H}">${T.run2_triaged_h(triaged.length)}</h4><div class="r2skip">`+triaged.map(g=>`<div class="r2li"><span class="nm">${esc(g.name)}</span><span class="u">${T.dwell_chip(fmtN(g.units))}</span></div>`).join("")+`</div>`;
     return `<div class="r2box">${head}${cards}${pendList}${skipList}</div>`;
   }).join("");
   box.querySelectorAll(".acard-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
@@ -743,7 +1086,7 @@ function covKtStatus(nr){ const c=run2ByKt[nr]; if(!c||!(c.checked||[]).length) 
   const done=(c.checked||[]).filter(e=>e.status==="checked").length, pend=(c.checked||[]).filter(e=>e.status==="pending").length;
   if(done>0 && pend===0) return "checked"; if(done>0) return "pending"; return "none"; }
 function covFillKt(nr){ return COV_COL[covKtStatus(nr)]; }
-function covLabel(st){ return st==="checked"?"einzeln geprüft":(st==="pending"?"geplant, noch offen (tbd)":"nicht im Prüfumfang"); }
+function covLabel(st){ return st==="checked"?T.cov_checked:(st==="pending"?T.cov_pending:T.cov_none); }
 function buildCovMap(){
   const svg=document.getElementById("covmap"); if(!svg)return; clear(svg); svg.setAttribute("viewBox",RAW.meta.viewBox); setMapAspect(svg);
   if(COV.mode==="gem"){
@@ -764,29 +1107,29 @@ function covMarkSel(attr,val){ const svg=document.getElementById("covmap"); svg.
 function covPill(st){ const c=COV_COL[st]; return `<span class="pill" style="background:${st==="none"?"#EEF2F4":c};color:${st==="none"?"var(--ink-soft)":"#fff"}">${covLabel(st)}</span>`; }
 function covDetailGem(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("cov-detail"); if(!g)return;
   const st=covStatusGem(bfs); const m=munByBfs[bfs];
-  el.innerHTML=`<h3>Gemeinde</h3><div class="d-name">${esc(g.name)}</div>`+
-    `<div class="d-row"><div class="d-k">BFS / Kanton</div><div class="d-v"><span class="mono">${g.bfs}</span> · ${esc(ktNameByNr[g.kt]||"")} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
-    `<div class="d-row"><div class="d-k">Run-2-Status</div><div class="d-v">${covPill(st)}</div></div>`+
-    (m&&(m.instruments||[]).length?`<div class="d-row"><div class="d-k">Kommunale Instrumente</div>${m.instruments.map(i=>`<div class="ainstr-s" style="padding:3px 0">${catBadge(i.excluded?null:i.taxonomy_category)} ${esc(i.name)}</div>`).join("")}</div>`:"")+
-    (st==="checked"&&!(m&&(m.instruments||[]).length)?`<div class="d-v">geprüft — kein kommunales Instrument gefunden.</div>`:"");
+  el.innerHTML=`<h3>${T.d_municipality}</h3><div class="d-name">${esc(g.name)}</div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_d_bfs_canton}</div><div class="d-v"><span class="mono">${g.bfs}</span> · ${esc(ktNameByNr[g.kt]||"")} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_run2_status}</div><div class="d-v">${covPill(st)}</div></div>`+
+    (m&&(m.instruments||[]).length?`<div class="d-row"><div class="d-k">${T.cov_mun_instr}</div>${m.instruments.map(i=>`<div class="ainstr-s" style="padding:3px 0">${catBadge(i.excluded?null:i.taxonomy_category)} ${esc(i.name)}</div>`).join("")}</div>`:"")+
+    (st==="checked"&&!(m&&(m.instruments||[]).length)?`<div class="d-v">${T.cov_checked_none}</div>`:"");
 }
 function covDetailKt(nr){ const el=document.getElementById("cov-detail"); const c=run2ByKt[nr];
   const done=c?(c.checked||[]).filter(e=>e.status==="checked").length:0, pend=c?(c.checked||[]).filter(e=>e.status==="pending").length:0, tri=c?(c.triaged||[]).length:0;
-  el.innerHTML=`<h3>Kanton</h3><div class="d-name">${esc(ktNameByNr[nr]||"")} (${KT_ABBR[nr]||nr})</div>`+
-    `<div class="d-row"><div class="d-k">Run-2-Status</div><div class="d-v">${covPill(covKtStatus(nr))}</div></div>`+
-    `<div class="d-row"><div class="d-k">einzeln geprüft</div><div class="d-v mono">${done}</div></div>`+
-    `<div class="d-row"><div class="d-k">geplant offen (tbd)</div><div class="d-v mono">${pend}</div></div>`+
-    `<div class="d-row"><div class="d-k">per Triage übersprungen</div><div class="d-v mono">${tri}</div></div>`;
+  el.innerHTML=`<h3>${T.d_canton}</h3><div class="d-name">${esc(ktNameByNr[nr]||"")} (${KT_ABBR[nr]||nr})</div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_run2_status}</div><div class="d-v">${covPill(covKtStatus(nr))}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_d_checked}</div><div class="d-v mono">${done}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_d_planopen}</div><div class="d-v mono">${pend}</div></div>`+
+    `<div class="d-row"><div class="d-k">${T.cov_d_triaged}</div><div class="d-v mono">${tri}</div></div>`;
 }
 function renderCovLegend(){ const el=document.getElementById("cov-legend"); if(!el)return;
-  el.innerHTML=`<span><span class="dot" style="background:${COV_COL.checked}"></span>einzeln geprüft</span>`+
-    `<span><span class="dot" style="background:${COV_COL.pending}"></span>geplant, noch offen (tbd)</span>`+
-    `<span><span class="dot" style="background:${COV_COL.none};border:1px solid var(--hairline-strong)"></span>nicht im Prüfumfang</span>`;
+  el.innerHTML=`<span><span class="dot" style="background:${COV_COL.checked}"></span>${T.cov_checked}</span>`+
+    `<span><span class="dot" style="background:${COV_COL.pending}"></span>${T.cov_pending}</span>`+
+    `<span><span class="dot" style="background:${COV_COL.none};border:1px solid var(--hairline-strong)"></span>${T.cov_none}</span>`;
 }
 function renderCovFoot(){ const el=document.getElementById("cov-foot"); if(!el)return;
   const done=(RUN2.cantons||[]).reduce((s,c)=>s+(c.checked||[]).filter(e=>e.status==="checked").length,0);
   const pend=(RUN2.cantons||[]).reduce((s,c)=>s+(c.checked||[]).filter(e=>e.status==="pending").length,0);
-  el.innerHTML=`<b>${done}</b> Gemeinden einzeln geprüft · <b>${pend}</b> geplant offen · Rest (${fmtN(RAW.meta.counts.gemeinden-done-pend)}) nicht im Prüfumfang · Geometrie swisstopo 2025`;
+  el.innerHTML=T.cov_foot(done, pend, fmtN(RAW.meta.counts.gemeinden-done-pend));
 }
 function covDownloadSVG(){ const svg=document.getElementById("covmap"); const c=svg.cloneNode(true);
   const vb=(svg.getAttribute("viewBox")||"0 0 2000 1282").split(/\s+/); c.setAttribute("xmlns",NS); c.setAttribute("width",vb[2]); c.setAttribute("height",vb[3]);
@@ -799,10 +1142,10 @@ function renderCovKpi(){ const el=document.getElementById("cov-kpi"); if(!el)ret
   let cu=0,pu=0;
   (RUN2.cantons||[]).forEach(c=>(c.checked||[]).forEach(e=>{ const u=e.units||dwellByBfs[e.bfs]||0; if(e.status==="checked")cu+=u; else pu+=u; }));
   const total=dwellTotal||1;
-  const card=(label,units,col)=>`<div class="kpicard" style="border-left-color:${col}"><div class="kc-k"><span class="dot" style="background:${col}"></span>${label}</div><div class="kc-v">${pctStr(units,total)}</div><div class="kc-s">${fmtN(units)} von ${fmtN(total)} Whg</div></div>`;
-  el.innerHTML = card("Wohnungen geprüft", cu, COV_COL.checked)+
-    card("Wohnungen noch zu prüfen (tbd)", pu, COV_COL.pending)+
-    card("Im Prüfumfang gesamt", cu+pu, "#0FA9BD");
+  const card=(label,units,col)=>`<div class="kpicard" style="border-left-color:${col}"><div class="kc-k"><span class="dot" style="background:${col}"></span>${label}</div><div class="kc-v">${pctStr(units,total)}</div><div class="kc-s">${T.cov_kpi_sub(fmtN(units), fmtN(total))}</div></div>`;
+  el.innerHTML = card(T.cov_kpi_checked, cu, COV_COL.checked)+
+    card(T.cov_kpi_tbd, pu, COV_COL.pending)+
+    card(T.cov_kpi_total, cu+pu, "#0FA9BD");
 }
 function renderCovDist(){
   const el=document.getElementById("cov-dist"); if(!el)return;
@@ -826,9 +1169,9 @@ function renderCovDist(){
         `<div style="width:${(rest/total*100).toFixed(2)}%;background:${GREY}"></div>`+
       `</div>`+
       `<div class="cd-olegend">`+
-        `<span><span class="dot" style="background:${GREEN}"></span>geprüft: <b>${fmtN(chk)}</b> Whg (${pctStr(chk,total)})</span>`+
-        `<span><span class="dot" style="background:${GREY}"></span>nicht geprüft: <b>${fmtN(rest)}</b> Whg (${pctStr(rest,total)})</span>`+
-        `<span class="cd-tot">Total Schweiz: <b>${fmtN(total)}</b> Whg</span>`+
+        `<span><span class="dot" style="background:${GREEN}"></span>${T.cd_checked(fmtN(chk), pctStr(chk,total))}</span>`+
+        `<span><span class="dot" style="background:${GREY}"></span>${T.cd_notchecked(fmtN(rest), pctStr(rest,total))}</span>`+
+        `<span class="cd-tot">${T.cd_total(fmtN(total))}</span>`+
       `</div>`+
     `</div>`;
   const body=rows.map(r=>{
@@ -849,7 +1192,7 @@ const dwellByBfs={}, dwellByKt={}, dwellGemCountByKt={};
 (DWELL.gemeinden||[]).forEach(g=>{ dwellByBfs[g.bfs]=g.units; dwellByKt[g.kt]=(dwellByKt[g.kt]||0)+(g.units||0); dwellGemCountByKt[g.kt]=(dwellGemCountByKt[g.kt]||0)+1; });
 const dwellTotal = DWELL.total || Object.values(dwellByKt).reduce((a,b)=>a+b,0);
 function fmtN(n){ return Math.round(n||0).toLocaleString("de-CH"); }
-function pctStr(v,total){ return (100*v/(total||1)).toFixed(1).replace(".",",")+" %"; }
+function pctStr(v,total){ const s=(100*v/(total||1)).toFixed(1); return (LANG==="en"?s:s.replace(".",","))+" %"; }
 
 function renderKpi(){
   const total=dwellTotal||1;
@@ -858,14 +1201,14 @@ function renderKpi(){
   if(mapMode==="gem"){ RAW.gemeinden.forEach(g=>{ const u=dwellByBfs[g.bfs]||0; const cat=gemCat(g.bfs); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
   else { RAW.cantons.forEach(c=>{ const u=dwellByKt[KT_ABBR[c.nr]]||0; const cat=ktCat(c.nr); if(cat) byCat[cat]=(byCat[cat]||0)+u; else none+=u; }); }
   const selSum=total-none;
-  const basis = mapMode==="kanton" ? "kantonal gilt (inkl. Ermächtigungen)" : "direkt bindend";
+  const basis = mapMode==="kanton" ? T.kpi_basis_kanton : T.kpi_basis_gem;
   document.getElementById("kpi-head").innerHTML = (AUDIT.cantons||[]).length
-    ? `<b>${pctStr(selSum,total)}</b> der Schweizer Wohnungen (${fmtN(selSum)} von ${fmtN(total)}) liegen in Gebieten, die unter die gewählten Kategorien fallen <span class="mono">(${basis}, ${mapMode==="kanton"?"Kantons-":"Gemeinde-"}ebene)</span>.`
-    : `Wohnungen gesamt: <b>${fmtN(total)}</b>. (Audit-Run noch nicht eingespielt — Kennzahlen folgen.)`;
+    ? T.kpi_head(pctStr(selSum,total), fmtN(selSum), fmtN(total), basis, (mapMode==="kanton"?T.level_cantonal:T.level_municipal))
+    : T.kpi_head_nodata(fmtN(total));
   document.getElementById("kpi-cards").innerHTML = [1,2,3,4,5,6].map(c=>{ const u=byCat[c]||0; const on=selectedCats.has(c);
-    return `<div class="kpicard ${on?"":"off"}" style="border-left-color:${TAX_COLORS[c]}"><div class="kc-k"><span class="dot" style="background:${TAX_COLORS[c]}"></span>Kat ${c} · ${TAX_TITLE[c]}</div><div class="kc-v">${pctStr(u,total)}</div><div class="kc-s">${fmtN(u)} Whg.</div></div>`;
-  }).join("") + `<div class="kpicard" style="border-left-color:${LANDFILL}"><div class="kc-k"><span class="dot" style="background:${LANDFILL}"></span>nichts / nicht gewählt</div><div class="kc-v">${pctStr(none,total)}</div><div class="kc-s">${fmtN(none)} Whg.</div></div>`;
-  document.getElementById("kpi-note").innerHTML = `Zuordnung je Gebiet nach der <b>stärksten gewählten</b> Kategorie (eine Farbe pro Gebiet), konsistent mit der Karte. <b>Kantonsebene</b> zählt auch Ermächtigungen; <b>Gemeindeebene</b> nur direkt Bindendes (Optionen erst nach kommunaler Aktivierung, Run 2). Basis: ${esc(DWELL.source||"GWS")}, ${fmtN(DWELL.count||(DWELL.gemeinden||[]).length)} Gemeinden.`;
+    return `<div class="kpicard ${on?"":"off"}" style="border-left-color:${TAX_COLORS[c]}"><div class="kc-k"><span class="dot" style="background:${TAX_COLORS[c]}"></span>${T.cat_list(c)} · ${TAX_TITLE[c]}</div><div class="kc-v">${pctStr(u,total)}</div><div class="kc-s">${fmtN(u)} ${T.whg_card}</div></div>`;
+  }).join("") + `<div class="kpicard" style="border-left-color:${LANDFILL}"><div class="kc-k"><span class="dot" style="background:${LANDFILL}"></span>${T.nothing_unselected}</div><div class="kc-v">${pctStr(none,total)}</div><div class="kc-s">${fmtN(none)} ${T.whg_card}</div></div>`;
+  document.getElementById("kpi-note").innerHTML = T.kpi_note(esc(DWELL.source||"GWS"), fmtN(DWELL.count||(DWELL.gemeinden||[]).length));
 }
 
 const dw={q:"",kt:"",sortKey:"bfs",sortDir:1};
@@ -890,41 +1233,42 @@ function renderDwTable(){
     if(x<y)return -1*dw.sortDir; if(x>y)return 1*dw.sortDir; return a.bfs-b.bfs; });
   document.querySelector("#dwtable tbody").innerHTML = rows.length ? rows.map(g=>
     `<tr><td class="mono">${g.bfs}</td><td class="nm">${esc(g.name)}</td><td class="mono">${esc(g.kt)}</td><td class="mono">${fmtN(g.units)}</td></tr>`
-  ).join("") : `<tr><td colspan="4"><div class="d-v" style="padding:14px">Keine Gemeinde für diese Filter.</div></td></tr>`;
-  document.getElementById("dw-gcount").textContent = `${rows.length} von ${(DWELL.gemeinden||[]).length} Gemeinden`;
+  ).join("") : `<tr><td colspan="4"><div class="d-v" style="padding:14px">${T.no_mun_filter}</div></td></tr>`;
+  document.getElementById("dw-gcount").textContent = T.count_of_mun(rows.length, (DWELL.gemeinden||[]).length);
 }
-function initDwellings(){
-  document.getElementById("dw-source").textContent=DWELL.source||"GWS";
-  document.getElementById("dw-total").textContent=fmtN(dwellTotal);
-  document.getElementById("dw-count").textContent=fmtN(DWELL.count||(DWELL.gemeinden||[]).length);
-  document.getElementById("dw-kt").innerHTML = `<option value="">Alle Kantone</option>`+[...RAW.cantons].sort((a,b)=>a.nr-b.nr).map(c=>`<option value="${c.nr}">${ktNameByNr[c.nr]} (${KT_ABBR[c.nr]})</option>`).join("");
+function buildDwSelect(){
+  const sel=document.getElementById("dw-kt");
+  sel.innerHTML = `<option value="">${T.all_cantons}</option>`+[...RAW.cantons].sort((a,b)=>a.nr-b.nr).map(c=>`<option value="${c.nr}">${ktNameByNr[c.nr]} (${KT_ABBR[c.nr]})</option>`).join("");
+  sel.value=dw.kt;
+}
+function wireDwellings(){
   document.getElementById("dw-q").addEventListener("input",e=>{dw.q=e.target.value;renderDwTable();});
   document.getElementById("dw-kt").addEventListener("change",e=>{dw.kt=e.target.value;renderDwTable();});
   document.querySelectorAll("#dwtable thead th").forEach(th=>th.addEventListener("click",()=>{ const k=th.dataset.k; if(dw.sortKey===k)dw.sortDir*=-1; else {dw.sortKey=k;dw.sortDir=1;} renderDwTable(); }));
-  renderDwKtTable(); renderDwTable();
 }
 
 /* ================= Init ================= */
 function init(){
-  document.getElementById("foot-n").textContent=RAW.meta.counts.gemeinden;
-  document.getElementById("foot-k").textContent=RAW.meta.counts.cantons;
-  renderCatChips();
   buildMap();
-  renderMapLegend();
-  renderKpi();
-  initOverview();
-  renderTaxonomy();
-  renderAudit();
-  renderRun2Overview();
-  renderCoverage();
-  initDwellings();
-  document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showView(t.dataset.view)));
+  buildCovMap();
+  wireOverview();
+  wireAudit();
+  wireDwellings();
+  document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>showView(tb.dataset.view)));
   document.querySelectorAll("[data-mm]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-mm]").forEach(x=>x.classList.remove("won"));b.classList.add("won");mapMode=b.dataset.mm;buildMap();renderMapLegend();renderKpi();}));
   document.querySelectorAll("[data-cm-mode]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-cm-mode]").forEach(x=>x.classList.remove("won"));b.classList.add("won");COV.mode=b.dataset.cmMode;buildCovMap();renderCovLegend();}));
   document.getElementById("cov-dlsvg").addEventListener("click",covDownloadSVG);
   document.getElementById("cat-all").addEventListener("click",()=>setAllCats(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAllCats(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
+  /* Sprachumschalter + Tutorial */
+  document.querySelectorAll("#langsw .lsbtn").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  document.getElementById("tutbtn").addEventListener("click",openTut);
+  document.getElementById("tut-x").addEventListener("click",closeTut);
+  document.getElementById("tut-ov").addEventListener("click",e=>{ if(e.target.id==="tut-ov") closeTut(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeTut(); });
+  /* alle Texte in aktueller Sprache rendern */
+  applyI18n();
 }
 if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
 </script>
