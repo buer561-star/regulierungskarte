@@ -165,6 +165,8 @@
   .pill{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 8px;border-radius:99px;background:#EEF2F4;color:var(--ink-soft);white-space:nowrap;}
   .pill.fu{background:#FBE3E1;color:#992019;}
   .pill.ok{background:#E4F4EC;color:#216B45;}
+  .pill.adopted{background:#FBF1DC;color:#7a4a12;border:1px dashed #d8b676;}
+  .adoptedwrap .catbadge{opacity:.62;filter:grayscale(.15);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);}
   .pill.conf-high{background:#E4F4EC;color:#216B45;}.pill.conf-medium{background:#FBF1DC;color:#7a4a12;}.pill.conf-low{background:#FBE3E1;color:#992019;}
   .acard-body{padding:0 16px 14px;border-top:1px solid var(--hairline);display:none;}
   .acard.open .acard-body{display:block;}
@@ -508,6 +510,7 @@ de:{
   run2_triaged_h:(n)=>`Per Triage übersprungen (${n})`,
   dwell_chip:(n)=>`${n} Whg`, instr_chip:(n)=>`${n} Instr.`, running:"…läuft",
   cat_list:(cats)=>`Kat ${cats}`, only_pending_excl:"nur pendent/ausgeschl.", nothing_found:"nichts gefunden",
+  adopted_cats:(cats)=>`Beschlossen · Kat ${cats}`, adopted_title:"Beschlossen / angenommen, aber noch nicht rechtskräftig in Kraft — färbt die Karte (noch) nicht", adopted_badge:"beschlossen, noch nicht in Kraft",
   mun_instr_classified:"Kommunale Instrumente (klassifiziert)", no_mun_t1_found:"Keine kommunalen Tier-1-Instrumente gefunden.",
   exclusion_b:"<b>Ausschluss:</b> ", research_note:"Recherche-Notiz",
   cov_checked:"einzeln geprüft", cov_pending:"geplant, noch offen (tbd)", cov_none:"nicht im Prüfumfang",
@@ -598,6 +601,7 @@ en:{
   run2_triaged_h:(n)=>`Skipped via triage (${n})`,
   dwell_chip:(n)=>`${n} dw.`, instr_chip:(n)=>`${n} instr.`, running:"…running",
   cat_list:(cats)=>`Cat ${cats}`, only_pending_excl:"only pending/excluded", nothing_found:"nothing found",
+  adopted_cats:(cats)=>`Adopted · cat ${cats}`, adopted_title:"Adopted / approved but not yet legally in force — does not (yet) colour the map", adopted_badge:"adopted, not yet in force",
   mun_instr_classified:"Municipal instruments (classified)", no_mun_t1_found:"No municipal tier-1 instruments found.",
   exclusion_b:"<b>Exclusion:</b> ", research_note:"Research note",
   cov_checked:"individually checked", cov_pending:"planned, still open (tbd)", cov_none:"out of scope",
@@ -951,6 +955,10 @@ function ktFill(nr){ const cat=ktCat(nr); return cat?(TAX_COLORS[cat]||LANDFILL)
 /* Gemeindeebene: kantonal bindend (kantonsweit) + kommunale Instrumente dieser Gemeinde (Run 2) */
 /* nur in Kraft stehende, nicht ausgeschlossene Instrumente färben (angenommen-noch-nicht-in-Kraft / pendent zählen nicht) */
 function munInForce(i){ return !i.excluded && i.taxonomy_category && (!i.legal_status || i.legal_status==="in_force"); }
+/* beschlossen/angenommen, aber noch nicht in Kraft — färbt NICHT, wird aber als "Beschlossen · Kat n" markiert.
+   Kategorie aus future_category (bei timing-bedingt ausgeschlossenen) bzw. taxonomy_category (nicht ausgeschlossene). */
+function futCat(i){ return i.future_category || (!i.excluded ? i.taxonomy_category : 0); }
+function munAdopted(i){ return i.legal_status==="adopted_not_yet_in_force" && futCat(i)>0; }
 function municipalCatSet(bfs){ const s=new Set(); const g=munByBfs[bfs]; if(!g) return s; (g.instruments||[]).forEach(i=>{ if(munInForce(i)) s.add(i.taxonomy_category); }); return s; }
 function gemCatSet(bfs){ const g=gemByBfs[bfs]; const s=new Set(cantonBindingCatSet(g?g.kt:0)); municipalCatSet(bfs).forEach(c=>s.add(c)); return s; }
 function gemCat(bfs){ return strongestSel(gemCatSet(bfs)); }
@@ -1033,12 +1041,18 @@ function gemSourcesHtml(g){
 function gemCard(g, abbr){
   const instr=g.instruments||[]; const conf=g.confidence||"—";
   const cats=[...new Set(instr.filter(munInForce).map(i=>i.taxonomy_category))].sort((a,b)=>a-b);
-  const catTag = g.status==="pending" ? `<span class="pill">${T.running}</span>` : (cats.length?`<span class="pill ok">${T.cat_list(cats.join(", "))}</span>`:`<span class="pill">${g.found?T.only_pending_excl:T.nothing_found}</span>`);
+  const adoptedCats=[...new Set(instr.filter(munAdopted).map(futCat))].filter(n=>!cats.includes(n)).sort((a,b)=>a-b);
+  const adoptedTag = adoptedCats.length ? `<span class="pill adopted" title="${T.adopted_title}">${T.adopted_cats(adoptedCats.join(", "))}</span>` : "";
+  const baseTag = g.status==="pending" ? `<span class="pill">${T.running}</span>`
+    : (cats.length ? `<span class="pill ok">${T.cat_list(cats.join(", "))}</span>`
+      : (adoptedCats.length ? "" : `<span class="pill">${g.found?T.only_pending_excl:T.nothing_found}</span>`));
+  const catTag = baseTag + adoptedTag;
   const head=`<div class="acard-head"><span class="acard-ka">${esc(abbr)} ${g.bfs}</span><span class="acard-nm">${esc(g.name)}</span>`+
     `<span class="acard-meta"><span class="pill">${T.dwell_chip(fmtN(g.units))}</span><span class="pill">${T.instr_chip(instr.length)}</span>${catTag}<span class="pill conf-${conf}">${T.conf_lbl}${esc(conf)}</span></span></div>`;
   const instrHtml = instr.length ? instr.map(i=>{
     const st=(i.legal_status&&i.legal_status!=="in_force")?`<span class="nofarb">[${esc(T.STL[i.legal_status]||i.legal_status)} — ${T.not_colored}]</span> · `:"";
-    return `<div class="ainstr"><div class="ainstr-t">${catBadge(i.excluded?null:i.taxonomy_category)}${esc(i.name)}</div>`+
+    const catB = munAdopted(i) ? `<span class="adoptedwrap" title="${T.adopted_title}">${catBadge(futCat(i))}</span>` : catBadge(i.excluded?null:i.taxonomy_category);
+    return `<div class="ainstr"><div class="ainstr-t">${catB}${esc(i.name)}</div>`+
       `<div class="ainstr-s">${st}${i.bindingness?(T.binding_b+esc(i.bindingness)+" · "):""}${i.excluded&&i.excluded_reason?(T.exclusion_b+esc(i.excluded_reason)):""}</div></div>`;
   }).join("") : `<div class="aq">${T.no_mun_t1_found}</div>`;
   const body=`<div class="acard-body"><h4>${T.mun_instr_classified}</h4>${instrHtml}`+

@@ -284,7 +284,8 @@
               "source_form": "zoning_code",
               "source_title": "Stadt Dübendorf, Ortsplanungsrevision - Bau- und Zonenordnung, Entwurf/Schlussbereinigung (Art. 57 Preisgünstiger Wohnraum), Stand 22.11.2024; vom Gemeinderat festgesetzt 31.03.2026",
               "source_url": "https://www.duebendorf.ch/_docn/5442535/Beilage_4a_20241122_01-B1_Bauordnung_Synopse.pdf",
-              "evidence_quote_short": "Art. 57 Preisgünstiger Wohnraum ... Mindestens 40% der zusätzlich realisierten Geschossfläche für Wohnen muss dem preisgünstigen Wohnraum dienen"
+              "evidence_quote_short": "Art. 57 Preisgünstiger Wohnraum ... Mindestens 40% der zusätzlich realisierten Geschossfläche für Wohnen muss dem preisgünstigen Wohnraum dienen",
+              "future_category": 3
             },
             {
               "name": "Kommunaler Mehrwertausgleich / Mehrwertabgabe (Art. 40/41 BO: 40% des um Fr. 100'000 gekürzten Mehrwerts in Mehrwertausgleichsfonds)",
@@ -398,7 +399,8 @@
               "source_form": "zoning_code",
               "source_title": "Bau- und Zonenordnung Wädenswil, Gesamtrevision Nutzungsplanung, Art. 50 Preisgünstiger Wohnraum / Art. 57 Abs. 6 (festgesetzt Gemeinderat 30.09.2024, Entwurf 06.03.2023)",
               "source_url": "https://www.waedenswil.ch/projekte/17870",
-              "evidence_quote_short": "Auf den im Ergänzungsplan «preisgünstiger Wohnraum» bezeichneten Grundstücken müssen mindestens 20 % der für Wohnnutzungen realisierten anrechenbaren Flächen dem preisgünstigen Wohnraum gemäss § 49b PBG dienen."
+              "evidence_quote_short": "Auf den im Ergänzungsplan «preisgünstiger Wohnraum» bezeichneten Grundstücken müssen mindestens 20 % der für Wohnnutzungen realisierten anrechenbaren Flächen dem preisgünstigen Wohnraum gemäss § 49b PBG dienen.",
+              "future_category": 3
             },
             {
               "name": "Kommunaler Mehrwertausgleich / Mehrwertabgabe (30% des um Fr. 100'000 gekürzten Mehrwerts, Freifläche 2'000 m2)",
@@ -869,7 +871,8 @@
               "legal_status": "adopted_not_yet_in_force",
               "source_form": "zoning_code",
               "source_title": "Revision Nutzungsplanung/BZO Stäfa, Festsetzung Gemeindeversammlung 7. Mai 2025, Ergänzungsplan Nr. 3 Preisgünstiger Wohnraum (Genehmigung Baudirektion ausstehend)",
-              "source_url": "https://www.staefa.ch/verwaltung/gemeindeverwaltung/dienstleistungen-a-z.html/339/service/871"
+              "source_url": "https://www.staefa.ch/verwaltung/gemeindeverwaltung/dienstleistungen-a-z.html/339/service/871",
+              "future_category": 3
             },
             {
               "name": "Kommunaler Mehrwertausgleich (Verordnung über den Fonds für den kommunalen Mehrwertausgleich, SKR 3.110)",
@@ -1989,7 +1992,8 @@
               "legal_status": "adopted_not_yet_in_force",
               "source_title": "Teilrevision Bauordnung Stadt Bern 'Lex Airbnb' (Volksabstimmung 13.2.2022)",
               "source_url": "https://www.bern.ch/themen/planen-und-bauen/baubewilligung/wohnraumschutz",
-              "source_form": "zoning_code"
+              "source_form": "zoning_code",
+              "future_category": 5
             }
           ],
           "note": "Stadt Bern hat mehrere rechtskraeftige KOMMUNALE Tier-1-Instrumente. Art. 16b BO (Drittel-Regel preisguenstig/gemeinnuetzig bei Um-/Neueinzonung, Kostenmiete) = Kat 3; Art. 16b Abs. 3 BO (freiwilliger 20%-Nutzungsbonus bei vollstaendig preisguenstigem/gemeinnuetzigem Gebaeude) = Kat 2; beide nach Volksabstimmung 18.5.2014 (71,56% Ja), AGR-genehmigt und seit 1.1.2020 in Kraft (BGer 14.11.2019 wies Beschwerden ab). Art. 16a BO (Wohnraumschutz: Umnutzungs-/Abbruchverbot fuer den gesamten Mietwohnungsbestand in W-/D-/Schutz-/Altstadtzonen, sobald 3-Jahres-Leerwohnungsziffer <1%) = Kat 5; in Kraft seit 2015; KEINE Mietzinskontrolle, daher NICHT Kat 6. Fondsreglement ueber die Boden- und Wohnbaupolitik (FRBW, SSSB 854.1; Volksabstimmung 1984, in Kraft seit 1985): Landerwerb, Abgabe im Baurecht an gemeinnuetzige Wohnbautraeger, Wohnbaufoerderung = Kat 1. AUSGESCHLOSSEN: 'Lex Airbnb' (Kurzzeitvermietung Altstadt, BO-Teilrevision, Volksabstimmung Feb 2022) ist trotz Annahme wegen Kollektivbeschwerde NOCH NICHT in Kraft (per Juni 2026 beim Verwaltungsgericht haengig) -> kein rechtskraeftiges Tier-1-Instrument, konservativ nicht erfasst. Rein kantonale BE-Instrumente nicht hier erfasst.",
@@ -2080,7 +2084,8 @@
               "source_title": "Stadt Thun, Baureglement (BR) 72.01, Art. 7 'Gemeinnütziger und preisgünstiger Wohnungsbau'",
               "source_url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
               "evidence_quote_short": "Bei Ein- und Umzonungen sowie bei ÜO und ZPP wird sichergestellt, dass in den Wohnzonen mindestens ein Viertel der Wohnnutzung als preisgünstiger Wohnraum erstellt und dauerhaft in Kostenmiete vermietet wird. ABER Fussnote: 'Art. 7 noch nicht in Kraft (Verfügung vom 18.11.2024 der DIJ)'; GRB 490/2024: in Kraft mit Ausnahme von Art. 7, Art. 13 Abs. 1 lit. e und Art. 46.",
-              "excluded_reason": "Verbindliche Kat-3-Quote, aber durch hängige Beschwerde sistiert / noch nicht in Kraft (DIJ-Verfügung 18.11.2024). Keine rechtskräftige Tier-1-Geltung."
+              "excluded_reason": "Verbindliche Kat-3-Quote, aber durch hängige Beschwerde sistiert / noch nicht in Kraft (DIJ-Verfügung 18.11.2024). Keine rechtskräftige Tier-1-Geltung.",
+              "future_category": 3
             },
             {
               "name": "Arealbonus (Dichtebonus, Art. 46 BR)",
@@ -2092,7 +2097,8 @@
               "source_title": "Stadt Thun, Baureglement (BR) 72.01, Art. 46 'Gebiete mit Arealbonus'",
               "source_url": "https://www.thun.ch/reglementeverordnungen/sammlung/2447008",
               "evidence_quote_short": "Fussnote 9: 'Art. 46 noch nicht in Kraft (Verfügung vom 18.11.2024 der DIJ)'; durch Beschwerde betreffend Arealbonus sistiert.",
-              "excluded_reason": "Noch nicht in Kraft (sistiert durch hängige Beschwerde, DIJ-Verfügung 18.11.2024); zudem nur planerischer Anreiz, keine eigenständige preisgünstig-Wohnraumpflicht im in Kraft stehenden Recht."
+              "excluded_reason": "Noch nicht in Kraft (sistiert durch hängige Beschwerde, DIJ-Verfügung 18.11.2024); zudem nur planerischer Anreiz, keine eigenständige preisgünstig-Wohnraumpflicht im in Kraft stehenden Recht.",
+              "future_category": 2
             },
             {
               "name": "Wohnraumförderungsreglement (WFR) – kommunales Förderreglement gemeinnütziger/preisgünstiger Wohnraum",
@@ -4828,7 +4834,8 @@
               "source_title": "Stadt Luzern: Ja zur Einführung des Vorkaufsrechts der Stadt Luzern (Abstimmung 14. Juni 2026); Inkrafttreten per 2027",
               "source_form": "decision",
               "source_url": "https://www.stadtluzern.ch/aktuelles/newslist/2903941",
-              "evidence_quote_short": "Ja zur Einführung des Vorkaufsrechts ... würde das Vorkaufsrecht per 2027 in Kraft treten."
+              "evidence_quote_short": "Ja zur Einführung des Vorkaufsrechts ... würde das Vorkaufsrecht per 2027 in Kraft treten.",
+              "future_category": 4
             },
             {
               "name": "Aktive Bodenpolitik: Stiftung 'Wohnraum für alle', Kauf/Vermietung von Wohnungen, Darlehen an gemeinnützige Wohnbauträger",
@@ -4840,7 +4847,8 @@
               "source_title": "Stadt Luzern: Ja zur Umsetzung einer aktiven Bodenpolitik (Abstimmung 14. Juni 2026); Inkrafttreten per 2027",
               "source_form": "decision",
               "source_url": "https://www.stadtluzern.ch/beitraege/2869339",
-              "evidence_quote_short": "Ja zur Umsetzung einer aktiven Bodenpolitik ... Gründung der Stiftung 'Wohnraum für alle', Kauf und Vermietung von Wohnungen, Darlehen für gemeinnützige Wohnbauträger; in Kraft ab 2027."
+              "evidence_quote_short": "Ja zur Umsetzung einer aktiven Bodenpolitik ... Gründung der Stiftung 'Wohnraum für alle', Kauf und Vermietung von Wohnungen, Darlehen für gemeinnützige Wohnbauträger; in Kraft ab 2027.",
+              "future_category": 1
             },
             {
               "name": "Unterstellung unter das kantonale Gesetz über die Erhaltung von Wohnraum (GEW): Bewilligungspflicht Abbruch/Umbau/Zweckentfremdung",
@@ -4875,7 +4883,8 @@
               "source_title": "Gemeinde Emmen, Bau- und Zonenreglement BZR mit Erläuterungen, Stand vom 13. November 2023 (Entwurf Ortsplanungsrevision), Art. 52 Abs. 10",
               "source_url": "https://www.emmen.ch/_docn/4868101/01._Bau-_und_Zonenreglement_inkl._Erl%C3%A4uterungen_231113_(1).pdf",
               "source_form": "zoning_code",
-              "evidence_quote_short": "In Gestaltungsplangebieten, in denen durch ein qualifiziertes Konkurrenzverfahren nach Art. 8 BZR von den Abweichungen gemäss Abs. 4 profitiert wird, sind 25% der zusätzlich möglichen Hauptnutzflächen gemäss Anhang 7 als preisgünstiger Wohnraum zu erstellen. Als preisgünstig gilt die Kostenmiete, berechnet gemäss Wohnraumförderungsverordnung WFV Art. 8."
+              "evidence_quote_short": "In Gestaltungsplangebieten, in denen durch ein qualifiziertes Konkurrenzverfahren nach Art. 8 BZR von den Abweichungen gemäss Abs. 4 profitiert wird, sind 25% der zusätzlich möglichen Hauptnutzflächen gemäss Anhang 7 als preisgünstiger Wohnraum zu erstellen. Als preisgünstig gilt die Kostenmiete, berechnet gemäss Wohnraumförderungsverordnung WFV Art. 8.",
+              "future_category": 3
             }
           ],
           "note": "gemeinden[38] = Emmen (BFS 1024, KT LU, lang de). RUN 2 kommunal. Ergebnis: KEIN rechtskräftiges kommunales Tier-1-Instrument -> found=false (konservativ). Begründung: (1) Das aktuell IN KRAFT befindliche Bau- und Zonenreglement der Gemeinde Emmen (vom 4. Juni 1996, Ausgabe September 2017, Erlass-Nr. 6.0.1, offizielle Gesetzessammlung emmen.ch) enthält KEIN wohnpolitisches Instrument: keine preisgünstig-Quote, kein Wohnraumschutz/Abbruch-/Umbaubewilligungsregime für den Mietbestand, keine Mietzinskontrolle, kein kommunales Wohnbau-/Genossenschafts-/Baurechts-/Vorkaufsrechts-Reglement. Die im 1996er BZR vorhandenen 'Abbruch'-Stellen betreffen allgemeine Abbrucharbeiten/Index, keinen Wohnraumschutz. (2) Das einzige potenzielle Instrument — Art. 52 Abs. 10 BZR: 'In Gestaltungsplangebieten, in denen durch ein qualifiziertes Konkurrenzverfahren nach Art. 8 BZR von den Abweichungen gemäss Abs. 4 profitiert wird, sind 25% der zusätzlich möglichen Hauptnutzflächen gemäss Anhang 7 als preisgünstiger Wohnraum zu erstellen. Als preisgünstig gilt die Kostenmiete, berechnet gemäss Wohnraumförderungsverordnung WFV Art. 8, unter Berücksichtigung der Anlagekostenlimiten gemäss BWO.' — wäre inhaltlich Kat 3 (verbindliche preisgünstig-Quote, an Dichtebonus/Aufzonung gekoppelt; Kostenmiete des geförderten Segments, NICHT Kat 6). ABER: Dieser Artikel stammt ausschliesslich aus dem ENTWURF der laufenden Ortsplanungsrevision (Dokumentkopf: 'Stand vom 13. November 2023, Vom Gemeinderat am 22. November 2023 verabschiedet zu Handen der 1. Lesung im Einwohnerrat'; Schlussbestimmung: 'Die vorliegende Bau- und Zonenordnung tritt mit der Genehmigung durch den Regierungsrat in Kraft'). Stand Juni 2026 ist die Revision NICHT in Kraft: 2. Lesung/Beschluss Einwohnerrat erst am 16.12.2025; danach noch Referendumsfrist (60 Tage) und finale Genehmigung durch den Luzerner Regierungsrat (erteilt erst die Rechtskraft) — erwartet frühestens 2027. Nach quellen-agent ist eine 'noch nicht in Kraft gesetzte Vorlage' KEINE zulässige Tier-1-Quelle -> Instrument bleibt 'adopted_not_yet_in_force' und wird ausgeschlossen. (3) Die genossenschaftliche Wohnbautätigkeit in Emmen (GBE, Wohnbaugenossenschaft Emmen) ist private Trägerschaft, kein kommunales Tier-1-Instrument. Mehrwertabgabe ohnehin ausgeschlossen (Steuer). Fazit: found=false bis zur Rechtskraft der Ortsplanungsrevision.",
@@ -6247,7 +6256,8 @@
               "source_title": "Volksinitiative «2000 Wohnungen für den Zuger Mittelstand» — Abstimmungsergebnis SRF",
               "source_form": "other",
               "source_url": "https://www.srf.ch/news/abstimmungen-18-juni-2023/abstimmung-stadt-zug-soll-die-stadt-zug-2000-guenstige-wohnungen-erhalten",
-              "evidence_quote_short": "50.2% Ja, Umsetzung in Revision BZO, Volksabstimmung ca. 2027"
+              "evidence_quote_short": "50.2% Ja, Umsetzung in Revision BZO, Volksabstimmung ca. 2027",
+              "future_category": 3
             }
           ],
           "note": "Stadt Zug hat seit 2009 eine rechtskräftige Überlagerungszone für preisgünstigen Wohnungsbau (§ 37/38 BO): in bestimmten Gebieten mindestens 50% der Geschossfläche preisgünstig, mit Höchstmietzinsen für das Fördersegment (Kat 3, nicht Kat 6). Bebauungsplan GIBZ (2025) ist weiteres in-force-Instrument. Die Volksinitiative «2000 Wohnungen» (2023 angenommen) und die neue BZO mit 40%/20%-Quoten sind noch nicht rechtskräftig (Volksabstimmung ~2027). Gesamtrevision Ortsplanung ebenfalls ausstehend.",
@@ -6318,7 +6328,8 @@
               "source_title": "Baar - Ortsplanung / Gesamtrevision Nutzungsplanung (Zonenplan und Bauordnung), Abstimmung 14.06.2026",
               "source_url": "https://www.baar.ch/ortsplanung",
               "source_form": "zoning_code",
-              "evidence_quote_short": "Am 14. Juni 2026 stimmt die Baarer Stimmbevölkerung über die Gesamtrevision der Nutzungsplanung ab ... noch nicht rechtskräftig (zweite öffentliche Auflage und Genehmigung durch den Kanton ausstehend)."
+              "evidence_quote_short": "Am 14. Juni 2026 stimmt die Baarer Stimmbevölkerung über die Gesamtrevision der Nutzungsplanung ab ... noch nicht rechtskräftig (zweite öffentliche Auflage und Genehmigung durch den Kanton ausstehend).",
+              "future_category": 2
             }
           ],
           "note": "Validierte in-Kraft KOMMUNALE Tier-1-Quelle: § 36c Bauordnung Baar (Bauzone mit speziellen Vorschriften Unterfeld Süd) enthält einen verbindlichen Mindestanteil preisgünstiger Wohnungen (von max. 38'000 m2 aGF Wohnen sind mind. 10'000 m2 aGF preisgünstige Wohnungen gemäss kantonalem Wohnraumförderungsgesetz zu realisieren und dauerhaft zu erhalten). Projekt-/zonenbezogene, verbindliche Quote bei Neuproduktion via Bebauungsplan -> Kat 3. Zone durch Volksabstimmung 27.09.2020 angenommen, kantonal genehmigt 2021, Bebauungsplan Unterfeld Süd rechtskräftig; in geltender BO (Nachführungen bis 17.04.2025). AUSGESCHLOSSEN/nicht validiert: § 10 Kleinwohnungsanteil (10% Wohnungen bis 3.5 Zi.) = reine Wohnungsgrössen-Mischung, keine Erschwinglichkeitsbindung -> kein Instrument. § 19 Ausnützungsbonus an Arealbebauungs-Qualität gebunden, NICHT an preisgünstigen Wohnraum -> kein Kat-2-Erschwinglichkeitsanreiz. § 34 Abbruchbewilligung nur in Ortsbildschutzzone (Dorfbild/Heimatschutz), schützt nicht den Mietwohnungsbestand -> kein Kat 5. § 36d Spinnerei nennt 'preisgünstigen Wohnraum' nur als Bebauungsplan-Ziel ohne bindenden Mindestanteil -> zu weich. Baurechtsabgabe an gemeinnützige Träger = Ratspraxis/Strategie (Gemeindeordnungs-Kompetenz), kein eigenes verbindliches kommunales Wohnbauförderungs-Reglement -> nicht als separates Tier-1-Instrument validiert. Kein kommunales Vorkaufsrecht, keine Mehrwertabgabe als Instrument (Mehrwertabgabe ohnehin ausgeschlossen). Stadtweiter Erschwinglichkeits-/Dichtebonus aus revidierter BO am 14.06.2026 vom Volk angenommen, aber NOCH NICHT in Kraft (kantonale Genehmigung ausstehend) -> adopted_not_yet_in_force, nicht gezählt.",
@@ -16512,7 +16523,8 @@
               "source_url": "https://www.val-de-ruz.ch/fileadmin/SICO/Val-de-Ruz/Documents/Urbanisme/Doc_au_CG_du_29.04.2024/RCAZ/VdR_PAL_RCAZ_VF.pdf",
               "source_form": "plan",
               "evidence_quote_short": "Art. 41 ... une part minimale d'appartements avec encadrement destinés aux bénéficiaires AVS/AI ... est définie par parcelle.",
-              "excluded_reason": "Neuer PAL vom Conseil général am 29.04.2024 nur ADOPTIERT, vom Conseil d'État NICHT sanktioniert/NICHT rechtskräftig (Sanktion frühestens 2027, Einsprachen hängig). Kein rechtskräftiger Plan -> keine Tier-1-Validierung (konservativ)."
+              "excluded_reason": "Neuer PAL vom Conseil général am 29.04.2024 nur ADOPTIERT, vom Conseil d'État NICHT sanktioniert/NICHT rechtskräftig (Sanktion frühestens 2027, Einsprachen hängig). Kein rechtskräftiger Plan -> keine Tier-1-Validierung (konservativ).",
+              "future_category": 3
             },
             {
               "name": "PAL/RCAZ Art. 42 — kommunales droit d'emption (Erwerbsrecht) über Grundstücke in PPP",
@@ -16524,7 +16536,8 @@
               "source_url": "https://www.val-de-ruz.ch/fileadmin/SICO/Val-de-Ruz/Documents/Urbanisme/Doc_au_CG_du_29.04.2024/RCAZ/VdR_PAL_RCAZ_VF.pdf",
               "source_form": "plan",
               "evidence_quote_short": "Art. 42 La commune dispose d'un droit d'emption sur tous les biens-fonds ou parties de ceux-ci compris dans les PPP figurant dans le tableau ci-après.",
-              "excluded_reason": "Teil des neuen PAL, der vom Conseil d'État NICHT sanktioniert und NICHT in Kraft ist (Sanktion frühestens 2027, Einsprachen). Keine rechtskräftige kommunale Tier-1-Quelle -> nicht validiert (konservativ)."
+              "excluded_reason": "Teil des neuen PAL, der vom Conseil d'État NICHT sanktioniert und NICHT in Kraft ist (Sanktion frühestens 2027, Einsprachen). Keine rechtskräftige kommunale Tier-1-Quelle -> nicht validiert (konservativ).",
+              "future_category": 4
             }
           ],
           "note": "RUN 2 (kommunal), Val-de-Ruz NE (frankofon). Konservatives Ergebnis: Auf rein KOMMUNALER Ebene (eigenes règlement communal / rechtskräftiger kommunaler Plan) ist DERZEIT KEIN wohnpolitisches Instrument rechtskräftig in Kraft. Einziges für das Gemeindegebiet rechtskräftig wirkendes Tier-1-Instrument ist die kantonale LVAL, die der Kanton der Gemeinde Val-de-Ruz per Arrêté du Conseil d'État (13.12.2023, in Kraft 1.1.2024) zugewiesen hat — Bewilligungspflicht für den VERKAUF vermieteter 2-5-Zimmer-Wohnungen (Veräusserungseingriff -> Kat 4; KEINE Mietzinskontrolle, also nicht Kat 6; kein Abbruch/Umbau-Bewilligungsregime, also nicht Kat 5). Hinweis: Die LVAL ist KANTONAL verankert (kein eigenständiges règlement communal); die Gemeinde 'aktiviert' sie nicht selbst, sondern wird vom Kanton bezeichnet. Sie ist hier als territorial wirksames Tier-1-Instrument geführt, gehört strukturell aber zur kantonalen Ebene (Doppelzählung mit RUN 1 möglich). AUSGESCHLOSSEN/NICHT validiert: (1) Neuer PAL/RCAZ (Conseil général 29.04.2024) mit Art. 41 (Pflichtanteil 'appartements avec encadrement' AVS/AI je Parzelle in PPP) und Art. 42 (kommunales droit d'emption in PPP) -> Conseil d'État hat den PAL NICHT sanktioniert, NICHT in Kraft (Sanktion frühestens 2027, Einsprachen hängig); 'anciens PAL' der Fusionsdörfer gelten weiter, enthalten keine Wohnpolitik-Instrumente. RCAZ Art. 38/39 'part min/max logement' = Nutzungsmix Wohnen/Aktivitäten je Parzelle, KEINE Bezahlbarkeits-Quote. (2) Kein kommunales droit de préemption / aide communale au logement / droit de superficie / gemeinnütziger Fonds in Kraft gefunden. (3) Keine Résidences-secondaires-/Kurzzeitvermietungs-Reglementierung (VdR unter 20% LRS-Schwelle). (4) 'Vivaldis' ist das kommunale Fernwärmenetz (CAD), KEINE Wohnbaugesellschaft. (5) Mehrwertabgabe/contribution de plus-value = ausgeschlossen (Steuer), in NE ohnehin kantonal. Mangelgemeinde (pénurie): Ja, VdR ist LVAL-Mangelgemeinde (Leerstand < 1.5%), aber die NE-LVAL deckt NUR den Verkauf, NICHT Abbruch/Umbau/Renovation und KEINE Mietzinskontrolle (ASLOCA-Motion 2026 für Ausweitung ist noch nicht Gesetz).",

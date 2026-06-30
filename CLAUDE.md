@@ -131,6 +131,16 @@ Voll dokumentiert in ARCHITECTURE.md §3.
    Kategorie vorhanden, `legal_status` fehlt oder `==="in_force"`. (Angenommen-
    aber-noch-nicht-in-Kraft / pendent färbt NICHT.) Und nur für Gemeinden in
    `munByBfs` — das enthält **nur** Run-2-Gemeinden mit `found===true`.
+   - **„Beschlossen"-Markierung (färbt NICHT, nur Audit-Reiter 05/07):** Instrumente
+     mit `legal_status==="adopted_not_yet_in_force"` werden in `gemCard` als
+     amber-Pill **„Beschlossen · Kat n"** ausgewiesen (statt fälschlich „nichts
+     gefunden"). Helfer `munAdopted(i)` + `futCat(i)`. Kategorie kommt aus
+     `taxonomy_category` (nicht-excluded) bzw. dem neuen Feld **`future_category`**
+     (timing-bedingt excludierte; gesetzt nur dort, wo das Instrument bei
+     Inkraftsetzung wirklich Kat 1–6 wäre — NICHT bei substanziell ausgeschlossenen
+     wie Mehrwertabgaben). Karten-Färbung bleibt unverändert (Invariant: beschlossen
+     ≠ in Kraft). Dedup: bereits in-force gefärbte Kategorien erzeugen keinen
+     zusätzlichen Beschlossen-Badge.
 5. **Stärke-Ordnung:** `MAP_CAT_PRIORITY=[6,5,4,3,2,1]` — höhere Nummer gewinnt.
    `selectedCats`-Chips filtern auf beiden Ebenen über `strongestSel`.
 
