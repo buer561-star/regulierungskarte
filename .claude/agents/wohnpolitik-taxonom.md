@@ -68,7 +68,7 @@ Antworte immer auf Deutsch.
 
 ## 4. EIGENTUMS- UND TRANSAKTIONSEINGRIFFE
 
-**Definition:** Instrumente, bei denen die öffentliche Hand direkt in Eigentumswechsel, Veräusserungen, Erwerbsmöglichkeiten oder Verfügungsrechte im Immobilienmarkt eingreift. Der Fokus liegt nicht auf Mietpreisregulierung und nicht primär auf baulichem Bestandesschutz, sondern auf der Frage, wer ein Grundstück oder eine Liegenschaft erwerben, halten, übertragen oder zurückerwerben kann.
+**Definition:** Instrumente, bei denen die öffentliche Hand direkt in Eigentumswechsel, Veräusserungen, Erwerbsmöglichkeiten oder Verfügungsrechte im Immobilienmarkt eingreift. Der Fokus liegt nicht auf Mietpreisregulierung und nicht primär auf dem Erhalt des bestehenden Wohnraums, sondern auf der Frage, wer ein Grundstück oder eine Liegenschaft erwerben, halten, übertragen oder zurückerwerben kann.
 
 **Typische Instrumente:**
 - gesetzliches Vorkaufsrecht der Gemeinde oder des Kantons
@@ -83,7 +83,17 @@ Antworte immer auf Deutsch.
 
 **Kernformel:** Der Staat greift nicht primär in die Miete ein, sondern in die Eigentums- oder Transaktionslogik.
 
-## 5. BESTANDESSCHUTZ ÜBER ZUSÄTZLICHE VERFAHREN UND BEWILLIGUNGEN
+## 5. WOHNRAUMSCHUTZ / ERHALTUNG ÜBER ZUSÄTZLICHE VERFAHREN UND BEWILLIGUNGEN
+
+> **Terminologie:** Diese Kategorie ist **Wohnraumschutz / Wohnungserhaltung /
+> Zweckentfremdungsschutz** — NICHT „Bestandesschutz" im rechtstechnischen Sinn
+> (Besitzstandsgarantie/Grandfathering bestehender Bauten ist ein
+> Eigentümer-Schutzkonzept und gehört NICHT hierher). Gemeint ist der Schutz von
+> **Mietwohnraum vor Entzug aus der Wohnnutzung** (Abbruch/Umnutzung/
+> Zweckentfremdung) über Bewilligungs-/Schutzpflichten. Beispiel: Stadt Bern
+> Art. 16a BO „Schutz von Wohnraum bei Wohnungsknappheit" (Umnutzungs-/
+> Abbruchverbot für den ganzen Mietbestand bei <1 % Leerstand, ohne
+> Mietzinskontrolle) = Kat 5.
 
 **Definition:** Instrumente, die den **gesamten Mietwohnungsbestand** (ALLE Mietwohnungen, nicht nur preisgünstige/subventionierte/geförderte) vor Abbruch, Umnutzung, Sanierung, Umbau, Renovation, Zweckentfremdung oder Umwandlung schützen. Der Kern ist eine zusätzliche Prüfungs-, Melde- oder Bewilligungspflicht für bauliche Eingriffe oder den Entzug von Mietwohnraum. Die Massnahme schützt die Verfügbarkeit und Struktur des bestehenden **Miet**wohnungsbestands, setzt aber noch nicht zwingend einen Mietzinsdeckel oder eine Renditekontrolle fest.
 
@@ -138,12 +148,12 @@ Bestimmte Massnahmen sind **keine** wohnpolitischen Instrumente und erhalten **K
 
 # Globale Klassifikationsregeln
 
-1. **Klassifiziere immer das konkrete Instrument, nicht die politische Vorlage als Ganzes.** Eine Vorlage kann aktive Bodenpolitik, Vorkaufsrecht und Bestandesschutz enthalten — dann müssen drei separate Instrumente erfasst und je einzeln klassifiziert werden.
+1. **Klassifiziere immer das konkrete Instrument, nicht die politische Vorlage als Ganzes.** Eine Vorlage kann aktive Bodenpolitik, Vorkaufsrecht und Wohnraumschutz enthalten — dann müssen drei separate Instrumente erfasst und je einzeln klassifiziert werden.
 2. **Jedes Instrument erhält genau eine Hauptkategorie** (1–6) **oder** ist **ausgeschlossen** (siehe Ausschlüsse). Enthält ein Instrument mehrere Dimensionen, teile es in mehrere Instrumente auf. Ist das nicht möglich, wähle die Kategorie nach der **stärksten direkten Eingriffsmechanik**.
 3. **Reihenfolge der Eingriffsintensität (ungefähr 1 → 6):** (1) öffentliche Ermöglichung über Boden · (2) freiwilliger planerischer Anreiz · (3) verbindliche planerische Pflicht · (4) Eingriff in Eigentum oder Transaktion · (5) Bewilligungsschutz für bestehenden Wohnraum · (6) Bewilligungsschutz plus Mietzins- oder Renditekontrolle.
 4. **Kategorie 6 ist ein harter Mietzinsdeckel auf dem freien Bestand** — NICHT die Kostenmiete/Preisbindung geförderter/gemeinnütziger Wohnungen (→ Kat 3/1) und NICHT die Formularpflicht beim Anfangsmietzins (→ Kat 5).
 5. **Mehrwertabgaben werden ausgeschlossen** (Steuer), nicht als Kat 3 erfasst — siehe Ausschlüsse.
-6. **Kategorie 5 (Bestandesschutz) schützt den GESAMTEN Mietwohnungsbestand** (alle Mietwohnungen) bei Abbruch/Umbau/Sanierung/Zweckentfremdung — NICHT eine Beschränkung, die nur für geförderte/subventionierte Wohnungen gilt (→ Kat 1/4).
+6. **Kategorie 5 (Wohnraumschutz) schützt den GESAMTEN Mietwohnungsbestand** (alle Mietwohnungen) bei Abbruch/Umbau/Sanierung/Zweckentfremdung — NICHT eine Beschränkung, die nur für geförderte/subventionierte Wohnungen gilt (→ Kat 1/4).
 
 # Entscheidungsheuristik (in dieser Reihenfolge prüfen)
 

@@ -219,7 +219,11 @@ neutral `LANDFILL=#E4E7EA`.
 
 ## 7. Taxonomie & Projekt-Agenten
 
-**6 Kategorien**, von **Kat 1 = aktive Bodenpolitik** … bis **Kat 6 = harter
+**6 Kategorien**, von **Kat 1 = aktive Bodenpolitik** … über **Kat 5 =
+Wohnraumschutz / Erhaltung (Verfahren)** — Schutz des GESAMTEN Mietbestands vor
+Abbruch/Umnutzung/Zweckentfremdung über Bewilligungspflichten, OHNE
+Mietzinskontrolle (NICHT „Bestandesschutz" i.S.v. Besitzstand/Grandfathering —
+bewusst umbenannt; z. B. Stadt Bern Art. 16a BO) — bis **Kat 6 = harter
 Wohnschutz / Mietzinskontrolle auf dem FREIEN Bestand** (nur BS/VD/GE).
 Schlüssel-Ausschlüsse: **Mehrwertabgabe = Steuer → ausgeschlossen** (nicht Kat 3);
 Kostenmiete geförderter/gemeinnütziger Wohnungen → Kat 3/1; Formularpflicht

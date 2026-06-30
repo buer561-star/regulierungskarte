@@ -347,7 +347,7 @@
         <h1 data-i18n="tax_h1">Taxonomie wohnpolitischer Instrumente</h1>
         <p data-i18n-html="tax_desc">Sechs Hauptkategorien, geordnet nach <b>Eingriffsintensität</b> — von der öffentlichen Ermöglichung über Boden (1) bis zum harten Wohnschutz mit Mietzins- oder Renditekontrolle (6). Jedes konkrete Instrument erhält genau <b>eine</b> Hauptkategorie.</p>
       </div>
-      <div class="taxnote" data-i18n-html="tax_note">Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Bestandesschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.</div>
+      <div class="taxnote" data-i18n-html="tax_note">Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Wohnraumschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.</div>
       <div class="scale" id="tax-scale"></div>
       <div id="tax-cats" style="margin-top:18px"></div>
       <div class="blocklabel" data-i18n="tax_rules_label">Globale Klassifikationsregeln</div>
@@ -21194,7 +21194,7 @@ de:{
   th_bfs:"BFS-Nr.", th_municipality:"Gemeinde", th_ct:"Kt.", th_dwellings:"Wohnungen", th_pct_ch:"% CH", th_municipalities:"Gemeinden", th_strongest_cat:"Stärkste bindende Kat.",
   tax_eb:"Klassifikation · Wohnpolitik", tax_h1:"Taxonomie wohnpolitischer Instrumente",
   tax_desc:"Sechs Hauptkategorien, geordnet nach <b>Eingriffsintensität</b> — von der öffentlichen Ermöglichung über Boden (1) bis zum harten Wohnschutz mit Mietzins- oder Renditekontrolle (6). Jedes konkrete Instrument erhält genau <b>eine</b> Hauptkategorie.",
-  tax_note:"Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Bestandesschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.",
+  tax_note:"Klassifiziert wird stets das <b>konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Enthält eine Vorlage mehrere Dimensionen (z.&nbsp;B. Bodenpolitik + Vorkaufsrecht + Wohnraumschutz), wird sie in mehrere Instrumente aufgeteilt — je mit eigener Kategorie.",
   tax_rules_label:"Globale Klassifikationsregeln",
   tax_def:"Definition", tax_instr:"Typische Instrumente", tax_demarc:"Abgrenzung", tax_formula:"Kernformel",
   aukt_eb:"Evidenz · Kantonaler Rechtsrahmen (Run 1)", aukt_h1:"Audit · Kantone",
@@ -21291,7 +21291,7 @@ en:{
   th_bfs:"BFS no.", th_municipality:"Municipality", th_ct:"Ct.", th_dwellings:"Dwellings", th_pct_ch:"% CH", th_municipalities:"Municipalities", th_strongest_cat:"Strongest binding cat.",
   tax_eb:"Classification · housing policy", tax_h1:"Taxonomy of housing-policy instruments",
   tax_desc:"Six main categories, ordered by <b>intervention intensity</b> — from public enablement via land (1) to hard housing protection with rent or return control (6). Each concrete instrument receives exactly <b>one</b> main category.",
-  tax_note:"What is classified is always the <b>concrete instrument</b>, not the political proposal as a whole. If a proposal contains several dimensions (e.g. land policy + pre-emption right + stock protection), it is split into several instruments — each with its own category.",
+  tax_note:"What is classified is always the <b>concrete instrument</b>, not the political proposal as a whole. If a proposal contains several dimensions (e.g. land policy + pre-emption right + housing preservation), it is split into several instruments — each with its own category.",
   tax_rules_label:"Global classification rules",
   tax_def:"Definition", tax_instr:"Typical instruments", tax_demarc:"Demarcation", tax_formula:"Core formula",
   aukt_eb:"Evidence · cantonal legal framework (Run 1)", aukt_h1:"Audit · Cantons",
@@ -21671,11 +21671,11 @@ const TAX_DE = [
    abgrenzung:"Unterscheidet sich von Kategorie 2 durch die Verbindlichkeit (nicht freiwillig). Von Kategorie 5 dadurch, dass primär neue Produktion oder planungsrechtliche Entwicklung gesteuert wird, nicht der bestehende Bestand geschützt. Von Kategorie 6 dadurch, dass es nicht primär eine allgemeine Mietzins- oder Renditekontrolle über bestehende Wohnungen ist.",
    formel:"Der Staat sagt: Wenn hier gebaut, umgezont oder verdichtet wird, muss ein bestimmter Anteil preisgünstig sein."},
   {n:4,title:"Eigentums- und Transaktionseingriffe",
-   def:"Instrumente, bei denen die öffentliche Hand direkt in Eigentumswechsel, Veräusserungen, Erwerbsmöglichkeiten oder Verfügungsrechte im Immobilienmarkt eingreift. Der Fokus liegt nicht auf Mietpreisregulierung und nicht primär auf baulichem Bestandesschutz, sondern auf der Frage, wer ein Grundstück oder eine Liegenschaft erwerben, halten, übertragen oder zurückerwerben kann.",
+   def:"Instrumente, bei denen die öffentliche Hand direkt in Eigentumswechsel, Veräusserungen, Erwerbsmöglichkeiten oder Verfügungsrechte im Immobilienmarkt eingreift. Der Fokus liegt nicht auf Mietpreisregulierung und nicht primär auf dem Erhalt des bestehenden Wohnraums, sondern auf der Frage, wer ein Grundstück oder eine Liegenschaft erwerben, halten, übertragen oder zurückerwerben kann.",
    instr:["Gesetzliches Vorkaufsrecht der Gemeinde oder des Kantons","Erwerbsrechte zugunsten der öffentlichen Hand","Rückkaufsrechte, sofern als gesetzliches oder regulatorisches Eingriffsrecht ausgestaltet","Veräusserungsbeschränkungen","Genehmigungspflichten bei bestimmten Verkäufen","Kommunale oder kantonale Rechte zur Sicherung strategischer Grundstücke","Abtretungspflichten oder Erwerbsoptionen, sofern sie den privaten Transaktionsmarkt direkt berühren"],
    abgrenzung:"Ein Vorkaufsrecht ist nicht aktive Bodenpolitik. Bodenpolitik = die Gemeinde kauft, hält, entwickelt oder vergibt Boden aus eigener Handlungsmacht (Kategorie 1). Ein Vorkaufsrecht = ein gesetzliches Eingriffsrecht in eine private Transaktion. Macht das Instrument nur bauliche Veränderungen bewilligungspflichtig, gehört es zu Kategorie 5. Werden danach Mietzinse kontrolliert, zu Kategorie 6.",
    formel:"Der Staat greift nicht primär in die Miete ein, sondern in die Eigentums- oder Transaktionslogik."},
-  {n:5,title:"Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
+  {n:5,title:"Wohnraumschutz / Erhaltung über zusätzliche Verfahren und Bewilligungen",
    def:"Instrumente, die den GESAMTEN Mietwohnungsbestand (alle Mietwohnungen, nicht nur preisgünstige/subventionierte) vor Abbruch, Umnutzung, Sanierung, Umbau, Renovation, Zweckentfremdung oder Umwandlung schützen. Kern ist eine zusätzliche Prüfungs-, Melde- oder Bewilligungspflicht für bauliche Eingriffe oder den Entzug von Mietwohnraum — ohne (noch) Mietzinsdeckel oder Renditekontrolle.",
    instr:["Bewilligungspflicht für Abbruch von Mietwohnraum","Bewilligungspflicht für Umbau oder umfassende Sanierung","Bewilligungspflicht für Renovationen mit Verdrängungsrisiko","Bewilligungspflicht für Zweckänderung / Zweckentfremdung","Bewilligungspflicht für Umwandlung von Mietwohnungen in Stockwerkeigentum","Bewilligungspflicht für Zusammenlegung/Aufteilung oder Entzug von Mietwohnraum","Beschränkung von Kurzzeitvermietung/Ferienwohnungen, sofern Schutz des Wohnungsbestands im Zentrum","Wohnschutzkommissionen/Meldepflichten ohne direkte Mietzinskontrolle"],
    abgrenzung:"Betrifft den ganzen Mietwohnungsbestand. Schwächer als Kategorie 6, solange keine direkte Mietzins-/Renditekontrolle. Wichtig: Gilt die Beschränkung NUR für geförderte/subventionierte Wohnungen (Zweckbindung des subventionierten Segments), ist es NICHT Kategorie 5, sondern Kategorie 1 (Förder-Zweckbindung) bzw. Kategorie 4 (wenn ein Veräusserungs-/Erwerbsrecht trägt).",
@@ -21692,7 +21692,7 @@ const TAX_EXCLUDED_DE = {title:"Ausgeschlossen — keine wohnpolitische Kategori
 const TAX_SCALE_DE = ["öffentliche Ermöglichung über Boden","freiwilliger planerischer Anreiz","verbindliche planerische Pflicht","Eingriff in Eigentum oder Transaktion","Bewilligungsschutz für bestehenden Wohnraum","Bewilligungsschutz plus Mietzins- oder Renditekontrolle"];
 const TAX_SCALE_EN = ["public enablement via land","voluntary planning incentive","binding planning obligation","intervention in ownership or transaction","permit protection for existing housing","permit protection plus rent or return control"];
 const TAX_RULES_DE = [
-  "<b>Klassifiziere immer das konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Eine Vorlage kann z.&nbsp;B. aktive Bodenpolitik, Vorkaufsrecht und Bestandesschutz enthalten — dann werden drei separate Instrumente erfasst.",
+  "<b>Klassifiziere immer das konkrete Instrument</b>, nicht die politische Vorlage als Ganzes. Eine Vorlage kann z.&nbsp;B. aktive Bodenpolitik, Vorkaufsrecht und Wohnraumschutz enthalten — dann werden drei separate Instrumente erfasst.",
   "<b>Jedes Instrument erhält genau eine Hauptkategorie (1–6) oder ist ausgeschlossen.</b> Enthält ein Instrument mehrere Dimensionen, teile es auf. Ist das nicht möglich, wähle die Kategorie nach der stärksten direkten Eingriffsmechanik.",
   "<b>Die Reihenfolge der Eingriffsintensität</b> ist ungefähr 1 → 6: öffentliche Ermöglichung über Boden, freiwilliger Anreiz, verbindliche Pflicht, Eingriff in Eigentum/Transaktion, Bewilligungsschutz für den Bestand, Bewilligungsschutz plus Mietzins-/Renditekontrolle.",
   "<b>Kategorie 6 ist ein harter Mietzinsdeckel auf dem freien Bestand</b> — NICHT die Kostenmiete/Preisbindung geförderter/gemeinnütziger Wohnungen (→ Kat 3/1) und NICHT die Formularpflicht beim Anfangsmietzins (→ Kat 5).",
@@ -21716,11 +21716,11 @@ const TAX_EN = [
    abgrenzung:"Differs from category 2 by being binding (not voluntary). From category 5 in that it primarily steers new production or planning-law development rather than protecting the existing stock. From category 6 in that it is not primarily a general rent or return control over existing housing.",
    formel:"The state says: if building, rezoning or densification happens here, a certain share must be affordable."},
   {n:4,title:"Ownership and transaction interventions",
-   def:"Instruments through which the public sector intervenes directly in changes of ownership, sales, acquisition options or rights of disposal in the property market. The focus is not on rent regulation and not primarily on physical stock protection, but on who may acquire, hold, transfer or re-acquire a plot or property.",
+   def:"Instruments through which the public sector intervenes directly in changes of ownership, sales, acquisition options or rights of disposal in the property market. The focus is not on rent regulation and not primarily on preserving the existing housing stock, but on who may acquire, hold, transfer or re-acquire a plot or property.",
    instr:["Statutory pre-emption right of the municipality or canton","Acquisition rights in favour of the public sector","Buy-back rights, where designed as a statutory or regulatory intervention right","Restrictions on disposal","Approval requirements for certain sales","Municipal or cantonal rights to secure strategic plots","Cession obligations or acquisition options, where they directly affect the private transaction market"],
    abgrenzung:"A pre-emption right is not active land policy. Land policy = the municipality buys, holds, develops or grants land from its own capacity to act (category 1). A pre-emption right = a statutory right to intervene in a private transaction. If the instrument only makes physical changes subject to approval, it belongs to category 5. If rents are controlled afterwards, to category 6.",
    formel:"The state intervenes not primarily in the rent, but in the logic of ownership or transactions."},
-  {n:5,title:"Stock protection through additional procedures and permits",
+  {n:5,title:"Housing preservation through additional procedures and permits",
    def:"Instruments that protect the ENTIRE rental-housing stock (all rental dwellings, not only affordable/subsidised ones) from demolition, change of use, refurbishment, conversion, renovation, misuse or transformation. At their core is an additional review, notification or approval requirement for physical interventions or the withdrawal of rental housing — without (yet) a rent cap or return control.",
    instr:["Approval requirement for demolition of rental housing","Approval requirement for conversion or comprehensive refurbishment","Approval requirement for renovations with a displacement risk","Approval requirement for change of use / misuse","Approval requirement for converting rental dwellings into condominium ownership","Approval requirement for merging/splitting or withdrawing rental housing","Restriction of short-term rentals/holiday flats, where protecting the housing stock is central","Housing-protection commissions/notification duties without direct rent control"],
    abgrenzung:"Covers the whole rental-housing stock. Weaker than category 6 as long as there is no direct rent/return control. Important: if the restriction applies ONLY to subsidised/promoted housing (purpose binding of the subsidised segment), it is NOT category 5 but category 1 (subsidy purpose binding) or category 4 (where an ownership/acquisition right carries it).",
@@ -21734,7 +21734,7 @@ const TAX_EN = [
 const TAX_EXCLUDED_EN = {title:"Excluded — not a housing-policy category", color:"#9AA7B0",
   note:"Fiscal levies are NOT classified. In particular the <b>value-added levy / betterment levy</b> (taxe sur la plus-value) is a <b>tax</b> on the planning-induced added value on zoning-in/rezoning/up-zoning — not a quota and not housing regulation, even where the proceeds are earmarked. Only a concrete, binding affordable/non-profit <b>housing obligation</b> (contract/condition) in place of the levy is recorded as category 3."};
 const TAX_RULES_EN = [
-  "<b>Always classify the concrete instrument</b>, not the political proposal as a whole. A proposal may e.g. contain active land policy, a pre-emption right and stock protection — then three separate instruments are recorded.",
+  "<b>Always classify the concrete instrument</b>, not the political proposal as a whole. A proposal may e.g. contain active land policy, a pre-emption right and housing preservation — then three separate instruments are recorded.",
   "<b>Each instrument receives exactly one main category (1–6) or is excluded.</b> If an instrument contains several dimensions, split it. If that is not possible, choose the category by the strongest direct intervention mechanism.",
   "<b>The order of intervention intensity</b> runs roughly 1 → 6: public enablement via land, voluntary incentive, binding obligation, intervention in ownership/transaction, permit protection for the stock, permit protection plus rent/return control.",
   "<b>Category 6 is a hard rent cap on the free stock</b> — NOT the cost-rent/price binding of subsidised/non-profit housing (→ cat 3/1) and NOT the form requirement for the initial rent (→ cat 5).",
@@ -21771,8 +21771,8 @@ const munAdoptedByBfs = {};
 (RUN2.cantons||[]).forEach(c=>{ [...(c.checked||[]),...(c.triaged||[])].forEach(g=>{ const cats=[...new Set((g.instruments||[]).filter(munAdopted).map(futCat))]; if(cats.length) munAdoptedByBfs[g.bfs]=cats; }); });
 function gemAdoptedSet(bfs){ return new Set(munAdoptedByBfs[bfs]||[]); }
 const aud={q:"",followup:false};
-const TAX_TITLE_DE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
-const TAX_TITLE_EN = {1:"Active land policy",2:"Planning incentives",3:"Binding quotas",4:"Ownership/transactions",5:"Stock protection (permits)",6:"Hard rent/return control"};
+const TAX_TITLE_DE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Wohnraumschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
+const TAX_TITLE_EN = {1:"Active land policy",2:"Planning incentives",3:"Binding quotas",4:"Ownership/transactions",5:"Housing preservation (permits)",6:"Hard rent/return control"};
 let TAX_TITLE = LANG==="en"?TAX_TITLE_EN:TAX_TITLE_DE;
 /* Karten-Deploy — EBENEN-ABHÄNGIG:
    Kantonskarte = was kantonal gilt, INKL. Ermächtigungen (Gemeindeoptionen).
