@@ -223,7 +223,16 @@ neutral `LANDFILL=#E4E7EA`.
 Wohnschutz / Mietzinskontrolle auf dem FREIEN Bestand** (nur BS/VD/GE).
 Schlüssel-Ausschlüsse: **Mehrwertabgabe = Steuer → ausgeschlossen** (nicht Kat 3);
 Kostenmiete geförderter/gemeinnütziger Wohnungen → Kat 3/1; Formularpflicht
-Anfangsmietzins → Kat 5 (nicht Kat 6). Reiter 03 zeigt die Taxonomie im Tool.
+Anfangsmietzins → Kat 5 (nicht Kat 6);
+**Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber): EWA/EWAP-Anteile,
+Zweitwohnungsbeschränkung, Lenkungsabgaben, touristische Bewirtschaftungs-/
+Umnutzungssteuerung → ausgeschlossen, NICHT Kat 5** (raumplanerische Tourismus-
+politik, kein Wohnschutz des bezahlbaren Bestands). **Abgrenzung:** genuiner
+Zweckentfremdungs-/Wohnschutz inkl. Airbnb-/Kurzzeitvermietungs-Beschränkungen
+(LDTR GE, VD, „Lex Airbnb") **bleibt Kat 5** (Erhalt von Wohnraum in der
+Wohnnutzung). Umgesetzt 2026-06-30 (6 kantonale + 11 kommunale Instrumente
+ausgeschlossen; Kantonsfarbe: BE/UR 5→1, GR/JU 5→4). Reiter 03 zeigt die
+Taxonomie im Tool.
 
 Zwei Projekt-Agenten in `.claude/agents/`:
 - **`wohnpolitik-taxonom`** — klassifiziert Instrumente in die 6 Kategorien;

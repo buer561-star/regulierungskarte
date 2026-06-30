@@ -200,12 +200,13 @@
         },
         {
           "name": "Steuerung Zweitwohnungsbestand / Erstwohnungsanteile und Lenkungsabgaben",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option)",
           "municipal_option_exists": true,
           "note": "Art. 71a BauG ermaechtigt Gemeinden, Massnahmen zur Sicherung eines genuegenden Angebots an erschwinglichen Wohnungen fuer die ortsansaessige Bevoelkerung zu treffen: insbesondere (a) Erstwohnungsanteile festlegen, (b) einmalige/wiederkehrende Lenkungsabgaben vorsehen, (c) Neubau/Umnutzung zu Zweitwohnungen beschraenken. Fuer die im kantonalen Richtplan bezeichneten Gemeinden besteht eine Handlungspflicht 'bei Bedarf' (Abs. 1); den uebrigen Gemeinden ist es freigestellt (Abs. 3). Die konkrete Geltung haengt von kommunalen Vorschriften ab. Taxonomie: Bestandes-/Zweckschutz (naehe Kategorie 5) mit Lenkungs-/Bodenpolitik-Elementen. · Reklassifiziert: Art. 71a BauG ermaechtigt zu Erstwohnungsanteilen, Lenkungsabgaben und Beschraenkung von Neubau/Umnutzung zu Zweitwohnungen - der traegende Mechanismus ist der Verfuegbarkeits-/Bestandesschutz von Wohnraum ueber Umnutzungs-/Nutzungsbeschraenkungen ohne Mietzinskontrolle.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Gemeindeaufgabe Wohnbauland-Bereitstellung und Wohnraumerhaltung (Verweisnorm)",
@@ -463,12 +464,13 @@
         },
         {
           "name": "Erst- und Zweitwohnungsanteil (kommunale Kompetenznorm)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option)",
           "municipal_option_exists": true,
           "note": "Das kantonale PBG ermächtigt die Gemeinden, Erst- und Zweitwohnungsanteile festzulegen oder gleichwertige Regelungen zu treffen, um ein genügendes Wohnungsangebot für die ortsansässige Bevölkerung zu sichern und ein angemessenes Verhältnis zwischen dauernd bewohnten Wohnungen und Zweitwohnungen zu erreichen. Reine Kompetenz-/Optionsnorm ohne automatische Geltung - die Aktivierung erfolgt durch die kommunale Bau- und Zonenordnung. Daneben vollzieht die Baubehörde nach Art. 114a die Bundes-Zweitwohnungsgesetzgebung, was reines Bundesrecht ist. · Reklassifiziert: Ermaechtigt Gemeinden, Erst-/Zweitwohnungsanteile festzulegen und Neubau/Umnutzung zu Zweitwohnungen zu beschraenken - Nutzungs-/Bestandessicherung des ortsansaessigen Wohnraums ueber Bewilligungs-/Beschraenkungspflicht ohne Mietzinskontrolle.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Kantonale Wohnbau- und Eigentumsförderung (Kantonsbeiträge ergänzend zum Bundes-WEG)",
@@ -1989,12 +1991,13 @@
         },
         {
           "name": "Zweitwohnungsbeschränkung: Kompetenz zum Erlass strengerer Vorschriften (Erstellung/Änderung/Nutzung von Wohnungen)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option)",
           "municipal_option_exists": true,
           "note": "Die bundesrechtliche Kompetenz, über das ZWG hinausgehende strengere Vorschriften zu Erstellung, Änderung oder Nutzung von Wohnungen (Zweitwohnungen) zu erlassen, wird an die Gemeinden übertragen, soweit der Kanton nicht selbst legiferiert. Reine Kompetenznorm ohne automatische lokale Geltung; eine kommunale Aktivierung wäre für die Wirkung erforderlich. · Reklassifiziert: Kompetenz, über das ZWG hinausgehende strengere Vorschriften zu Erstellung/Änderung/Nutzung von Wohnungen zu erlassen; Nutzungs-/Bestandessteuerung über zusätzliche Beschränkungs-/Bewilligungsregeln ohne Mietzinskontrolle.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Nutzungs- und Abbruchverpflichtungen in Arealplänen zur Siedlungserneuerung",
@@ -2356,12 +2359,13 @@
         },
         {
           "name": "Vollzug der Bundes-Zweitwohnungsregelung (LASec) durch die Gemeinden (RLE Art. 44l-44m)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option) / prozessual",
           "municipal_option_exists": true,
           "note": "Die kantonale Bauverordnung überträgt den Gemeinden die Anwendung der Bundes-Zweitwohnungsregelung (LASec) im Baubewilligungsverfahren und regelt geschützte Gebäude (Art. 44l-44m). Das materielle Verbot neuer Zweitwohnungen in Gemeinden mit >20% Zweitwohnungsanteil ist BUNDESRECHT (LASec) und wird hier nur erfasst, soweit der kantonale Erlass den gemeindlichen Vollzug und kantonale Ausführungsregeln festlegt. Taxonomie-Kategorie 5 (Bestandes-/Nutzungsschutz über Bewilligungsverfahren). municipal_followup_required, da die konkrete Betroffenheit (>20%-Gemeinde) und Erstwohnungs-/Zweitwohnungsanteile gemeindebezogen sind. Konservativ: das Kerninstrument ist Bundesrecht; der kantonale Beitrag ist Vollzugs-/Zuständigkeitsregelung. · Reklassifiziert: Die kantonale Bauverordnung überträgt den Gemeinden den Vollzug der Zweitwohnungsregelung im Baubewilligungsverfahren und regelt geschützte Gebäude. Nutzungs-/Bestandesschutz über ein zusätzliches Bewilligungsverfahren (Schutz der Erstwohnnutzung gegen Zweitwohnungs-Umwandlung), segmentunabhängig auf den allgemeinen Bestand wirkend, ohne Mietzinskontrolle → Kat 5. Unverändert.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         }
       ],
       "municipal_option_exists": true,
@@ -2744,12 +2748,13 @@
         },
         {
           "name": "Residences-secondaires-Anteil im kommunalen Zonenplan (Option)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option)",
           "municipal_option_exists": true,
           "note": "LCAT (RSN 701.0) Art. 59 al. 2 lit. f ermächtigt die Gemeinden, im kommunalen Zonenplan/-reglement Bestimmungen über 'l'importance des résidences secondaires' aufzunehmen ('Il peut contenir'). Dies ist eine kantonale Kompetenznorm; eine konkrete Begrenzung der Zweitwohnungen entsteht erst durch kommunale Planung. KEIN eigenständiges kantonales Kurzzeitvermietungs-/Zweckentfremdungsgesetz gefunden (Kurzzeitvermietung wird kantonal nur über die Kurtaxe/Tourismusgesetz erfasst, was kein Wohnungsmarkt-Regulierungsinstrument ist). · Reklassifiziert: Kommunale Kompetenznorm zur Begrenzung des Zweitwohnungsanteils im Zonenplan dient der Sicherung/Erhaltung des dauerhaft bewohnten Wohnraumbestands über die Nutzungsplanung.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         }
       ],
       "municipal_option_exists": true,
@@ -3041,12 +3046,13 @@
         },
         {
           "name": "Kommunale Begrenzung des Zweitwohnungsanteils (taux maximal de logements secondaires)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option) für die Gemeinde",
           "municipal_option_exists": true,
           "note": "Art. 49 Abs. 3 LCAT ermächtigt Gemeinden, dort, wo der Erstwohnungscharakter in der Bauzone durch übermässige Präsenz von Zweitwohnungen bedroht ist, Zonen mit einem vorgeschriebenen Höchstanteil an Zweitwohnungen auszuscheiden. Kantonale Kompetenznorm; lokale Geltung nur bei Festlegung im kommunalen Zonenplan/Reglement. · Reklassifiziert: Höchstanteil-Beschränkung von Zweitwohnungen schützt den Erstwohnungsbestand über planerische Auflage ohne Mietzinskontrolle -> Kat 5.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber / Zweitwohnungsgesetz): raumplanerische Steuerung des Erst-/Zweitwohnungsmix in Tourismusgemeinden (Anteils-/Bewilligungs-/Umnutzungsbeschränkungen, Lenkungsabgaben). Kein Wohnschutz des bezahlbaren (Miet-)Wohnbestands, keine Mietzins-/Belegungskontrolle. Per Taxonomie ausgeschlossen — gehoert nicht zu Kat 5 (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Mindest-/Höchstnutzungsindex zur Innenentwicklung/Verdichtung (indice brut d'utilisation du sol)",
