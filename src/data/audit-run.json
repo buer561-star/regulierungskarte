@@ -341,8 +341,9 @@
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermaechtigend (Option)",
           "municipal_option_exists": true,
-          "note": "Kantonales Rahmengesetz zum Schutz (insb. preisguenstigen) Wohnraums. Es gilt in einer Gemeinde NICHT automatisch, sondern erst, wenn sich die Gemeinde (bzw. Teile davon) dem Gesetz unterstellt; zustaendig sind die Stimmberechtigten im Rechtsetzungsverfahren (SS 3, SS 4). Voraussetzung: kein hinreichendes Angebot an preisguenstigen Wohnungen im Verhaeltnis zur Nachfrage. Bei Unterstellung: Bewilligungspflicht des Gemeinderates fuer Abbruch, Umbau und Zweckentfremdung (Zweckentzug) von Wohnraum, inkl. mietzinstreibender Erneuerungen (SS 7). Unterstellung befristet auf max. 8 Jahre, verlaengerbar (SS 5). Das Gesetz ist in Kraft (Stand 1.6.2015, nicht aufgehoben), aber als Kanton ist es eine reine Aktivierungs-/Kompetenznorm. · Reklassifiziert: Bewilligungspflicht fuer Abbruch, Umbau und Zweckentfremdung von Wohnraum zum Schutz des Bestands, ohne behoerdliche Mietzins-/Renditekontrolle - klassischer Bestandesschutz ueber Bewilligungsverfahren.",
-          "excluded": false
+          "note": "Kantonales Rahmengesetz zum Schutz (insb. preisguenstigen) Wohnraums. Es gilt in einer Gemeinde NICHT automatisch, sondern erst, wenn sich die Gemeinde (bzw. Teile davon) dem Gesetz unterstellt; zustaendig sind die Stimmberechtigten im Rechtsetzungsverfahren (SS 3, SS 4). Voraussetzung: kein hinreichendes Angebot an preisguenstigen Wohnungen im Verhaeltnis zur Nachfrage. Bei Unterstellung: Bewilligungspflicht des Gemeinderates fuer Abbruch, Umbau und Zweckentfremdung (Zweckentzug) von Wohnraum, inkl. mietzinstreibender Erneuerungen (SS 7). Unterstellung befristet auf max. 8 Jahre, verlaengerbar (SS 5). Das Gesetz ist in Kraft (Stand 1.6.2015, nicht aufgehoben), aber als Kanton ist es eine reine Aktivierungs-/Kompetenznorm. · Reklassifiziert: Bewilligungspflicht fuer Abbruch, Umbau und Zweckentfremdung von Wohnraum zum Schutz des Bestands, ohne behoerdliche Mietzins-/Renditekontrolle - klassischer Bestandesschutz ueber Bewilligungsverfahren. AKTIVIERUNG (verifiziert quellen-agent, SRL 898): Derzeit von KEINER Luzerner Gemeinde aktiviert — Stadt Luzern war 1990–1998 unterstellt, seither nicht; Wieder-Unterstellung per 1.1.2027 ist nur ein Stadtrats-Antrag (noch nicht rechtskraeftig). Dormante Ermaechtigung -> faerbt die Kantonskarte NICHT (option_activated=false), bis eine Unterstellung rechtskraeftig ist. Das Gesetz selbst bleibt als echtes Kat-5-Instrument dokumentiert.",
+          "excluded": false,
+          "option_activated": false
         },
         {
           "name": "Zonen fuer preisguenstigen/gemeinnuetzigen Wohnungsbau (kommunale Option in der Nutzungsplanung)",
@@ -1573,12 +1574,13 @@
         },
         {
           "name": "Sicherung angemessener Wohnflächenanteile (Wohnanteil) - kantonale Ermächtigung an Gemeinden (BauG)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "ermächtigend (Option)",
           "municipal_option_exists": true,
           "note": "Art. 7 Abs. 1 Ziff. 15 Baugesetz ermaechtigt die Gemeinden, in den Bauordnungen Vorschriften ueber die Sicherung angemessener Wohnflaechenanteile aufzustellen (Wohnanteilsplan-/Wohnanteilsregelung). Kompetenznorm ohne automatische Geltung; die effektive Einfuehrung erfolgt durch kommunale Bauordnung/Zonenplan. Sichert Wohnnutzung gegen Verdraengung durch Nicht-Wohnnutzungen (kein Mietzins-/Renditeeingriff). · Reklassifiziert: Wohnanteilsregelung sichert die Wohnnutzung gegen Verdrängung durch Nicht-Wohnnutzungen (Zweckentfremdungsschutz der Wohnfunktion); keine preisgünstig-/gemeinnützig-Quote -> Bestandesschutz Kategorie 5 statt 3.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Nutzungsplanung (Wohnanteilplan, Art. 7 BauG SH): planerische Nutzungsallokation — schreibt in (zentralen/gemischten) Zonen einen Mindestanteil Wohnnutzung an der Geschossflaeche bei Neu-/Umbauten vor. KEIN Wohnraumschutz-/Zweckentfremdungs-Bewilligungsregime fuer den bestehenden Mietbestand (nicht Kat 5) und keine Bodenpolitik/Preisbindung. Zudem reine kantonale Ermaechtigung ohne belegte kommunale Aktivierung. Per Taxonomie nicht erfasst. (quellen-agent rejected, Nutzer-Regel 2026-06-30)"
         },
         {
           "name": "Aktive Bodenpolitik / Baulandmobilisierung (planerische Instrumente im BauG)",

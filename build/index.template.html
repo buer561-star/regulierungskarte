@@ -506,7 +506,7 @@ de:{
   panel_area_h3:"Gebiet", panel_select:"Gebiet wählen", panel_hint:"Klicke ein Gebiet auf der Karte für Details.",
   d_municipality:"Gemeinde", d_canton:"Kanton", d_bfs:"BFS-Nummer", d_dwellings_gws:"Wohnungen (GWS)", d_canton_nr:"Kantonsnummer", d_municipalities:"Gemeinden",
   d_cantonal_instr:(n)=>`Kantonale Instrumente (${n})`, no_cantonal_t1:"Keine kantonalen Tier-1-Instrumente.",
-  mun_followup:"Kommunaler Follow-up", required:"erforderlich", activation_open:"Aktivierung offen",
+  mun_followup:"Kommunaler Follow-up", required:"erforderlich", activation_open:"Aktivierung offen", option_dormant:"derzeit nicht aktiviert — färbt die Karte nicht",
   special_area:"Sondergebiet", type:"Art", special_area_desc:"CH-Sondergebiet (keine politische Gemeinde)",
   rahmen_binding:"Direkt bindend (Gemeindeebene)", rahmen_incl:"Inkl. Ermächtigungen (Kantonsebene)", rahmen_none:"kein direkt bindendes Instrument", via_mun_option:"via Gemeindeoption",
   mun_instr_run2:"Kommunale Instrumente (Run 2)",
@@ -603,7 +603,7 @@ en:{
   panel_area_h3:"Area", panel_select:"Select an area", panel_hint:"Click an area on the map for details.",
   d_municipality:"Municipality", d_canton:"Canton", d_bfs:"BFS number", d_dwellings_gws:"Dwellings (GWS)", d_canton_nr:"Canton number", d_municipalities:"Municipalities",
   d_cantonal_instr:(n)=>`Cantonal instruments (${n})`, no_cantonal_t1:"No cantonal tier-1 instruments.",
-  mun_followup:"Municipal follow-up", required:"required", activation_open:"activation open",
+  mun_followup:"Municipal follow-up", required:"required", activation_open:"activation open", option_dormant:"not currently activated — does not colour the map",
   special_area:"Special area", type:"Type", special_area_desc:"Swiss special area (not a political municipality)",
   rahmen_binding:"Directly binding (municipal level)", rahmen_incl:"Incl. enabling provisions (cantonal level)", rahmen_none:"no directly binding instrument", via_mun_option:"via municipal option",
   mun_instr_run2:"Municipal instruments (Run 2)",
@@ -812,7 +812,7 @@ function cantonPanelHtml(nr){
     aud = rahmenRow(nr)+
       `<div class="d-row"><div class="d-k">${T.d_cantonal_instr(instr.length)}</div>${instr.length?instr.map(i=>
         `<div class="ainstr"><div class="ainstr-t">${catBadge(i.taxonomy_category)}${esc(i.name)}</div>`+
-        `<div class="ainstr-s">${i.bindingness?(T.binding_lbl+esc(i.bindingness)):""}${i.municipal_option_exists?` · ${T.cantonal_option_for_mun} (${T.activation_open})`:""}</div></div>`
+        `<div class="ainstr-s">${i.bindingness?(T.binding_lbl+esc(i.bindingness)):""}${i.municipal_option_exists?` · ${T.cantonal_option_for_mun} (${i.option_activated===false?`<span class="nofarb">${T.option_dormant}</span>`:T.activation_open})`:""}</div></div>`
       ).join(""):`<div class="d-v">${T.no_cantonal_t1}</div>`}</div>`+
       (a.municipal_followup_required?`<div class="d-row"><div class="d-k">${T.mun_followup}</div><div class="d-v">${T.required}${a.municipal_followup_reason?" — "+esc(a.municipal_followup_reason):""}</div></div>`:"");
   }
@@ -1073,7 +1073,7 @@ const LANDFILL = "#E4E7EA";
 const MAP_CAT_PRIORITY = [6,5,4,3,2,1];
 const auditByKt = {}; (AUDIT.cantons||[]).forEach(c=>{ if(c.canton_nr!=null) auditByKt[c.canton_nr]=c; });
 function cantonCatSet(nr, inclOptions){ const c=auditByKt[nr]; const s=new Set(); if(!c) return s;
-  (c.cantonal_instruments_found||[]).forEach(i=>{ if(!inclOptions && i.municipal_option_exists) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
+  (c.cantonal_instruments_found||[]).forEach(i=>{ if(i.option_activated===false) return; /* dormante, nirgends aktivierte Ermächtigung färbt nicht */ if(!inclOptions && i.municipal_option_exists) return; if(i.taxonomy_category) s.add(i.taxonomy_category); }); return s; }
 function cantonBindingCatSet(nr){ return cantonCatSet(nr,false); }
 function strongest(set){ for(const p of MAP_CAT_PRIORITY){ if(set.has(p)) return p; } return null; }
 function strongestSel(set){ for(const p of MAP_CAT_PRIORITY){ if(set.has(p) && selectedCats.has(p)) return p; } return null; }
@@ -1135,7 +1135,7 @@ function renderAuditList(){
       `<span class="acard-meta"><span class="pill">${T.instr_count(instr.length)}</span><span class="pill">${T.src_count(srcs.length)}</span>${fu}<span class="pill conf-${conf}">${T.conf_lbl}${esc(conf)}</span></span></div>`;
     const instrHtml = instr.length ? instr.map(i=>
       `<div class="ainstr"><div class="ainstr-t">${catBadge(i.taxonomy_category)}${esc(i.name)}</div>`+
-      `<div class="ainstr-s">${i.bindingness?`${T.binding_b}${esc(i.bindingness)} · `:""}${i.municipal_option_exists?`${T.cantonal_option_for_mun} · `:""}${esc(i.note||"")}</div></div>`
+      `<div class="ainstr-s">${i.bindingness?`${T.binding_b}${esc(i.bindingness)} · `:""}${i.municipal_option_exists?`${T.cantonal_option_for_mun} · `:""}${i.option_activated===false?`<span class="nofarb">(${T.option_dormant})</span> · `:""}${esc(i.note||"")}</div></div>`
     ).join("") : `<div class="aq">${T.no_cantonal_t1_found}</div>`;
     const srcHtml = srcs.length ? srcs.map(s=>
       `<div class="asrc">${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} ↗</a>`:esc(s.title)}${s.form?` <span class="mono">· ${esc(s.form)}</span>`:""}${s.article?` <span class="mono">· ${esc(s.article)}</span>`:""}</div>`

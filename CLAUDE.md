@@ -140,7 +140,12 @@ Voll dokumentiert in ARCHITECTURE.md §3.
    wird ihr Kanton **nicht** so klassifiziert.
 2. **Kantonskarte** (`mapMode==="kanton"`) färbt **inkl. Ermächtigungen**
    (`inclOptions=true`): bindende Kantonsinstrumente + reine Gemeindeoptionen,
-   die der Kanton ermöglicht.
+   die der Kanton ermöglicht. **AUSNAHME:** eine **dormante, nirgends aktivierte
+   Ermächtigung** (`option_activated:false`) färbt NICHT — `cantonCatSet`
+   überspringt sie. Beispiel: LU `Gesetz über die Erhaltung von Wohnraum` (GEW,
+   SRL 898) ist ein echtes Kat-5-Wohnraumschutzgesetz, aber derzeit von keiner
+   Gemeinde unterstellt (Stadt Luzern 1990–98; Wieder-Unterstellung per 2027 nur
+   beantragt) → bleibt im Audit dokumentiert, färbt aber nicht.
 3. **Gemeindekarte** (`mapMode==="gem"`) färbt
    `gemCatSet(bfs) = cantonBindingCatSet(kt) ∪ municipalCatSet(bfs)`: den
    **bindenden** Kantonsrahmen (ohne noch nicht aktivierte Ermächtigungen) plus
