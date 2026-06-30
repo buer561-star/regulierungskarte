@@ -35,6 +35,14 @@ Kategorie-Auswahl** `kdSelectedCats` (Chips `#kd-catchips`, alle/keine,
 unabhängig von `selectedCats` der Hauptkarte) → `kdRepaint`/`renderKdLegend`.
 Bau/Zoom in `buildKtDetailMap` (nur bei Kantonswechsel), Texte/Chips/Legende in
 `renderKtDetailText` (auch in `applyI18n`, ohne Pfad-Neubau).
+**Beschlossene (noch nicht in Kraft) Instrumente werden HIER gezeigt** (im
+Gegensatz zur Hauptkarte, deren Invariant unverändert bleibt): Toggle
+`#kd-incl-adopted` (`kdInclAdopted`, Default an). `kdGemColorState(bfs)` mischt
+`gemCatSet` (in-force, solid) mit `gemAdoptedSet(bfs)` (aus `munAdoptedByBfs` —
+deckt auch `found===false`-Gemeinden wie Stäfa/Dübendorf ab); ist die stärkste
+gewählte Kategorie nur beschlossen → **schraffierter** Fill `url(#kdh{cat})`
+(SVG-Pattern aus `kdHatchDefs`), sonst Vollfarbe. Legende trennt solid vs.
+„(beschlossen)" (`.dot-hatch`).
 
 ---
 

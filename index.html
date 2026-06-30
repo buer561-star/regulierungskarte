@@ -78,8 +78,10 @@
   .ktdetail .kd-desc{font-size:13.5px;color:var(--ink-soft);margin:0 0 14px;line-height:1.55;}
   .kd-controls{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
   .kd-controls .sel{min-width:240px;}
+  .kd-toggle{font-size:12.5px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
   .ktdetail .panel{position:static;}
   #kdmap{min-height:140px;}
+  .maplegend .dot-hatch{background:repeating-linear-gradient(45deg,var(--hc) 0 2.6px,#fff 2.6px 5px);border:1px solid var(--hairline);}
   /* Verteilung der Wohnungen (Audit · Übersicht) */
   .cd-overall{margin-bottom:20px;}
   .cd-obar{display:flex;height:30px;border-radius:7px;overflow:hidden;border:1px solid var(--hairline-strong);}
@@ -294,10 +296,11 @@
       <!-- Kanton-Detailkarte -->
       <div class="ktdetail" id="ktdetail">
         <div class="blocklabel" data-i18n="kd_blocklabel">Kanton-Detailkarte</div>
-        <p class="kd-desc" data-i18n-html="kd_desc">Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Filtere mit den <b>Instrument-Kategorien</b> unten (eigene Auswahl). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details.</p>
+        <p class="kd-desc" data-i18n-html="kd_desc">Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Filtere mit den <b>Instrument-Kategorien</b> unten (eigene Auswahl). <b>Beschlossene</b>, noch nicht in Kraft stehende Instrumente werden <b>schraffiert</b> dargestellt (abschaltbar). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details.</p>
         <div class="kd-controls">
           <span class="fl" data-i18n="canton">Kanton</span>
           <select class="sel" id="kd-select"></select>
+          <label class="kd-toggle"><input type="checkbox" id="kd-incl-adopted" checked> <span data-i18n="kd_incl_adopted">Beschlossene einbeziehen (schraffiert)</span></label>
         </div>
         <div class="catselect" id="kd-catselect">
           <div class="catselect-row">
@@ -21205,10 +21208,11 @@ de:{
   badge_excluded:"ausgeschlossen", badge_cat_prefix:"Kat. ",
   legend_coloring:"Einfärbung: ", legend_basis_kanton:"kantonal gilt — inkl. Ermächtigungen", legend_basis_gem:"direkt bindend (kantonsweit + kommunal aktiviert, Run 2)", nothing_unselected:"nichts / nicht gewählt",
   kd_blocklabel:"Kanton-Detailkarte", kd_select_ph:"— Kanton wählen —",
-  kd_desc:"Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Filtere mit den <b>Instrument-Kategorien</b> unten (eigene Auswahl). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details.",
+  kd_desc:"Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Filtere mit den <b>Instrument-Kategorien</b> unten (eigene Auswahl). <b>Beschlossene</b>, noch nicht in Kraft stehende Instrumente werden <b>schraffiert</b> dargestellt (abschaltbar). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details.",
   kd_legend_basis:"Gemeindeebene — bindender Kantonsrahmen + kommunal aktiviert (nach gewählten Kategorien)",
   kd_panel_h:"Kantonaler Rahmen", kd_panel_select:"Kein Kanton gewählt", kd_panel_hint:"Wähle oben einen Kanton, um die Detailkarte und den kantonalen Rahmen anzuzeigen.",
   kd_click_hint:"Klicke eine Gemeinde auf der Detailkarte für ihre kommunalen Instrumente.",
+  kd_incl_adopted:"Beschlossene einbeziehen (schraffiert)", kd_adopted_word:"beschlossen",
   kpi_basis_kanton:"kantonal gilt (inkl. Ermächtigungen)", kpi_basis_gem:"direkt bindend",
   level_cantonal:"Kantons", level_municipal:"Gemeinde",
   whg_card:"Whg.", whg_short:"Whg",
@@ -21301,10 +21305,11 @@ en:{
   badge_excluded:"excluded", badge_cat_prefix:"Cat. ",
   legend_coloring:"Colouring: ", legend_basis_kanton:"applies cantonally — incl. enabling provisions", legend_basis_gem:"directly binding (canton-wide + municipally activated, Run 2)", nothing_unselected:"nothing / not selected",
   kd_blocklabel:"Canton detail map", kd_select_ph:"— select canton —",
-  kd_desc:"Pick a <b>canton</b> — the map zooms to it and shows it <b>at municipal level only</b>: each municipality coloured by what actually applies there (binding cantonal framework + municipally activated instruments, Run 2). Filter with the <b>instrument categories</b> below (own selection). The text on the right shows what applies at the <b>cantonal level</b>; click a municipality for its details.",
+  kd_desc:"Pick a <b>canton</b> — the map zooms to it and shows it <b>at municipal level only</b>: each municipality coloured by what actually applies there (binding cantonal framework + municipally activated instruments, Run 2). Filter with the <b>instrument categories</b> below (own selection). <b>Adopted</b> instruments that are not yet in force are shown <b>hatched</b> (can be turned off). The text on the right shows what applies at the <b>cantonal level</b>; click a municipality for its details.",
   kd_legend_basis:"municipal level — binding cantonal framework + municipally activated (by selected categories)",
   kd_panel_h:"Cantonal framework", kd_panel_select:"No canton selected", kd_panel_hint:"Select a canton above to show the detail map and the cantonal framework.",
   kd_click_hint:"Click a municipality on the detail map for its municipal instruments.",
+  kd_incl_adopted:"Include adopted (hatched)", kd_adopted_word:"adopted",
   kpi_basis_kanton:"applies cantonally (incl. enabling provisions)", kpi_basis_gem:"directly binding",
   level_cantonal:"cantonal ", level_municipal:"municipal ",
   whg_card:"dwellings", whg_short:"dw.",
@@ -21509,10 +21514,19 @@ function cantonPanelHtml(nr){
 function detailKanton(nr){ document.getElementById("detail").innerHTML = cantonPanelHtml(nr); }
 
 /* ===== Kanton-Detailkarte (Zoom auf einen Kanton, Gemeindeebene + kantonaler Rahmen) ===== */
-let kdSelNr = 0, kdSelBfs = 0;
+let kdSelNr = 0, kdSelBfs = 0, kdInclAdopted = true;
 const kdSelectedCats = new Set([1,2,3,4,5,6]);   // eigene Kategorie-Auswahl der Detailkarte
-function kdGemCat(bfs){ return strongestSelIn(gemCatSet(bfs), kdSelectedCats); }   // gefiltert nach kdSelectedCats
-function kdGemFill(bfs){ const c=kdGemCat(bfs); return c?(TAX_COLORS[c]||LANDFILL):LANDFILL; }
+/* Färbe-Kategorie der Gemeinde: in-force (solid) ∪ ggf. beschlossen (schraffiert), gefiltert nach kdSelectedCats. */
+function kdGemColorState(bfs){
+  const inforce=gemCatSet(bfs);
+  const adopted=kdInclAdopted?gemAdoptedSet(bfs):new Set();
+  const all=new Set([...inforce,...adopted]);
+  const cat=strongestSelIn(all, kdSelectedCats);
+  if(!cat) return {cat:0, adopted:false};
+  return {cat, adopted: !inforce.has(cat)};   // wenn die stärkste gewählte Kategorie nur beschlossen ist → schraffiert
+}
+function kdGemCat(bfs){ return kdGemColorState(bfs).cat; }
+function kdGemFill(bfs){ const s=kdGemColorState(bfs); if(!s.cat) return LANDFILL; return s.adopted?`url(#kdh${s.cat})`:(TAX_COLORS[s.cat]||LANDFILL); }
 function kdRepaint(){ if(els.kd) for(const bfs in els.kd) els.kd[bfs].style.fill=kdGemFill(+bfs); }
 function renderKdCatChips(){ const box=document.getElementById("kd-catchips"); if(!box) return;
   box.innerHTML=[1,2,3,4,5,6].map(c=>{ const on=kdSelectedCats.has(c);
@@ -21524,8 +21538,20 @@ function kdAfterSelect(){ renderKdCatChips(); kdRepaint(); renderKdLegend(); }
 function setKdAllCats(on){ kdSelectedCats.clear(); if(on)[1,2,3,4,5,6].forEach(c=>kdSelectedCats.add(c)); kdAfterSelect(); }
 function renderKdLegend(){ const legEl=document.getElementById("kd-legend"); if(!legEl) return;
   if(!kdSelNr){ legEl.innerHTML=""; return; }
-  const used=new Set(); RAW.gemeinden.forEach(g=>{ if(g.kt===kdSelNr){ const c=kdGemCat(g.bfs); if(c) used.add(c); } });
-  legEl.innerHTML = `<span style="width:100%;color:var(--ink-faint)">${T.legend_coloring}${T.kd_legend_basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>${T.nothing_unselected}</span>`;
+  const solid=new Set(), hatch=new Set();
+  RAW.gemeinden.forEach(g=>{ if(g.kt!==kdSelNr) return; const s=kdGemColorState(g.bfs); if(s.cat){ (s.adopted?hatch:solid).add(s.cat); } });
+  const solidH=[...solid].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("");
+  const hatchH=[...hatch].sort((a,b)=>a-b).map(c=>`<span><span class="dot dot-hatch" style="--hc:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]} <span class="mono">(${T.kd_adopted_word})</span></span>`).join("");
+  legEl.innerHTML = `<span style="width:100%;color:var(--ink-faint)">${T.legend_coloring}${T.kd_legend_basis}</span>`+solidH+hatchH+`<span><span class="dot" style="background:${LANDFILL}"></span>${T.nothing_unselected}</span>`;
+}
+/* SVG-Schraffur-Pattern je Kategorie (für beschlossene, noch nicht in Kraft) */
+function kdHatchDefs(){ const defs=document.createElementNS(NS,"defs");
+  [1,2,3,4,5,6].forEach(c=>{ const p=document.createElementNS(NS,"pattern"); p.setAttribute("id","kdh"+c);
+    p.setAttribute("patternUnits","userSpaceOnUse"); p.setAttribute("width","7"); p.setAttribute("height","7"); p.setAttribute("patternTransform","rotate(45)");
+    const bg=document.createElementNS(NS,"rect"); bg.setAttribute("width","7"); bg.setAttribute("height","7"); bg.setAttribute("fill","#ffffff");
+    const st=document.createElementNS(NS,"rect"); st.setAttribute("width","3.7"); st.setAttribute("height","7"); st.setAttribute("fill",TAX_COLORS[c]);
+    p.appendChild(bg); p.appendChild(st); defs.appendChild(p); });
+  return defs;
 }
 function buildKtDetailSelect(){ const sel=document.getElementById("kd-select"); if(!sel) return;
   const sorted=[...RAW.cantons].sort((a,b)=>(ktNameByNr[a.nr]||"").localeCompare(ktNameByNr[b.nr]||""));
@@ -21535,6 +21561,7 @@ function buildKtDetailSelect(){ const sel=document.getElementById("kd-select"); 
 function kdMarkSel(bfs){ const svg=document.getElementById("kdmap"); if(!svg) return; svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=els.kd&&els.kd[bfs]; if(el) el.classList.add("sel"); }
 function buildKtDetailMap(){ const svg=document.getElementById("kdmap"); if(!svg) return; clear(svg); els.kd={};
   if(!kdSelNr){ svg.removeAttribute("viewBox"); svg.style.aspectRatio="2000 / 1282.3"; return; }
+  svg.appendChild(kdHatchDefs());
   const grp=document.createElementNS(NS,"g");
   RAW.gemeinden.forEach(g=>{ if(g.kt!==kdSelNr) return; const p=path(g.d,"land area"); p.dataset.kdbfs=g.bfs; p.style.fill=kdGemFill(g.bfs);
     p.addEventListener("click",()=>{ kdSelBfs=g.bfs; kdMarkSel(g.bfs); renderKtDetailGem(); });
@@ -21722,6 +21749,10 @@ const AUDIT = (()=>{ try{ return JSON.parse(document.getElementById("auditdata")
 const RUN2 = (()=>{ try{ return JSON.parse(document.getElementById("run2data").textContent); }catch(e){ return {run_meta:{},cantons:[]}; } })();
 const munByBfs = {}; const run2StatusByBfs = {};
 (RUN2.cantons||[]).forEach(c=>{ (c.checked||[]).forEach(g=>{ run2StatusByBfs[g.bfs]=(g.status==="checked")?"checked":"pending"; if(g && g.found) munByBfs[g.bfs]=g; }); (c.triaged||[]).forEach(g=>{ if(run2StatusByBfs[g.bfs]==null) run2StatusByBfs[g.bfs]="triaged"; }); });
+/* Beschlossene (angenommen, noch nicht in Kraft) kommunale Instrumente — auch für found===false-Gemeinden (z. B. Stäfa, Dübendorf). futCat = Kategorie bei Inkraftsetzung. */
+const munAdoptedByBfs = {};
+(RUN2.cantons||[]).forEach(c=>{ [...(c.checked||[]),...(c.triaged||[])].forEach(g=>{ const cats=[...new Set((g.instruments||[]).filter(munAdopted).map(futCat))]; if(cats.length) munAdoptedByBfs[g.bfs]=cats; }); });
+function gemAdoptedSet(bfs){ return new Set(munAdoptedByBfs[bfs]||[]); }
 const aud={q:"",followup:false};
 const TAX_TITLE_DE = {1:"Aktive Bodenpolitik",2:"Planerische Incentives",3:"Bindende Quoten",4:"Eigentum/Transaktion",5:"Bestandesschutz (Verfahren)",6:"Harter Wohnschutz (Mietzins/Rendite)"};
 const TAX_TITLE_EN = {1:"Active land policy",2:"Planning incentives",3:"Binding quotas",4:"Ownership/transactions",5:"Stock protection (permits)",6:"Hard rent/return control"};
@@ -22070,6 +22101,7 @@ function init(){
   document.getElementById("kd-select").addEventListener("change",e=>{ kdSelNr=+e.target.value||0; kdSelBfs=0; buildKtDetailMap(); renderKtDetailText(); });
   document.getElementById("kd-cat-all").addEventListener("click",()=>setKdAllCats(true));
   document.getElementById("kd-cat-none").addEventListener("click",()=>setKdAllCats(false));
+  document.getElementById("kd-incl-adopted").addEventListener("change",e=>{ kdInclAdopted=e.target.checked; kdRepaint(); renderKdLegend(); });
   /* Sprachumschalter + Tutorial */
   document.querySelectorAll("#langsw .lsbtn").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
   document.getElementById("tutbtn").addEventListener("click",openTut);
