@@ -25,6 +25,15 @@ bauen.
 04 Audit·Kantone · 05 Audit·Gemeinden · 06 Audit·Übersicht (Abdeckung) ·
 07 Wohnungen. Oben rechts: DE/EN-Umschalter + Tutorial-Knopf.
 
+Reiter 01 enthält zusätzlich unten eine **Kanton-Detailkarte** (`#kdmap`,
+`#kd-select`): wählt man einen Kanton, zoomt die Karte per `getBBox` auf dessen
+Gemeinden (nur dieser Kanton, Gemeindeebene, gefärbt via `kdGemCat` =
+`strongest(gemCatSet)` — **unabhängig** von der Kategorie-Auswahl/`selectedCats`),
+und rechts zeigt `cantonPanelHtml(nr)` den kantonalen Rahmen als Text; Klick auf
+eine Gemeinde füllt `#kd-gemdetail` via `gemPanelHtml(bfs)`. Bau/Zoom in
+`buildKtDetailMap` (nur bei Auswahländerung), Texte/Legende in
+`renderKtDetailText` (auch in `applyI18n`, ohne Pfad-Neubau).
+
 ---
 
 ## 1. Standing-Vorgaben des Nutzers (VERBINDLICH)

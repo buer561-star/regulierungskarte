@@ -74,6 +74,12 @@
   .maplegend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);}
   .maplegend span{display:inline-flex;align-items:center;gap:6px;}
   .maplegend .dot{width:11px;height:11px;border-radius:3px;}
+  .ktdetail{border-top:1px solid var(--hairline);margin-top:36px;padding-top:10px;}
+  .ktdetail .kd-desc{font-size:13.5px;color:var(--ink-soft);margin:0 0 14px;line-height:1.55;}
+  .kd-controls{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .kd-controls .sel{min-width:240px;}
+  .ktdetail .panel{position:static;}
+  #kdmap{min-height:140px;}
   /* Verteilung der Wohnungen (Audit · Übersicht) */
   .cd-overall{margin-bottom:20px;}
   .cd-obar{display:flex;height:30px;border-radius:7px;overflow:hidden;border:1px solid var(--hairline-strong);}
@@ -282,6 +288,26 @@
         </div>
         <div>
           <div class="panel" id="detail"></div>
+        </div>
+      </div>
+
+      <!-- Kanton-Detailkarte -->
+      <div class="ktdetail" id="ktdetail">
+        <div class="blocklabel" data-i18n="kd_blocklabel">Kanton-Detailkarte</div>
+        <p class="kd-desc" data-i18n-html="kd_desc">Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details. Unabhängig von der Kategorie-Auswahl oben.</p>
+        <div class="kd-controls">
+          <span class="fl" data-i18n="canton">Kanton</span>
+          <select class="sel" id="kd-select"></select>
+        </div>
+        <div class="maprow">
+          <div>
+            <div class="mapwrap"><svg class="chmap" id="kdmap" xmlns="http://www.w3.org/2000/svg"></svg></div>
+            <div class="maplegend" id="kd-legend"></div>
+          </div>
+          <div>
+            <div class="panel" id="kd-detail"></div>
+            <div class="panel" id="kd-gemdetail" style="margin-top:14px"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -21171,6 +21197,11 @@ de:{
   not_colored:"färbt nicht",
   badge_excluded:"ausgeschlossen", badge_cat_prefix:"Kat. ",
   legend_coloring:"Einfärbung: ", legend_basis_kanton:"kantonal gilt — inkl. Ermächtigungen", legend_basis_gem:"direkt bindend (kantonsweit + kommunal aktiviert, Run 2)", nothing_unselected:"nichts / nicht gewählt",
+  kd_blocklabel:"Kanton-Detailkarte", kd_select_ph:"— Kanton wählen —",
+  kd_desc:"Wähle einen <b>Kanton</b> — die Karte zoomt auf diesen Kanton und zeigt ihn <b>nur auf Gemeindeebene</b>: jede Gemeinde gefärbt nach dem, was dort konkret gilt (bindender Kantonsrahmen + kommunal aktivierte Instrumente, Run 2). Im Text rechts steht, was auf <b>kantonaler Ebene</b> gilt; klicke eine Gemeinde für ihre Details. Unabhängig von der Kategorie-Auswahl oben.",
+  kd_legend_basis:"Gemeindeebene — bindender Kantonsrahmen + kommunal aktiviert (alle Kategorien)",
+  kd_panel_h:"Kantonaler Rahmen", kd_panel_select:"Kein Kanton gewählt", kd_panel_hint:"Wähle oben einen Kanton, um die Detailkarte und den kantonalen Rahmen anzuzeigen.",
+  kd_click_hint:"Klicke eine Gemeinde auf der Detailkarte für ihre kommunalen Instrumente.",
   kpi_basis_kanton:"kantonal gilt (inkl. Ermächtigungen)", kpi_basis_gem:"direkt bindend",
   level_cantonal:"Kantons", level_municipal:"Gemeinde",
   whg_card:"Whg.", whg_short:"Whg",
@@ -21262,6 +21293,11 @@ en:{
   not_colored:"does not colour",
   badge_excluded:"excluded", badge_cat_prefix:"Cat. ",
   legend_coloring:"Colouring: ", legend_basis_kanton:"applies cantonally — incl. enabling provisions", legend_basis_gem:"directly binding (canton-wide + municipally activated, Run 2)", nothing_unselected:"nothing / not selected",
+  kd_blocklabel:"Canton detail map", kd_select_ph:"— select canton —",
+  kd_desc:"Pick a <b>canton</b> — the map zooms to it and shows it <b>at municipal level only</b>: each municipality coloured by what actually applies there (binding cantonal framework + municipally activated instruments, Run 2). The text on the right shows what applies at the <b>cantonal level</b>; click a municipality for its details. Independent of the category selection above.",
+  kd_legend_basis:"municipal level — binding cantonal framework + municipally activated (all categories)",
+  kd_panel_h:"Cantonal framework", kd_panel_select:"No canton selected", kd_panel_hint:"Select a canton above to show the detail map and the cantonal framework.",
+  kd_click_hint:"Click a municipality on the detail map for its municipal instruments.",
   kpi_basis_kanton:"applies cantonally (incl. enabling provisions)", kpi_basis_gem:"directly binding",
   level_cantonal:"cantonal ", level_municipal:"municipal ",
   whg_card:"dwellings", whg_short:"dw.",
@@ -21367,6 +21403,7 @@ function applyI18n(){
   document.title=T.brand_ttl;
   applyStatic(); updateLangButtons(); fillDynamicSpans(); resetDetailPanels();
   renderCatChips(); renderMapLegend(); renderKarteFoot(); renderKpi();
+  buildKtDetailSelect(); renderKtDetailText();
   buildKtSelect(); renderOvTable();
   renderTaxonomy();
   renderAuditBanner(); renderAuditList();
@@ -21438,15 +21475,16 @@ function munRow(bfs){
   if(st==="triaged") return `<div class="d-row"><div class="d-k">${T.run2_level}</div><div class="d-v mono">${T.run2_triaged}</div></div>`;
   return "";
 }
-function detailGemeinde(bfs){ const g=gemByBfs[bfs]; const el=document.getElementById("detail"); if(!g){el.innerHTML=defaultPanel();return;}
+function gemPanelHtml(bfs){ const g=gemByBfs[bfs]; if(!g) return defaultPanel();
   const u=dwellByBfs[bfs];
-  el.innerHTML = `<h3>${T.d_municipality}</h3><div class="d-name">${g.name}</div>`+
+  return `<h3>${T.d_municipality}</h3><div class="d-name">${g.name}</div>`+
     `<div class="d-row"><div class="d-k">${T.d_bfs}</div><div class="d-v mono">${g.bfs}</div></div>`+
     `<div class="d-row"><div class="d-k">${T.d_canton}</div><div class="d-v">${ktNameByNr[g.kt]||""} (${KT_ABBR[g.kt]||g.kt})</div></div>`+
     (u!=null?`<div class="d-row"><div class="d-k">${T.d_dwellings_gws}</div><div class="d-v mono">${fmtN(u)}</div></div>`:"")+
     rahmenRow(g.kt)+munRow(bfs);
 }
-function detailKanton(nr){ const el=document.getElementById("detail");
+function detailGemeinde(bfs){ document.getElementById("detail").innerHTML = gemPanelHtml(bfs); }
+function cantonPanelHtml(nr){
   const a=auditByKt[nr];
   let aud="";
   if(a){ const instr=a.cantonal_instruments_found||[];
@@ -21457,9 +21495,50 @@ function detailKanton(nr){ const el=document.getElementById("detail");
       ).join(""):`<div class="d-v">${T.no_cantonal_t1}</div>`}</div>`+
       (a.municipal_followup_required?`<div class="d-row"><div class="d-k">${T.mun_followup}</div><div class="d-v">${T.required}${a.municipal_followup_reason?" — "+esc(a.municipal_followup_reason):""}</div></div>`:"");
   }
-  el.innerHTML = `<h3>${T.d_canton}</h3><div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
+  return `<h3>${T.d_canton}</h3><div class="d-name">${ktNameByNr[nr]} (${KT_ABBR[nr]||nr})</div>`+
     `<div class="d-row"><div class="d-k">${T.d_canton_nr}</div><div class="d-v mono">${nr}</div></div>`+
     `<div class="d-row"><div class="d-k">${T.d_municipalities}</div><div class="d-v mono">${gemCountByKt[nr]||0}</div></div>`+aud;
+}
+function detailKanton(nr){ document.getElementById("detail").innerHTML = cantonPanelHtml(nr); }
+
+/* ===== Kanton-Detailkarte (Zoom auf einen Kanton, Gemeindeebene + kantonaler Rahmen) ===== */
+let kdSelNr = 0, kdSelBfs = 0;
+function kdGemCat(bfs){ return strongest(gemCatSet(bfs)); }          // volle Gemeinde-Klassifikation, unabhängig von selectedCats
+function kdGemFill(bfs){ const c=kdGemCat(bfs); return c?(TAX_COLORS[c]||LANDFILL):LANDFILL; }
+function buildKtDetailSelect(){ const sel=document.getElementById("kd-select"); if(!sel) return;
+  const sorted=[...RAW.cantons].sort((a,b)=>(ktNameByNr[a.nr]||"").localeCompare(ktNameByNr[b.nr]||""));
+  sel.innerHTML = `<option value="">${T.kd_select_ph}</option>`+sorted.map(c=>`<option value="${c.nr}">${ktNameByNr[c.nr]} (${KT_ABBR[c.nr]})</option>`).join("");
+  sel.value = kdSelNr ? String(kdSelNr) : "";
+}
+function kdMarkSel(bfs){ const svg=document.getElementById("kdmap"); if(!svg) return; svg.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel")); const el=els.kd&&els.kd[bfs]; if(el) el.classList.add("sel"); }
+function buildKtDetailMap(){ const svg=document.getElementById("kdmap"); if(!svg) return; clear(svg); els.kd={};
+  if(!kdSelNr){ svg.removeAttribute("viewBox"); svg.style.aspectRatio="2000 / 1282.3"; return; }
+  const grp=document.createElementNS(NS,"g");
+  RAW.gemeinden.forEach(g=>{ if(g.kt!==kdSelNr) return; const p=path(g.d,"land area"); p.dataset.kdbfs=g.bfs; p.style.fill=kdGemFill(g.bfs);
+    p.addEventListener("click",()=>{ kdSelBfs=g.bfs; kdMarkSel(g.bfs); renderKtDetailGem(); });
+    grp.appendChild(p); els.kd[g.bfs]=p; });
+  svg.appendChild(grp);
+  RAW.lakes.forEach(l=>svg.appendChild(path(l.d,"lake")));
+  const cb=RAW.cantons.find(c=>c.nr===kdSelNr); if(cb) svg.appendChild(path(cb.d,"ktborder"));
+  let vb=RAW.meta.viewBox;
+  try{ const bb=grp.getBBox(); if(bb.width>0&&bb.height>0){ const px=bb.width*0.04, py=bb.height*0.04;
+    vb=`${(bb.x-px).toFixed(1)} ${(bb.y-py).toFixed(1)} ${(bb.width+2*px).toFixed(1)} ${(bb.height+2*py).toFixed(1)}`;
+    svg.style.aspectRatio=(bb.width+2*px)+" / "+(bb.height+2*py); } }catch(e){}
+  svg.setAttribute("viewBox",vb);
+  if(kdSelBfs) kdMarkSel(kdSelBfs);
+}
+function renderKtDetailGem(){ const el=document.getElementById("kd-gemdetail"); if(!el) return;
+  const g=gemByBfs[kdSelBfs];
+  if(!kdSelBfs || !g || g.kt!==kdSelNr){ el.innerHTML=`<div class="d-v" style="color:var(--ink-faint)">${T.kd_click_hint}</div>`; return; }
+  el.innerHTML=gemPanelHtml(kdSelBfs);
+}
+function renderKtDetailText(){ const legEl=document.getElementById("kd-legend"); const catEl=document.getElementById("kd-detail"); if(!catEl) return;
+  if(!kdSelNr){ if(legEl) legEl.innerHTML=""; catEl.innerHTML=`<h3>${T.kd_panel_h}</h3><div class="d-name">${T.kd_panel_select}</div><div class="d-v">${T.kd_panel_hint}</div>`;
+    const g2=document.getElementById("kd-gemdetail"); if(g2) g2.innerHTML=""; return; }
+  if(legEl){ const used=new Set(); RAW.gemeinden.forEach(g=>{ if(g.kt===kdSelNr){ const c=kdGemCat(g.bfs); if(c) used.add(c); } });
+    legEl.innerHTML = `<span style="width:100%;color:var(--ink-faint)">${T.legend_coloring}${T.kd_legend_basis}</span>`+[...used].sort((a,b)=>a-b).map(c=>`<span><span class="dot" style="background:${TAX_COLORS[c]}"></span>${c} · ${TAX_TITLE[c]}</span>`).join("")+`<span><span class="dot" style="background:${LANDFILL}"></span>${T.nothing_unselected}</span>`; }
+  catEl.innerHTML = cantonPanelHtml(kdSelNr);
+  renderKtDetailGem();
 }
 function detailSonder(s){ const el=document.getElementById("detail");
   el.innerHTML = `<h3>${T.special_area}</h3><div class="d-name">${s.name}</div>`+
@@ -21966,6 +22045,7 @@ function init(){
   document.getElementById("cat-all").addEventListener("click",()=>setAllCats(true));
   document.getElementById("cat-none").addEventListener("click",()=>setAllCats(false));
   document.getElementById("dlsvg").addEventListener("click",downloadSVG);
+  document.getElementById("kd-select").addEventListener("change",e=>{ kdSelNr=+e.target.value||0; kdSelBfs=0; buildKtDetailMap(); renderKtDetailText(); });
   /* Sprachumschalter + Tutorial */
   document.querySelectorAll("#langsw .lsbtn").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
   document.getElementById("tutbtn").addEventListener("click",openTut);
