@@ -28,10 +28,12 @@ bauen.
 Reiter 01 enthält zusätzlich unten eine **Kanton-Detailkarte** (`#kdmap`,
 `#kd-select`): wählt man einen Kanton, zoomt die Karte per `getBBox` auf dessen
 Gemeinden (nur dieser Kanton, Gemeindeebene, gefärbt via `kdGemCat` =
-`strongest(gemCatSet)` — **unabhängig** von der Kategorie-Auswahl/`selectedCats`),
-und rechts zeigt `cantonPanelHtml(nr)` den kantonalen Rahmen als Text; Klick auf
-eine Gemeinde füllt `#kd-gemdetail` via `gemPanelHtml(bfs)`. Bau/Zoom in
-`buildKtDetailMap` (nur bei Auswahländerung), Texte/Legende in
+`strongestSelIn(gemCatSet, kdSelectedCats)`), und rechts zeigt
+`cantonPanelHtml(nr)` den kantonalen Rahmen als Text; Klick auf eine Gemeinde
+füllt `#kd-gemdetail` via `gemPanelHtml(bfs)`. Die Detailkarte hat ihre **eigene
+Kategorie-Auswahl** `kdSelectedCats` (Chips `#kd-catchips`, alle/keine,
+unabhängig von `selectedCats` der Hauptkarte) → `kdRepaint`/`renderKdLegend`.
+Bau/Zoom in `buildKtDetailMap` (nur bei Kantonswechsel), Texte/Chips/Legende in
 `renderKtDetailText` (auch in `applyI18n`, ohne Pfad-Neubau).
 
 ---
