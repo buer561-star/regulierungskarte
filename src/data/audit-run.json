@@ -2197,12 +2197,13 @@
         },
         {
           "name": "Formularpflicht für den Anfangsmietzins bei Wohnungsmangel (Art. 270 Abs. 2 OR)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "verbindlich (kantonsweit aktiviert, solange Leerwohnungsziffer <=1,5%)",
           "municipal_option_exists": false,
           "note": "Auf Grundlage des kantonalen Ausführungsgesetzes über den Mietvertrag und den nichtlandwirtschaftlichen Pachtvertrag (vom 9.5.1996) ordnet der Regierungsrat bei Wohnungsmangel (Leerwohnungsziffer im Kanton von höchstens 1,5%) die obligatorische Verwendung des amtlichen Formulars für die Mitteilung des Anfangsmietzinses (Art. 270 Abs. 2 OR) an; steigt die Ziffer über 1,5%, hebt er die Pflicht auf (Wirkung jeweils per 1. November). Vermieter müssen dann bei Neuabschluss eines Wohnungsmietvertrags den Vormietzins und die Begründung der Erhöhung auf dem amtlichen Formular mitteilen. Gemäss BWO-Verzeichnis ist die Formularpflicht in TG aktuell in Kraft (Leerwohnungsziffer 1,11% per 1.6.2025). Es handelt sich um ein kantonsweit geltendes Instrument (Mietzinstransparenz/indirekte Anfangsmietzinskontrolle), das keine kommunale Aktivierung erfordert; die kantonale Aktivierung erfolgt unmittelbar durch Regierungsratsanordnung an die Leerwohnungsziffer geknüpft. · Reklassifiziert: Kantonale Aktivierung der amtlichen Formularpflicht für den Anfangsmietzins ist reine Melde-/Transparenzpflicht ohne Mietzinsdeckel — nach aktualisierten Regeln Kat 5, nicht Kat 6.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Formularpflicht Anfangsmietzins (amtliches Formular, OR 269d/270 Abs. 2): reine Transparenz-/Meldepflicht ohne Schutz- oder Steuerungswirkung auf den Wohnbestand. Kein Wohnraumschutz → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Mehrwertabgabe / Mehrwertausgleich (PBG §§ 63-70)",
@@ -2350,12 +2351,13 @@
         },
         {
           "name": "Identifikationsnummer-/Registrierungspflicht für touristische Kurzzeitvermietung (LTur Art. 21a) mit kantonaler 90-Tage-Schwelle (RLE Art. 3 lett. p)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "verbindlich (kantonsweit) mit kommunalem Vollzug/Option für strengere Regeln",
           "municipal_option_exists": true,
           "note": "Jeder Beherberger, der Zimmer/Wohnungen/Häuser zu touristischen Zwecken (auch über Online-Plattformen wie Airbnb/Booking) vermietet, muss sich anmelden und eine Identifikationsnummer der ATT erwerben; kein Inserat ohne Nummer (LTur Art. 21a). Die Gemeinde bestätigt binnen 6 Monaten die baurechtliche/raumplanerische Tauglichkeit (Art. 21a Abs. 3). Die RLE setzt zudem die kantonale Schwelle: touristische Vermietung bis 90 Tage/Jahr ist von der LEAR-Bewilligung ausgenommen (Art. 3 lett. p), strengere lokale Regeln vorbehalten. Taxonomie-Kategorie 5 (Bestandesschutz über zusätzliche Verfahren/Bewilligungen): Melde-/Registrierungs- und Tauglichkeitsregime für touristische Nutzung von Wohnraum. municipal_option_exists=true, da Gemeinden strengere lokale Begrenzungen setzen können und den Tauglichkeitscheck durchführen. · Reklassifiziert: Über die reine Registrierungspflicht hinaus setzt die kantonale Schwelle ein materielles Bewilligungsregime: touristische Vermietung über 90 Tage/Jahr ist bewilligungspflichtig (LEAR), die Gemeinde prüft baurechtliche/raumplanerische Tauglichkeit und kann strenger regeln. Beschränkung der Kurzzeit-/Ferienvermietung mit dem Schutz des Wohnungsbestands im Zentrum, segmentunabhängig (alle touristisch vermieteten Wohnungen, nicht nur geförderte). Zusätzliche Prüf-/Bewilligungspflicht ohne Mietzinskontrolle → Kat 5. Unverändert.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Touristische Kurzzeitvermietung / Airbnb-Regulierung (Registrierungs-/Bewilligungs-/Beschränkungspflicht fuer gewerbliche Kurzzeitvermietung). Tourismus-/Zweitwohnungsdomaene, kein Wohnraumschutz des allgemeinen Mietbestands → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Vollzug der Bundes-Zweitwohnungsregelung (LASec) durch die Gemeinden (RLE Art. 44l-44m)",
@@ -2739,12 +2741,13 @@
         },
         {
           "name": "Obligatorische amtliche Formularpflicht für den Anfangsmietzins (formule officielle, Art. 269d/270 OR)",
-          "taxonomy_category": 5,
+          "taxonomy_category": null,
           "taxonomy_title": "Bestandesschutz über zusätzliche Verfahren und Bewilligungen",
           "bindingness": "verbindlich in bezeichneten Gemeinden / ermächtigend (per-Gemeinde-Aktivierung)",
           "municipal_option_exists": true,
           "note": "Arrêté d'exécution de la loi d'introduction du code des obligations (bail à loyer) (RSN 224.2, vom 16.10.2013, Etat au 1.3.2024): Art. 2 erklärt die Verwendung der amtlichen Formel ('formule officielle', Art. 269d OR) beim Abschluss jedes neuen Wohnungsmietvertrags für obligatorisch - und zwar in denselben Gemeinden, die der LVAL unterstellt sind. Damit setzt der Kanton die bundesrechtliche Option (Mietzinsformularpflicht bei Wohnungsnot) aktiv um. Geltung nur in den bezeichneten (LVAL-)Gemeinden. · Reklassifiziert: Kantonale Aktivierung der amtlichen Formularpflicht beim Anfangsmietzins (OR Art. 270 Abs. 2) ist eine reine Transparenz-/Meldepflicht und deckelt keinen Mietzins - daher Kat 5, nicht Kat 6.",
-          "excluded": false
+          "excluded": true,
+          "excluded_reason": "Formularpflicht Anfangsmietzins (amtliches Formular, OR 269d/270 Abs. 2): reine Transparenz-/Meldepflicht ohne Schutz- oder Steuerungswirkung auf den Wohnbestand. Kein Wohnraumschutz → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
         },
         {
           "name": "Residences-secondaires-Anteil im kommunalen Zonenplan (Option)",

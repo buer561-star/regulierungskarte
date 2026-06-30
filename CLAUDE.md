@@ -226,17 +226,27 @@ Mietzinskontrolle (NICHT „Bestandesschutz" i.S.v. Besitzstand/Grandfathering �
 bewusst umbenannt; z. B. Stadt Bern Art. 16a BO) — bis **Kat 6 = harter
 Wohnschutz / Mietzinskontrolle auf dem FREIEN Bestand** (nur BS/VD/GE).
 Schlüssel-Ausschlüsse: **Mehrwertabgabe = Steuer → ausgeschlossen** (nicht Kat 3);
-Kostenmiete geförderter/gemeinnütziger Wohnungen → Kat 3/1; Formularpflicht
-Anfangsmietzins → Kat 5 (nicht Kat 6);
-**Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber): EWA/EWAP-Anteile,
-Zweitwohnungsbeschränkung, Lenkungsabgaben, touristische Bewirtschaftungs-/
-Umnutzungssteuerung → ausgeschlossen, NICHT Kat 5** (raumplanerische Tourismus-
-politik, kein Wohnschutz des bezahlbaren Bestands). **Abgrenzung:** genuiner
-Zweckentfremdungs-/Wohnschutz inkl. Airbnb-/Kurzzeitvermietungs-Beschränkungen
-(LDTR GE, VD, „Lex Airbnb") **bleibt Kat 5** (Erhalt von Wohnraum in der
-Wohnnutzung). Umgesetzt 2026-06-30 (6 kantonale + 11 kommunale Instrumente
-ausgeschlossen; Kantonsfarbe: BE/UR 5→1, GR/JU 5→4). Reiter 03 zeigt die
-Taxonomie im Tool.
+Kostenmiete geförderter/gemeinnütziger Wohnungen → Kat 3/1.
+
+**Was NICHT Kat 5 (Wohnraumschutz) ist — bewusst ausgeschlossen (Nutzer-Regeln 2026-06-30):**
+- **Zweitwohnungs-/Erstwohnungsanteils-Steuerung (Lex Weber):** EWA/EWAP-Anteile,
+  Zweitwohnungsbeschränkung, Lenkungsabgaben, touristische Bewirtschaftungs-/
+  Umnutzungssteuerung (raumplanerische Tourismuspolitik).
+- **Formularpflicht Anfangsmietzins** (amtliches Formular, OR 269d/270 II): reine
+  Transparenz-/Meldepflicht (früher fälschlich Kat 5).
+- **Touristische Kurzzeitvermietung / Airbnb-Regulierung** als eigenständiges
+  Instrument (Registrierungs-/Bewilligungs-/Beschränkungspflicht).
+
+**Abgrenzung — bleibt Kat 5:** genuiner Wohnraumschutz des ALLGEMEINEN
+Mietbestands (Abbruch-/Umbau-/Umnutzungs-/Zweckentfremdungs-Bewilligungspflicht,
+z. B. Stadt Bern Art. 16a, GE/VD LDTR, LU, BS). Ein LDTR-Zweckentfremdungs-Regime,
+das Airbnb *mit-erfasst*, bleibt Kat 5 (Kern = Wohnraumschutz); nur die
+*eigenständige* Airbnb-/Touristik-Regelung ist ausgeschlossen.
+
+Umgesetzt 2026-06-30 über zwei Durchgänge: Zweitwohnungen (6 kantonale + 11
+kommunale), dann Formularpflicht + Touristik/Airbnb (3 kantonale + 4 kommunale +
+3 bereinigt). **Kantonsfarbe-Änderungen:** BE/UR 5→1, GR/JU 5→4, TG 5→1, TI 5→4.
+Reiter 03 zeigt die Taxonomie im Tool.
 
 Zwei Projekt-Agenten in `.claude/agents/`:
 - **`wohnpolitik-taxonom`** — klassifiziert Instrumente in die 6 Kategorien;

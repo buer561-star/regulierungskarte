@@ -130,7 +130,7 @@
             },
             {
               "name": "Volksinitiative 'Wohnraum schützen – Airbnb und Business Apartments regulieren' (Beschränkung Kurzzeitvermietung/Business Apartments)",
-              "taxonomy_category": 5,
+              "taxonomy_category": 0,
               "excluded": true,
               "excluded_reason": "Noch nicht in Kraft gesetzte Vorlage: Initiative ist erst zustande gekommen (eingereicht Okt. 2025, 3165 gültige Unterschriften), noch nicht zur Abstimmung gebracht und nicht in ein Reglement/BZO umgesetzt → kein Tier-1. Wäre inhaltlich Kat 5 (Bestandesschutz/Kurzzeitvermietung).",
               "bindingness": "non_binding",
@@ -1985,15 +1985,14 @@
             },
             {
               "name": "'Lex Airbnb': Beschraenkung gewerblicher Kurzzeitvermietung von Zweitwohnungen in der Altstadt (max. 90 Naechte/Jahr) - BO-Teilrevision",
-              "taxonomy_category": 5,
+              "taxonomy_category": 0,
               "excluded": true,
               "excluded_reason": "Noch nicht in Kraft / nicht rechtskraeftig: Volksabstimmung Feb 2022 angenommen, aber wegen Kollektivbeschwerde (u.a. HEV) juristisch blockiert; per Juni 2026 beim Verwaltungsgericht haengig (nur 'Vorwirkung'). Keine rechtskraeftige Tier-1-Quelle -> konservativ ausgeschlossen.",
               "bindingness": "noch nicht in Kraft",
               "legal_status": "adopted_not_yet_in_force",
               "source_title": "Teilrevision Bauordnung Stadt Bern 'Lex Airbnb' (Volksabstimmung 13.2.2022)",
               "source_url": "https://www.bern.ch/themen/planen-und-bauen/baubewilligung/wohnraumschutz",
-              "source_form": "zoning_code",
-              "future_category": 5
+              "source_form": "zoning_code"
             }
           ],
           "note": "Stadt Bern hat mehrere rechtskraeftige KOMMUNALE Tier-1-Instrumente. Art. 16b BO (Drittel-Regel preisguenstig/gemeinnuetzig bei Um-/Neueinzonung, Kostenmiete) = Kat 3; Art. 16b Abs. 3 BO (freiwilliger 20%-Nutzungsbonus bei vollstaendig preisguenstigem/gemeinnuetzigem Gebaeude) = Kat 2; beide nach Volksabstimmung 18.5.2014 (71,56% Ja), AGR-genehmigt und seit 1.1.2020 in Kraft (BGer 14.11.2019 wies Beschwerden ab). Art. 16a BO (Wohnraumschutz: Umnutzungs-/Abbruchverbot fuer den gesamten Mietwohnungsbestand in W-/D-/Schutz-/Altstadtzonen, sobald 3-Jahres-Leerwohnungsziffer <1%) = Kat 5; in Kraft seit 2015; KEINE Mietzinskontrolle, daher NICHT Kat 6. Fondsreglement ueber die Boden- und Wohnbaupolitik (FRBW, SSSB 854.1; Volksabstimmung 1984, in Kraft seit 1985): Landerwerb, Abgabe im Baurecht an gemeinnuetzige Wohnbautraeger, Wohnbaufoerderung = Kat 1. AUSGESCHLOSSEN: 'Lex Airbnb' (Kurzzeitvermietung Altstadt, BO-Teilrevision, Volksabstimmung Feb 2022) ist trotz Annahme wegen Kollektivbeschwerde NOCH NICHT in Kraft (per Juni 2026 beim Verwaltungsgericht haengig) -> kein rechtskraeftiges Tier-1-Instrument, konservativ nicht erfasst. Rein kantonale BE-Instrumente nicht hier erfasst.",
@@ -2765,14 +2764,15 @@
             },
             {
               "name": "Verbot der kurzzeitigen (touristischen) Vermietung von Wohnungen und Einzelzimmern für weniger als drei aufeinanderfolgende Nächte in den Wohnzonen (Airbnb-/Kurzzeitvermietungs-Verbot); Besitzstandsgarantie ausgeschlossen, Ausnahmen für strukturierte Beherbergungsbetriebe und Einliegerwohnungen",
-              "taxonomy_category": 5,
-              "excluded": false,
+              "taxonomy_category": 0,
+              "excluded": true,
               "bindingness": "verbindlich",
               "legal_status": "in_force",
               "source_title": "Gemeindebaureglement (GBR) der Einwohnergemeinde Interlaken, Art. 211 (Wohnzonen, Fassung vom 16.03.2021), Teilrevision 'Zweitwohnungen'",
               "source_form": "zoning_code",
               "source_url": "https://oerebfiles.apps.be.ch/58101/5152/581_Baureglement.pdf",
-              "evidence_quote_short": "Nicht zulässig in den Wohnzonen: 'die Vermietung von Wohnungen und Einzelzimmern ... für eine Dauer von weniger als drei hintereinander folgenden Nächten; für derartige kurzzeitige Vermietungen ist die Besitzstandsgarantie ausgeschlossen.'"
+              "evidence_quote_short": "Nicht zulässig in den Wohnzonen: 'die Vermietung von Wohnungen und Einzelzimmern ... für eine Dauer von weniger als drei hintereinander folgenden Nächten; für derartige kurzzeitige Vermietungen ist die Besitzstandsgarantie ausgeschlossen.'",
+              "excluded_reason": "Touristische Kurzzeitvermietung / Airbnb-Regulierung (Registrierungs-/Bewilligungs-/Beschränkungspflicht fuer gewerbliche Kurzzeitvermietung). Tourismus-/Zweitwohnungsdomaene, kein Wohnraumschutz des allgemeinen Mietbestands → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
             },
             {
               "name": "Reglement über die Mehrwertabgabe (MWAR, 701.11) – Abgabe auf planungsbedingtem Mehrwert bei Ein-/Um-/Aufzonung",
@@ -2843,14 +2843,15 @@
           "instruments": [
             {
               "name": "Baubewilligungspflicht fuer Umnutzung zu gewerbsmaessig touristisch genutzten Wohnungen (Art. 60.1 Abs. 2 GBR)",
-              "taxonomy_category": 5,
-              "excluded": false,
+              "taxonomy_category": 0,
+              "excluded": true,
               "legal_status": "in_force",
               "bindingness": "verbindlich",
               "source_title": "Gemeindebaureglement Unterseen, Art. 60.1 (Beschraenkung von Zweitwohnungen und gewerbsmaessig touristisch genutzten Wohnungen)",
               "source_form": "zoning_code",
               "source_url": "https://www.unterseen.ch/newsmeldungen/604-art-60-1-gemeindebaureglement-und-ausf%C3%BChrungsbestimmungen-genehmigung-und-inkrafttretung.html",
-              "evidence_quote_short": "Die Umnutzung von Raeumlichkeiten aller Nutzungsarten zu gewerbsmaessig touristisch genutzten Wohnungen gilt als baubewilligungspflichtige Umnutzung."
+              "evidence_quote_short": "Die Umnutzung von Raeumlichkeiten aller Nutzungsarten zu gewerbsmaessig touristisch genutzten Wohnungen gilt als baubewilligungspflichtige Umnutzung.",
+              "excluded_reason": "Touristische Kurzzeitvermietung / Airbnb-Regulierung (Registrierungs-/Bewilligungs-/Beschränkungspflicht fuer gewerbliche Kurzzeitvermietung). Tourismus-/Zweitwohnungsdomaene, kein Wohnraumschutz des allgemeinen Mietbestands → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
             },
             {
               "name": "Minimaler Erstwohnungsanteil (EWA) 30/50/70% nach Zone bei Neu-/Erweiterungsbauten und Umnutzungen, mit Grundbucheintrag (Art. 60.1 Abs. 3-4 GBR)",
@@ -2866,14 +2867,15 @@
             },
             {
               "name": "Beschraenkung der kurzzeitigen touristischen Vermietung (Airbnb/Plattformen) in Wohn-/ES-II-Zonen, unter 30 Naechte unzulaessig (Art. 60.1 Abs. 5 GBR)",
-              "taxonomy_category": 5,
-              "excluded": false,
+              "taxonomy_category": 0,
+              "excluded": true,
               "legal_status": "in_force",
               "bindingness": "verbindlich",
               "source_title": "Gemeindebaureglement Unterseen, Art. 60.1 Abs. 5 (Einschraenkung der kurzzeitigen touristischen Vermietung)",
               "source_form": "zoning_code",
               "source_url": "https://www.unterseen.ch/newsmeldungen/604-art-60-1-gemeindebaureglement-und-ausf%C3%BChrungsbestimmungen-genehmigung-und-inkrafttretung.html",
-              "evidence_quote_short": "In den Wohnzonen sowie in den uebrigen der ES II zugeteilten Zonen ist es nicht zulaessig, der Wohnnutzung gewidmete Flaechen (Erst- und Zweitwohnungen) kurzzeitig, namentlich ueber elektronische Buchungsplattformen, zu Uebernachtungszwecken zur Verfuegung zu stellen. Als kurzzeitig gilt eine Vermietung, wenn sie weniger als 30 Tage betraegt."
+              "evidence_quote_short": "In den Wohnzonen sowie in den uebrigen der ES II zugeteilten Zonen ist es nicht zulaessig, der Wohnnutzung gewidmete Flaechen (Erst- und Zweitwohnungen) kurzzeitig, namentlich ueber elektronische Buchungsplattformen, zu Uebernachtungszwecken zur Verfuegung zu stellen. Als kurzzeitig gilt eine Vermietung, wenn sie weniger als 30 Tage betraegt.",
+              "excluded_reason": "Touristische Kurzzeitvermietung / Airbnb-Regulierung (Registrierungs-/Bewilligungs-/Beschränkungspflicht fuer gewerbliche Kurzzeitvermietung). Tourismus-/Zweitwohnungsdomaene, kein Wohnraumschutz des allgemeinen Mietbestands → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
             }
           ],
           "note": "Kommunale Tier-1-Quelle bestaetigt: Art. 60.1 Gemeindebaureglement (GBR) Unterseen 'Beschraenkung von Zweitwohnungen und gewerbsmaessig touristisch genutzten Wohnungen'. Gemeindeversammlungsbeschluss 11.03.2024, Genehmigung Amt fuer Gemeinden und Raumordnung (AGR) BE 04.02.2025, Ausfuehrungsbestimmungen Gemeinderat 11.11.2024, in Kraft seit 04.04.2025 (kantonale Grundlage Art. 71a BauG BE + kommunale Aktivierung). Alle drei erfassten Instrumente schuetzen den lokalen Erstwohnungs-/Wohnungsbestand vor Umwandlung in Zweit-/touristisch genutzte Wohnungen ueber zusaetzliche Bewilligungs-/Nutzungspflichten = Kat 5. KEIN Kat 6 (keine Mietzins-/Renditekontrolle auf dem freien Bestand). KEIN Kat 3: Der Erstwohnungsanteil sichert Erst- vs. Zweitwohnnutzung, NICHT preisguenstigen/gemeinnuetzigen Wohnraum (keine Preisbindung, keine Affordability-Quote). KEIN Kat 1/4: Gemeindeordnung 2024 (101.1) und uebrige kommunale Erlasse enthalten kein kommunales Vorkaufsrecht, keine aktive Bodenpolitik, keine kommunale Wohnbau-/Genossenschaftsfoerderung, keine Baurechtsvergabe mit Wohnauflagen. Eine Lenkungsabgabe wird nur als kantonale Option (Art. 71a BauG) erwaehnt, von Unterseen NICHT erhoben -> kein auszuschliessendes Steuerinstrument. Die separate Aenderung des Kurtaxenreglements (01.07.2019) ist eine Tourismusabgabe/Transparenzregelung ohne wohnpolitische Schutzwirkung und wird nicht erfasst.",
@@ -4819,14 +4821,15 @@
             },
             {
               "name": "Reglement über die Kurzzeitvermietung (Airbnb-Regulierung, Wohnraumschutz, 90-Nächte-Limite)",
-              "taxonomy_category": 5,
-              "excluded": false,
+              "taxonomy_category": 0,
+              "excluded": true,
               "bindingness": "verbindlich (kommunales Reglement, in Kraft)",
               "legal_status": "in_force",
               "source_title": "Reglement über die Kurzzeitvermietung, Stadt Luzern (vom Grossen Stadtrat beschlossen Juni 2024, in Kraft seit 1. Januar 2025; Umsetzung Initiative 'Wohnraum schützen – Airbnb regulieren', Volksabstimmung März 2023)",
               "source_form": "regulation",
               "source_url": "https://www.stadtluzern.ch/aktuelles/newslist/2245330",
-              "evidence_quote_short": "Werden gegen Bezahlung Gäste beherbergt, die sich weniger als drei Monate in der Stadt Luzern aufhalten, ist die Vermietung ab 1. Januar 2025 auf 90 Nächte pro Jahr begrenzt [für seit 2010 als Wohnraum genutzte Räume]."
+              "evidence_quote_short": "Werden gegen Bezahlung Gäste beherbergt, die sich weniger als drei Monate in der Stadt Luzern aufhalten, ist die Vermietung ab 1. Januar 2025 auf 90 Nächte pro Jahr begrenzt [für seit 2010 als Wohnraum genutzte Räume].",
+              "excluded_reason": "Touristische Kurzzeitvermietung / Airbnb-Regulierung (Registrierungs-/Bewilligungs-/Beschränkungspflicht fuer gewerbliche Kurzzeitvermietung). Tourismus-/Zweitwohnungsdomaene, kein Wohnraumschutz des allgemeinen Mietbestands → nicht Kat 5; per Taxonomie ausgeschlossen (Nutzer-Regel 2026-06-30)."
             },
             {
               "name": "Vorkaufsrecht der Stadt Luzern",
@@ -9232,7 +9235,7 @@
             },
             {
               "name": "Kantonale Kurzzeitvermietungs-/Airbnb-Regelung (90-Tage-Bewilligungspflicht, Umnutzungsgesuch) - kantonales PBG-Regime, kein kommunales Instrument",
-              "taxonomy_category": 5,
+              "taxonomy_category": 0,
               "excluded": true,
               "source_title": "Kanton St. Gallen, Umsetzung Kurzzeitvermietung (PBG) - kein kommunales Reglement der Stadt St. Gallen",
               "source_url": "https://www.sab.ch/wp-content/uploads/2025/11/Aktuelle-Ansaetze-zur-Regulierung-von-Airbnb_Version-2.pdf",
